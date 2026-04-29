@@ -1,6 +1,6 @@
 const primaryTagOrder = ["静か", "抹茶", "ハーブ", "古民家", "一人時間", "会話向け"];
 const publicBasePath = import.meta.env?.BASE_URL || "/";
-const dataVersion = "20260429-4";
+const dataVersion = "20260429-5";
 let searchRenderTimer = null;
 
 function publicAssetPath(path) {
@@ -190,6 +190,9 @@ function renderChips(items, activeValue, type) {
 
 function renderSpotCard(spot) {
   const isFavorite = state.favorites.includes(spot.id);
+  const spotName = Array.isArray(spot.displayName)
+    ? spot.displayName.map((line) => `<span class="spotNameLine">${escapeHtml(line)}</span>`).join("")
+    : escapeHtml(spot.name);
   const photo = spot.image
     ? `<img src="${spot.image}" alt="${escapeHtml(spot.name)}の雰囲気" onerror="window.handleSipImageError(this)" />`
     : `<span>Tea place</span>`;
@@ -227,7 +230,7 @@ function renderSpotCard(spot) {
           <span>${escapeHtml(spot.area)}</span>
           <span>${escapeHtml(spot.genre)}</span>
         </div>
-        <h3>${escapeHtml(spot.name)}</h3>
+        <h3>${spotName}</h3>
         <div class="locationInfo">
           ${spot.address ? `<p><span aria-hidden="true">📍</span>${escapeHtml(spot.address)}</p>` : ""}
           ${
@@ -244,7 +247,7 @@ function renderSpotCard(spot) {
             ${detailLinks ? `<div class="detailLinks">${detailLinks}</div>` : ""}
             ${menuSummary ? `<div class="menuSummary">${menuSummary}</div>` : ""}
             ${spot.priceRange ? `<p class="priceRange">価格帯: ${escapeHtml(spot.priceRange)}</p>` : ""}
-            ${spot.note ? `<p class="detailNote"><span>利用メモ</span>${escapeHtml(spot.note)}</p>` : ""}
+            ${spot.note ? `<p class="detailNote"><span>SIPメモ</span>${escapeHtml(spot.note)}</p>` : ""}
           </div>
         </details>
       </div>

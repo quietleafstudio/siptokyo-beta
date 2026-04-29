@@ -415,6 +415,10 @@ img {
   letter-spacing: 0;
 }
 
+.spotNameLine {
+  display: block;
+}
+
 .locationInfo {
   display: grid;
   gap: 5px;
