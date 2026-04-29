@@ -1,6 +1,6 @@
 const primaryTagOrder = ["静か", "抹茶", "ハーブ", "古民家", "一人時間", "会話向け"];
 const publicBasePath = import.meta.env?.BASE_URL || "/";
-const dataVersion = "20260429-3";
+const dataVersion = "20260429-4";
 let searchRenderTimer = null;
 
 function publicAssetPath(path) {
@@ -200,14 +200,14 @@ function renderSpotCard(spot) {
   const menuSummary = spot.menuSummary
     .map((item) => `<span>${escapeHtml(item)}</span>`)
     .join("");
-  const infoLinks = [
+  const detailLinks = [
+    spot.mapsUrl ? `<a href="${escapeHtml(spot.mapsUrl)}" target="_blank" rel="noreferrer">Google Maps</a>` : "",
     spot.officialUrl ? `<a href="${escapeHtml(spot.officialUrl)}" target="_blank" rel="noreferrer">公式HP</a>` : "",
     spot.instagramUrl ? `<a href="${escapeHtml(spot.instagramUrl)}" target="_blank" rel="noreferrer">Instagram</a>` : "",
-    spot.menuUrl ? `<a href="${escapeHtml(spot.menuUrl)}" target="_blank" rel="noreferrer">メニュー</a>` : "",
+    spot.menuUrl ? `<a href="${escapeHtml(spot.menuUrl)}" target="_blank" rel="noreferrer">Menu</a>` : "",
   ]
     .filter(Boolean)
     .join("");
-  const hasVisitInfo = menuSummary || spot.priceRange || spot.cautionNote || infoLinks;
 
   return `
     <article class="spotCard" data-spot-id="${escapeHtml(spot.id)}">
@@ -238,21 +238,15 @@ function renderSpotCard(spot) {
         </div>
         <p class="comment">${escapeHtml(spot.comment)}</p>
         <div class="tagWrap">${tags}</div>
-        ${
-          hasVisitInfo
-            ? `<div class="visitInfo">
-                ${menuSummary ? `<div class="menuSummary">${menuSummary}</div>` : ""}
-                ${spot.priceRange ? `<p class="priceRange">価格帯: ${escapeHtml(spot.priceRange)}</p>` : ""}
-                ${spot.cautionNote ? `<p class="cautionNote">${escapeHtml(spot.cautionNote)}</p>` : ""}
-                ${infoLinks ? `<div class="infoLinks">${infoLinks}</div>` : ""}
-              </div>`
-            : ""
-        }
         <details>
           <summary>くわしく見る</summary>
-          <p>${escapeHtml(spot.note)}</p>
+          <div class="detailInfo">
+            ${detailLinks ? `<div class="detailLinks">${detailLinks}</div>` : ""}
+            ${menuSummary ? `<div class="menuSummary">${menuSummary}</div>` : ""}
+            ${spot.priceRange ? `<p class="priceRange">価格帯: ${escapeHtml(spot.priceRange)}</p>` : ""}
+            ${spot.note ? `<p class="detailNote"><span>利用メモ</span>${escapeHtml(spot.note)}</p>` : ""}
+          </div>
         </details>
-        <a class="mapLink" href="${spot.mapsUrl}" target="_blank" rel="noreferrer">Google Mapsへ</a>
       </div>
     </article>
   `;
