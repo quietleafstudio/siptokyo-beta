@@ -35,4 +35,5 @@ Where tea comes first. 🌿
 ## SIP Studio Research
 
 候補店舗のモックリサーチ画面は `studio.html` です。
-外部APIなしで、エリア × ジャンルから20件の候補カードを生成します。
+外部APIなしで、Google Maps URL 1本からの候補生成、またはエリア × ジャンルから20件の候補カード生成ができます。
+「採用」を押すと、`public/spots.json` に追加するための下書きJSONが表示されます。

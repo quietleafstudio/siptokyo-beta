@@ -13,8 +13,10 @@ const areaOptions = ["自由が丘", "新宿", "表参道", "浅草", "渋谷", 
 const genreOptions = ["抹茶", "日本茶", "ハーブ", "中国茶", "和菓子", "薬膳茶"];
 
 const state = {
+  mode: "query",
   area: "自由が丘",
   genre: "抹茶",
+  mapsUrl: "",
   results: [],
   decisions: readDecisions(),
 };
@@ -50,11 +52,32 @@ function pick(list, index) {
   return list[index % list.length];
 }
 
-function buildCandidate(index, area, genre) {
+function unique(values) {
+  return [...new Set(values.filter(Boolean))];
+}
+
+function normalizeMapsUrl(value) {
+  const trimmed = value.trim();
+  if (!trimmed) return "";
+  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) return trimmed;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(trimmed)}`;
+}
+
+function inferNameFromMapsUrl(url) {
+  try {
+    const parsed = new URL(url);
+    const query = parsed.searchParams.get("query") || decodeURIComponent(parsed.pathname.split("/").filter(Boolean).pop() || "");
+    return query.replace(/\+/g, " ").replace(/\s+/g, " ").trim() || "Google Maps候補";
+  } catch {
+    return url.replace(/^https?:\/\//, "").slice(0, 28) || "Google Maps候補";
+  }
+}
+
+function buildCandidate(index, area, genre, overrides = {}) {
   const styles = ["茶房", "ティーサロン", "和カフェ", "茶寮", "ティースタンド", "喫茶室"];
   const moods = ["静かな", "余白のある", "会話しやすい", "ひと息つける", "明るい", "落ち着いた"];
   const streets = ["1-3-8", "2-12-4", "3-6-11", "4-9-2", "5-18-7"];
-  const name = `${area}${pick(styles, index)} ${pick(["葉音", "香月", "翠日", "茶々", "雨庭"], index)} ${index + 1}`;
+  const name = overrides.name || `${area}${pick(styles, index)} ${pick(["葉音", "香月", "翠日", "茶々", "雨庭"], index)} ${index + 1}`;
   const id = `${slug(area)}-${slug(genre)}-${index + 1}`;
   const tags = unique([
     genre,
@@ -62,24 +85,48 @@ function buildCandidate(index, area, genre) {
     pick(["駅近", "明るい", "上品", "穴場"], index + 1),
   ]);
   const score = buildScore(index, genre);
+  const mapsUrl = overrides.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${area} ${genre} カフェ`)}`;
 
   return {
-    id,
+    id: overrides.id || id,
+    source: {
+      provider: overrides.sourceProvider || "mock",
+      mode: overrides.sourceMode || "query",
+      input: overrides.sourceInput || `${area} × ${genre}`,
+      fetchedAt: new Date().toISOString(),
+    },
     name,
     area,
     genreQuery: genre,
-    address: `東京都${area}エリア ${pick(streets, index)}`,
-    mapsUrl: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${area} ${genre} カフェ`)}`,
-    officialUrl: index % 3 === 0 ? `https://example.com/${id}` : "",
-    instagramUrl: index % 4 === 0 ? `https://www.instagram.com/${id.replaceAll("-", "_")}` : "",
-    menuUrl: index % 2 === 0 ? `https://example.com/${id}/menu` : "",
-    genreGuess: `${genre} / ${pick(["カフェ", "茶房", "喫茶", "和菓子"], index)}`,
+    address: overrides.address || `東京都${area}エリア ${pick(streets, index)}`,
+    mapsUrl,
+    officialUrl: overrides.officialUrl ?? (index % 3 === 0 ? `https://example.com/${id}` : ""),
+    instagramUrl: overrides.instagramUrl ?? (index % 4 === 0 ? `https://www.instagram.com/${id.replaceAll("-", "_")}` : ""),
+    menuUrl: overrides.menuUrl ?? (index % 2 === 0 ? `https://example.com/${id}/menu` : ""),
+    reviewCount: overrides.reviewCount ?? 24 + index * 11,
+    rating: overrides.rating ?? Number((3.7 + ((index % 6) * 0.15)).toFixed(1)),
+    hours: overrides.hours || pick(["11:00-19:00", "10:00-20:00", "12:00-18:00", "営業時間確認中"], index),
+    photoUrl: overrides.photoUrl || "",
+    genreGuess: overrides.genreGuess || `${genre} / ${pick(["カフェ", "茶房", "喫茶", "和菓子"], index)}`,
     tags,
     score,
     totalScore: Object.values(score).reduce((sum, value) => sum + value, 0),
-    memoDraft: `${pick(moods, index)}${area}の${genre}候補。お茶を主役にした利用ができそうか、イートイン席と単品注文の可否を確認したい。`,
-    riskFlags: index % 5 === 0 ? ["コース中心の可能性", "単品利用要確認"] : [],
+    memoDraft:
+      overrides.memoDraft ||
+      `${pick(moods, index)}${area}の${genre}候補。お茶を主役にした利用ができそうか、イートイン席と単品注文の可否を確認したい。`,
+    menuSummary: overrides.menuSummary || inferMenuSummary(genre, index),
+    priceRange: overrides.priceRange || pick(["1,000円台", "1,500-2,500円", "価格確認中"], index),
+    riskFlags: overrides.riskFlags || (index % 5 === 0 ? ["コース中心の可能性", "単品利用要確認"] : []),
   };
+}
+
+function inferMenuSummary(genre, index) {
+  return unique([
+    genre === "抹茶" ? "抹茶あり" : "",
+    genre === "日本茶" ? "日本茶飲み比べあり" : "",
+    genre === "ハーブ" ? "ハーブティーあり" : "",
+    pick(["カフェ利用OK", "単品のお茶あり", "予約推奨", "最低注文金額確認"], index),
+  ]);
 }
 
 function buildScore(index, genre) {
@@ -96,12 +143,40 @@ function buildScore(index, genre) {
   };
 }
 
-function unique(values) {
-  return [...new Set(values.filter(Boolean))];
+function generateQueryResults() {
+  state.mode = "query";
+  state.results = Array.from({ length: 20 }, (_, index) => buildCandidate(index, state.area, state.genre));
+  render();
 }
 
-function generateResults() {
-  state.results = Array.from({ length: 20 }, (_, index) => buildCandidate(index, state.area, state.genre));
+function generateMapsResult() {
+  const mapsUrl = normalizeMapsUrl(state.mapsUrl);
+  if (!mapsUrl) {
+    state.results = [];
+    render();
+    return;
+  }
+
+  const name = inferNameFromMapsUrl(mapsUrl);
+  state.mode = "maps";
+  state.results = [
+    buildCandidate(0, state.area, state.genre, {
+      id: `maps-${slug(name) || Date.now()}`,
+      name,
+      mapsUrl,
+      officialUrl: "",
+      instagramUrl: "",
+      menuUrl: "",
+      reviewCount: null,
+      rating: null,
+      hours: "営業時間確認中",
+      sourceProvider: "google-maps-url",
+      sourceMode: "mapsUrl",
+      sourceInput: mapsUrl,
+      memoDraft: "Google Maps URLから生成した候補。公式HP、Instagram、メニューURL、単品利用可否を確認してから採用したい。",
+      riskFlags: ["URL由来の下書き", "公式情報要確認"],
+    }),
+  ];
   render();
 }
 
@@ -129,6 +204,31 @@ function renderScore(candidate) {
     .join("");
 }
 
+function buildDraftSpot(candidate) {
+  return {
+    id: slug(candidate.name),
+    name: candidate.name,
+    area: candidate.area,
+    address: candidate.address,
+    station: "",
+    walk: "",
+    genre: candidate.genreGuess,
+    comment: `${candidate.genreQuery}でひと息つきたい日の候補。`,
+    note: candidate.memoDraft,
+    tags: candidate.tags,
+    searchTags: unique([candidate.area, candidate.genreQuery, candidate.name]),
+    image: "",
+    officialUrl: candidate.officialUrl || "",
+    instagramUrl: candidate.instagramUrl || "",
+    menuUrl: candidate.menuUrl || "",
+    menuSummary: candidate.menuSummary,
+    priceRange: candidate.priceRange || "",
+    cautionNote: candidate.riskFlags.join(" / "),
+    mapsUrl: candidate.mapsUrl,
+    instagram: { handle: "", placeId: "" },
+  };
+}
+
 function renderCandidate(candidate, index) {
   const decision = state.decisions[candidate.id] || "";
   const links = [
@@ -140,6 +240,8 @@ function renderCandidate(candidate, index) {
     .filter(Boolean)
     .join("");
   const riskFlags = candidate.riskFlags.map((flag) => `<span>${escapeHtml(flag)}</span>`).join("");
+  const menuSummary = candidate.menuSummary.map((item) => `<span>${escapeHtml(item)}</span>`).join("");
+  const draftJson = JSON.stringify(buildDraftSpot(candidate), null, 2);
 
   return `
     <article class="candidateCard">
@@ -147,12 +249,16 @@ function renderCandidate(candidate, index) {
         <span class="resultIndex">${String(index + 1).padStart(2, "0")}</span>
         <span class="scoreBadge">${candidate.totalScore} / 100</span>
       </div>
+      ${candidate.photoUrl ? `<img class="candidatePhoto" src="${escapeHtml(candidate.photoUrl)}" alt="${escapeHtml(candidate.name)}の写真" />` : `<div class="candidatePhoto emptyPhoto">photo pending</div>`}
       <h2>${escapeHtml(candidate.name)}</h2>
       <p class="address">${escapeHtml(candidate.address)}</p>
       <div class="linkGrid">${links}</div>
       <dl class="candidateMeta">
+        <div><dt>評価 / 口コミ</dt><dd>${candidate.rating ? `${candidate.rating} / ${candidate.reviewCount}件` : "確認中"}</dd></div>
+        <div><dt>営業時間</dt><dd>${escapeHtml(candidate.hours)}</dd></div>
         <div><dt>ジャンル推定</dt><dd>${escapeHtml(candidate.genreGuess)}</dd></div>
         <div><dt>タグ候補</dt><dd>${candidate.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</dd></div>
+        <div><dt>メニュー要約</dt><dd>${menuSummary || "確認中"}</dd></div>
       </dl>
       <section class="scorePanel" aria-label="SIPスコア内訳">
         ${renderScore(candidate)}
@@ -167,6 +273,14 @@ function renderCandidate(candidate, index) {
         ${renderDecisionButton(candidate.id, decision, "保留")}
         ${renderDecisionButton(candidate.id, decision, "不採用")}
       </div>
+      ${
+        decision === "採用"
+          ? `<details class="draftJson" open>
+              <summary>spots.json 下書き</summary>
+              <pre>${escapeHtml(draftJson)}</pre>
+            </details>`
+          : ""
+      }
     </article>
   `;
 }
@@ -181,16 +295,22 @@ function render() {
   const adopted = Object.values(state.decisions).filter((value) => value === "採用").length;
   const pending = Object.values(state.decisions).filter((value) => value === "保留").length;
   const rejected = Object.values(state.decisions).filter((value) => value === "不採用").length;
+  const headline = state.mode === "maps" ? "Google Maps URL" : `${state.area} × ${state.genre}`;
 
   root.innerHTML = `
     <div class="studioShell">
       <header class="studioHeader">
         <p class="eyebrow">SIP Studio</p>
         <h1>Research</h1>
-        <p class="lead">エリア × ジャンルで、SIP Tokyo掲載候補を20件ずつ洗い出すモック管理画面。</p>
+        <p class="lead">Google Maps URL 1本、またはエリア × ジャンルから、SIP Tokyo登録候補を半自動生成する管理画面。</p>
       </header>
 
       <section class="searchBoard" aria-label="検索条件">
+        <label class="wideField">
+          <span>Google Maps URL または店名URL</span>
+          <input id="mapsUrlInput" value="${escapeHtml(state.mapsUrl)}" placeholder="https://www.google.com/maps/place/..." />
+        </label>
+        <button id="mapsResearchButton" type="button">URLから生成</button>
         <label>
           <span>エリア</span>
           <select id="areaSelect">${renderOptions(areaOptions, state.area)}</select>
@@ -204,18 +324,18 @@ function render() {
 
       <section class="criteriaPanel" aria-label="掲載基準">
         <div>
-          <p>掲載基準</p>
-          <span>お茶が主役 / 座って過ごせる / イートインあり / 一杯と時間を過ごしたくなる空間</span>
+          <p>将来API接続</p>
+          <span>Google Places / Serp / Instagram / メニュー解析の結果を、同じ候補データ構造に流し込める前提で設計。</span>
         </div>
         <div>
-          <p>除外</p>
-          <span>コーヒー主役 / テイクアウト専門 / スイーツ主役 / 回転率重視 / 空間にいたくならない</span>
+          <p>掲載基準</p>
+          <span>お茶が主役 / 座って過ごせる / イートインあり / 一杯と時間を過ごしたくなる空間</span>
         </div>
       </section>
 
       <section class="resultHeader">
         <div>
-          <p>${escapeHtml(state.area)} × ${escapeHtml(state.genre)}</p>
+          <p>${escapeHtml(headline)}</p>
           <h2>${state.results.length} candidates</h2>
         </div>
         <div class="decisionStats">
@@ -226,11 +346,17 @@ function render() {
       </section>
 
       <main class="candidateList">
-        ${state.results.map(renderCandidate).join("")}
+        ${state.results.length ? state.results.map(renderCandidate).join("") : `<div class="emptyState">Google Maps URLを入力するか、エリア × ジャンルで検索してください。</div>`}
       </main>
     </div>
   `;
 }
+
+document.addEventListener("input", (event) => {
+  if (event.target.id === "mapsUrlInput") {
+    state.mapsUrl = event.target.value;
+  }
+});
 
 document.addEventListener("change", (event) => {
   if (event.target.id === "areaSelect") {
@@ -244,7 +370,12 @@ document.addEventListener("change", (event) => {
 
 document.addEventListener("click", (event) => {
   if (event.target.id === "researchButton") {
-    generateResults();
+    generateQueryResults();
+    return;
+  }
+
+  if (event.target.id === "mapsResearchButton") {
+    generateMapsResult();
     return;
   }
 
@@ -257,4 +388,4 @@ document.addEventListener("click", (event) => {
   }
 });
 
-generateResults();
+generateQueryResults();
