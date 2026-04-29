@@ -237,7 +237,14 @@ function render() {
         </div>
         <label id="search" class="heroSearch" aria-label="スポット検索">
           <span class="searchIcon" aria-hidden="true">⌕</span>
-          <input value="${escapeHtml(state.query)}" placeholder="どんなお茶時間を探す？（例：渋谷 / 抹茶 / 静か）" />
+          <input
+            value="${escapeHtml(state.query)}"
+            placeholder="どんなお茶時間を探す？（例：渋谷 / 抹茶 / 静か）"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+          />
         </label>
         <section class="quickTags" aria-label="タグ検索">
           <div class="filterGroup" aria-label="タグ検索">
