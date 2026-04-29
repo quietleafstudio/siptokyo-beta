@@ -464,6 +464,52 @@ img {
   font-weight: 800;
 }
 
+.visitInfo {
+  display: grid;
+  gap: 9px;
+  border-top: 1px solid rgba(225, 218, 203, 0.78);
+  padding-top: 12px;
+}
+
+.menuSummary,
+.infoLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.menuSummary span {
+  border: 1px solid rgba(184, 132, 89, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 254, 251, 0.78);
+  color: #6a553d;
+  padding: 6px 9px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.priceRange,
+.cautionNote {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.58;
+}
+
+.cautionNote {
+  color: #7a6049;
+}
+
+.infoLinks a {
+  color: var(--leaf-dark);
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(83, 111, 73, 0.28);
+}
+
 details {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);

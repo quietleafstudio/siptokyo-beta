@@ -22,5 +22,12 @@ Where tea comes first. 🌿
 - `comment`: カードに出す一言コメント
 - `mapsUrl`: Google Maps URL
 - `image`: 写真URL、または `public/images` 内の画像ファイル名
+- `officialUrl`: 公式HP URL
+- `instagramUrl`: Instagram URL
+- `menuUrl`: メニューURL
+- `menuSummary`: メニュー要約の配列。例: `["抹茶あり", "カフェ利用OK"]`
+- `priceRange`: 価格帯
+- `cautionNote`: 注意メモ。例: `ランチまたは日本茶飲み比べコース中心。ふらっと一杯利用は事前確認がおすすめ。`
 
 `image` が空の場合は、緑系のプレースホルダーで表示されます。
+メニュー関連の項目は、値が入っている場合だけ店舗カードに小さく表示されます。
