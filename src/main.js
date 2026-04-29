@@ -1,4 +1,9 @@
 const primaryTagOrder = ["静か", "抹茶", "ハーブ", "古民家", "一人時間", "会話向け"];
+const publicBasePath = import.meta.env?.BASE_URL || "/";
+
+function publicAssetPath(path) {
+  return `${publicBasePath}${path.replace(/^\/+/, "")}`;
+}
 
 const state = {
   activeTag: "すべて",
@@ -24,7 +29,7 @@ function saveFavorites() {
 
 async function loadSpots() {
   try {
-    const response = await fetch("/spots.json", { cache: "no-store" });
+    const response = await fetch(publicAssetPath("spots.json"), { cache: "no-store" });
     if (!response.ok) {
       throw new Error(`spots.json could not be loaded: ${response.status}`);
     }
@@ -50,10 +55,11 @@ function normalizeSpot(spot) {
 
 function normalizeImagePath(image) {
   if (!image) return "";
-  if (image.startsWith("/") || image.startsWith("http://") || image.startsWith("https://")) {
+  if (image.startsWith("http://") || image.startsWith("https://")) {
     return image;
   }
-  return `/images/${image}`;
+  const imageName = image.replace(/^\/?(public\/)?images\//, "");
+  return publicAssetPath(`images/${imageName}`);
 }
 
 function getTagFilters() {
@@ -179,7 +185,7 @@ function render() {
           <p>SIP Tokyo</p>
         </div>
         <div class="heroImage">
-          <img src="/images/siptokyo-hero.png" alt="抹茶とハーブティーのある静かなテーブル" />
+          <img src="${publicAssetPath("images/siptokyo-hero.png")}" alt="抹茶とハーブティーのある静かなテーブル" />
         </div>
         <div class="heroCopy">
           <p class="kicker">Tea-first cafe guide</p>
