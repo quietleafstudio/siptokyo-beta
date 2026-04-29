@@ -2,7 +2,14 @@ const primaryTagOrder = ["静か", "抹茶", "ハーブ", "古民家", "一人�
 const publicBasePath = import.meta.env?.BASE_URL || "/";
 
 function publicAssetPath(path) {
-  return `${publicBasePath}${path.replace(/^\/+/, "")}`;
+  const basePath = publicBasePath.endsWith("/") ? publicBasePath : `${publicBasePath}/`;
+  const resolvedPath = `${basePath}${path.replace(/^\/+/, "")}`;
+
+  if (typeof window !== "undefined" && window.location?.origin) {
+    return new URL(resolvedPath, window.location.origin).toString();
+  }
+
+  return resolvedPath;
 }
 
 const state = {
