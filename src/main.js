@@ -1,6 +1,7 @@
 const primaryTagOrder = ["静か", "抹茶", "ハーブ", "古民家", "一人時間", "会話向け"];
 const publicBasePath = import.meta.env?.BASE_URL || "/";
 const dataVersion = "20260429-2";
+let searchRenderTimer = null;
 
 function publicAssetPath(path) {
   const basePath = publicBasePath.endsWith("/") ? publicBasePath : `${publicBasePath}/`;
@@ -155,6 +156,20 @@ function filterSpots() {
   });
 }
 
+function updateSearchQuery(value, delay = 280) {
+  window.clearTimeout(searchRenderTimer);
+  searchRenderTimer = window.setTimeout(() => {
+    state.query = value;
+    render();
+    const input = document.querySelector(".heroSearch input");
+
+    if (input) {
+      input.focus();
+      input.setSelectionRange(state.query.length, state.query.length);
+    }
+  }, delay);
+}
+
 function renderChips(items, activeValue, type) {
   return ["すべて", ...items]
     .map((item) => {
@@ -295,16 +310,13 @@ document.addEventListener("input", (event) => {
       return;
     }
 
-    state.query = event.target.value;
-    render();
-    const input = document.querySelector(".heroSearch input");
-    input.focus();
-    input.setSelectionRange(state.query.length, state.query.length);
+    updateSearchQuery(event.target.value);
   }
 });
 
 document.addEventListener("compositionstart", (event) => {
   if (event.target.matches(".heroSearch input")) {
+    window.clearTimeout(searchRenderTimer);
     state.isComposing = true;
   }
 });
@@ -312,11 +324,15 @@ document.addEventListener("compositionstart", (event) => {
 document.addEventListener("compositionend", (event) => {
   if (event.target.matches(".heroSearch input")) {
     state.isComposing = false;
+    updateSearchQuery(event.target.value);
+  }
+});
+
+document.addEventListener("change", (event) => {
+  if (event.target.matches(".heroSearch input")) {
+    window.clearTimeout(searchRenderTimer);
     state.query = event.target.value;
     render();
-    const input = document.querySelector(".heroSearch input");
-    input.focus();
-    input.setSelectionRange(state.query.length, state.query.length);
   }
 });
 
