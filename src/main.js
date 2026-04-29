@@ -1,5 +1,6 @@
 const primaryTagOrder = ["静か", "抹茶", "ハーブ", "古民家", "一人時間", "会話向け"];
 const publicBasePath = import.meta.env?.BASE_URL || "/";
+const dataVersion = "20260429-2";
 
 function publicAssetPath(path) {
   const basePath = publicBasePath.endsWith("/") ? publicBasePath : `${publicBasePath}/`;
@@ -10,6 +11,25 @@ function publicAssetPath(path) {
   }
 
   return resolvedPath;
+}
+
+function withCacheBust(url) {
+  const parsedUrl = new URL(url, window.location.origin);
+  parsedUrl.searchParams.set("v", dataVersion);
+  return parsedUrl.toString();
+}
+
+function uniqueValues(values) {
+  return [...new Set(values.filter(Boolean))];
+}
+
+function getSpotDataUrls() {
+  const origin = window.location.origin;
+  return uniqueValues([
+    withCacheBust(publicAssetPath("spots.json")),
+    withCacheBust(new URL("/spots.json", origin).toString()),
+    withCacheBust(new URL("/public/spots.json", origin).toString()),
+  ]);
 }
 
 const state = {
@@ -36,11 +56,27 @@ function saveFavorites() {
 
 async function loadSpots() {
   try {
-    const response = await fetch(publicAssetPath("spots.json"), { cache: "no-store" });
-    if (!response.ok) {
-      throw new Error(`spots.json could not be loaded: ${response.status}`);
+    let spots = null;
+    let lastError = null;
+
+    for (const url of getSpotDataUrls()) {
+      try {
+        const response = await fetch(url, { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error(`${url} could not be loaded: ${response.status}`);
+        }
+
+        spots = await response.json();
+        break;
+      } catch (error) {
+        lastError = error;
+      }
     }
-    const spots = await response.json();
+
+    if (!Array.isArray(spots)) {
+      throw lastError || new Error("spots.json could not be loaded");
+    }
+
     state.spots = spots.map(normalizeSpot);
   } catch (error) {
     state.loadError = "店舗データを読み込めませんでした。";
@@ -132,7 +168,7 @@ function renderChips(items, activeValue, type) {
 function renderSpotCard(spot) {
   const isFavorite = state.favorites.includes(spot.id);
   const photo = spot.image
-    ? `<img src="${spot.image}" alt="${escapeHtml(spot.name)}の雰囲気" />`
+    ? `<img src="${spot.image}" alt="${escapeHtml(spot.name)}の雰囲気" onerror="window.handleSipImageError(this)" />`
     : `<span>Tea place</span>`;
   const tags = spot.tags
     .slice(0, 4)
@@ -192,7 +228,7 @@ function render() {
           <p>SIP Tokyo</p>
         </div>
         <div class="heroImage">
-          <img src="${publicAssetPath("images/siptokyo-hero.png")}" alt="抹茶とハーブティーのある静かなテーブル" />
+          <img src="${publicAssetPath("images/siptokyo-hero.png")}" alt="抹茶とハーブティーのある静かなテーブル" onerror="window.handleSipImageError(this)" />
         </div>
         <div class="heroCopy">
           <p class="kicker">Tea-first cafe guide</p>
@@ -271,6 +307,18 @@ window.toggleSipFavorite = (id) => {
     : [...state.favorites, id];
   saveFavorites();
   render();
+};
+
+window.handleSipImageError = (image) => {
+  const wrapper = image.closest(".photoWrap");
+
+  if (wrapper) {
+    wrapper.classList.add("emptyPhoto");
+    image.replaceWith(document.createRange().createContextualFragment("<span>Tea place</span>"));
+    return;
+  }
+
+  image.style.display = "none";
 };
 
 render();
