@@ -40,6 +40,7 @@ const state = {
   spots: [],
   isLoading: true,
   loadError: "",
+  isComposing: false,
 };
 
 function readFavorites() {
@@ -290,6 +291,27 @@ function render() {
 
 document.addEventListener("input", (event) => {
   if (event.target.matches(".heroSearch input")) {
+    if (state.isComposing || event.isComposing) {
+      return;
+    }
+
+    state.query = event.target.value;
+    render();
+    const input = document.querySelector(".heroSearch input");
+    input.focus();
+    input.setSelectionRange(state.query.length, state.query.length);
+  }
+});
+
+document.addEventListener("compositionstart", (event) => {
+  if (event.target.matches(".heroSearch input")) {
+    state.isComposing = true;
+  }
+});
+
+document.addEventListener("compositionend", (event) => {
+  if (event.target.matches(".heroSearch input")) {
+    state.isComposing = false;
     state.query = event.target.value;
     render();
     const input = document.querySelector(".heroSearch input");
