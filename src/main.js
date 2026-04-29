@@ -24,7 +24,7 @@ function saveFavorites() {
 
 async function loadSpots() {
   try {
-    const response = await fetch("/public/spots.json", { cache: "no-store" });
+    const response = await fetch("/spots.json", { cache: "no-store" });
     if (!response.ok) {
       throw new Error(`spots.json could not be loaded: ${response.status}`);
     }
@@ -53,7 +53,7 @@ function normalizeImagePath(image) {
   if (image.startsWith("/") || image.startsWith("http://") || image.startsWith("https://")) {
     return image;
   }
-  return `/public/images/${image}`;
+  return `/images/${image}`;
 }
 
 function getTagFilters() {
@@ -179,7 +179,7 @@ function render() {
           <p>SIP Tokyo</p>
         </div>
         <div class="heroImage">
-          <img src="/public/images/siptokyo-hero.png" alt="抹茶とハーブティーのある静かなテーブル" />
+          <img src="/images/siptokyo-hero.png" alt="抹茶とハーブティーのある静かなテーブル" />
         </div>
         <div class="heroCopy">
           <p class="kicker">Tea-first cafe guide</p>
