@@ -1,7 +1,11 @@
+import { initGoogleAnalytics, trackAnalyticsEvent } from "./analytics.js";
+
 const primaryTagOrder = ["静か", "抹茶", "ハーブ", "古民家", "一人時間", "会話向け"];
 const publicBasePath = import.meta.env?.BASE_URL || "/";
 const dataVersion = "20260429-5";
 let searchRenderTimer = null;
+
+initGoogleAnalytics();
 
 function publicAssetPath(path) {
   const basePath = publicBasePath.endsWith("/") ? publicBasePath : `${publicBasePath}/`;
@@ -204,10 +208,18 @@ function renderSpotCard(spot) {
     .map((item) => `<span>${escapeHtml(item)}</span>`)
     .join("");
   const detailLinks = [
-    spot.mapsUrl ? `<a href="${escapeHtml(spot.mapsUrl)}" target="_blank" rel="noreferrer">Google Maps</a>` : "",
-    spot.officialUrl ? `<a href="${escapeHtml(spot.officialUrl)}" target="_blank" rel="noreferrer">公式HP</a>` : "",
-    spot.instagramUrl ? `<a href="${escapeHtml(spot.instagramUrl)}" target="_blank" rel="noreferrer">Instagram</a>` : "",
-    spot.menuUrl ? `<a href="${escapeHtml(spot.menuUrl)}" target="_blank" rel="noreferrer">Menu</a>` : "",
+    spot.mapsUrl
+      ? `<a href="${escapeHtml(spot.mapsUrl)}" target="_blank" rel="noreferrer" onclick="window.trackSipExternalLink('google_maps', '${escapeHtml(spot.id)}')">Google Maps</a>`
+      : "",
+    spot.officialUrl
+      ? `<a href="${escapeHtml(spot.officialUrl)}" target="_blank" rel="noreferrer" onclick="window.trackSipExternalLink('official_hp', '${escapeHtml(spot.id)}')">公式HP</a>`
+      : "",
+    spot.instagramUrl
+      ? `<a href="${escapeHtml(spot.instagramUrl)}" target="_blank" rel="noreferrer" onclick="window.trackSipExternalLink('instagram', '${escapeHtml(spot.id)}')">Instagram</a>`
+      : "",
+    spot.menuUrl
+      ? `<a href="${escapeHtml(spot.menuUrl)}" target="_blank" rel="noreferrer" onclick="window.trackSipExternalLink('menu', '${escapeHtml(spot.id)}')">Menu</a>`
+      : "",
   ]
     .filter(Boolean)
     .join("");
@@ -367,16 +379,31 @@ window.setSipFilter = (type, value) => {
   } else {
     state.activeArea = value;
   }
+  trackAnalyticsEvent("filter_select", {
+    filter_type: type,
+    filter_value: value,
+  });
   render();
   document.getElementById("search").scrollIntoView({ block: "start" });
 };
 
 window.toggleSipFavorite = (id) => {
+  const wasSaved = state.favorites.includes(id);
   state.favorites = state.favorites.includes(id)
     ? state.favorites.filter((favoriteId) => favoriteId !== id)
     : [...state.favorites, id];
+  trackAnalyticsEvent(wasSaved ? "favorite_remove" : "favorite_save", {
+    spot_id: id,
+  });
   saveFavorites();
   render();
+};
+
+window.trackSipExternalLink = (linkType, spotId) => {
+  trackAnalyticsEvent("external_link_click", {
+    link_type: linkType,
+    spot_id: spotId,
+  });
 };
 
 window.handleSipImageError = (image) => {

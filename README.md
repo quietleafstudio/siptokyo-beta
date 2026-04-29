@@ -37,3 +37,13 @@ Where tea comes first. 🌿
 候補店舗のモックリサーチ画面は `studio.html` です。
 外部APIなしで、Google Maps URL 1本からの候補生成、またはエリア × ジャンルから20件の候補カード生成ができます。
 「採用」を押すと、`public/spots.json` に追加するための下書きJSONが表示されます。
+
+## アクセス解析
+
+公開サイトの `index.html` に Vercel Web Analytics のスクリプトを入れています。
+Vercel Dashboard の対象プロジェクトで Analytics を Enable にすると、日別アクセス数、人気ページ、流入元、デバイスなどを確認できます。
+
+GA4 は `src/analytics.js` で初期化しています。
+Vercel の Production 環境変数に `VITE_GA_MEASUREMENT_ID` を追加し、値に GA4 の Measurement ID（例: `G-XXXXXXXXXX`）を設定してください。
+設定後に再デプロイすると、GA4 のリアルタイムレポートで計測を確認できます。
+ローカルで試す場合は `.env.example` を参考に `.env.local` を作成してください。
