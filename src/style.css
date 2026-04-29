@@ -476,7 +476,7 @@ img {
 .detailLinks {
   display: flex;
   flex-wrap: wrap;
-  gap: 7px;
+  gap: 8px;
 }
 
 .menuSummary span {
@@ -505,11 +505,19 @@ img {
 
 .infoLinks a,
 .detailLinks a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  border: 1px solid rgba(83, 111, 73, 0.24);
+  border-radius: 8px;
+  background: rgba(255, 254, 251, 0.84);
   color: var(--leaf-dark);
+  padding: 0 12px;
   font-size: 13px;
   font-weight: 800;
   text-decoration: none;
-  border-bottom: 1px solid rgba(83, 111, 73, 0.28);
+  box-shadow: 0 8px 18px rgba(58, 64, 49, 0.06);
 }
 
 details {
