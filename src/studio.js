@@ -20,6 +20,7 @@ const state = {
   results: [],
   decisions: readDecisions(),
   isLookupLoading: false,
+  copyStatus: "",
 };
 
 function readDecisions() {
@@ -47,6 +48,26 @@ function slug(value) {
     .toLowerCase()
     .replace(/[^\p{Letter}\p{Number}]+/gu, "-")
     .replace(/^-|-$/g, "");
+}
+
+function hashString(value) {
+  let hash = 0;
+  for (const char of String(value)) {
+    hash = (hash * 31 + char.charCodeAt(0)) >>> 0;
+  }
+  return hash.toString(36);
+}
+
+function idSlugFromName(value) {
+  const normalized = String(value)
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+  return normalized || `spot-${hashString(value)}`;
 }
 
 function pick(list, index) {
@@ -353,28 +374,66 @@ function renderScore(candidate) {
 }
 
 function buildDraftSpot(candidate) {
+  const type = candidate.genreGuess || candidate.genreQuery || "";
+  const mapUrl = candidate.mapsUrl || "";
+
   return {
-    id: slug(candidate.name),
+    id: idSlugFromName(candidate.name),
     name: candidate.name,
     area: candidate.area,
     address: candidate.address,
     station: "",
     walk: "",
-    genre: candidate.genreGuess,
-    comment: `${candidate.genreQuery}でひと息つきたい日の候補。`,
-    note: candidate.memoDraft,
+    image: candidate.photoUrl || "",
+    type,
+    genre: type,
     tags: candidate.tags,
-    searchTags: unique([candidate.area, candidate.genreQuery, candidate.name]),
-    image: "",
+    comment: `${candidate.genreQuery}でひと息つきたい日の候補。`,
+    mapUrl,
+    mapsUrl: mapUrl,
     officialUrl: candidate.officialUrl || "",
     instagramUrl: candidate.instagramUrl || "",
     menuUrl: candidate.menuUrl || "",
     menuSummary: candidate.menuSummary,
     priceRange: candidate.priceRange || "",
+    note: candidate.memoDraft,
+    searchTags: unique([candidate.area, candidate.genreQuery, candidate.name]),
     cautionNote: candidate.riskFlags.join(" / "),
-    mapsUrl: candidate.mapsUrl,
     instagram: { handle: "", placeId: "" },
   };
+}
+
+function getAdoptedCandidates() {
+  return state.results.filter((candidate) => state.decisions[candidate.id] === "採用");
+}
+
+function getAdoptedDraftJson() {
+  return JSON.stringify(getAdoptedCandidates().map(buildDraftSpot), null, 2);
+}
+
+function renderAdoptedJsonSection() {
+  const adoptedCandidates = getAdoptedCandidates();
+  const adoptedJson = getAdoptedDraftJson();
+  const adoptedList = adoptedCandidates.map((candidate) => `<li>${escapeHtml(candidate.name)}</li>`).join("");
+
+  return `
+    <section class="adoptedJsonPanel" aria-label="追加用JSON">
+      <div class="adoptedJsonHeader">
+        <div>
+          <p>採用済みリスト</p>
+          <h2>追加用JSON</h2>
+        </div>
+        <button class="copyJsonButton" type="button" data-copy-adopted-json ${adoptedCandidates.length ? "" : "disabled"}>
+          ${state.copyStatus || "JSONをコピー"}
+        </button>
+      </div>
+      ${
+        adoptedCandidates.length
+          ? `<ul class="adoptedList">${adoptedList}</ul><pre id="adoptedJsonOutput">${escapeHtml(adoptedJson)}</pre>`
+          : `<div class="emptyState">候補カードで「採用」を押すと、ここに spots.json 追加用のJSONが生成されます。</div>`
+      }
+    </section>
+  `;
 }
 
 function renderCandidate(candidate, index) {
@@ -502,6 +561,7 @@ function render() {
               : `<div class="emptyState">Google Maps URLを入力するか、エリア × ジャンルで検索してください。</div>`
         }
       </main>
+      ${renderAdoptedJsonSection()}
     </div>
   `;
 }
@@ -537,9 +597,45 @@ document.addEventListener("click", (event) => {
     const id = event.target.dataset.id;
     const decision = event.target.dataset.decision;
     state.decisions[id] = state.decisions[id] === decision ? "" : decision;
+    state.copyStatus = "";
     saveDecisions();
     render();
   }
+
+  if (event.target.matches("[data-copy-adopted-json]")) {
+    void copyAdoptedJson();
+  }
 });
+
+async function copyAdoptedJson() {
+  const json = getAdoptedDraftJson();
+  if (!getAdoptedCandidates().length) return;
+
+  try {
+    if (window.navigator?.clipboard?.writeText) {
+      await window.navigator.clipboard.writeText(json);
+    } else {
+      const textarea = document.createElement("textarea");
+      textarea.value = json;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      textarea.remove();
+    }
+
+    state.copyStatus = "コピー済み";
+  } catch {
+    state.copyStatus = "コピー失敗";
+  }
+
+  render();
+  window.setTimeout(() => {
+    state.copyStatus = "";
+    render();
+  }, 1600);
+}
 
 generateQueryResults();
