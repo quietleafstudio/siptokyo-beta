@@ -18,11 +18,13 @@
 
 html {
   background: var(--paper);
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   color: var(--ink);
   background:
     linear-gradient(180deg, rgba(232, 238, 225, 0.92), rgba(251, 250, 244, 0) 300px),
@@ -171,11 +173,13 @@ input {
 .candidateList {
   display: grid;
   gap: 16px;
+  min-width: 0;
 }
 
 .candidateCard {
   display: grid;
   gap: 14px;
+  min-width: 0;
   border: 1px solid rgba(224, 217, 202, 0.95);
   border-radius: 8px;
   background: var(--white);
@@ -251,6 +255,7 @@ input {
 .linkGrid a {
   display: inline-flex;
   align-items: center;
+  max-width: 100%;
   min-height: 38px;
   border: 1px solid rgba(83, 111, 73, 0.24);
   border-radius: 8px;
@@ -259,6 +264,7 @@ input {
   font-size: 13px;
   font-weight: 800;
   text-decoration: none;
+  overflow-wrap: anywhere;
 }
 
 .candidateMeta {
@@ -268,6 +274,8 @@ input {
 }
 
 .candidateMeta div {
+  display: grid;
+  grid-template-columns: minmax(74px, max-content) minmax(0, 1fr);
   align-items: flex-start;
   border-top: 1px solid rgba(224, 217, 202, 0.72);
   padding-top: 10px;
@@ -283,13 +291,15 @@ input {
 .candidateMeta dd {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 6px;
+  min-width: 0;
   margin: 0;
   color: var(--ink);
   font-size: 13px;
   font-weight: 800;
-  text-align: right;
+  text-align: left;
+  overflow-wrap: anywhere;
 }
 
 .candidateMeta dd span,
@@ -362,12 +372,13 @@ input {
 }
 
 .decisionGroup {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
 .decisionButton {
+  flex: 1 1 92px;
   min-height: 42px;
   border: 1px solid rgba(83, 111, 73, 0.24);
   border-radius: 8px;
@@ -397,6 +408,7 @@ input {
 }
 
 .draftJson pre {
+  max-width: 100%;
   max-height: 320px;
   overflow: auto;
   margin: 12px 0 0;
@@ -424,7 +436,7 @@ input {
 
 @media (min-width: 720px) {
   .studioShell {
-    width: min(100%, 1040px);
+    width: min(100%, 1120px);
     padding-inline: 24px;
   }
 
@@ -444,5 +456,23 @@ input {
 
   .candidateList {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1120px) {
+  .studioShell {
+    width: min(100%, 1360px);
+  }
+
+  .searchBoard {
+    grid-template-columns: minmax(320px, 1.7fr) auto minmax(160px, 0.7fr) minmax(160px, 0.7fr) auto;
+  }
+
+  .wideField {
+    grid-column: auto;
+  }
+
+  .candidateList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

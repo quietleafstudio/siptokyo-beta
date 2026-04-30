@@ -73,6 +73,68 @@ function inferNameFromMapsUrl(url) {
   }
 }
 
+function decodeMapsText(value) {
+  return decodeURIComponent(String(value || ""))
+    .replace(/\+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function splitCandidateNameAndAddress(text) {
+  const normalized = decodeMapsText(text);
+  const separators = ["｜", "|", "\n", "、"];
+  const separator = separators.find((item) => normalized.includes(item));
+
+  if (separator) {
+    const [name, ...rest] = normalized.split(separator).map((item) => item.trim()).filter(Boolean);
+    return { name: name || normalized, address: rest.join(" ") };
+  }
+
+  const addressMatch = normalized.match(/(.+?)\s+(東京都|神奈川県|埼玉県|千葉県|大阪府|京都府|北海道|.+?[県府])(.+)/);
+  if (addressMatch) {
+    return {
+      name: addressMatch[1].trim(),
+      address: `${addressMatch[2]}${addressMatch[3]}`.trim(),
+    };
+  }
+
+  return { name: normalized, address: "" };
+}
+
+function extractMapsPlaceData(url) {
+  const fallback = {
+    name: inferNameFromMapsUrl(url),
+    address: "",
+    coordinates: "",
+    mapsUrl: url,
+  };
+
+  try {
+    const parsed = new URL(url);
+    const queryText =
+      parsed.searchParams.get("query") ||
+      parsed.searchParams.get("q") ||
+      parsed.searchParams.get("destination") ||
+      parsed.searchParams.get("daddr") ||
+      "";
+    const pathParts = parsed.pathname.split("/").filter(Boolean);
+    const placeIndex = pathParts.findIndex((part) => part === "place" || part === "search");
+    const pathText = placeIndex >= 0 ? pathParts[placeIndex + 1] || "" : "";
+    const sourceText = queryText || pathText || fallback.name;
+    const parsedText = splitCandidateNameAndAddress(sourceText);
+    const coordinates = parsed.pathname.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
+
+    return {
+      name: parsedText.name || fallback.name,
+      address: parsedText.address,
+      coordinates: coordinates ? `${coordinates[1]}, ${coordinates[2]}` : "",
+      mapsUrl: url,
+    };
+  } catch {
+    return fallback;
+  }
+}
+
 function buildCandidate(index, area, genre, overrides = {}) {
   const styles = ["茶房", "ティーサロン", "和カフェ", "茶寮", "ティースタンド", "喫茶室"];
   const moods = ["静かな", "余白のある", "会話しやすい", "ひと息つける", "明るい", "落ち着いた"];
@@ -107,6 +169,7 @@ function buildCandidate(index, area, genre, overrides = {}) {
     rating: overrides.rating ?? Number((3.7 + ((index % 6) * 0.15)).toFixed(1)),
     hours: overrides.hours || pick(["11:00-19:00", "10:00-20:00", "12:00-18:00", "営業時間確認中"], index),
     photoUrl: overrides.photoUrl || "",
+    photoLabel: overrides.photoLabel || "photo pending",
     genreGuess: overrides.genreGuess || `${genre} / ${pick(["カフェ", "茶房", "喫茶", "和菓子"], index)}`,
     tags,
     score,
@@ -157,13 +220,15 @@ function generateMapsResult() {
     return;
   }
 
-  const name = inferNameFromMapsUrl(mapsUrl);
+  const placeData = extractMapsPlaceData(mapsUrl);
+  const address = placeData.address || "住所確認中（Google Maps URLから要確認）";
   state.mode = "maps";
   state.results = [
     buildCandidate(0, state.area, state.genre, {
-      id: `maps-${slug(name) || Date.now()}`,
-      name,
-      mapsUrl,
+      id: `maps-${slug(placeData.name) || Date.now()}`,
+      name: placeData.name,
+      address,
+      mapsUrl: placeData.mapsUrl,
       officialUrl: "",
       instagramUrl: "",
       menuUrl: "",
@@ -173,8 +238,9 @@ function generateMapsResult() {
       sourceProvider: "google-maps-url",
       sourceMode: "mapsUrl",
       sourceInput: mapsUrl,
-      memoDraft: "Google Maps URLから生成した候補。公式HP、Instagram、メニューURL、単品利用可否を確認してから採用したい。",
-      riskFlags: ["URL由来の下書き", "公式情報要確認"],
+      photoLabel: "Google Maps URL",
+      memoDraft: `${placeData.name} のGoogle Maps URLから生成した候補。住所、公式HP、Instagram、メニューURL、単品利用可否を確認してから採用したい。${placeData.coordinates ? ` 座標候補: ${placeData.coordinates}` : ""}`,
+      riskFlags: ["URL由来", placeData.address ? "住所はURLから抽出" : "住所要確認", "公式情報要確認"],
     }),
   ];
   render();
@@ -249,7 +315,7 @@ function renderCandidate(candidate, index) {
         <span class="resultIndex">${String(index + 1).padStart(2, "0")}</span>
         <span class="scoreBadge">${candidate.totalScore} / 100</span>
       </div>
-      ${candidate.photoUrl ? `<img class="candidatePhoto" src="${escapeHtml(candidate.photoUrl)}" alt="${escapeHtml(candidate.name)}の写真" />` : `<div class="candidatePhoto emptyPhoto">photo pending</div>`}
+      ${candidate.photoUrl ? `<img class="candidatePhoto" src="${escapeHtml(candidate.photoUrl)}" alt="${escapeHtml(candidate.name)}の写真" />` : `<div class="candidatePhoto emptyPhoto">${escapeHtml(candidate.photoLabel)}</div>`}
       <h2>${escapeHtml(candidate.name)}</h2>
       <p class="address">${escapeHtml(candidate.address)}</p>
       <div class="linkGrid">${links}</div>
