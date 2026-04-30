@@ -19,6 +19,7 @@ const state = {
   mapsUrl: "",
   results: [],
   decisions: readDecisions(),
+  isLookupLoading: false,
 };
 
 function readDecisions() {
@@ -135,13 +136,65 @@ function extractMapsPlaceData(url) {
   }
 }
 
+async function lookupMapsData(mapsUrl) {
+  try {
+    const response = await fetch(`/api/maps-lookup?url=${encodeURIComponent(mapsUrl)}`, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`maps lookup failed: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch {
+    return null;
+  }
+}
+
+function inferTeaTags(candidate) {
+  const text = [candidate.name, candidate.address, candidate.description, candidate.genreQuery].filter(Boolean).join(" ");
+  const tagRules = [
+    ["抹茶", /抹茶|matcha/i],
+    ["ハーブ", /ハーブ|herb|薬草|オーガニック/i],
+    ["日本茶", /日本茶|煎茶|緑茶|ほうじ茶|玉露|茶房|茶寮|伊藤園/i],
+    ["中国茶", /中国茶|台湾茶|烏龍|普洱|プーアル/i],
+    ["古民家", /古民家|民家|畳|庭|和室/i],
+    ["静か", /静か|落ち着|隠れ家|茶室|庭|余白/i],
+    ["会話向け", /カフェ|cafe|サロン|ラウンジ|広々|テーブル/i],
+    ["一人時間", /茶房|茶寮|カウンター|静か|一人|ひとり/i],
+  ];
+
+  const inferred = tagRules.filter(([, pattern]) => pattern.test(text)).map(([tag]) => tag);
+  return unique([candidate.genreQuery, ...inferred, "一人時間"]).slice(0, 6);
+}
+
+function buildMemoDraft(candidate) {
+  const tags = candidate.tags || [];
+
+  if (tags.includes("古民家")) {
+    return "古民家の余韻とお茶を味わえる、静かな休憩候補。";
+  }
+
+  if (tags.includes("ハーブ")) {
+    return "香りのあるハーブティーで、気分をほどきたい日の候補。";
+  }
+
+  if (tags.includes("抹茶")) {
+    return "抹茶でひと息つけそうな、落ち着いたお茶時間の候補。";
+  }
+
+  if (tags.includes("会話向け")) {
+    return "友人とお茶を囲みながら、会話しやすそうな候補。";
+  }
+
+  return "お茶を主役に、短い休憩にも使いやすそうな候補。";
+}
+
 function buildCandidate(index, area, genre, overrides = {}) {
   const styles = ["茶房", "ティーサロン", "和カフェ", "茶寮", "ティースタンド", "喫茶室"];
   const moods = ["静かな", "余白のある", "会話しやすい", "ひと息つける", "明るい", "落ち着いた"];
   const streets = ["1-3-8", "2-12-4", "3-6-11", "4-9-2", "5-18-7"];
   const name = overrides.name || `${area}${pick(styles, index)} ${pick(["葉音", "香月", "翠日", "茶々", "雨庭"], index)} ${index + 1}`;
   const id = `${slug(area)}-${slug(genre)}-${index + 1}`;
-  const tags = unique([
+  const fallbackTags = unique([
     genre,
     pick(["一人時間", "会話向け", "静か"], index),
     pick(["駅近", "明るい", "上品", "穴場"], index + 1),
@@ -171,7 +224,7 @@ function buildCandidate(index, area, genre, overrides = {}) {
     photoUrl: overrides.photoUrl || "",
     photoLabel: overrides.photoLabel || "photo pending",
     genreGuess: overrides.genreGuess || `${genre} / ${pick(["カフェ", "茶房", "喫茶", "和菓子"], index)}`,
-    tags,
+    tags: overrides.tags || fallbackTags,
     score,
     totalScore: Object.values(score).reduce((sum, value) => sum + value, 0),
     memoDraft:
@@ -212,7 +265,7 @@ function generateQueryResults() {
   render();
 }
 
-function generateMapsResult() {
+async function generateMapsResult() {
   const mapsUrl = normalizeMapsUrl(state.mapsUrl);
   if (!mapsUrl) {
     state.results = [];
@@ -220,27 +273,56 @@ function generateMapsResult() {
     return;
   }
 
-  const placeData = extractMapsPlaceData(mapsUrl);
-  const address = placeData.address || "住所確認中（Google Maps URLから要確認）";
   state.mode = "maps";
+  state.isLookupLoading = true;
+  render();
+
+  const urlPlaceData = extractMapsPlaceData(mapsUrl);
+  const apiPlaceData = await lookupMapsData(mapsUrl);
+  const placeData = {
+    ...urlPlaceData,
+    ...(apiPlaceData || {}),
+    name: apiPlaceData?.name || urlPlaceData.name,
+    address: apiPlaceData?.address || urlPlaceData.address || "",
+    mapsUrl: apiPlaceData?.mapsUrl || urlPlaceData.mapsUrl,
+    coordinates: apiPlaceData?.coordinates || urlPlaceData.coordinates || "",
+  };
+  const address = placeData.address || "Google Mapsで住所を開いて確認";
+  const autoTags = inferTeaTags({
+    name: placeData.name,
+    address,
+    description: placeData.description,
+    genreQuery: state.genre,
+  });
+  const memoDraft = buildMemoDraft({ tags: autoTags });
+
+  state.mode = "maps";
+  state.isLookupLoading = false;
   state.results = [
     buildCandidate(0, state.area, state.genre, {
       id: `maps-${slug(placeData.name) || Date.now()}`,
       name: placeData.name,
       address,
       mapsUrl: placeData.mapsUrl,
-      officialUrl: "",
-      instagramUrl: "",
-      menuUrl: "",
+      officialUrl: placeData.officialUrl || "",
+      instagramUrl: placeData.instagramUrl || "",
+      menuUrl: placeData.menuUrl || "",
       reviewCount: null,
       rating: null,
       hours: "営業時間確認中",
+      photoUrl: placeData.photoUrl || "",
       sourceProvider: "google-maps-url",
       sourceMode: "mapsUrl",
       sourceInput: mapsUrl,
       photoLabel: "Google Maps URL",
-      memoDraft: `${placeData.name} のGoogle Maps URLから生成した候補。住所、公式HP、Instagram、メニューURL、単品利用可否を確認してから採用したい。${placeData.coordinates ? ` 座標候補: ${placeData.coordinates}` : ""}`,
-      riskFlags: ["URL由来", placeData.address ? "住所はURLから抽出" : "住所要確認", "公式情報要確認"],
+      tags: autoTags,
+      genreGuess: `${state.genre} / お茶候補`,
+      memoDraft,
+      riskFlags: unique([
+        "URL由来",
+        placeData.address ? "住所候補あり" : "住所はMapsで確認",
+        placeData.officialUrl || placeData.instagramUrl || placeData.menuUrl ? "外部リンク候補あり" : "公式情報要確認",
+      ]),
     }),
   ];
   render();
@@ -298,7 +380,7 @@ function buildDraftSpot(candidate) {
 function renderCandidate(candidate, index) {
   const decision = state.decisions[candidate.id] || "";
   const links = [
-    `<a href="${candidate.mapsUrl}" target="_blank" rel="noreferrer">Google Maps</a>`,
+    `<a class="primaryLink" href="${candidate.mapsUrl}" target="_blank" rel="noreferrer">Google Maps</a>`,
     candidate.officialUrl ? `<a href="${candidate.officialUrl}" target="_blank" rel="noreferrer">公式HP</a>` : "",
     candidate.instagramUrl ? `<a href="${candidate.instagramUrl}" target="_blank" rel="noreferrer">Instagram</a>` : "",
     candidate.menuUrl ? `<a href="${candidate.menuUrl}" target="_blank" rel="noreferrer">メニュー</a>` : "",
@@ -376,7 +458,7 @@ function render() {
           <span>Google Maps URL または店名URL</span>
           <input id="mapsUrlInput" value="${escapeHtml(state.mapsUrl)}" placeholder="https://www.google.com/maps/place/..." />
         </label>
-        <button id="mapsResearchButton" type="button">URLから生成</button>
+        <button id="mapsResearchButton" type="button">${state.isLookupLoading ? "取得中..." : "URLから生成"}</button>
         <label>
           <span>エリア</span>
           <select id="areaSelect">${renderOptions(areaOptions, state.area)}</select>
@@ -412,7 +494,13 @@ function render() {
       </section>
 
       <main class="candidateList">
-        ${state.results.length ? state.results.map(renderCandidate).join("") : `<div class="emptyState">Google Maps URLを入力するか、エリア × ジャンルで検索してください。</div>`}
+        ${
+          state.isLookupLoading
+            ? `<div class="emptyState">Google Maps URLから店舗情報を取得しています。</div>`
+            : state.results.length
+              ? state.results.map(renderCandidate).join("")
+              : `<div class="emptyState">Google Maps URLを入力するか、エリア × ジャンルで検索してください。</div>`
+        }
       </main>
     </div>
   `;
@@ -441,7 +529,7 @@ document.addEventListener("click", (event) => {
   }
 
   if (event.target.id === "mapsResearchButton") {
-    generateMapsResult();
+    void generateMapsResult();
     return;
   }
 
