@@ -20,6 +20,8 @@ const state = {
   results: [],
   decisions: readDecisions(),
   isLookupLoading: false,
+  isSearchLoading: false,
+  searchError: "",
   copyStatus: "",
 };
 
@@ -76,6 +78,10 @@ function pick(list, index) {
 
 function unique(values) {
   return [...new Set(values.filter(Boolean))];
+}
+
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
 }
 
 function normalizeMapsUrl(value) {
@@ -170,8 +176,27 @@ async function lookupMapsData(mapsUrl) {
   }
 }
 
+async function searchPlaces(area, genre) {
+  try {
+    const url = `/api/places-search?area=${encodeURIComponent(area)}&genre=${encodeURIComponent(genre)}`;
+    const response = await fetch(url, { cache: "no-store" });
+    if (!response.ok) {
+      throw new Error(`places search failed: ${response.status}`);
+    }
+
+    return await response.json();
+  } catch (error) {
+    return {
+      places: [],
+      error: error instanceof Error ? error.message : "places search failed",
+    };
+  }
+}
+
 function inferTeaTags(candidate) {
-  const text = [candidate.name, candidate.address, candidate.description, candidate.genreQuery].filter(Boolean).join(" ");
+  const text = [candidate.name, candidate.address, candidate.description, candidate.genreQuery, candidate.primaryType, ...(candidate.types || [])]
+    .filter(Boolean)
+    .join(" ");
   const tagRules = [
     ["抹茶", /抹茶|matcha/i],
     ["ハーブ", /ハーブ|herb|薬草|オーガニック/i],
@@ -189,24 +214,25 @@ function inferTeaTags(candidate) {
 
 function buildMemoDraft(candidate) {
   const tags = candidate.tags || [];
+  const ratingText = candidate.rating ? `評価${candidate.rating}の` : "";
 
   if (tags.includes("古民家")) {
-    return "古民家の余韻とお茶を味わえる、静かな休憩候補。";
+    return `${ratingText}古民家の余韻とお茶を味わえる休憩候補。`;
   }
 
   if (tags.includes("ハーブ")) {
-    return "香りのあるハーブティーで、気分をほどきたい日の候補。";
+    return `${ratingText}香りのお茶で気分をほどきたい日の候補。`;
   }
 
   if (tags.includes("抹茶")) {
-    return "抹茶でひと息つけそうな、落ち着いたお茶時間の候補。";
+    return `${ratingText}抹茶でひと息つけそうなお茶時間候補。`;
   }
 
   if (tags.includes("会話向け")) {
-    return "友人とお茶を囲みながら、会話しやすそうな候補。";
+    return `${ratingText}友人とお茶を囲み会話しやすそうな候補。`;
   }
 
-  return "お茶を主役に、短い休憩にも使いやすそうな候補。";
+  return `${ratingText}お茶を主役に短い休憩にも使いやすそうな候補。`;
 }
 
 function buildCandidate(index, area, genre, overrides = {}) {
@@ -231,6 +257,7 @@ function buildCandidate(index, area, genre, overrides = {}) {
       input: overrides.sourceInput || `${area} × ${genre}`,
       fetchedAt: new Date().toISOString(),
     },
+    placeId: overrides.placeId || "",
     name,
     area,
     genreQuery: genre,
@@ -280,9 +307,78 @@ function buildScore(index, genre) {
   };
 }
 
-function generateQueryResults() {
+function buildScoreFromPlace(place, index, genre) {
+  const rating = Number(place.rating || 0);
+  const reviewCount = Number(place.reviewCount || 0);
+  const ratingBoost = rating ? Math.round((rating - 3.5) * 3) : 0;
+  const reviewBoost = reviewCount > 120 ? 2 : reviewCount > 40 ? 1 : 0;
+  const teaBoost = genre === "抹茶" || genre === "日本茶" ? 3 : 0;
+  const typeText = [place.name, place.primaryType, ...(place.types || [])].join(" ");
+  const cafeBoost = /cafe|tea|japanese|restaurant|bakery/i.test(typeText) ? 1 : 0;
+  const tags = place.tags || [];
+
+  return {
+    teaTaste: clamp(17 + ratingBoost + reviewBoost + teaBoost, 12, 25),
+    teaFocus: clamp(13 + teaBoost + cafeBoost + (tags.includes("抹茶") ? 2 : 0), 8, 20),
+    spaceComfort: clamp(9 + ratingBoost + cafeBoost, 6, 15),
+    seatComfort: clamp(6 + cafeBoost + (index % 3), 5, 10),
+    talkQuietFit: clamp(6 + (tags.includes("会話向け") ? 2 : 0) + (tags.includes("静か") ? 1 : 0), 4, 10),
+    menuDepth: clamp(4 + teaBoost + cafeBoost, 3, 8),
+    worldview: clamp(4 + (tags.includes("古民家") ? 2 : 0) + (tags.includes("静か") ? 1 : 0), 3, 7),
+    access: clamp(3 + (place.address ? 1 : 0) + (place.mapsUrl ? 1 : 0), 2, 5),
+  };
+}
+
+function buildCandidateFromPlace(place, index, area, genre) {
+  const tags = inferTeaTags({ ...place, genreQuery: genre });
+  const memoDraft = buildMemoDraft({ ...place, tags });
+  const score = buildScoreFromPlace({ ...place, tags }, index, genre);
+
+  return buildCandidate(index, area, genre, {
+    id: `place-${place.placeId || idSlugFromName(place.name)}`,
+    name: place.name || `${area} ${genre}候補`,
+    address: place.address || "",
+    mapsUrl: place.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.name || `${area} ${genre}`)}`,
+    officialUrl: place.officialUrl || "",
+    instagramUrl: place.instagramUrl || "",
+    menuUrl: place.menuUrl || "",
+    reviewCount: place.reviewCount || null,
+    rating: place.rating || null,
+    photoUrl: place.photoUrl || "",
+    photoLabel: "Google Places",
+    genreGuess: `${genre} / お茶候補`,
+    tags,
+    score,
+    memoDraft,
+    sourceProvider: "google-places",
+    sourceMode: "areaGenre",
+    sourceInput: `${area} × ${genre}`,
+    placeId: place.placeId || "",
+    riskFlags: unique(["Google Places", place.placeId ? "placeIdあり" : "", place.officialUrl ? "公式HP候補あり" : "公式情報要確認"]),
+  });
+}
+
+async function generateQueryResults() {
   state.mode = "query";
-  state.results = Array.from({ length: 20 }, (_, index) => buildCandidate(index, state.area, state.genre));
+  state.isSearchLoading = true;
+  state.searchError = "";
+  state.copyStatus = "";
+  render();
+
+  const data = await searchPlaces(state.area, state.genre);
+  state.isSearchLoading = false;
+
+  if (Array.isArray(data.places) && data.places.length) {
+    state.results = data.places.slice(0, 20).map((place, index) => buildCandidateFromPlace(place, index, state.area, state.genre));
+    state.searchError = "";
+  } else {
+    state.results = [];
+    state.searchError =
+      data.error === "GOOGLE_PLACES_API_KEY is not configured"
+        ? "Google Places APIキーが未設定です。Vercelの環境変数 GOOGLE_PLACES_API_KEY を設定してください。"
+        : data.error || "実在候補を取得できませんでした。";
+  }
+
   render();
 }
 
@@ -296,6 +392,8 @@ async function generateMapsResult() {
 
   state.mode = "maps";
   state.isLookupLoading = true;
+  state.searchError = "";
+  state.copyStatus = "";
   render();
 
   const urlPlaceData = extractMapsPlaceData(mapsUrl);
@@ -385,6 +483,7 @@ function buildDraftSpot(candidate) {
     station: "",
     walk: "",
     image: candidate.photoUrl || "",
+    placeId: candidate.placeId || "",
     type,
     genre: type,
     tags: candidate.tags,
@@ -463,6 +562,7 @@ function renderCandidate(candidate, index) {
       <dl class="candidateMeta">
         <div><dt>評価 / 口コミ</dt><dd>${candidate.rating ? `${candidate.rating} / ${candidate.reviewCount}件` : "確認中"}</dd></div>
         <div><dt>営業時間</dt><dd>${escapeHtml(candidate.hours)}</dd></div>
+        <div><dt>placeId</dt><dd>${escapeHtml(candidate.placeId || "確認中")}</dd></div>
         <div><dt>ジャンル推定</dt><dd>${escapeHtml(candidate.genreGuess)}</dd></div>
         <div><dt>タグ候補</dt><dd>${candidate.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</dd></div>
         <div><dt>メニュー要約</dt><dd>${menuSummary || "確認中"}</dd></div>
@@ -499,9 +599,13 @@ function renderDecisionButton(id, decision, label) {
 
 function render() {
   const root = document.getElementById("studio-root");
-  const adopted = Object.values(state.decisions).filter((value) => value === "採用").length;
-  const pending = Object.values(state.decisions).filter((value) => value === "保留").length;
-  const rejected = Object.values(state.decisions).filter((value) => value === "不採用").length;
+  const activeResultIds = new Set(state.results.map((candidate) => candidate.id));
+  const activeDecisions = Object.entries(state.decisions)
+    .filter(([id]) => activeResultIds.has(id))
+    .map(([, value]) => value);
+  const adopted = activeDecisions.filter((value) => value === "採用").length;
+  const pending = activeDecisions.filter((value) => value === "保留").length;
+  const rejected = activeDecisions.filter((value) => value === "不採用").length;
   const headline = state.mode === "maps" ? "Google Maps URL" : `${state.area} × ${state.genre}`;
 
   root.innerHTML = `
@@ -526,7 +630,7 @@ function render() {
           <span>ジャンル</span>
           <select id="genreSelect">${renderOptions(genreOptions, state.genre)}</select>
         </label>
-        <button id="researchButton" type="button">20件リサーチ</button>
+        <button id="researchButton" type="button">${state.isSearchLoading ? "検索中..." : "20件リサーチ"}</button>
       </section>
 
       <section class="criteriaPanel" aria-label="掲載基準">
@@ -554,8 +658,12 @@ function render() {
 
       <main class="candidateList">
         ${
-          state.isLookupLoading
+          state.isSearchLoading
+            ? `<div class="emptyState">Google Placesから実在候補を検索しています。</div>`
+            : state.isLookupLoading
             ? `<div class="emptyState">Google Maps URLから店舗情報を取得しています。</div>`
+            : state.searchError
+              ? `<div class="emptyState">${escapeHtml(state.searchError)}</div>`
             : state.results.length
               ? state.results.map(renderCandidate).join("")
               : `<div class="emptyState">Google Maps URLを入力するか、エリア × ジャンルで検索してください。</div>`
@@ -584,7 +692,7 @@ document.addEventListener("change", (event) => {
 
 document.addEventListener("click", (event) => {
   if (event.target.id === "researchButton") {
-    generateQueryResults();
+    void generateQueryResults();
     return;
   }
 

@@ -47,3 +47,8 @@ GA4 は `src/analytics.js` で初期化しています。
 Vercel の Production 環境変数に `VITE_GA_MEASUREMENT_ID` を追加し、値に GA4 の Measurement ID（例: `G-XXXXXXXXXX`）を設定してください。
 設定後に再デプロイすると、GA4 のリアルタイムレポートで計測を確認できます。
 ローカルで試す場合は `.env.example` を参考に `.env.local` を作成してください。
+
+## SIP Studio の実店舗検索
+
+`studio.html` のエリア × ジャンル検索は、Vercel の環境変数 `GOOGLE_PLACES_API_KEY` が設定されている場合に Google Places API から実在候補を取得します。
+未設定の場合は、Studio画面にAPIキー設定が必要な旨が表示されます。
