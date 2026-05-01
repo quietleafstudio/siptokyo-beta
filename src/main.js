@@ -108,6 +108,9 @@ function normalizeImagePath(image) {
   if (image.startsWith("http://") || image.startsWith("https://")) {
     return image;
   }
+  if (image.startsWith("/api/")) {
+    return image;
+  }
   const imageName = image.replace(/^\/?(public\/)?images\//, "");
   return publicAssetPath(`images/${imageName}`);
 }
