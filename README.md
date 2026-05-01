@@ -52,3 +52,4 @@ Vercel の Production 環境変数に `VITE_GA_MEASUREMENT_ID` を追加し、�
 
 `studio.html` のエリア × ジャンル検索は、Vercel の環境変数 `GOOGLE_PLACES_API_KEY` が設定されている場合に Google Places API から実在候補を取得します。
 未設定の場合は、Studio画面にAPIキー設定が必要な旨が表示されます。
+検索結果はエリア中心から約3km以内に絞り込み、`public/spots.json` 登録済み店舗は placeId または 店名+住所 で除外します。

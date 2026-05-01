@@ -161,6 +161,15 @@ input {
   font-size: 23px;
 }
 
+.searchMeta {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.5;
+}
+
 .decisionStats {
   display: grid;
   gap: 4px;

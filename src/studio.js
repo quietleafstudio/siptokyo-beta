@@ -22,6 +22,7 @@ const state = {
   isLookupLoading: false,
   isSearchLoading: false,
   searchError: "",
+  searchMeta: null,
   copyStatus: "",
 };
 
@@ -367,6 +368,7 @@ async function generateQueryResults() {
 
   const data = await searchPlaces(state.area, state.genre);
   state.isSearchLoading = false;
+  state.searchMeta = data.meta || null;
 
   if (Array.isArray(data.places) && data.places.length) {
     state.results = data.places.slice(0, 20).map((place, index) => buildCandidateFromPlace(place, index, state.area, state.genre));
@@ -393,6 +395,7 @@ async function generateMapsResult() {
   state.mode = "maps";
   state.isLookupLoading = true;
   state.searchError = "";
+  state.searchMeta = null;
   state.copyStatus = "";
   render();
 
@@ -607,6 +610,9 @@ function render() {
   const pending = activeDecisions.filter((value) => value === "保留").length;
   const rejected = activeDecisions.filter((value) => value === "不採用").length;
   const headline = state.mode === "maps" ? "Google Maps URL" : `${state.area} × ${state.genre}`;
+  const searchMetaText = state.searchMeta
+    ? `${state.searchMeta.returnedCount || 0}件取得 / 登録済み${state.searchMeta.registeredExcluded || 0}件除外 / エリア外${state.searchMeta.areaExcluded || 0}件除外`
+    : "";
 
   root.innerHTML = `
     <div class="studioShell">
@@ -648,6 +654,7 @@ function render() {
         <div>
           <p>${escapeHtml(headline)}</p>
           <h2>${state.results.length} candidates</h2>
+          ${searchMetaText ? `<span class="searchMeta">${escapeHtml(searchMetaText)}</span>` : ""}
         </div>
         <div class="decisionStats">
           <span>採用 ${adopted}</span>
