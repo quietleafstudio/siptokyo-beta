@@ -522,5 +522,245 @@
       "handle": "",
       "placeId": ""
     }
+  },
+  {
+    "id": "saryo-itoen",
+    "name": "saryo ITOEN 茶寮伊藤園 京王新宿店",
+    "area": "新宿",
+    "address": "京王百貨店新宿店 2f, １丁目-１-4 西新宿 新宿区 東京都 160-0023",
+    "placeId": "ChIJXT8N94uNGGARHJkekcoPc1w",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "人の流れのそばで、静かにひと息つける場所。",
+    "note": "抹茶のやわらかな香りが、忙しい気持ちをそっとほどいてくれる。\n行き交う街の中にありながら、自分の時間へ静かに戻れる一杯。",
+    "station": "",
+    "walk": "",
+    "image": "",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJXT8N94uNGGARHJkekcoPc1w&query=saryo%20ITOEN%20%E8%8C%B6%E5%AF%AE%E4%BC%8A%E8%97%A4%E5%9C%92%20%E4%BA%AC%E7%8E%8B%E6%96%B0%E5%AE%BF%E5%BA%97",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJXT8N94uNGGARHJkekcoPc1w&query=saryo%20ITOEN%20%E8%8C%B6%E5%AF%AE%E4%BC%8A%E8%97%A4%E5%9C%92%20%E4%BA%AC%E7%8E%8B%E6%96%B0%E5%AE%BF%E5%BA%97",
+    "officialUrl": "",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [],
+    "priceRange": "",
+    "searchTags": [
+      "新宿",
+      "saryo ITOEN 茶寮伊藤園 京王新宿店",
+      "抹茶 / お茶候補",
+      "抹茶",
+      "日本茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "cautionNote": "公式情報・単品利用・混雑状況は確認中。",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "the-matcha-tokyo",
+    "name": "THE MATCHA TOKYO 新宿",
+    "area": "新宿",
+    "address": "〒160-0022 東京都新宿区新宿４丁目１−６ NEWoMan新宿 1F",
+    "placeId": "ChIJRwev07aNGGARNN7CwVGGIkg",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "まっすぐな抹茶の香りが、気分を整えてくれる。",
+    "note": "ひと口ごとに、抹茶の輪郭がすっと澄んで広がっていく。\n街の速さの中で、呼吸をひとつ深くしたくなる場所。",
+    "station": "",
+    "walk": "",
+    "image": "",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJRwev07aNGGARNN7CwVGGIkg&query=THE%20MATCHA%20TOKYO%20%E6%96%B0%E5%AE%BF",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJRwev07aNGGARNN7CwVGGIkg&query=THE%20MATCHA%20TOKYO%20%E6%96%B0%E5%AE%BF",
+    "officialUrl": "",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [],
+    "priceRange": "",
+    "searchTags": [
+      "新宿",
+      "THE MATCHA TOKYO 新宿",
+      "抹茶 / お茶候補",
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "cautionNote": "公式情報・単品利用・混雑状況は確認中。",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "matcha-cafe",
+    "name": "抹チョ MATCHA CAFE",
+    "area": "新宿",
+    "address": "〒160-0022 東京都新宿区新宿２丁目１５−８ 川本ビル １F",
+    "placeId": "ChIJW_iLHKmNGGARuAN5iKaEbOE",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "路地の奥に、小さな静けさが待っている。",
+    "note": "抹茶のほろ苦さとやさしい甘みが、ゆっくりと心に馴染んでいく。\n少しだけ遠回りしてでも立ち寄りたくなる、静かな寄り道。",
+    "station": "",
+    "walk": "",
+    "image": "",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJW_iLHKmNGGARuAN5iKaEbOE&query=%E6%8A%B9%E3%83%81%E3%83%A7%20MATCHA%20CAFE",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJW_iLHKmNGGARuAN5iKaEbOE&query=%E6%8A%B9%E3%83%81%E3%83%A7%20MATCHA%20CAFE",
+    "officialUrl": "",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [],
+    "priceRange": "",
+    "searchTags": [
+      "新宿",
+      "抹チョ MATCHA CAFE",
+      "抹茶 / お茶候補",
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "cautionNote": "公式情報・単品利用・混雑状況は確認中。",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-owaavs",
+    "name": "京都 茶寮翠泉 新宿店",
+    "area": "新宿",
+    "address": "〒163-0201 東京都新宿区西新宿２丁目６−１",
+    "placeId": "ChIJueafKiGNGGARMbMu-GXgdRg",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "濃い抹茶の余韻が、静かに長く残る。",
+    "note": "深みのある一杯が、気持ちのざわめきをゆっくり整えてくれる。\n高層の街の足もとで、心だけがふっと静かになる。",
+    "station": "",
+    "walk": "",
+    "image": "",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJueafKiGNGGARMbMu-GXgdRg&query=%E4%BA%AC%E9%83%BD%20%E8%8C%B6%E5%AF%AE%E7%BF%A0%E6%B3%89%20%E6%96%B0%E5%AE%BF%E5%BA%97",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJueafKiGNGGARMbMu-GXgdRg&query=%E4%BA%AC%E9%83%BD%20%E8%8C%B6%E5%AF%AE%E7%BF%A0%E6%B3%89%20%E6%96%B0%E5%AE%BF%E5%BA%97",
+    "officialUrl": "",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [],
+    "priceRange": "",
+    "searchTags": [
+      "新宿",
+      "京都 茶寮翠泉 新宿店",
+      "抹茶 / お茶候補",
+      "抹茶",
+      "日本茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "cautionNote": "公式情報・単品利用・混雑状況は確認中。",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-1uvezc7",
+    "name": "京はやしや タカシマヤ タイムズスクエア店",
+    "area": "新宿",
+    "address": "〒151-0051 東京都渋谷区千駄ケ谷５丁目２４−２",
+    "placeId": "ChIJt6SGdMWMGGAR86BmyxCDHBI",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "和モダン",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "やわらかな甘みの奥に、凛とした静けさがある。",
+    "note": "抹茶の香りと和の余韻が、ゆっくりと空気を落ち着かせていく。\n景色の広がる場所で味わう一杯は、いつもの時間を少し特別にしてくれる。",
+    "station": "",
+    "walk": "",
+    "image": "",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJt6SGdMWMGGAR86BmyxCDHBI&query=%E4%BA%AC%E3%81%AF%E3%82%84%E3%81%97%E3%82%84%20%E3%82%BF%E3%82%AB%E3%82%B7%E3%83%9E%E3%83%A4%20%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%82%B9%E3%82%AF%E3%82%A8%E3%82%A2%E5%BA%97",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJt6SGdMWMGGAR86BmyxCDHBI&query=%E4%BA%AC%E3%81%AF%E3%82%84%E3%81%97%E3%82%84%20%E3%82%BF%E3%82%AB%E3%82%B7%E3%83%9E%E3%83%A4%20%E3%82%BF%E3%82%A4%E3%83%A0%E3%82%BA%E3%82%B9%E3%82%AF%E3%82%A8%E3%82%A2%E5%BA%97",
+    "officialUrl": "",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [],
+    "priceRange": "",
+    "searchTags": [
+      "新宿",
+      "京はやしや タカシマヤ タイムズスクエア店",
+      "抹茶 / お茶候補",
+      "抹茶",
+      "和モダン",
+      "会話向け",
+      "一人時間"
+    ],
+    "cautionNote": "公式情報・単品利用・混雑状況は確認中。",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "nigicha",
+    "name": "抹茶とおにぎりのカフェ NIGICHA（にぎちゃ）新宿御苑前店",
+    "area": "新宿",
+    "address": "〒160-0022 東京都新宿区新宿１丁目３−８",
+    "placeId": "ChIJp0DHhFONGGAR0iO2rM2kqA4",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "素朴なおいしさに、気持ちまでほっとほどける。",
+    "note": "抹茶のやさしい香りと、肩の力を抜けるような空気が心地いい。\n飾らない時間の中で、静かに満たされる休憩になる。",
+    "station": "",
+    "walk": "",
+    "image": "",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJp0DHhFONGGAR0iO2rM2kqA4&query=%E6%8A%B9%E8%8C%B6%E3%81%A8%E3%81%8A%E3%81%AB%E3%81%8E%E3%82%8A%E3%81%AE%E3%82%AB%E3%83%95%E3%82%A7%20NIGICHA%EF%BC%88%E3%81%AB%E3%81%8E%E3%81%A1%E3%82%83%EF%BC%89%E6%96%B0%E5%AE%BF%E5%BE%A1%E8%8B%91%E5%89%8D%E5%BA%97",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJp0DHhFONGGAR0iO2rM2kqA4&query=%E6%8A%B9%E8%8C%B6%E3%81%A8%E3%81%8A%E3%81%AB%E3%81%8E%E3%82%8A%E3%81%AE%E3%82%AB%E3%83%95%E3%82%A7%20NIGICHA%EF%BC%88%E3%81%AB%E3%81%8E%E3%81%A1%E3%82%83%EF%BC%89%E6%96%B0%E5%AE%BF%E5%BE%A1%E8%8B%91%E5%89%8D%E5%BA%97",
+    "officialUrl": "",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [],
+    "priceRange": "",
+    "searchTags": [
+      "新宿",
+      "抹茶とおにぎりのカフェ NIGICHA（にぎちゃ）新宿御苑前店",
+      "抹茶 / お茶候補",
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "cautionNote": "公式情報・単品利用・混雑状況は確認中。",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
   }
 ]
