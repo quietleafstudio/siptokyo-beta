@@ -254,6 +254,83 @@ function buildMemoDraft(candidate) {
   return "街の流れから少し離れて、お茶の香りにひと息つく。\nふらりと立ち寄りたくなる、やさしい休憩の候補。";
 }
 
+function buildCommentDraft(candidate) {
+  const tags = candidate.tags || [];
+  const genre = candidate.genreQuery || "";
+  const score = candidate.score || {};
+  const sourceText = [candidate.name, candidate.area, genre, ...tags].join("|");
+  const seed = Number.parseInt(hashString(sourceText).slice(0, 6), 36) || 0;
+  const has = (tag) => tags.includes(tag);
+  const highWorldview = Number(score.worldview || 0) >= 6;
+  const highQuiet = Number(score.talkQuietFit || 0) >= 8;
+  const highSpace = Number(score.spaceComfort || 0) >= 12;
+  let options = [];
+
+  if (has("古民家")) {
+    options = [
+      "木の気配に包まれる、静かな茶の時間。",
+      "懐かしい空気に、お茶の香りが重なる。",
+      "畳の余白で、心までゆっくりほどける。",
+    ];
+  } else if (has("異国感") || has("中国茶")) {
+    options = [
+      "少し旅する気分で、お茶に深く浸りたい。",
+      "異国の香りがふわりと残る、静かな一杯。",
+      "湯気の向こうに、遠い街の気配が揺れる。",
+    ];
+  } else if (has("洗練") || highWorldview) {
+    options = [
+      "背筋をふっと伸ばしたくなる、凛とした一杯。",
+      "都会の余白に似合う、澄んだお茶時間。",
+      "きれいな空気ごと味わいたい、上品な一席。",
+    ];
+  } else if (has("静か") || highQuiet) {
+    options = [
+      "静かな余白に、気持ちまでゆっくりほどける。",
+      "音を少し遠ざけて、お茶に心を預けたい。",
+      "ひと息の奥に、静けさがやさしく残る。",
+    ];
+  } else if (has("抹茶")) {
+    options = [
+      "抹茶の緑に、心がすっと落ち着いていく。",
+      "ほろ苦い余韻で、午後をやさしく整える。",
+      "深い緑の一杯に、少しだけ立ち止まりたい。",
+    ];
+  } else if (has("日本茶")) {
+    options = [
+      "茶葉の香りに、気分が静かに整っていく。",
+      "湯気の向こうで、街の時間がゆるんでいく。",
+      "まっすぐなお茶の香りで、ひと息つける。",
+    ];
+  } else if (has("会話向け")) {
+    options = [
+      "会話の合間にも、お茶の香りがやさしく残る。",
+      "誰かと過ごす午後に、そっと寄り添う一杯。",
+      "明るい空気の中で、肩の力を抜いて過ごせる。",
+    ];
+  } else if (has("一人時間")) {
+    options = [
+      "ひとりの時間に、そっと余韻を足してくれる。",
+      "短い休憩にも、静かな気配が残る一杯。",
+      "自分の呼吸に戻れる、やさしいお茶時間。",
+    ];
+  } else if (highSpace) {
+    options = [
+      "空間の心地よさまで味わいたくなる一席。",
+      "ゆったりした空気に、お茶の香りがなじむ。",
+      "席に着いた瞬間、少し長居したくなる。",
+    ];
+  } else {
+    options = [
+      "街の途中で、ふっとお茶に立ち寄りたい。",
+      "小さな休憩に、やさしい香りを添えてくれる。",
+      "今日の気分に、静かな一杯を選びたい。",
+    ];
+  }
+
+  return pick(options, seed);
+}
+
 function buildCandidate(index, area, genre, overrides = {}) {
   const styles = ["茶房", "ティーサロン", "和カフェ", "茶寮", "ティースタンド", "喫茶室"];
   const streets = ["1-3-8", "2-12-4", "3-6-11", "4-9-2", "5-18-7"];
@@ -293,6 +370,7 @@ function buildCandidate(index, area, genre, overrides = {}) {
     tags: overrides.tags || fallbackTags,
     score,
     totalScore: Object.values(score).reduce((sum, value) => sum + value, 0),
+    commentDraft: overrides.commentDraft || buildCommentDraft({ name, area, genreQuery: genre, tags: overrides.tags || fallbackTags, score }),
     memoDraft: overrides.memoDraft || buildMemoDraft({ tags: overrides.tags || fallbackTags }),
     menuSummary: overrides.menuSummary || inferMenuSummary(genre, index),
     priceRange: overrides.priceRange || pick(["1,000円台", "1,500-2,500円", "価格確認中"], index),
@@ -365,6 +443,7 @@ function buildCandidateFromPlace(place, index, area, genre) {
     genreGuess: `${genre} / お茶候補`,
     tags,
     score,
+    commentDraft: buildCommentDraft({ ...place, genreQuery: genre, tags, score }),
     memoDraft,
     sourceProvider: "google-places",
     sourceMode: "areaGenre",
@@ -505,7 +584,7 @@ function buildDraftSpot(candidate) {
     type,
     genre: type,
     tags: candidate.tags,
-    comment: `${candidate.genreQuery}でひと息つきたい日の候補。`,
+    comment: candidate.commentDraft || buildCommentDraft(candidate),
     mapUrl,
     mapsUrl: mapUrl,
     officialUrl: candidate.officialUrl || "",
