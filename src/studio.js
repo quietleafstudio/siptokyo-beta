@@ -207,6 +207,8 @@ function inferTeaTags(candidate) {
     ["静か", /静か|落ち着|隠れ家|茶室|庭|余白/i],
     ["会話向け", /カフェ|cafe|サロン|ラウンジ|広々|テーブル/i],
     ["一人時間", /茶房|茶寮|カウンター|静か|一人|ひとり/i],
+    ["異国感", /台湾|中国茶|薬膳|タイ|ハーブ|烏龍|普洱|プーアル|chai|spice|oriental/i],
+    ["洗練", /表参道|銀座|青山|サロン|ラウンジ|ホテル|teahouse|tea house|洗練|上質/i],
   ];
 
   const inferred = tagRules.filter(([, pattern]) => pattern.test(text)).map(([tag]) => tag);
@@ -215,30 +217,45 @@ function inferTeaTags(candidate) {
 
 function buildMemoDraft(candidate) {
   const tags = candidate.tags || [];
-  const ratingText = candidate.rating ? `評価${candidate.rating}の` : "";
+  const has = (tag) => tags.includes(tag);
 
-  if (tags.includes("古民家")) {
-    return `${ratingText}古民家の余韻とお茶を味わえる休憩候補。`;
+  if (has("古民家")) {
+    return "木の気配が残る空間で、お茶の香りをゆっくり味わう。\n時間までやわらかくほどける、静かな休憩になりそう。";
   }
 
-  if (tags.includes("ハーブ")) {
-    return `${ratingText}香りのお茶で気分をほどきたい日の候補。`;
+  if (has("異国感") || has("中国茶")) {
+    return "異国の香りを少しだけまとった、奥行きのある一杯。\n日常の外側へふっと出られる、お茶時間になりそう。";
   }
 
-  if (tags.includes("抹茶")) {
-    return `${ratingText}抹茶でひと息つけそうなお茶時間候補。`;
+  if (has("洗練")) {
+    return "すっきり整った空間で、背筋まで軽く伸びる一杯を。\n都会の途中に置いておきたい、上品なお茶時間。";
   }
 
-  if (tags.includes("会話向け")) {
-    return `${ratingText}友人とお茶を囲み会話しやすそうな候補。`;
+  if (has("静か") && has("一人時間")) {
+    return "静かな午後に、丁寧な一杯をひとりで味わいたい。\n気持ちまでふっと整う、余白のあるお茶時間。";
   }
 
-  return `${ratingText}お茶を主役に短い休憩にも使いやすそうな候補。`;
+  if (has("抹茶")) {
+    return "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。";
+  }
+
+  if (has("日本茶")) {
+    return "湯気の向こうに、日本茶の静かな香りが立ちのぼる。\n急がない気分で訪れたい、落ち着いた一杯の場所。";
+  }
+
+  if (has("会話向け")) {
+    return "お茶を囲んで、言葉が自然にほどけていく時間。\n誰かとゆっくり過ごしたい日に選びたくなる。";
+  }
+
+  if (has("一人時間")) {
+    return "ひとりで座って、呼吸を少し深く戻したい。\n短い休憩にも余韻が残る、お茶のための場所。";
+  }
+
+  return "街の流れから少し離れて、お茶の香りにひと息つく。\nふらりと立ち寄りたくなる、やさしい休憩の候補。";
 }
 
 function buildCandidate(index, area, genre, overrides = {}) {
   const styles = ["茶房", "ティーサロン", "和カフェ", "茶寮", "ティースタンド", "喫茶室"];
-  const moods = ["静かな", "余白のある", "会話しやすい", "ひと息つける", "明るい", "落ち着いた"];
   const streets = ["1-3-8", "2-12-4", "3-6-11", "4-9-2", "5-18-7"];
   const name = overrides.name || `${area}${pick(styles, index)} ${pick(["葉音", "香月", "翠日", "茶々", "雨庭"], index)} ${index + 1}`;
   const id = `${slug(area)}-${slug(genre)}-${index + 1}`;
@@ -276,9 +293,7 @@ function buildCandidate(index, area, genre, overrides = {}) {
     tags: overrides.tags || fallbackTags,
     score,
     totalScore: Object.values(score).reduce((sum, value) => sum + value, 0),
-    memoDraft:
-      overrides.memoDraft ||
-      `${pick(moods, index)}${area}の${genre}候補。お茶を主役にした利用ができそうか、イートイン席と単品注文の可否を確認したい。`,
+    memoDraft: overrides.memoDraft || buildMemoDraft({ tags: overrides.tags || fallbackTags }),
     menuSummary: overrides.menuSummary || inferMenuSummary(genre, index),
     priceRange: overrides.priceRange || pick(["1,000円台", "1,500-2,500円", "価格確認中"], index),
     riskFlags: overrides.riskFlags || (index % 5 === 0 ? ["コース中心の可能性", "単品利用要確認"] : []),
