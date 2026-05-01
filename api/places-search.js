@@ -48,6 +48,7 @@ async function readRegisteredSpots() {
 function buildRegisteredIndex(spots) {
   return {
     placeIds: new Set(spots.map(spotPlaceId).filter(Boolean)),
+    nameKeys: new Set(spots.map((spot) => normalizeKey(spot.name)).filter(Boolean)),
     nameAddressKeys: new Set(spots.map((spot) => `${normalizeKey(spot.name)}|${normalizeKey(spot.address)}`).filter((key) => key !== "|")),
   };
 }
@@ -60,7 +61,8 @@ function isRegisteredPlace(place, registeredIndex) {
 
   const name = cleanText(place.displayName?.text || "");
   const address = cleanText(place.formattedAddress || "");
-  return registeredIndex.nameAddressKeys.has(`${normalizeKey(name)}|${normalizeKey(address)}`);
+  const nameKey = normalizeKey(name);
+  return registeredIndex.nameKeys.has(nameKey) || registeredIndex.nameAddressKeys.has(`${nameKey}|${normalizeKey(address)}`);
 }
 
 function degreesForMeters(meters, latitude) {
