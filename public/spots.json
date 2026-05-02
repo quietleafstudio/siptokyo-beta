@@ -762,5 +762,425 @@
       "handle": "",
       "placeId": ""
     }
+  },
+  {
+    "id": "spot-f8fx29",
+    "name": "神楽坂茶寮 渋谷スクランブルスクエア店",
+    "area": "渋谷",
+    "address": "〒150-6114 東京都渋谷区渋谷２丁目２４−１２ スクランブルスクエア １４Ｆ",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJZzdOaW6LGGARUAd8GeeeTJg%2Fphotos%2FAb43m-sbScJUTWajqBCovRu0KlE62B_3GgJNWf79oGbvAI047Z0f_UvGKj1UFRbkjusNArv6y7N4NEdwANgNTvw7GCSUK1LIOGz62ddJard5SnK18ugswydkABTKTcpGpyfWbVK2geEE4mtCCkOuVWvJ88CS3xeYFEXtnCjrkerzG7nJoN9eoVd4zpjn2IXEz84XAaYhYnrPXIUSsEq-DxDW71-8vofM5bANIUSiBUS4-6rrnMRCNAwYBooX1UzbjjMy8lliDdyqHvS4jMfAQ9BG7Dsgv3hEPiXakAs7DfxUW-zTbg",
+    "placeId": "ChIJZzdOaW6LGGARUAd8GeeeTJg",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "眺め",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "渋谷の空を眺めながら、静かにお茶へ戻れる場所。",
+    "mapUrl": "https://maps.google.com/?cid=10974321107397248848&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=10974321107397248848&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "http://saryo.jp/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "単品のお茶あり"
+    ],
+    "priceRange": "1,500-2,500円",
+    "note": "高層階の明るさが、街のざわめきを少しだけ遠くしてくれる。\n抹茶や日本茶を選びながら、渋谷の中でひと息つける場所。",
+    "searchTags": [
+      "渋谷",
+      "抹茶",
+      "日本茶",
+      "神楽坂茶寮 渋谷スクランブルスクエア店"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "the-matcha-tokyo-miyashita-park",
+    "name": "The Matcha Tokyo Miyashita Park",
+    "area": "渋谷",
+    "address": "〒150-0001 東京都渋谷区神宮前６丁目２０−１０ South 2F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJD9MoTLmNGGARkDxz7v9ubxg%2Fphotos%2FAb43m-sbHVbNzcfmoyyWnbzjb-MNH6vk92tSKT1X1I3jAEojQUhifhmSuKbXLm6aLpwwYMeuexiZFEsZqZa8YXmTZ5nlaEZtg1d3NriwE8h2LirLxkutdf0O-7sB-V-B0UeO5hWSECLA4qRzPuwNx-WWi5wBZsqSMWVF2gzEOJT77cEKJMz18-UpppFJV2xiV6DK7jMItk6ldv76Vz5WnsQ83gDDzBHt5dc5HhYpoCZuIFlhSTnWZwgUkj6ZbxpMwsNI33t-5HzjCzKHuoX1WKfE-9yfWsXGG0KxzwTrrCJKGy2CRdKYOtw49u6-WnOVH2JLVqvwZtQU5GRkgYWMX_-gYl61fixXCnvQVXANUdERg-3YRnV-um6cHFcajD-5B5qTYn09QZ65dWtcxs4vom1tHKh1tOViY8SjvOXuy_-huHY",
+    "placeId": "ChIJD9MoTLmNGGARkDxz7v9ubxg",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "洗練",
+      "一人時間",
+      "会話向け"
+    ],
+    "comment": "街の流れの中で、抹茶の輪郭がすっと立ち上がる。",
+    "mapUrl": "https://maps.google.com/?cid=1760748024821398672&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=1760748024821398672&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.the-matcha.tokyo/pages/cafe",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "予約推奨"
+    ],
+    "priceRange": "価格確認中",
+    "note": "まっすぐな抹茶の香りが、渋谷の速度を少しだけ整えてくれる。\n買い物や散歩の途中に、気分を澄ませる一杯を選べそう。",
+    "searchTags": [
+      "渋谷",
+      "抹茶",
+      "The Matcha Tokyo Miyashita Park"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-1l6v7mi",
+    "name": "京都 茶寮翠泉 渋谷パルコ店",
+    "area": "渋谷",
+    "address": "〒150-0042 東京都渋谷区宇田川町１５−１ 渋谷パルコ・ヒューリックビル 渋谷PARCO カオスキッチン B1階",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJn3oDPpKNGGARjCxkqfaF9Js%2Fphotos%2FAb43m-sb5txpCzAi_XyxurJUgnqQk2nRzOooYBbgYKajfrixsOx91UALbcqC7hpuKsfKFlsXBEQeOoVnnUHs-QNYA6e-DaYa41xKYwRQRQSxMtVJUV4DmQSuNSXmltlFtTnobZGwvdMPe9Z6gm540WkQg1a3BtGcyTlgIbokc1bkdVVcyLBK4VZWdTEigiU5a_H2vd_qdLSgs9QmfzAKJS9XXcFDp6W-w2ATBWFpFPNO0NU4uMv51MhMIQfOSRAZVOIuJUwyYeU_PuSDeMFlUTuXJi7Aa2dUsbEiV4BvcGutMSQgXB7oyBPA48pfESrOqNEc1V6Sr1Tft7--CRD77gfCc0r5ufpbUAlzBrln9Yps0J0ymWvH7UHgScQsEWjSA3mS6A594heQcFmMUuoB_BxrU0g-43fsa2VMb9qEJU6Rlua2d69a",
+    "placeId": "ChIJn3oDPpKNGGARjCxkqfaF9Js",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "甘味",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "にぎやかな場所の奥で、濃い抹茶にほっとする。",
+    "mapUrl": "https://maps.google.com/?cid=11237754264646593676&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=11237754264646593676&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://saryo-suisen.com/shop/shibuya/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "最低注文金額確認"
+    ],
+    "priceRange": "1,000円台",
+    "note": "渋谷PARCOの中にありながら、抹茶の深みが気持ちをゆっくり落ち着かせてくれる。\n甘味と一緒に過ごす時間が、街歩きの小さな休憩になりそう。",
+    "searchTags": [
+      "渋谷",
+      "抹茶",
+      "日本茶",
+      "京都 茶寮翠泉 渋谷パルコ店"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "te-hong",
+    "name": "茶葉販売 Te Hong 東京",
+    "area": "表参道",
+    "address": "〒107-0062 東京都港区南青山６丁目２−２",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJ86ZaNGGLGGARCXzWWK49i-M%2Fphotos%2FAb43m-tQH3NbJg8kAwi3GDw0eMpUSGLCcax8u5deTfbF1RY7fVIjuYH2XsgiNsrHqg69WP6fxiKkoGeCTX87tURYZfVLojS_Xd3WU8AuHtELN45QjUE9atX3tQxvbYglm6ilPufdtQFcuVM1rbqCFq0WRzKU4DZqn-my2qs7eTsioBIZPSSNdiXk-0iUrENMk1Mg3zcEdywA0Qwpz-MRMrDuc17Vmnd516HQsR5w85P3xGKiu2L6jGU4pdHYihgp4ao_iy7A6yWo98n3Usuw05ecB6UZzdwHWxunWP6GRCQweyi5yca-rKGhmibZ6esuTA6eECF1gVLH1Noniq3Z7b1497V6HNMhT_IWmVm9cFpU9F1fT6mYPsUHhETAOIrFkMCNBccUsY4RYOD9d3srKJbCTjsxuVqRlIpQsVp47hWCLosELRxr-Yy6zNtBOC60Y670",
+    "placeId": "ChIJ86ZaNGGLGGARCXzWWK49i-M",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "お茶",
+      "茶葉",
+      "洗練",
+      "一人時間",
+      "会話向け"
+    ],
+    "comment": "茶葉を選ぶ時間まで、静かに楽しくなる。",
+    "mapUrl": "https://maps.google.com/?cid=16396266687396477961&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=16396266687396477961&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "http://www.te-hong.net/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,500-2,500円",
+    "note": "南青山の落ち着いた空気の中で、お茶そのものに向き合える場所。\n茶葉を眺める時間まで含めて、静かな楽しみになりそう。",
+    "searchTags": [
+      "表参道",
+      "南青山",
+      "お茶",
+      "茶葉",
+      "茶葉販売 Te Hong 東京"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-mkw8ra",
+    "name": "京都宇治 藤井茗縁",
+    "area": "渋谷",
+    "address": "〒150-0043 東京都渋谷区道玄坂１丁目２−３ 渋谷フクラス 6F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJ2Wkb232LGGARB3j75I84VCg%2Fphotos%2FAb43m-s31kvjCgsCtcJEU88dlDcMVNVqNG54VBShgZx_KCnJ5M06oMP9RH7Y7RUykUjbzt8hF894cOHLqSy6AIZtFcrKr177Q_b2nzInEx0Qin24RCZCAmVaYhHF4IpOMOrqgw3_Zqqs-hqXeOIJUCNVX70Yg-_njUTZZDnAdfVPWm2ao70KR7hylS93s2iY5LISABtvsjNAutg4xolh9Ss3pv_S15z6i6HSrULBa5JFgUh6kemXir5WFPZZX84EjRZkxfw9_0jR6Yif9LwYS_PBxwvSqkkef90nWkU-uONLCHUPTA",
+    "placeId": "ChIJ2Wkb232LGGARB3j75I84VCg",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "和モダン",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "渋谷駅のそばで、宇治茶の余韻にひと息つく。",
+    "mapUrl": "https://maps.google.com/?cid=2906009850233976839&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=2906009850233976839&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.dd-holdings.jp/shops/fujii_meien/shibuya#/?utm_source=mybusiness&utm_medium=google",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "単品のお茶あり"
+    ],
+    "priceRange": "価格確認中",
+    "note": "駅近の便利さの中に、宇治茶の香りがすっと落ち着きを連れてくる。\nひとりでも誰かとでも、きちんとお茶を味わう時間に戻れそう。",
+    "searchTags": [
+      "渋谷",
+      "抹茶",
+      "日本茶",
+      "京都宇治 藤井茗縁"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "itsu",
+    "name": "伍 itsu",
+    "area": "表参道",
+    "address": "〒107-0062 東京都港区南青山３丁目１４−４ 2階",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJnauCk0uNGGAROIvn4cNEjVE%2Fphotos%2FAb43m-vIq3wK0EuEDyEXEvQuM0PDlFWf_0zICD-Rv3h-4cvyvx8UvaS4dosTSvG_jPXUdlb4whlwMhoPqphLzBI86FiB-ci9kenPb36shbl9srCcLzw_HVzY3CeNc5EpOf8digvYonfpIR0dXhKN2lWq2X9yF2InMTFQA05WRDRd9BICHUkcQK0gmaGHneE74q2TdY1jC1MtJvsug3bVsbWdx-RwaY-lO5mji0RpBy_4WAGMbyWbv-2sJff8fpSR0xjqJQIyl7iMx8NS4iQRcp9bWKWF0bdTaz3Bq4Z5EPYArkDjUvI7SpEVhSDtUknMo5f_xbqasCiajeTV51tx2aX1NpZRalxsa9PXSEkrBCQVvLFeELkfG5nhin6Q8kbT2Buabmz5YGdcpcf2NR9ZIkL5Vj0uJk0dLzVZLiSL_koW2M2JmNkE",
+    "placeId": "ChIJnauCk0uNGGAROIvn4cNEjVE",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "洗練",
+      "静けさ",
+      "一人時間",
+      "会話向け"
+    ],
+    "comment": "南青山の静けさに、凛としたお茶時間が似合う。",
+    "mapUrl": "https://maps.google.com/?cid=5876428696887724856&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=5876428696887724856&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.facebook.com/itsu.omotesando/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "最低注文金額確認"
+    ],
+    "priceRange": "1,500-2,500円",
+    "note": "整った空間に身を置くと、気持ちまで少し背筋が伸びる。\n表参道の途中で、静かに整う一杯を楽しめそう。",
+    "searchTags": [
+      "表参道",
+      "南青山",
+      "抹茶",
+      "伍 itsu"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-1gy4qoy",
+    "name": "茶庭 然花抄院",
+    "area": "渋谷",
+    "address": "〒150-8509 東京都渋谷区渋谷２丁目２１−１",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJa41vTliLGGARTI0a-NRIjdI%2Fphotos%2FAb43m-tpB0O7pgF8fRNbenKyK4-8v_04cQi8TR6S83IOV76RcVfIDPBNHxmIAPMFZuv_SAVzm0NdDB2dTq9LU9flkXoqH1KLT6DeaMjwllO5uKnn_bcUatIlzE9O0MFF12Hi-7bar1eOsVkEKkkeDvelicCLZwxu-rkI043mLD49sMmFjN7Xc-ZVg5IPvQ4ft2tPqj9Qyhl0bg6fMHsxEmoyy2pyAWz9CGZcc5qvnVSMpsTIzhJF-_25SsQpNO80TNXTpw8spRWKn9Zuz864mXVNxzLpzJhb2uX72SlNpHbVmD4lrgVTSYhYP49k1u33FlFtmMfrRzBnh42AM-vvlLdttbEI-o8brdpSSq-2jDOvj0W7R-bv8Q8XEO6dIK2Q_VHkd3RzLb9kofKKzaj8iDAhbWhYG4-HhEbLpGcp-UIQCoULkEzR",
+    "placeId": "ChIJa41vTliLGGARTI0a-NRIjdI",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "和菓子",
+      "静けさ",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "和菓子とお茶が、渋谷の時間をやわらかくする。",
+    "mapUrl": "https://maps.google.com/?cid=15171862799213825356&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=15171862799213825356&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "http://www.zen-kashoin.com/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "価格確認中",
+    "note": "和菓子のやさしい甘さに、お茶の香りが静かに重なる。\n渋谷の中でも少し呼吸をゆるめたい日に、立ち寄りたくなる場所。",
+    "searchTags": [
+      "渋谷",
+      "抹茶",
+      "和菓子",
+      "茶庭 然花抄院"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-109na9x",
+    "name": "代官山茶房",
+    "area": "代官山",
+    "address": "〒150-0034 東京都渋谷区代官山町１４−１２ オカダリネンビル 2階",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJdc7f_86LGGARRFWl0bQYmjk%2Fphotos%2FAb43m-vgjkPZgvb3owwk7uE9I-Rr1hIpAOZ5eOPxv8F5Po8DnfhsrRHflHa1k5hTYzx2yfVgLSCraVCSWPTXYhV9fkm5sDCbPcUCRXURIS9D8V1_sQFlrm1eccRvbgLgFyV3v_Vo7wK9E7G_w-J-g1kK4gh3eFN5g_pN3MLcHWV4VZBUJQiWklgujbA6jVy9O3ulIdX2ApHuB83-7Ife5-T--wjwfxiLBV8tmDchAp4GVjEU3HT6uLi6Ld2UAqqA0KUzWnFF-WtDxCpPq8tk9kP6sBd3WwM4CV1dqzFbkjeEBU2kPI6j4vvtxrmB4sc49hGWTRYYhcyLzbvdO4VY4LRxODe399sGpy0Aud2QnUqvCVvR5RnG_pnnYAHgTd2U403E15pewR-7iIWXUGxvhtRTuJAhpFDQM9Pwe6-BP0jgrY_qiw",
+    "placeId": "ChIJdc7f_86LGGARRFWl0bQYmjk",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "ゆったり",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "代官山の静かな午後に似合う、やわらかなお茶時間。",
+    "mapUrl": "https://maps.google.com/?cid=4150657171465786692&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=4150657171465786692&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://daikanyamasabo.edisone.jp/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "単品のお茶あり"
+    ],
+    "priceRange": "1,000円台",
+    "note": "代官山らしい落ち着きの中で、日本茶や抹茶をゆっくり選べる。\nひとりでほっとしたい日にも、誰かと静かに話したい日にも合いそう。",
+    "searchTags": [
+      "代官山",
+      "抹茶",
+      "日本茶",
+      "代官山茶房"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-624p4c",
+    "name": "表参道 茶茶の間",
+    "area": "表参道",
+    "address": "〒150-0001 東京都渋谷区神宮前５丁目１３−１４",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJodvZT6GMGGARvRZ8zV1q4Xw%2Fphotos%2FAb43m-vkDLkw2_PB9H7TIE6pogOCcOb2ZD4VM74VaEv8vGs7qp7u7SxIZM-Yep2pW2akZ6gyqjRTu-UJi-TeZQai5ymyCc30A1T_UTFB403lShUgjlhwP-LIR3rbtlePok3DMZOo5tj3rJT-HK0L_BX9PHlEgalxNnItHQcrqsqGTtcwRP4DZjOtWQHTlPkPFNHM1rDJUYTDHyFGgnTZlJtUPkhOIkmzbpTTapCUxBi9gP8EqLkfFMMYF8JZnUKccmnzBVWLpdHpNSplieykZgyVgHnmdoeJVsXAfp1ozy1AgRCuHFr4PUFChi3da4egQcWWByfjBufALIlrindvr4ITI9iuoP_UQqkvy-r06fW_Vu0WrFMw7yUDSSmBCC7evPJCe2Qq0X9PvPKrqCZWIgoCqBku4OqKOMuKGLuB50EfDe62gw",
+    "placeId": "ChIJodvZT6GMGGARvRZ8zV1q4Xw",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "日本茶",
+      "抹茶",
+      "洗練",
+      "静けさ",
+      "一人時間"
+    ],
+    "comment": "日本茶を主役に、静かに時間を味わえる場所。",
+    "mapUrl": "https://maps.google.com/?cid=8998590481574926013&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=8998590481574926013&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "http://www.chachanoma.com/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "予約推奨"
+    ],
+    "priceRange": "1,500-2,500円",
+    "note": "表参道の小さな余白に、日本茶の香りがすっと満ちていく。\nお茶を飲むというより、お茶の時間そのものを味わいたくなる場所。",
+    "searchTags": [
+      "表参道",
+      "日本茶",
+      "抹茶",
+      "表参道 茶茶の間"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-1hr9sp3",
+    "name": "櫻井焙茶研究所",
+    "area": "表参道",
+    "address": "5F, ５丁目-６-23 南青山 港区 東京都 107-0062",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJTbLt33CLGGAR48rC9XJhbLU%2Fphotos%2FAb43m-vzG_bIe78_O_jEo9rTyzdXLqBa1OWQoSdUjIqTPj9tR0MahQ6f0IJKhJp9kbOaYg4sc-O49v7-dounq7jZpz9mDmOmplU6hiEON-6tkhsWMVTtMcuVaPgQepB2EpPr70iH9jnZ9HGnta-SEw-gRoyC7qNji-9uvTFv1nccj-ERbvDHZEimsR7yjozCtQj4VRkIRPZI_7u_0AibnN5cBqr4hskFcNURQCmKwnpvTfUzpKvoXX-g2gv1w101wPzRUp4vebjog6Ky2AikbVnzG0pAlDjFwyIUGd-0OQ4KkTKYsw",
+    "placeId": "ChIJTbLt33CLGGAR48rC9XJhbLU",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "日本茶",
+      "焙じ茶",
+      "洗練",
+      "静けさ",
+      "一人時間"
+    ],
+    "comment": "茶葉の香ばしさまで、静かに味わいたくなる。",
+    "mapUrl": "https://maps.google.com/?cid=13072930964727057123&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=13072930964727057123&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "http://www.sakurai-tea.jp/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "最低注文金額確認"
+    ],
+    "priceRange": "価格確認中",
+    "note": "研ぎ澄まされた空間に、焙じ茶や日本茶の香りが深く残る。\n静かにお茶と向き合いたい日に、少し特別な時間をくれる場所。",
+    "searchTags": [
+      "表参道",
+      "南青山",
+      "日本茶",
+      "焙じ茶",
+      "櫻井焙茶研究所"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
   }
 ]

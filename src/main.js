@@ -2,7 +2,7 @@ import { initGoogleAnalytics, trackAnalyticsEvent } from "./analytics.js";
 
 const primaryTagOrder = ["静か", "抹茶", "ハーブ", "古民家", "一人時間", "会話向け"];
 const publicBasePath = import.meta.env?.BASE_URL || "/";
-const dataVersion = "20260429-5";
+const dataVersion = "20260502-2";
 let searchRenderTimer = null;
 
 initGoogleAnalytics();
@@ -201,7 +201,7 @@ function renderSpotCard(spot) {
     ? spot.displayName.map((line) => `<span class="spotNameLine">${escapeHtml(line)}</span>`).join("")
     : escapeHtml(spot.name);
   const photo = spot.image
-    ? `<img src="${spot.image}" alt="${escapeHtml(spot.name)}の雰囲気" onerror="window.handleSipImageError(this)" />`
+    ? `<img src="${escapeHtml(spot.image)}" alt="${escapeHtml(spot.name)}の雰囲気" onerror="window.handleSipImageError(this)" />`
     : `<span>Tea place</span>`;
   const tags = spot.tags
     .slice(0, 4)
