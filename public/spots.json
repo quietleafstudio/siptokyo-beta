@@ -209,7 +209,7 @@
       "アバイブーベ カフェ",
       "オーガニックハーブティー"
     ],
-    "area": "東京",
+    "area": "新宿",
     "address": "東京都新宿区新宿3-30-13 新宿マルイ本館B1F",
     "station": "新宿三丁目駅",
     "walk": "徒歩1分",
@@ -402,7 +402,7 @@
   {
     "id": "gancha-bou",
     "name": "岩茶房",
-    "area": "表参道",
+    "area": "中目黒",
     "address": "〒153-0051 東京都目黒区上目黒３丁目１５−５ １F",
     "station": "",
     "walk": "",
@@ -444,7 +444,7 @@
   {
     "id": "tea-tatamo-komazawa",
     "name": "TEA TATAMO! 駒沢店",
-    "area": "自由が丘",
+    "area": "駒沢大学",
     "address": "〒154-0012 東京都世田谷区駒沢１丁目１７−１４ ＹＳフラッツ駒沢",
     "station": "",
     "walk": "",
@@ -1144,7 +1144,7 @@
     "id": "spot-1hr9sp3",
     "name": "櫻井焙茶研究所",
     "area": "表参道",
-    "address": "5F, ５丁目-６-23 南青山 港区 東京都 107-0062",
+    "address": "〒107-0062 東京都港区南青山５丁目６−２３ 5F",
     "station": "",
     "walk": "",
     "image": "/api/place-photo?name=places%2FChIJTbLt33CLGGAR48rC9XJhbLU%2Fphotos%2FAb43m-vzG_bIe78_O_jEo9rTyzdXLqBa1OWQoSdUjIqTPj9tR0MahQ6f0IJKhJp9kbOaYg4sc-O49v7-dounq7jZpz9mDmOmplU6hiEON-6tkhsWMVTtMcuVaPgQepB2EpPr70iH9jnZ9HGnta-SEw-gRoyC7qNji-9uvTFv1nccj-ERbvDHZEimsR7yjozCtQj4VRkIRPZI_7u_0AibnN5cBqr4hskFcNURQCmKwnpvTfUzpKvoXX-g2gv1w101wPzRUp4vebjog6Ky2AikbVnzG0pAlDjFwyIUGd-0OQ4KkTKYsw",
