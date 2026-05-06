@@ -35,7 +35,8 @@
     "instagram": {
       "handle": "",
       "placeId": ""
-    }
+    },
+    "imageFocus": "garden-view"
   },
   {
     "id": "nanas-jiyugaoka",
@@ -58,7 +59,7 @@
       "自由が丘",
       "やさしい一杯"
     ],
-    "image": "https://www.nanasgreentea.com/cdn/shop/files/A.jpg?v=1659591269",
+    "image": "https://nihonchaseikatsu.com/wp-content/uploads/2023/10/DSC_0365-860x575.jpg",
     "officialUrl": "",
     "instagramUrl": "",
     "menuUrl": "https://www.nanasgreentea.com/collections/_____menu",
@@ -69,7 +70,8 @@
     "instagram": {
       "handle": "",
       "placeId": ""
-    }
+    },
+    "imageFocus": "modern-lounge"
   },
   {
     "id": "tea-tatamo",
@@ -91,7 +93,7 @@
       "三軒茶屋",
       "畳"
     ],
-    "image": "https://cdn.demae-can.com/files/imgiw/item1280/SCz5FVCY/w_DA8a0a00001.jpg?imwidth=3840",
+    "image": "https://nihonchaseikatsu.com/wp-content/uploads/2021/11/IMG_1894-1024x768.jpg",
     "officialUrl": "",
     "instagramUrl": "",
     "menuUrl": "https://tabelog.com/tokyo/A1317/A131706/13255605/dtlmenu/drink/",
@@ -102,7 +104,8 @@
     "instagram": {
       "handle": "",
       "placeId": ""
-    }
+    },
+    "imageFocus": "quiet-room"
   },
   {
     "id": "ocha-room-ashita",
@@ -157,7 +160,7 @@
       "長居OK",
       "やさしい一杯"
     ],
-    "image": "https://cdn.shopify.com/s/files/1/0641/4503/1410/articles/sq_8af42144-03b3-408a-8906-997373a55932.jpg?v=1776917769&width=1200",
+    "image": "spots/toraya-shinjuku-space.png",
     "officialUrl": "https://www.toraya-group.co.jp/shops/shop-20",
     "instagramUrl": "",
     "menuUrl": "",
@@ -168,7 +171,8 @@
     "instagram": {
       "handle": "",
       "placeId": ""
-    }
+    },
+    "imageFocus": "minimal-japanese"
   },
   {
     "id": "mame-to-cha",
@@ -189,7 +193,7 @@
       "新宿",
       "やさしい一杯"
     ],
-    "image": "https://mametocha.tokyo/wp-content/uploads/2025/10/FUJI-1.jpg",
+    "image": "https://tblg.k-img.com/restaurant/images/Rvw/356110/640x640_rect_c6104fc727275b5b6e3a89b4f587bb4d.jpg",
     "officialUrl": "",
     "instagramUrl": "https://www.instagram.com/mametocha_shinjuku",
     "menuUrl": "",
@@ -200,7 +204,8 @@
     "instagram": {
       "handle": "",
       "placeId": ""
-    }
+    },
+    "imageFocus": "modern-lounge"
   },
   {
     "id": "abaibhube",
@@ -226,7 +231,7 @@
       "ハーブティー",
       "オーガニック"
     ],
-    "image": "https://baseec-img-mng.akamaized.net/images/shop_front/abhaiproject-base-shop/d38bf4643c02142f0a3c0ab420459f54.jpeg",
+    "image": "https://www.thailandtravel.or.jp/wp-content/uploads/2026/02/Abhaibhubejhr_Tokyo_Image1.jpg",
     "officialUrl": "https://shop.abhai.jp/",
     "instagramUrl": "",
     "menuUrl": "",
@@ -237,7 +242,8 @@
     "instagram": {
       "handle": "",
       "placeId": ""
-    }
+    },
+    "imageFocus": "counter-seat"
   },
   {
     "id": "sabou-botan",
@@ -246,7 +252,7 @@
     "address": "〒158-0083 東京都世田谷区奥沢５丁目３３−１３ サロン・ド・テ 自由ヶ丘",
     "station": "",
     "walk": "",
-    "image": "/api/place-photo?name=places%2FChIJ17tKa4n1GGARLHVz5VE8aYs%2Fphotos%2FAb43m-sKK7TSQdCXbUq_cnGJwgnUJReYsy3vAszO0zZ_LOIdWCKBD3s_b-RuKdm0FACw9uVHs7v-BQWjwwqTQ-xg-qC1ocRsQrsDG2ju2YK4EeCtL1-6vRgSePJdECpimunIyIKIHnjyf5qEuPZz8DJNLyzv2_QdRCyaqx34YFQ5SZXuOvckIFfUYZWoS5Un5a4hOK-YxH5Za681g-mLPwu-hG7vWsPvLl1JQOQc6Lt9rSTUw1rroRZLWbgmyTFFkaNoBd_Jsa11rOiGU8-ruTa_MeURh3fXIgxVNUrFIx7yLL6onQ",
+    "image": "https://sabou-botan.com/wp-content/uploads/2019/10/slider_03.png",
     "placeId": "ChIJ17tKa4n1GGARLHVz5VE8aYs",
     "type": "抹茶 / お茶候補",
     "genre": "抹茶 / 日本茶 / 和菓子",
@@ -281,7 +287,8 @@
     "instagram": {
       "handle": "",
       "placeId": ""
-    }
+    },
+    "imageFocus": "minimal-japanese"
   },
   {
     "id": "susumuya-tea-jiyugaoka",
@@ -290,7 +297,7 @@
     "address": "〒152-0035 東京都目黒区自由が丘１丁目２５−５",
     "station": "",
     "walk": "",
-    "image": "/api/place-photo?name=places%2FChIJoeFNlR_1GGARvzkzU2sYr5E%2Fphotos%2FAb43m-uKiyFa0fskwxgsP0-Be2TK_0Yyt_QM5GWiPjywGlmOzhhB6LPe_1MC5uh5HiKiqOxRANUr8svo3PFtH7ZKN4oaBS5eDdzXCI_peOUCcu5mxNvLfSSgCQlua0z3XbEoQGwg3AxyHu7AAmc80sRdRQCAr9TmWMwTUY4Pn6OyF6nRuOQsBKI8g2pSHm4uTE92MDHbeyJWP1B9a1N2mQAhThFrAbZVqoH8dewB5n9hWvJUcvm8zvnxDZiLnTiFmQx4GfT2eiMXfLknkxW51bHqDTTCbH5ZOLQPI0P23QteewxP5Q",
+    "image": "https://img.hanako.tokyo/2017/11/119ed094ed83a602008903835a11b0d2-1024x778.jpg",
     "placeId": "ChIJoeFNlR_1GGARvzkzU2sYr5E",
     "type": "抹茶 / お茶候補",
     "genre": "抹茶 / 日本茶",
@@ -321,7 +328,8 @@
     "instagram": {
       "handle": "",
       "placeId": ""
-    }
+    },
+    "imageFocus": "minimal-japanese"
   },
   {
     "id": "yotsuba-tea",
@@ -330,7 +338,7 @@
     "address": "〒152-0035 東京都目黒区自由が丘２丁目１５−２３ 香梅居 03",
     "station": "",
     "walk": "",
-    "image": "/api/place-photo?name=places%2FChIJE2R4VAD1GGARyD7zKUNzVdo%2Fphotos%2FAb43m-uad5b1TF4_7YPBe7gE0FvF3OwMjy3MWnd4sIVTCR4BuqTZ-YEZbjj11CUQPm9suilb2ZZJiZFUNWd0gRRMcBRwVq0Arv_nPMx5GXy_o6RoOc0JqurC8OTlXc9mkLd6XBmNvbF8eDm2qLVhTcuxIF6D-lgijfaVxKmvx4FV525h0t4fbCi6Q2xvZbkZvA3WEkouOgJj9G6vEB0BPQAXIgQ8i90nsDDJ89YsMeFgTY3qGOguT2LbVLKJF2HqBMCCQ8rrgSqblr7Im4iWqgd3-BEqMjjnswmvbGyHbDtgB3LWJQ",
+    "image": "https://image.ekiten.jp/shop/77147314/20240502153727_19844415.jpg",
     "placeId": "ChIJE2R4VAD1GGARyD7zKUNzVdo",
     "type": "日本茶 / お茶候補",
     "genre": "日本茶",
@@ -357,7 +365,8 @@
     "instagram": {
       "handle": "",
       "placeId": ""
-    }
+    },
+    "imageFocus": "counter-seat"
   },
   {
     "id": "rengetsutei",
@@ -366,7 +375,7 @@
     "address": "〒152-0035 東京都目黒区自由が丘２丁目１５−１０ Ａ＆Ｄハウス 102",
     "station": "",
     "walk": "",
-    "image": "/api/place-photo?name=places%2FChIJBxWuVUH1GGAR6soe0D6Jh7c%2Fphotos%2FAb43m-tQ2pn-2SR3gQq-aFqVJfJQKcDRnw-8th1JkDSOnGbJFYoP7YXya2UHxB-QMdy2W1GPsOpjYZZzi_EYPzr0pIvubGtw9fHj-Exg6cRM_ULB8yVIEAaKGYJ9UiysBy6yg5qXUKxITurNThGNKlhT9FDK2AJn9xxmJ8XTYJ3_YU3-lRKoU_RaJvDsMbzgz_Niu_5i8naE9AiEs1alih_mw8UiEW7fB33VFf07C3-BMNv9mXJrbP-usQ6JXD_936p3aOwpl5bmz-k1Wk4GntDn3Uma3NOX-n_JLvvl4-GkY7ssDQ",
+    "image": "https://san-tatsu.jp/assets/uploads/2020/08/01120451/DSCF8008.jpg",
     "placeId": "ChIJBxWuVUH1GGAR6soe0D6Jh7c",
     "type": "日本茶 / お茶候補",
     "genre": "日本茶 / 中国茶",
@@ -397,7 +406,8 @@
     "instagram": {
       "handle": "",
       "placeId": ""
-    }
+    },
+    "imageFocus": "quiet-room"
   },
   {
     "id": "gancha-bou",
@@ -406,7 +416,7 @@
     "address": "〒153-0051 東京都目黒区上目黒３丁目１５−５ １F",
     "station": "",
     "walk": "",
-    "image": "/api/place-photo?name=places%2FChIJCQQaIkyLGGAR2XrFQ43XuwU%2Fphotos%2FAb43m-tKoPlTShuySCm_IFL5nLoKXhVFUzNzToiCFvPJrkO6HAK-CDJFjrInNCDicv8rTgsDPZPYoxq9JflBo098L6T5g-Akwccw478rTomgyZ-LFShhnbFOHu8SVYbOnN8pLrqIDZ42a6B9S6EnkQX3avoKyT4GnMP1P7Z_v7OErgr2fR_hy81wszdERXkUP3upf4cShj7hCSt_b2CsrR1fC3-gU8s4hz82PpgwN7aUgk4U3eQSF_i8JZHr7Q7qOL2S3lDWCfq_oOPUhREr9IPM7BTWx5f71OQ76wYEgT1SHI_d5AULxxB1JURqSdhzHGRsOsaClVPFRsRlhlYjdqPesLGgJvaPCn6syJv_sPsWYdxCQNiRsnjhQFIm_IU4PFp8sD_pwBwMF3YyuDlngGPmC4uZ3vUKnTwOr8cvVA7On1VZyA",
+    "image": "https://san-tatsu.jp/assets/uploads/2021/01/18131910/DSCF3457.jpg",
     "placeId": "ChIJCQQaIkyLGGAR2XrFQ43XuwU",
     "type": "日本茶 / お茶候補",
     "genre": "日本茶 / 中国茶",
@@ -439,7 +449,8 @@
     "instagram": {
       "handle": "",
       "placeId": ""
-    }
+    },
+    "imageFocus": "minimal-japanese"
   },
   {
     "id": "tea-tatamo-komazawa",
@@ -448,7 +459,7 @@
     "address": "〒154-0012 東京都世田谷区駒沢１丁目１７−１４ ＹＳフラッツ駒沢",
     "station": "",
     "walk": "",
-    "image": "/api/place-photo?name=places%2FChIJ5acYfyz1GGARLvoqJsAIavw%2Fphotos%2FAb43m-tSukPwfxrgrq5IJRJaw_c9fdi8Cn32hP7u5-U6FE8n1xhC8Ug44DHIjcK6K9YGGizcH1dsHF7k-awawQv9vbDqIMAsNcxYqLS03cytM5ZdkW0eZBqjGSz1fBW2OAkB07zFjuEzS47G7ozEO5mORlvwT-yKpKRNDsu3t1T9-9S1nj8RdnrNCUV1WFHgHZ3qzju00CmAwOOSHb08d3MYb89IdTJF6GYKTcUi7R5viqHyMMbmwfvP75yJQqiUeJBu3v5-mMo8SY1a-KGpTj3CCkAF1XDoq_K2OmG2nXJqeHkr0Q",
+    "image": "https://oss.allway-japan.com/wp-content/uploads/2025/09/JTBP17102102F-1024x768.jpg",
     "placeId": "ChIJ5acYfyz1GGARLvoqJsAIavw",
     "type": "抹茶 / お茶候補",
     "genre": "抹茶 / 和菓子",
@@ -477,7 +488,8 @@
     "instagram": {
       "handle": "",
       "placeId": ""
-    }
+    },
+    "imageFocus": "modern-lounge"
   },
   {
     "id": "yakumo-saryo",
@@ -486,7 +498,7 @@
     "address": "〒152-0023 東京都目黒区八雲３丁目４−７",
     "station": "",
     "walk": "",
-    "image": "/api/place-photo?name=places%2FChIJNaROg-j0GGARxhL3ETmlsmo%2Fphotos%2FAb43m-vYCQ_dfyUcws4QRRv-OkBBQNUftkDvj4hIs9HnoQdJfLqa0yUYzKI3nq4vDCAxaG967oqVklESuCWFpKD2Tdv11c1Qe7yaRdffOjdyzy7-8mH8D9vs68Gw1sAenFb123ZEo2J7-Y3Ekhrr-APoy6CstrI9QFlRisgygzF_ZdxoHyMUUXf9U6rHeTAAu6ZSQrZBskdqdiVU_P9s7V_TO7mXTCQ4PqTWNyURxeRp5rJ9cATnYnUUvRDO4fic3oiVHDeJJHgkbDjqJdEcE6K3YByo_4llSb2gP-I2sMJY6M9hY0cVwOUtJQpaFNV_A8tbJXZRf9ihyiZPm2XZ1w2RCm_rHlcQu9nuqb433lng9NxLLXSb5eapGHwkIdNcFeCo-R7Ge7o-ov85FK1GQ6QQJhs2VnWXXT7YWnnRLbL7ttXO2OS4bi9oPaM60YNOkw",
+    "image": "https://www.yakumosaryo.jp/imgs/top001.jpg",
     "placeId": "ChIJNaROg-j0GGARxhL3ETmlsmo",
     "type": "抹茶 / お茶候補",
     "genre": "抹茶 / 日本茶 / 和菓子",
@@ -521,7 +533,8 @@
     "instagram": {
       "handle": "",
       "placeId": ""
-    }
+    },
+    "imageFocus": "garden-view"
   },
   {
     "id": "saryo-itoen",
@@ -620,7 +633,7 @@
     "note": "抹茶のほろ苦さとやさしい甘みが、ゆっくりと心に馴染んでいく。\n少しだけ遠回りしてでも立ち寄りたくなる、静かな寄り道。",
     "station": "",
     "walk": "",
-    "image": "https://prcdn.freetls.fastly.net/release_image/142589/1/142589-1-fa7c0576a8dcc26c7bd6654d55430974-1920x1280.jpg?format=jpeg&auto=webp&fit=bounds&width=1200",
+    "image": "https://rstatic.enjoytokyo.jp/assets/images/spot_draft/27/l_20095539/img_2.jpg?1736232390&p=t&w=1800",
     "mapUrl": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJW_iLHKmNGGARuAN5iKaEbOE&query=%E6%8A%B9%E3%83%81%E3%83%A7%20MATCHA%20CAFE",
     "mapsUrl": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJW_iLHKmNGGARuAN5iKaEbOE&query=%E6%8A%B9%E3%83%81%E3%83%A7%20MATCHA%20CAFE",
     "officialUrl": "",
@@ -722,7 +735,8 @@
     "instagram": {
       "handle": "",
       "placeId": ""
-    }
+    },
+    "imageFocus": "modern-lounge"
   },
   {
     "id": "nigicha",
