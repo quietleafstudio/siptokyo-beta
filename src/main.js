@@ -204,8 +204,8 @@ function renderSpotCard(spot) {
     ? `<img src="${escapeHtml(spot.image)}" alt="${escapeHtml(spot.name)}の雰囲気" onerror="window.handleSipImageError(this)" />`
     : `<span>Tea place</span>`;
   const tags = spot.tags
-    .slice(0, 4)
-    .map((tag) => `<span>${escapeHtml(tag)}</span>`)
+    .slice(0, 5)
+    .map((tag) => `<span class="tagPill">${escapeHtml(tag)}</span>`)
     .join("");
   const menuSummary = spot.menuSummary
     .map((item) => `<span>${escapeHtml(item)}</span>`)
@@ -254,8 +254,8 @@ function renderSpotCard(spot) {
               : ""
           }
         </div>
+        ${tags ? `<div class="tagWrap" aria-label="${escapeHtml(spot.name)}のタグ">${tags}</div>` : ""}
         <p class="comment">${escapeHtml(spot.comment)}</p>
-        <div class="tagWrap">${tags}</div>
         <details>
           <summary>くわしく見る</summary>
           <div class="detailInfo">
@@ -276,12 +276,18 @@ function render() {
   const areaFilters = getAreaFilters();
   const root = document.getElementById("root");
 
+  if (window.location.hash === "#about") {
+    root.innerHTML = renderAboutPage();
+    return;
+  }
+
   root.innerHTML = `
     <div class="appShell">
       <header class="hero">
         <div class="brandRow">
           <div class="logoMark">SIP</div>
           <p>SIP Tokyo</p>
+          <a class="brandNavLink" href="#about">About</a>
         </div>
         <div class="heroImage">
           <img src="${publicAssetPath("images/siptokyo-hero.png")}" alt="抹茶とハーブティーのある静かなテーブル" onerror="window.handleSipImageError(this)" />
@@ -344,6 +350,73 @@ function render() {
 
 }
 
+function renderAboutPage() {
+  return `
+    <div class="appShell aboutShell">
+      <header class="aboutHero">
+        <nav class="aboutNav" aria-label="SIP Tokyo">
+          <a class="aboutLogo" href="#">
+            <span class="logoMark">SIP</span>
+            <span>SIP Tokyo</span>
+          </a>
+          <a class="aboutBackLink" href="#">Spot guide</a>
+        </nav>
+        <div class="aboutHeroImage">
+          <img src="${publicAssetPath("images/kosoan-card.jpg")}" alt="庭を眺める茶室の抹茶時間" onerror="window.handleSipImageError(this)" />
+        </div>
+        <div class="aboutHeroCopy">
+          <p class="kicker">About SIP Tokyo</p>
+          <h1><span>静かな一杯から、</span><span>東京の時間を美しく。</span></h1>
+          <p>ふっと肩の力が抜ける、<br>そんな時間のために。</p>
+        </div>
+      </header>
+
+      <main class="aboutMain">
+        <section class="aboutEssay">
+          <p class="sectionLabel">Our Story</p>
+          <h2>コーヒーではなく、お茶を選びたい日がある。</h2>
+          <p>
+            東京には、急ぐための場所がたくさんあります。けれど、ときどき必要なのは、速度を上げる一杯ではなく、呼吸をゆるめる一杯。
+          </p>
+          <p>
+            SIP Tokyo は、抹茶、日本茶、ハーブティー、中国茶など、お茶が主役になる場所を静かに集めています。味だけではなく、席の心地よさ、光の入り方、器の美しさ、会話の余白まで含めて。
+          </p>
+        </section>
+
+        <section class="aboutPhilosophy">
+          <p class="sectionLabel">Our Philosophy</p>
+          <div class="philosophyList">
+            <article>
+              <span>01</span>
+              <h3>空間で選ぶ</h3>
+              <p>その一杯をどんな場所で飲むか。窓際、庭、静かなカウンター。SIP は空間の気配を大切にします。</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>余白を残す</h3>
+              <p>情報を詰め込みすぎず、行ってみたいと思える静かな余韻を残すこと。</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>お茶を主役に</h3>
+              <p>抹茶、日本茶、ハーブティー。コーヒーではない選択肢を、日常の中に増やしていきます。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="aboutClosing">
+          <p class="sectionLabel">For Your Quiet Moment</p>
+          <h2>次の休憩が、少し美しくなりますように。</h2>
+          <p>
+            一人で整えたい日も、誰かと静かに話したい日も。SIP Tokyo は、東京のお茶時間を、ひとつずつ丁寧に集めていきます。
+          </p>
+          <a class="aboutCta" href="#">お茶スポットを見る</a>
+        </section>
+      </main>
+    </div>
+  `;
+}
+
 document.addEventListener("input", (event) => {
   if (event.target.matches(".heroSearch input")) {
     if (state.isComposing || event.isComposing) {
@@ -374,6 +447,11 @@ document.addEventListener("change", (event) => {
     state.query = event.target.value;
     render();
   }
+});
+
+window.addEventListener("hashchange", () => {
+  render();
+  window.scrollTo({ top: 0, behavior: "instant" });
 });
 
 window.setSipFilter = (type, value) => {
