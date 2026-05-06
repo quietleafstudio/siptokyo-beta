@@ -198,6 +198,26 @@ function renderChips(items, activeValue, type) {
     .join("");
 }
 
+
+function renderBrandNav(activePage = "spots") {
+  const links = [
+    { href: "#about", label: "About", page: "about" },
+    { href: "#", label: "Spot guide", page: "spots" },
+    { href: "#for-home", label: "For Home", page: "forHome" },
+    { href: "#journal", label: "Journal", page: "journal" },
+  ];
+
+  return `
+    <nav class="brandNav" aria-label="SIP Tokyo navigation">
+      ${links
+        .map(
+          (link) => `<a class="brandNavLink${activePage === link.page ? " active" : ""}" href="${link.href}">${link.label}</a>`,
+        )
+        .join("")}
+    </nav>
+  `;
+}
+
 function renderSpotCard(spot) {
   const isFavorite = state.favorites.includes(spot.id);
   const displayStation = spot.nearestStation || spot.station;
@@ -285,13 +305,25 @@ function render() {
     return;
   }
 
+  if (window.location.hash === "#for-home") {
+    root.innerHTML = renderForHomePage();
+    return;
+  }
+
+  if (window.location.hash === "#journal") {
+    root.innerHTML = renderJournalPage();
+    return;
+  }
+
   root.innerHTML = `
     <div class="appShell">
       <header class="hero">
         <div class="brandRow">
-          <div class="logoMark">SIP</div>
-          <p>SIP Tokyo</p>
-          <a class="brandNavLink" href="#about">About</a>
+          <div class="brandIdentity">
+            <div class="logoMark">SIP</div>
+            <p>SIP Tokyo</p>
+          </div>
+          ${renderBrandNav("spots")}
         </div>
         <div class="heroImage">
           <img src="${publicAssetPath("images/siptokyo-hero.png")}" alt="抹茶とハーブティーのある静かなテーブル" onerror="window.handleSipImageError(this)" />
@@ -363,7 +395,7 @@ function renderAboutPage() {
             <span class="logoMark">SIP</span>
             <span>SIP Tokyo</span>
           </a>
-          <a class="aboutBackLink" href="#">Spot guide</a>
+          ${renderBrandNav("about")}
         </nav>
         <div class="aboutHeroImage">
           <img src="${publicAssetPath("images/kosoan-card.jpg")}" alt="庭を眺める茶室の抹茶時間" onerror="window.handleSipImageError(this)" />
@@ -415,6 +447,152 @@ function renderAboutPage() {
             一人で整えたい日も、誰かと静かに話したい日も。SIP Tokyo は、東京のお茶時間を、ひとつずつ丁寧に集めていきます。
           </p>
           <a class="aboutCta" href="#">お茶スポットを見る</a>
+        </section>
+      </main>
+    </div>
+  `;
+}
+
+
+function renderForHomePage() {
+  const categories = [
+    {
+      title: "Tea Leaves",
+      icon: "🍃",
+      text: "Selected leaves for quiet moments",
+    },
+    {
+      title: "Tea Ware",
+      icon: "🍵",
+      text: "Beautiful tools for daily rituals",
+    },
+    {
+      title: "Herbal Tea",
+      icon: "🌿",
+      text: "Gentle blends for slow evenings",
+    },
+  ];
+
+  return `
+    <div class="appShell homeShell">
+      <header class="homeHero">
+        <nav class="aboutNav" aria-label="SIP Tokyo">
+          <a class="aboutLogo" href="#">
+            <span class="logoMark">SIP</span>
+            <span>SIP Tokyo</span>
+          </a>
+          ${renderBrandNav("forHome")}
+        </nav>
+
+        <div class="homeHeroImage">
+          <img src="${publicAssetPath("images/for-home-hero.svg")}" alt="朝の光に包まれた日本茶と茶器" />
+        </div>
+
+        <div class="homeHeroCopy">
+          <p class="kicker">For Home</p>
+          <h1>ふっと、心が戻る一杯を、家でも。</h1>
+          <p>For quiet moments at home.</p>
+        </div>
+      </header>
+
+      <main class="homeMain">
+        <section class="homeIntro" aria-label="For Home introduction">
+          <p>
+            外で見つけた静かな時間を、家の中にも少しずつ。SIP Tokyo は、お茶の葉、器、香りのある夜のための小さな選択肢を準備しています。
+          </p>
+        </section>
+
+        <section class="homeCategoryGrid" aria-label="For Home categories">
+          ${categories
+            .map(
+              (category) => `
+                <article class="homeCategoryCard">
+                  <div class="homeCategoryIcon" aria-hidden="true">${category.icon}</div>
+                  <div>
+                    <h2>${category.title}</h2>
+                    <p>${category.text}</p>
+                  </div>
+                  <span>Coming Soon</span>
+                </article>
+              `,
+            )
+            .join("")}
+        </section>
+
+        <section class="homeClosing">
+          <p class="sectionLabel">Quiet rituals</p>
+          <p>朝の湯気、夜のハーブ、手になじむ器。SIP For Home は、静かな時間を家で育てるための入口です。</p>
+        </section>
+      </main>
+    </div>
+  `;
+}
+
+
+function renderJournalPage() {
+  const articles = [
+    {
+      number: "01",
+      title: "表千家と裏千家の違いとは？",
+      category: "Tea ritual",
+    },
+    {
+      number: "02",
+      title: "日本茶の起源",
+      category: "Tea history",
+    },
+    {
+      number: "03",
+      title: "抹茶と煎茶の違い",
+      category: "Tea basics",
+    },
+  ];
+
+  return `
+    <div class="appShell journalShell">
+      <header class="journalHero">
+        <nav class="aboutNav" aria-label="SIP Tokyo">
+          <a class="aboutLogo" href="#">
+            <span class="logoMark">SIP</span>
+            <span>SIP Tokyo</span>
+          </a>
+          ${renderBrandNav("journal")}
+        </nav>
+
+        <div class="journalHeroPanel">
+          <p class="kicker">Journal</p>
+          <h1>一杯の背景にある、美しい物語を。</h1>
+          <p>Thoughts on tea, ritual, and quiet living.</p>
+        </div>
+      </header>
+
+      <main class="journalMain">
+        <section class="journalIntro" aria-label="Journal introduction">
+          <p>
+            お茶の味わいは、葉や器だけでなく、所作、歴史、季節の光にも宿ります。SIP Journal は、静かな一杯をもう少し深く知るための読み物です。
+          </p>
+        </section>
+
+        <section class="journalArticleList" aria-label="Journal articles">
+          ${articles
+            .map(
+              (article) => `
+                <article class="journalArticleCard">
+                  <span>${article.number}</span>
+                  <div>
+                    <p>${article.category}</p>
+                    <h2>${article.title}</h2>
+                  </div>
+                  <strong>Coming Soon</strong>
+                </article>
+              `,
+            )
+            .join("")}
+        </section>
+
+        <section class="journalClosing">
+          <p class="sectionLabel">Tea notes</p>
+          <p>知ることで、次の一杯は少しだけ静かに深くなる。SIP Journal は、そんな小さな入口を準備しています。</p>
         </section>
       </main>
     </div>

@@ -75,9 +75,17 @@ img {
 
 .brandRow {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 2px;
+}
+
+.brandIdentity {
+  display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 0 2px;
 }
 
 .logoMark {
@@ -102,16 +110,35 @@ img {
   font-weight: 800;
 }
 
+.brandNav {
+  display: flex;
+  flex: 1 1 100%;
+  gap: 7px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+}
+
+.brandNav::-webkit-scrollbar {
+  display: none;
+}
+
 .brandNavLink {
-  margin-left: auto;
+  flex: 0 0 auto;
   border: 1px solid rgba(83, 111, 73, 0.2);
   border-radius: 999px;
-  background: rgba(255, 254, 251, 0.7);
+  background: rgba(255, 254, 251, 0.72);
   color: var(--leaf-dark);
-  padding: 8px 13px;
+  padding: 8px 12px;
   font-size: 12px;
   font-weight: 800;
   text-decoration: none;
+}
+
+.brandNavLink.active {
+  border-color: rgba(51, 77, 53, 0.76);
+  background: var(--leaf-dark);
+  color: var(--white);
 }
 
 .heroImage {
@@ -613,9 +640,14 @@ address {
 
 .aboutNav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 14px;
+}
+
+.aboutNav .brandNav {
+  flex-basis: 100%;
 }
 
 .aboutLogo {
@@ -789,6 +821,281 @@ address {
   font-size: 13px;
   font-weight: 800;
   text-decoration: none;
+}
+
+
+.homeShell {
+  padding-bottom: 56px;
+}
+
+.homeHero {
+  display: grid;
+  gap: 18px;
+  padding-bottom: 28px;
+}
+
+.homeHeroImage {
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border-radius: 26px;
+  background: var(--paper-soft);
+  box-shadow: var(--shadow);
+}
+
+.homeHeroImage img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.homeHeroCopy {
+  display: grid;
+  gap: 10px;
+  padding: 10px 2px 0;
+}
+
+.homeHeroCopy h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  font-size: clamp(27px, 7vw, 34px);
+  font-weight: 700;
+  line-height: 1.42;
+  letter-spacing: 0;
+}
+
+.homeHeroCopy p:last-child {
+  margin: 0;
+  color: var(--leaf);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.homeMain {
+  display: grid;
+  gap: 34px;
+}
+
+.homeIntro {
+  padding: 4px 2px 0;
+}
+
+.homeIntro p,
+.homeClosing p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.homeCategoryGrid {
+  display: grid;
+  gap: 14px;
+}
+
+.homeCategoryCard {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: start;
+  position: relative;
+  min-height: 138px;
+  border: 1px solid rgba(225, 218, 203, 0.92);
+  border-radius: 12px;
+  background: rgba(255, 254, 251, 0.84);
+  padding: 20px 18px 18px;
+  box-shadow: 0 16px 34px rgba(58, 64, 49, 0.08);
+}
+
+.homeCategoryIcon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(232, 238, 225, 0.78);
+  color: var(--leaf-dark);
+  font-size: 20px;
+}
+
+.homeCategoryCard h2 {
+  margin: 0 0 7px;
+  color: var(--leaf-dark);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.homeCategoryCard p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.homeCategoryCard > span {
+  grid-column: 1 / -1;
+  justify-self: start;
+  border: 1px solid rgba(83, 111, 73, 0.2);
+  border-radius: 999px;
+  background: rgba(244, 239, 229, 0.74);
+  color: var(--leaf);
+  padding: 7px 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.homeClosing {
+  display: grid;
+  gap: 12px;
+  margin-top: 4px;
+  padding: 28px 0 0;
+  border-top: 1px solid rgba(225, 218, 203, 0.9);
+}
+
+
+.journalShell {
+  padding-bottom: 58px;
+}
+
+.journalHero {
+  display: grid;
+  gap: 22px;
+  padding-bottom: 28px;
+}
+
+.journalHeroPanel {
+  position: relative;
+  display: grid;
+  gap: 16px;
+  min-height: 390px;
+  align-content: end;
+  overflow: hidden;
+  border: 1px solid rgba(225, 218, 203, 0.9);
+  border-radius: 26px;
+  background:
+    linear-gradient(145deg, rgba(255, 254, 251, 0.92), rgba(244, 239, 229, 0.62)),
+    radial-gradient(circle at 24% 18%, rgba(83, 111, 73, 0.14), transparent 30%),
+    linear-gradient(180deg, #fcfaf4, #eee6d9);
+  padding: 34px 28px;
+  box-shadow: var(--shadow);
+}
+
+.journalHeroPanel::before {
+  content: "";
+  position: absolute;
+  inset: 34px 28px auto;
+  height: 1px;
+  background: rgba(83, 111, 73, 0.2);
+}
+
+.journalHeroPanel::after {
+  content: "SIP JOURNAL";
+  position: absolute;
+  right: 24px;
+  top: 62px;
+  writing-mode: vertical-rl;
+  color: rgba(51, 77, 53, 0.18);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+}
+
+.journalHeroPanel h1 {
+  position: relative;
+  margin: 0;
+  max-width: 9.5em;
+  color: var(--ink);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  font-size: clamp(29px, 7.4vw, 36px);
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+
+.journalHeroPanel p:last-child {
+  position: relative;
+  margin: 0;
+  max-width: 24em;
+  color: var(--leaf);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.7;
+}
+
+.journalMain {
+  display: grid;
+  gap: 34px;
+}
+
+.journalIntro p,
+.journalClosing p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.journalArticleList {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid rgba(225, 218, 203, 0.95);
+}
+
+.journalArticleCard {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 18px;
+  align-items: start;
+  border-bottom: 1px solid rgba(225, 218, 203, 0.95);
+  padding: 24px 2px 22px;
+}
+
+.journalArticleCard > span {
+  color: var(--tea);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.journalArticleCard p {
+  margin: 0 0 8px;
+  color: var(--leaf);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.journalArticleCard h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.journalArticleCard strong {
+  grid-column: 2;
+  justify-self: start;
+  border: 1px solid rgba(83, 111, 73, 0.22);
+  border-radius: 999px;
+  background: rgba(244, 239, 229, 0.66);
+  color: var(--leaf);
+  padding: 7px 10px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.journalClosing {
+  display: grid;
+  gap: 12px;
+  padding: 28px 0 0;
 }
 
 @media (min-width: 431px) {
