@@ -1344,5 +1344,160 @@
     "stations": [
       "表参道"
     ]
+  },
+  {
+    "id": "spot-lkacij",
+    "name": "日本茶カフェ 茶々工房",
+    "area": "新宿",
+    "address": "〒169-0051 東京都新宿区西早稲田２丁目２１−１９",
+    "station": "西早稲田",
+    "nearestStation": "西早稲田",
+    "stations": [
+      "西早稲田",
+      "高田馬場",
+      "面影橋"
+    ],
+    "walk": "徒歩4分",
+    "image": "https://chachakoubou.com/wp-content/themes/menubrand/assets/img/slider1.png",
+    "imageFocus": "old-house",
+    "placeId": "ChIJI9ivaz2NGGARqppQnbB3ELo",
+    "type": "日本茶 / 抹茶",
+    "genre": "日本茶 / 抹茶",
+    "tags": [
+      "日本茶",
+      "抹茶",
+      "静かめ",
+      "一人時間",
+      "ほっとする"
+    ],
+    "comment": "街の音を離れて、日本茶にそっと向き合える。",
+    "mapUrl": "https://maps.google.com/?cid=13407347691119221418&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=13407347691119221418&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "http://chachakoubou.com/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,000円台",
+    "note": "西早稲田の静かな通りで、日本茶の香りに気持ちがほどけていく。\n甘味と一緒に、午後の余白をゆっくり取り戻せる場所。",
+    "searchTags": [
+      "新宿",
+      "西早稲田",
+      "高田馬場",
+      "面影橋",
+      "日本茶",
+      "抹茶",
+      "日本茶カフェ 茶々工房",
+      "茶々工房"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "tsuru",
+    "name": "京・茶房TSURU",
+    "area": "新宿",
+    "address": "〒151-0051 東京都渋谷区千駄ケ谷５丁目２４−２",
+    "station": "新宿",
+    "nearestStation": "新宿",
+    "stations": [
+      "新宿",
+      "新宿三丁目",
+      "代々木"
+    ],
+    "walk": "徒歩2分",
+    "image": "https://img.lavietaste.com/rcmd/cedb4ed0b1e2e4cee8698d59550a8c90_s.jpg",
+    "imageFocus": "minimal-japanese",
+    "placeId": "ChIJ96AgsNqMGGARWQEfvhdIzTQ",
+    "type": "抹茶 / 日本茶",
+    "genre": "抹茶 / 日本茶",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "器が美しい",
+      "会話向け",
+      "少し特別"
+    ],
+    "comment": "和菓子と抹茶が、街中の時間を上品に整える。",
+    "mapUrl": "https://maps.google.com/?cid=3804776527009087833&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=3804776527009087833&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.tsuruyayoshinobu.jp/shop-saryo/kanto",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "単品のお茶あり"
+    ],
+    "priceRange": "1,500-2,500円",
+    "note": "新宿の人波のそばで、和菓子と抹茶が静かな間をつくってくれる。\nひとりでも誰かとでも、きちんと美しい一服に戻れる茶房。",
+    "searchTags": [
+      "新宿",
+      "新宿三丁目",
+      "代々木",
+      "抹茶",
+      "日本茶",
+      "京・茶房TSURU",
+      "TSURU"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-m4kwa9",
+    "name": "茶のつたや",
+    "area": "新宿",
+    "address": "〒169-0075 東京都新宿区高田馬場１丁目１７−１７",
+    "station": "高田馬場",
+    "nearestStation": "高田馬場",
+    "stations": [
+      "高田馬場",
+      "西早稲田"
+    ],
+    "walk": "徒歩3分",
+    "image": "https://static.wixstatic.com/media/bd3f08_6e2e6f60a8d9400c887fbc859dc827d7~mv2.jpg/v1/fill/w_1080,h_719,al_c,q_85,enc_avif,quality_auto/17846532524386871.jpg",
+    "imageFocus": "counter-seat",
+    "placeId": "ChIJv5GhEzyNGGARRiG_LMWpfdo",
+    "type": "日本茶 / 抹茶",
+    "genre": "日本茶 / 抹茶",
+    "tags": [
+      "日本茶",
+      "抹茶",
+      "香りを楽しむ",
+      "一人時間",
+      "ほっとする"
+    ],
+    "comment": "茶葉の香りに、気持ちが静かにほどける。",
+    "mapUrl": "https://maps.google.com/?cid=15743926536681496902&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=15743926536681496902&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://cha-tsutaya.wixsite.com/chatsutaya",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "予約推奨"
+    ],
+    "priceRange": "1,000円台",
+    "note": "高田馬場の街角で、お茶を選ぶ時間まで静かに楽しめる。\n日常のそばにあるからこそ、ふっと寄り道したくなる一軒。",
+    "searchTags": [
+      "新宿",
+      "高田馬場",
+      "西早稲田",
+      "日本茶",
+      "抹茶",
+      "茶のつたや"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
   }
 ]
