@@ -993,7 +993,7 @@
     "address": "〒107-0062 東京都港区南青山３丁目１４−４ 2階",
     "station": "",
     "walk": "",
-    "image": "/api/place-photo?name=places%2FChIJnauCk0uNGGAROIvn4cNEjVE%2Fphotos%2FAb43m-vIq3wK0EuEDyEXEvQuM0PDlFWf_0zICD-Rv3h-4cvyvx8UvaS4dosTSvG_jPXUdlb4whlwMhoPqphLzBI86FiB-ci9kenPb36shbl9srCcLzw_HVzY3CeNc5EpOf8digvYonfpIR0dXhKN2lWq2X9yF2InMTFQA05WRDRd9BICHUkcQK0gmaGHneE74q2TdY1jC1MtJvsug3bVsbWdx-RwaY-lO5mji0RpBy_4WAGMbyWbv-2sJff8fpSR0xjqJQIyl7iMx8NS4iQRcp9bWKWF0bdTaz3Bq4Z5EPYArkDjUvI7SpEVhSDtUknMo5f_xbqasCiajeTV51tx2aX1NpZRalxsa9PXSEkrBCQVvLFeELkfG5nhin6Q8kbT2Buabmz5YGdcpcf2NR9ZIkL5Vj0uJk0dLzVZLiSL_koW2M2JmNkE",
+    "image": "https://img.lavietaste.com/rcmd/4a1e4bf7b25b6f0687d4f565ce13df48_o.jpg",
     "placeId": "ChIJnauCk0uNGGAROIvn4cNEjVE",
     "type": "抹茶 / お茶候補",
     "genre": "抹茶 / お茶候補",
@@ -1026,7 +1026,8 @@
     "instagram": {
       "handle": "",
       "placeId": ""
-    }
+    },
+    "imageFocus": "quiet-room"
   },
   {
     "id": "spot-1gy4qoy",
