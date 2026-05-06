@@ -98,6 +98,7 @@ function normalizeSpot(spot) {
     ...spot,
     tags: Array.isArray(spot.tags) ? spot.tags : [],
     searchTags: Array.isArray(spot.searchTags) ? spot.searchTags : [],
+    stations: Array.isArray(spot.stations) ? spot.stations : [],
     image: normalizeImagePath(spot.image || ""),
     menuSummary: Array.isArray(spot.menuSummary) ? spot.menuSummary : [],
   };
@@ -149,6 +150,7 @@ function filterSpots() {
       spot.area,
       spot.address,
       spot.station,
+      spot.nearestStation,
       spot.walk,
       spot.genre,
       spot.comment,
@@ -160,6 +162,7 @@ function filterSpots() {
       spot.menuUrl,
       ...spot.tags,
       ...spot.searchTags,
+      ...spot.stations,
       ...spot.menuSummary,
     ]
       .filter(Boolean)
@@ -197,6 +200,7 @@ function renderChips(items, activeValue, type) {
 
 function renderSpotCard(spot) {
   const isFavorite = state.favorites.includes(spot.id);
+  const displayStation = spot.nearestStation || spot.station;
   const spotName = Array.isArray(spot.displayName)
     ? spot.displayName.map((line) => `<span class="spotNameLine">${escapeHtml(line)}</span>`).join("")
     : escapeHtml(spot.name);
@@ -249,8 +253,8 @@ function renderSpotCard(spot) {
         <div class="locationInfo">
           ${spot.address ? `<p><span aria-hidden="true">📍</span>${escapeHtml(spot.address)}</p>` : ""}
           ${
-            spot.station || spot.walk
-              ? `<p><span aria-hidden="true">🚉</span>${escapeHtml([spot.station, spot.walk].filter(Boolean).join("・"))}</p>`
+            displayStation || spot.walk
+              ? `<p><span aria-hidden="true">🚉</span>${escapeHtml([displayStation, spot.walk].filter(Boolean).join("・"))}</p>`
               : ""
           }
         </div>
