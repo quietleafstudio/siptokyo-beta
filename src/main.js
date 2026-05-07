@@ -472,6 +472,33 @@ function renderForHomePage() {
       text: "Gentle blends for slow evenings",
     },
   ];
+  const featuredItems = [
+    {
+      number: "SIP Select #001",
+      title: "Organic Matcha",
+      caption: "by THE MATCHA TOKYO",
+      image: "https://www.the-matcha.tokyo/cdn/shop/products/200414_010_1200x1200.jpg?v=1587912481",
+      imageAlt: "Organic Matcha by THE MATCHA TOKYO",
+      body: [
+        "忙しい日々の中に、<br>ほんの少し、静かな余白を。",
+        "手を動かし、泡を立てる。<br>そのひとときが、<br>心をそっと元の場所へ戻してくれる。",
+      ],
+      href: "https://www.the-matcha.tokyo/en/products/100-organic-matcha-japan-premium",
+    },
+    {
+      number: "SIP Select #002",
+      title: "Matcha Ritual Set",
+      caption: "by Rakuten Select",
+      image: publicAssetPath("images/for-home-hero.png"),
+      imageAlt: "茶筅と抹茶時間のための道具",
+      body: [
+        "茶筅を動かし、<br>ゆっくり泡を立てる。",
+        "手を使って一杯をつくる時間は、<br>思っていた以上に静かで、豊か。",
+        "はじめての抹茶時間に。",
+      ],
+      href: "https://a.r10.to/h8PWE7",
+    },
+  ];
 
   return `
     <div class="appShell homeShell">
@@ -517,6 +544,36 @@ function renderForHomePage() {
               `,
             )
             .join("")}
+        </section>
+
+        <section class="homeFeatured" aria-label="Featured by SIP">
+          <p class="sectionLabel">Featured by SIP</p>
+          <div class="featuredList">
+            ${featuredItems
+              .map(
+                (item) => `
+                  <article class="featuredItem">
+                    <div class="featuredImage">
+                      <img src="${item.image}" alt="${item.imageAlt}" />
+                    </div>
+                    <div class="featuredBody">
+                      <p class="featuredNumber">${item.number}</p>
+                      <h2>${item.title}</h2>
+                      <p class="featuredCaption">${item.caption}</p>
+                      ${item.body.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+                      <a
+                        class="featuredCta"
+                        href="${item.href}"
+                        target="_blank"
+                        rel="noreferrer"
+                      >View item →</a>
+                    </div>
+                  </article>
+                `,
+              )
+              .join("")}
+          </div>
+          <p class="affiliateNote">※一部リンクにはアフィリエイトリンクを含みます。</p>
         </section>
 
         <section class="homeClosing">

@@ -852,7 +852,7 @@ address {
 .homeHeroCopy {
   display: grid;
   gap: 10px;
-  padding: 10px 2px 0;
+  padding: 24px 2px 0;
 }
 
 .homeHeroCopy h1 {
@@ -948,6 +948,103 @@ address {
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+}
+
+.homeFeatured {
+  display: grid;
+  gap: 14px;
+  margin-top: 10px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(225, 218, 203, 0.9);
+}
+
+.featuredList {
+  display: grid;
+  gap: 22px;
+}
+
+.featuredItem {
+  overflow: hidden;
+  border: 1px solid rgba(225, 218, 203, 0.94);
+  border-radius: 14px;
+  background: rgba(255, 254, 251, 0.9);
+  box-shadow: 0 20px 42px rgba(58, 64, 49, 0.1);
+}
+
+.featuredImage {
+  overflow: hidden;
+  aspect-ratio: 4 / 4.45;
+  background: var(--paper-soft);
+}
+
+.featuredImage img {
+  height: 100%;
+  object-fit: cover;
+  object-position: 47% 55%;
+}
+
+.featuredBody {
+  display: grid;
+  gap: 13px;
+  padding: 22px 20px 20px;
+}
+
+.featuredNumber {
+  margin: 0;
+  color: var(--tea);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.featuredBody h2 {
+  margin: 0;
+  color: var(--leaf-dark);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.featuredCaption {
+  margin: -6px 0 4px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.featuredBody p:not(.featuredNumber, .featuredCaption) {
+  margin: 0;
+  color: #474d42;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.featuredCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 42px;
+  margin-top: 4px;
+  border: 1px solid rgba(83, 111, 73, 0.26);
+  border-radius: 999px;
+  background: rgba(244, 239, 229, 0.62);
+  color: var(--leaf-dark);
+  padding: 0 16px;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.affiliateNote {
+  margin: 0;
+  color: rgba(112, 117, 104, 0.86);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.7;
 }
 
 .homeClosing {
