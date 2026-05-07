@@ -837,6 +837,7 @@ address {
 .homeHeroImage {
   overflow: hidden;
   aspect-ratio: 4 / 5;
+  max-height: 680px;
   border-radius: 26px;
   background: var(--paper-soft);
   box-shadow: var(--shadow);
@@ -845,6 +846,7 @@ address {
 .homeHeroImage img {
   height: 100%;
   object-fit: cover;
+  object-position: 58% 54%;
 }
 
 .homeHeroCopy {

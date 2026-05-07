@@ -485,7 +485,7 @@ function renderForHomePage() {
         </nav>
 
         <div class="homeHeroImage">
-          <img src="${publicAssetPath("images/for-home-hero.svg")}" alt="朝の光に包まれた日本茶と茶器" />
+          <img src="${publicAssetPath("images/for-home-hero.png")}" alt="朝の光に包まれた日本茶と茶器" />
         </div>
 
         <div class="homeHeroCopy">
