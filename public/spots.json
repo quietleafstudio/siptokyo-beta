@@ -1499,5 +1499,322 @@
       "handle": "",
       "placeId": ""
     }
+  },
+  {
+    "id": "spot-t3pnmz",
+    "name": "濃茶茶寮 一茶",
+    "area": "浅草",
+    "address": "〒111-0032 東京都台東区浅草２丁目７−３ 2階",
+    "station": "浅草",
+    "nearestStation": "浅草",
+    "stations": [
+      "浅草",
+      "田原町"
+    ],
+    "walk": "徒歩5分",
+    "image": "https://static.wixstatic.com/media/cf7a94_d0466acacfd542bf96a602183bd4e7b1~mv2.jpg/v1/fill/w_1511,h_824,q_90,enc_avif,quality_auto/cf7a94_d0466acacfd542bf96a602183bd4e7b1~mv2.jpg",
+    "imageFocus": "window-seat",
+    "placeId": "ChIJBZcCVwCPGGARiIquF7R-QF4",
+    "type": "抹茶 / 日本茶",
+    "genre": "抹茶 / 日本茶",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "静かめ",
+      "一人時間",
+      "少し特別"
+    ],
+    "comment": "浅草寺の緑を眺めて、濃い一服に静まる。",
+    "mapUrl": "https://maps.google.com/?cid=6791567550031235720&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=6791567550031235720&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.kaminari-issa.com/saryo-issa",
+    "instagramUrl": "https://www.instagram.com/koicha_saryo/",
+    "menuUrl": "",
+    "menuSummary": [
+      "濃茶あり",
+      "抹茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,000円台",
+    "note": "浅草寺のそばに、光の入る静かな茶寮がひらけている。\n濃茶の深い緑を味わう時間が、街歩きの気持ちをすっと整えてくれる。",
+    "searchTags": [
+      "浅草",
+      "田原町",
+      "濃茶茶寮 一茶",
+      "濃茶",
+      "抹茶",
+      "日本茶",
+      "茶寮"
+    ],
+    "cautionNote": "公式ページ / Instagramあり",
+    "instagram": {
+      "handle": "koicha_saryo",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "the-matcha-tokyo-skytree-solamachi",
+    "name": "THE MATCHA TOKYO SKYTREE Solamachi",
+    "area": "浅草",
+    "address": "〒131-0045 東京都墨田区押上１丁目１−２ 東京ソラマチ",
+    "station": "とうきょうスカイツリー",
+    "nearestStation": "とうきょうスカイツリー",
+    "stations": [
+      "とうきょうスカイツリー",
+      "押上"
+    ],
+    "walk": "徒歩1分",
+    "image": "https://www.the-matcha.tokyo/cdn/shop/files/skytreesolamachi_1445x.jpg?v=1711159047",
+    "imageFocus": "modern-lounge",
+    "placeId": "ChIJ0bGXMwCPGGARshNkpJHZlCA",
+    "type": "抹茶 / ティースタンド",
+    "genre": "抹茶 / ティースタンド",
+    "tags": [
+      "抹茶",
+      "洗練",
+      "会話向け",
+      "一人時間",
+      "心が整う"
+    ],
+    "comment": "ソラマチの光の中で、抹茶の輪郭が澄む。",
+    "mapUrl": "https://maps.google.com/?cid=2347740525318378418&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=2347740525318378418&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.the-matcha.tokyo/pages/cafe",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "テイクアウト中心",
+      "カフェ利用確認"
+    ],
+    "priceRange": "価格確認中",
+    "note": "白と木のミニマルな空間に、抹茶の鮮やかさがすっと映える。\n買い物や散歩の途中で、気分を軽く整えたい日に寄り添う一杯。",
+    "searchTags": [
+      "浅草",
+      "とうきょうスカイツリー",
+      "押上",
+      "ソラマチ",
+      "THE MATCHA TOKYO SKYTREE Solamachi",
+      "抹茶"
+    ],
+    "cautionNote": "公式ページ / placeIdあり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-mb0mlw",
+    "name": "寿清庵 茶室 浅草 花やしき通り 抹茶カフェ",
+    "area": "浅草",
+    "address": "〒111-0032 東京都台東区浅草２丁目２９−３",
+    "station": "浅草",
+    "nearestStation": "浅草",
+    "stations": [
+      "浅草",
+      "田原町"
+    ],
+    "walk": "徒歩8分",
+    "image": "https://san-tatsu.jp/assets/uploads/2024/05/02150858/1714630137-ef8c5d85d3a1f48675e0a64d6cab7bb3-750x563.jpg",
+    "imageFocus": "window-seat",
+    "placeId": "ChIJ8YF44F2NGGARN4BRSgUlAGc",
+    "type": "抹茶 / 甘味",
+    "genre": "抹茶 / 甘味",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "会話向け",
+      "一人時間",
+      "ほっとする"
+    ],
+    "comment": "花やしき通りの木の席で、浅草の午後を休める。",
+    "mapUrl": "https://maps.google.com/?cid=7421972890558496823&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=7421972890558496823&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "甘味あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "価格確認中",
+    "note": "花やしき通りのにぎわいを背に、木の席でほっと腰を下ろせる。\n抹茶と甘味をゆっくり選ぶ時間が、浅草散歩に小さな余白をくれる。",
+    "searchTags": [
+      "浅草",
+      "田原町",
+      "寿清庵",
+      "寿清庵 茶室 浅草 花やしき通り 抹茶カフェ",
+      "抹茶",
+      "甘味",
+      "日本茶"
+    ],
+    "cautionNote": "公式情報要確認",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-1lf51hy",
+    "name": "谷中茶室 汲",
+    "area": "浅草",
+    "address": "〒110-0001 東京都台東区谷中６丁目４−５",
+    "station": "根津",
+    "nearestStation": "根津",
+    "stations": [
+      "根津",
+      "千駄木",
+      "日暮里"
+    ],
+    "walk": "徒歩8分",
+    "image": "https://cdnspacemarket.com/uploads/attachments/757215/image.jpg?width=1200&height=675&fit=crop&quality=85&format=jpg&dpr=1",
+    "imageFocus": "minimal-japanese",
+    "placeId": "ChIJN6fBAbqNGGARENVW2ypdfeI",
+    "type": "日本茶 / 茶室",
+    "genre": "日本茶 / 茶室",
+    "tags": [
+      "日本茶",
+      "抹茶",
+      "静かめ",
+      "一人時間",
+      "器が美しい"
+    ],
+    "comment": "谷中の路地に、静かな茶室の光が差し込む。",
+    "mapUrl": "https://maps.google.com/?cid=16320303063310456080&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=16320303063310456080&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.instagram.com/yanakachashitsu_kum/",
+    "instagramUrl": "https://www.instagram.com/yanakachashitsu_kum/",
+    "menuUrl": "",
+    "menuSummary": [
+      "日本茶あり",
+      "抹茶あり",
+      "利用方法確認"
+    ],
+    "priceRange": "価格確認中",
+    "note": "谷中の路地にある茶室は、明るい余白と和の静けさが印象的。\n器やしつらえまで眺めながら、お茶と向き合う時間を過ごせそう。",
+    "searchTags": [
+      "浅草",
+      "谷中",
+      "根津",
+      "千駄木",
+      "日暮里",
+      "谷中茶室 汲",
+      "日本茶",
+      "抹茶",
+      "茶室"
+    ],
+    "cautionNote": "Instagramあり / 利用形態要確認",
+    "instagram": {
+      "handle": "yanakachashitsu_kum",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "hojicha-factory",
+    "name": "穂と香 HOJICHA FACTORY",
+    "area": "浅草",
+    "address": "〒131-0033 東京都墨田区向島１丁目３−１４",
+    "station": "本所吾妻橋",
+    "nearestStation": "本所吾妻橋",
+    "stations": [
+      "本所吾妻橋",
+      "とうきょうスカイツリー",
+      "押上"
+    ],
+    "walk": "徒歩5分",
+    "image": "https://nihonchaseikatsu.com/wp-content/uploads/2025/09/DSC2573-2.jpg",
+    "imageFocus": "quiet-room",
+    "placeId": "ChIJ5ZBDUACPGGARxCU-NluXtjs",
+    "type": "焙じ茶 / ほうじ茶",
+    "genre": "焙じ茶 / ほうじ茶",
+    "tags": [
+      "焙じ茶",
+      "香りを楽しむ",
+      "会話向け",
+      "一人時間",
+      "ほっとする"
+    ],
+    "comment": "木と光の小さな席で、焙じ茶の香りを待つ。",
+    "mapUrl": "https://maps.google.com/?cid=4302792912006948292&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=4302792912006948292&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.instagram.com/hotoka.hojicha.factory/",
+    "instagramUrl": "https://www.instagram.com/hotoka.hojicha.factory/",
+    "menuUrl": "",
+    "menuSummary": [
+      "焙じ茶あり",
+      "ほうじ茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,000円台",
+    "note": "緑に近い向島の小さな空間で、焙じ茶の香ばしさがふわりと広がる。\n浅草散歩の先に、香りを深く味わうための穏やかな休憩が待っている。",
+    "searchTags": [
+      "浅草",
+      "向島",
+      "本所吾妻橋",
+      "とうきょうスカイツリー",
+      "押上",
+      "穂と香 HOJICHA FACTORY",
+      "焙じ茶",
+      "ほうじ茶",
+      "日本茶"
+    ],
+    "cautionNote": "Instagramあり / placeIdあり",
+    "instagram": {
+      "handle": "hotoka.hojicha.factory",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-1tc01mk",
+    "name": "甘味処 羽衣茶寮 浅草本店",
+    "area": "浅草",
+    "address": "〒111-0032 東京都台東区浅草２丁目７−２６ B1F 御宿 野乃浅草別邸",
+    "station": "浅草",
+    "nearestStation": "浅草",
+    "stations": [
+      "浅草",
+      "田原町"
+    ],
+    "walk": "徒歩7分",
+    "image": "https://www.kyoritsu-oasis-inc.jp/wp/wp-content/themes/kyoritsu-oasis-inc/img/shop/hagoromo_01_main.jpg",
+    "imageFocus": "minimal-japanese",
+    "placeId": "ChIJPXReynKPGGARsX0cRRynM1g",
+    "type": "抹茶 / 日本茶 / 甘味",
+    "genre": "抹茶 / 日本茶 / 甘味",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "会話向け",
+      "ほっとする",
+      "少し特別"
+    ],
+    "comment": "浅草の宿の奥で、和甘味とお茶にほっとする。",
+    "mapUrl": "https://maps.google.com/?cid=6355607239010319793&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=6355607239010319793&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.kyoritsu-oasis-inc.jp/shop/hagoromo/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "日本茶あり",
+      "甘味あり"
+    ],
+    "priceRange": "価格確認中",
+    "note": "畳と木の気配がある空間で、浅草らしい甘味とお茶をゆっくり選べる。\n観光の高揚を少し落ち着かせて、静かな一服へ戻れる場所。",
+    "searchTags": [
+      "浅草",
+      "田原町",
+      "甘味処 羽衣茶寮 浅草本店",
+      "羽衣茶寮",
+      "抹茶",
+      "日本茶",
+      "甘味"
+    ],
+    "cautionNote": "公式ページ / placeIdあり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
   }
 ]
