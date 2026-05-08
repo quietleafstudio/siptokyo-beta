@@ -80,12 +80,14 @@ img {
   justify-content: space-between;
   gap: 12px;
   padding: 0 2px;
+  min-width: 0;
 }
 
 .brandIdentity {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
 }
 
 .logoMark {
@@ -114,6 +116,8 @@ img {
   display: flex;
   flex: 1 1 100%;
   gap: 7px;
+  max-width: 100%;
+  min-width: 0;
   overflow-x: auto;
   padding-bottom: 2px;
   scrollbar-width: none;
@@ -125,6 +129,7 @@ img {
 
 .brandNavLink {
   flex: 0 0 auto;
+  max-width: calc(100vw - 28px);
   border: 1px solid rgba(83, 111, 73, 0.2);
   border-radius: 999px;
   background: rgba(255, 254, 251, 0.72);
@@ -133,6 +138,31 @@ img {
   font-size: 12px;
   font-weight: 800;
   text-decoration: none;
+}
+
+.languageSwitch {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: auto;
+  border: 1px solid rgba(83, 111, 73, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 254, 251, 0.74);
+  color: rgba(83, 111, 73, 0.56);
+  padding: 7px 10px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.languageSwitch a {
+  color: rgba(83, 111, 73, 0.56);
+  text-decoration: none;
+}
+
+.languageSwitch a.active {
+  color: var(--leaf-dark);
 }
 
 .brandNavLink.active {
@@ -644,6 +674,8 @@ address {
   align-items: center;
   justify-content: space-between;
   gap: 14px;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .aboutNav .brandNav {
@@ -654,10 +686,26 @@ address {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
   color: var(--leaf-dark);
   font-size: 20px;
   font-weight: 800;
   text-decoration: none;
+}
+
+.brandTextStack {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  line-height: 1.08;
+}
+
+.brandTextStack small {
+  color: rgba(83, 111, 73, 0.72);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .aboutBackLink {
@@ -821,6 +869,261 @@ address {
   font-size: 13px;
   font-weight: 800;
   text-decoration: none;
+}
+
+.enShell {
+  max-width: 100%;
+  padding-bottom: 36px;
+}
+
+.enHero {
+  display: grid;
+  gap: 20px;
+  max-width: 100%;
+  overflow: hidden;
+  padding-bottom: 32px;
+}
+
+.enNav {
+  max-width: 100%;
+}
+
+.enNav .brandNavLink {
+  font-size: 11px;
+}
+
+.enHeroImage {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  border-radius: 26px;
+  background: #d9d7c8;
+  box-shadow: var(--shadow);
+}
+
+.enHeroImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(252, 250, 244, 0), rgba(252, 250, 244, 0.34)),
+    linear-gradient(135deg, rgba(51, 77, 53, 0.03), rgba(51, 77, 53, 0.2));
+  pointer-events: none;
+}
+
+.enHeroImage img {
+  height: clamp(350px, 110vw, 470px);
+  object-fit: cover;
+  object-position: center center;
+}
+
+.enHeroCopy {
+  display: grid;
+  gap: 14px;
+  max-width: 100%;
+  min-width: 0;
+  padding: 2px 2px 0;
+}
+
+.enHeroCopy h1,
+.enAbout h2,
+.enFeatured h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.enHeroCopy h1 {
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: normal;
+  font-size: clamp(34px, 10.5vw, 52px);
+  line-height: 1.08;
+}
+
+.enHeroCopy > p:last-of-type {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.enHeroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 100%;
+  padding-top: 6px;
+}
+
+.enPrimaryCta,
+.enSecondaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border-radius: 999px;
+  padding: 11px 16px;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.enPrimaryCta {
+  border: 1px solid rgba(51, 77, 53, 0.78);
+  background: var(--leaf-dark);
+  color: var(--white);
+  box-shadow: 0 16px 28px rgba(51, 77, 53, 0.18);
+}
+
+.enSecondaryCta {
+  border: 1px solid rgba(83, 111, 73, 0.22);
+  background: rgba(255, 254, 251, 0.78);
+  color: var(--leaf-dark);
+}
+
+.enMain {
+  display: grid;
+  gap: 34px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.enKeywordGrid {
+  display: grid;
+  gap: 12px;
+  max-width: 100%;
+}
+
+.enKeywordCard,
+.enExploreCard,
+.enFeatured {
+  border: 1px solid rgba(225, 218, 203, 0.92);
+  border-radius: 22px;
+  background: rgba(255, 254, 251, 0.62);
+}
+
+.enKeywordCard {
+  display: grid;
+  gap: 8px;
+  max-width: 100%;
+  padding: 20px;
+}
+
+.enKeywordCard h2 {
+  margin: 0;
+  color: var(--leaf-dark);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.enKeywordCard p,
+.enEssay p,
+.enFeatured p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.enAbout {
+  display: grid;
+  gap: 18px;
+  padding: 30px 0 0;
+  border-top: 1px solid rgba(225, 218, 203, 0.95);
+}
+
+.enAbout h2 {
+  max-width: 11em;
+  font-size: clamp(30px, 8vw, 42px);
+  line-height: 1.2;
+}
+
+.enEssay {
+  display: grid;
+  gap: 18px;
+}
+
+.enExplore {
+  display: grid;
+  gap: 14px;
+}
+
+.enExploreList {
+  display: grid;
+  gap: 12px;
+  max-width: 100%;
+}
+
+.enExploreCard {
+  display: grid;
+  gap: 9px;
+  max-width: 100%;
+  padding: 20px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.enExploreCard h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", Georgia, serif;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.enExploreCard p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.enFeatured {
+  display: grid;
+  gap: 13px;
+  max-width: 100%;
+  padding: 24px 20px;
+}
+
+.enFeatured h2 {
+  font-size: clamp(28px, 7.5vw, 38px);
+  line-height: 1.18;
+}
+
+.enFeatured .enSecondaryCta {
+  justify-self: start;
+  margin-top: 4px;
+}
+
+.enFooter {
+  display: grid;
+  gap: 7px;
+  margin-top: 36px;
+  padding: 26px 0 0;
+  border-top: 1px solid rgba(225, 218, 203, 0.95);
+  color: var(--leaf-dark);
+}
+
+.enFooter p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.enFooter span,
+.enFooter small {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.6;
 }
 
 

@@ -219,6 +219,16 @@ function renderBrandNav(activePage = "spots") {
   `;
 }
 
+function renderLanguageSwitcher(activeLanguage = "jp") {
+  return `
+    <div class="languageSwitch" aria-label="Language switcher">
+      <a class="${activeLanguage === "jp" ? "active" : ""}" href="/" aria-current="${activeLanguage === "jp" ? "page" : "false"}">JP</a>
+      <span aria-hidden="true">/</span>
+      <a class="${activeLanguage === "en" ? "active" : ""}" href="/en" aria-current="${activeLanguage === "en" ? "page" : "false"}">EN</a>
+    </div>
+  `;
+}
+
 function renderSpotCard(spot) {
   const isFavorite = state.favorites.includes(spot.id);
   const displayStation = spot.nearestStation || spot.station;
@@ -301,6 +311,11 @@ function render() {
   const areaFilters = getAreaFilters();
   const root = document.getElementById("root");
 
+  if (window.location.pathname.replace(/\/$/, "") === "/en") {
+    root.innerHTML = renderEnglishLandingPage();
+    return;
+  }
+
   if (window.location.hash === "#about") {
     root.innerHTML = renderAboutPage();
     return;
@@ -324,6 +339,7 @@ function render() {
             <div class="logoMark">SIP</div>
             <p>SIP Tokyo</p>
           </div>
+          ${renderLanguageSwitcher("jp")}
           ${renderBrandNav("spots")}
         </div>
         <div class="heroImage">
@@ -387,6 +403,133 @@ function render() {
 
 }
 
+function renderEnglishLandingPage() {
+  const keywords = [
+    {
+      title: "Quiet",
+      text: "A calm presence in everyday life.",
+    },
+    {
+      title: "Ritual",
+      text: "A gentle practice, one cup at a time.",
+    },
+    {
+      title: "Space",
+      text: "Room to breathe, pause, and simply be.",
+    },
+  ];
+  const exploreLinks = [
+    {
+      title: "Tea Spots",
+      text: "Discover peaceful tea places across Tokyo.",
+      href: "/#spots",
+    },
+    {
+      title: "Journal",
+      text: "Stories of tea, culture, and mindful living.",
+      href: "/#journal",
+    },
+    {
+      title: "For Home",
+      text: "Bring quiet rituals into your everyday life.",
+      href: "/#for-home",
+    },
+  ];
+
+  return `
+    <div class="appShell enShell">
+      <header class="enHero">
+        <nav class="aboutNav" aria-label="SIP English navigation">
+          <a class="aboutLogo" href="/en">
+            <span class="logoMark">SIP</span>
+            <span class="brandTextStack">
+              <span>SIP Tokyo</span>
+              <small>Rooted in Tokyo</small>
+            </span>
+          </a>
+          ${renderLanguageSwitcher("en")}
+          <nav class="brandNav enNav" aria-label="English sections">
+            <a class="brandNavLink" href="#en-about">About</a>
+            <a class="brandNavLink" href="/#spots">Tea Spots</a>
+            <a class="brandNavLink" href="/#for-home">For Home</a>
+            <a class="brandNavLink" href="/#journal">Journal</a>
+            <a class="brandNavLink" href="#en-featured">Featured by SIP</a>
+          </nav>
+        </nav>
+
+        <div class="enHeroImage">
+          <img src="${publicAssetPath("images/siptokyo-hero.png")}" alt="Matcha and herbal tea in soft Tokyo light" onerror="window.handleSipImageError(this)" />
+        </div>
+
+        <div class="enHeroCopy">
+          <p class="kicker">SIP · Rooted in Tokyo</p>
+          <h1>A quiet moment, steeped in Tokyo.</h1>
+          <p>A gentle pause for the soul.</p>
+          <div class="enHeroActions">
+            <a class="enPrimaryCta" href="#en-about">Begin Your Quiet Moment</a>
+            <a class="enSecondaryCta" href="/#spots">Explore Tea Spots →</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="enMain">
+        <section class="enKeywordGrid" aria-label="SIP brand keywords">
+          ${keywords
+            .map(
+              (keyword) => `
+                <article class="enKeywordCard">
+                  <h2>${keyword.title}</h2>
+                  <p>${keyword.text}</p>
+                </article>
+              `,
+            )
+            .join("")}
+        </section>
+
+        <section id="en-about" class="enAbout">
+          <p class="sectionLabel">About SIP</p>
+          <h2>Tea is more than a drink — it is a quiet ritual.</h2>
+          <div class="enEssay">
+            <p>At SIP, tea is more than a drink — it is a quiet ritual.</p>
+            <p>Rooted in Tokyo, we curate gentle moments through tea, space, and thoughtful living. From bowls of vibrant matcha to quiet corners of Tokyo, SIP invites you to slow down and reconnect with yourself.</p>
+            <p>In a fast-moving world, we believe in the beauty of pause — a warm cup in your hands, a soft breath, a moment of stillness.</p>
+            <p>A quiet moment, steeped in Tokyo.<br>A gentle pause for the soul.</p>
+          </div>
+        </section>
+
+        <section class="enExplore" aria-label="Explore SIP">
+          <p class="sectionLabel">Explore SIP</p>
+          <div class="enExploreList">
+            ${exploreLinks
+              .map(
+                (link) => `
+                  <a class="enExploreCard" href="${link.href}">
+                    <h2>${link.title}</h2>
+                    <p>${link.text}</p>
+                  </a>
+                `,
+              )
+              .join("")}
+          </div>
+        </section>
+
+        <section id="en-featured" class="enFeatured">
+          <p class="sectionLabel">Featured by SIP</p>
+          <h2>Curated for slower, softer living.</h2>
+          <p>Objects, leaves, and small rituals selected for quiet moments at home.</p>
+          <a class="enSecondaryCta" href="/#for-home">Visit For Home →</a>
+        </section>
+      </main>
+
+      <footer class="enFooter">
+        <p>SIP</p>
+        <span>Rooted in Tokyo</span>
+        <small>A gentle pause, wherever you are.</small>
+      </footer>
+    </div>
+  `;
+}
+
 function renderAboutPage() {
   return `
     <div class="appShell aboutShell">
@@ -396,6 +539,7 @@ function renderAboutPage() {
             <span class="logoMark">SIP</span>
             <span>SIP Tokyo</span>
           </a>
+          ${renderLanguageSwitcher("jp")}
           ${renderBrandNav("about")}
         </nav>
         <div class="aboutHeroImage">
@@ -509,6 +653,7 @@ function renderForHomePage() {
             <span class="logoMark">SIP</span>
             <span>SIP Tokyo</span>
           </a>
+          ${renderLanguageSwitcher("jp")}
           ${renderBrandNav("forHome")}
         </nav>
 
@@ -653,6 +798,7 @@ function renderJournalPage() {
             <span class="logoMark">SIP</span>
             <span>SIP Tokyo</span>
           </a>
+          ${renderLanguageSwitcher("jp")}
           ${renderBrandNav("journal")}
         </nav>
 
