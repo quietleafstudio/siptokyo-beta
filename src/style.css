@@ -1138,10 +1138,170 @@ address {
   line-height: 1.9;
 }
 
+.journalFeature {
+  display: grid;
+  gap: 24px;
+  padding: 0 0 34px;
+  border-bottom: 1px solid rgba(225, 218, 203, 0.95);
+}
+
+.journalFeatureImage {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(225, 218, 203, 0.92);
+  border-radius: 24px;
+  background: #ede8dc;
+  box-shadow: 0 18px 42px rgba(46, 41, 32, 0.12);
+}
+
+.journalFeatureImage img {
+  display: block;
+  width: 100%;
+  height: clamp(330px, 96vw, 430px);
+  object-fit: cover;
+  object-position: center top;
+}
+
+.journalFeatureHeader {
+  display: grid;
+  gap: 10px;
+}
+
+.journalFeatureHeader p {
+  margin: 0;
+  color: var(--leaf);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.journalFeatureHeader h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  font-size: clamp(30px, 8vw, 38px);
+  font-weight: 700;
+  line-height: 1.34;
+  letter-spacing: 0;
+}
+
+.journalFeatureHeader span {
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.journalExcerpt {
+  display: grid;
+  overflow: hidden;
+  max-height: 7.2em;
+  opacity: 1;
+  transition:
+    max-height 220ms ease,
+    opacity 180ms ease,
+    margin 220ms ease;
+}
+
+.journalExcerpt p {
+  margin: 0;
+  color: rgba(41, 45, 36, 0.72);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 2;
+  letter-spacing: 0;
+}
+
+.journalFeature.isOpen .journalExcerpt {
+  max-height: 0;
+  margin-top: -8px;
+  opacity: 0;
+}
+
+.journalArticlePanel {
+  display: grid;
+  gap: 24px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    max-height 360ms ease,
+    opacity 220ms ease,
+    transform 260ms ease;
+}
+
+.journalFeature.isOpen .journalArticlePanel {
+  max-height: 2200px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.journalArticleBody {
+  display: grid;
+  gap: 22px;
+}
+
+.journalArticleBody p,
+.journalArticleClosing {
+  margin: 0;
+  color: rgba(41, 45, 36, 0.82);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 2.08;
+  letter-spacing: 0;
+}
+
+.journalArticleClosing {
+  margin-top: 2px;
+  color: var(--leaf);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.75;
+}
+
+.journalToggle {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  border: 1px solid rgba(83, 111, 73, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 254, 250, 0.72);
+  color: var(--leaf);
+  padding: 10px 15px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.journalToggle:active {
+  transform: translateY(1px);
+}
+
+.journalToggle:hover {
+  border-color: rgba(83, 111, 73, 0.36);
+  background: rgba(244, 239, 229, 0.84);
+}
+
 .journalArticleList {
   display: grid;
   gap: 0;
   border-top: 1px solid rgba(225, 218, 203, 0.95);
+}
+
+.journalArticleList > .sectionLabel {
+  margin: 0;
+  padding: 0 0 18px;
 }
 
 .journalArticleCard {

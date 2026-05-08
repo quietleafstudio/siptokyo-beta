@@ -46,6 +46,7 @@ const state = {
   isLoading: true,
   loadError: "",
   isComposing: false,
+  openJournalArticleId: null,
 };
 
 function readFavorites() {
@@ -587,21 +588,60 @@ function renderForHomePage() {
 
 
 function renderJournalPage() {
-  const articles = [
+  const journalArticles = [
     {
-      number: "01",
+      id: "journal-001",
+      number: "001",
+      title: "日本茶の起源とは？",
+      subtitle: "何気ない一杯の、はじまりの話",
+      image: "/images/journal-001-nihoncha-origin.png",
+      paragraphs: [
+        "朝の一杯。\n仕事の合間のひと息。\n夜、ふっと肩の力を抜きたいとき。",
+        "私たちの暮らしのそばには、いつもお茶があります。",
+        "そんな日本茶ですが、\n実ははじまりは日本ではなく、中国から伝わったものだといわれています。",
+        "今からおよそ1200年前。\n僧侶たちが中国からお茶の文化を持ち帰り、心と体を整えるための飲み物として広まっていきました。",
+        "当時、お茶はとても貴重なもの。\n今のように気軽に楽しむものではなく、特別な一杯だったそうです。",
+        "それが長い時間をかけて人々の暮らしに溶け込み、\n季節を感じたり、誰かと向き合ったり、\n自分の心をそっと整えたりする時間へと変わっていきました。",
+        "忙しい毎日の中で、\nお湯を注ぎ、湯気が立ちのぼるのを眺める。\nそのほんの数分だけでも、気持ちが少し静かになることがあります。",
+        "何気なく飲んでいる一杯にも、\nそんな長い物語が流れていると思うと、\nいつものお茶が少しだけ特別に感じられるかもしれません。",
+      ],
+      closing: "今日の一杯を、いつもより少し丁寧に。",
+    },
+    {
+      id: "journal-002",
+      number: "002",
       title: "表千家と裏千家の違いとは？",
-      category: "Tea ritual",
+      subtitle: "同じお茶、ちがう美しさ",
+      image: "/images/journal-002-senke-difference.png",
+      paragraphs: [
+        "茶道に少し興味を持つと、\nよく耳にする「表千家」と「裏千家」という言葉。",
+        "名前は知っていても、\n何が違うのかは意外と知らないものです。",
+        "実はこの二つ、どちらも同じルーツを持つお茶の流派。",
+        "茶の湯を大成した千利休の流れを受け継ぎながら、\nそれぞれの美意識や所作が少しずつ育まれていきました。",
+        "表千家は、静寂・格式・伝統を重んじる流派、\nかたや裏千家は「伝統を守りながら現代に開かれた茶道」として、国内外に多くの門弟を抱えています。",
+        "たとえば、お茶の点て方。",
+        "表千家の抹茶は、泡立ちを控えめにして、しっとりと落ち着いた印象。\n一方、裏千家はふんわりと泡を立て、やわらかく親しみやすい一杯になります。",
+        "お辞儀の仕方や道具の扱い方にも、それぞれの個性があります。",
+        "どちらが正しい、ではなく、\nどちらにも美しさがある。",
+        "静けさの中に凛とした空気を感じるなら表千家。\nやわらかく人を迎え入れるような温かさを感じるなら裏千家。",
+        "そんなふうに楽しんでみると、\nお茶の世界が少し近く感じられるかもしれません。",
+        "違いを知ることは、比べるためではなく、\nその奥にある美しさに気づくこと。",
+        "一杯のお茶の見え方が、また少し変わるかもしれません。",
+      ],
+      closing: "同じ一杯にも、いくつもの美しさがある。",
     },
-    {
-      number: "02",
-      title: "日本茶の起源",
-      category: "Tea history",
-    },
+  ];
+
+  const articles = [
     {
       number: "03",
       title: "抹茶と煎茶の違い",
       category: "Tea basics",
+    },
+    {
+      number: "04",
+      title: "茶室にある余白のこと",
+      category: "Quiet living",
     },
   ];
 
@@ -630,7 +670,10 @@ function renderJournalPage() {
           </p>
         </section>
 
+        ${journalArticles.map(renderJournalFeature).join("")}
+
         <section class="journalArticleList" aria-label="Journal articles">
+          <p class="sectionLabel">Coming Soon</p>
           ${articles
             .map(
               (article) => `
@@ -653,6 +696,53 @@ function renderJournalPage() {
         </section>
       </main>
     </div>
+  `;
+}
+
+function renderJournalFeature(article) {
+  const isOpen = state.openJournalArticleId === article.id;
+
+  return `
+    <article class="journalFeature ${isOpen ? "isOpen" : ""}" aria-label="Journal article ${article.number}">
+      <figure class="journalFeatureImage">
+        <img src="${article.image}" alt="SIP Journal #${article.number} ${article.title}" loading="${article.number === "001" ? "eager" : "lazy"}">
+      </figure>
+
+      <div class="journalFeatureHeader">
+        <p>SIP Journal #${article.number}</p>
+        <h2>${article.title}</h2>
+        <span>${article.subtitle}</span>
+      </div>
+
+      <div class="journalExcerpt" aria-hidden="${isOpen ? "true" : "false"}">
+        <p>${article.paragraphs[0].replaceAll("\n", "<br>")}</p>
+      </div>
+
+      <div class="journalArticlePanel" id="${article.id}-panel" aria-hidden="${isOpen ? "false" : "true"}">
+        <div class="journalArticleBody">
+          ${article.paragraphs
+            .map(
+              (paragraph) => `
+                <p>${paragraph.replaceAll("\n", "<br>")}</p>
+              `,
+            )
+            .join("")}
+        </div>
+
+        <p class="journalArticleClosing">${article.closing}</p>
+      </div>
+
+      <button
+        class="journalToggle"
+        type="button"
+        aria-expanded="${isOpen}"
+        aria-controls="${article.id}-panel"
+        onclick="window.toggleJournalArticle('${article.id}')"
+      >
+        <span>${isOpen ? "閉じる" : "続きを読む"}</span>
+        <span aria-hidden="true">${isOpen ? "▲" : "▼"}</span>
+      </button>
+    </article>
   `;
 }
 
@@ -692,6 +782,11 @@ window.addEventListener("hashchange", () => {
   render();
   window.scrollTo({ top: 0, behavior: "instant" });
 });
+
+window.toggleJournalArticle = (id) => {
+  state.openJournalArticleId = state.openJournalArticleId === id ? null : id;
+  render();
+};
 
 window.setSipFilter = (type, value) => {
   if (type === "tag") {
