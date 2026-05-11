@@ -251,7 +251,7 @@ function renderChips(items, activeValue, type) {
 
 function renderEnglishHeader(activePage = "home", languageLinks = {}) {
   const links = [
-    { href: "/en#en-about", label: "About", page: "about" },
+    { href: "/en/about", label: "About", page: "about" },
     { href: "/en/spots", label: "Tea Spots", page: "spots" },
     { href: "/#for-home", label: "For Home", page: "forHome" },
     { href: "/en/journal", label: "Journal", page: "journal" },
@@ -397,6 +397,11 @@ function render() {
 
   if (normalizedPath === "/en/spots" || normalizedPath === "/en/spots/index.html") {
     root.innerHTML = renderEnglishTeaSpotsPage();
+    return;
+  }
+
+  if (normalizedPath === "/en/about" || normalizedPath === "/en/about/index.html") {
+    root.innerHTML = renderEnglishAboutPage();
     return;
   }
 
@@ -641,6 +646,101 @@ function renderEnglishTeaSpotsPage() {
         <span>Rooted in Tokyo</span>
         <small>A gentle pause, wherever you are.</small>
       </footer>
+    </div>
+  `;
+}
+
+function renderEnglishAboutPage() {
+  const philosophy = [
+    {
+      number: "01",
+      title: "Choose by atmosphere.",
+    },
+    {
+      number: "02",
+      title: "Leave room to breathe.",
+    },
+    {
+      number: "03",
+      title: "Let tea take the lead.",
+    },
+  ];
+
+  return `
+    <div class="appShell enAboutShell">
+      <header class="enAboutHero">
+        ${renderEnglishHeader("about", { jpHref: "/#about", enHref: "/en/about" })}
+
+        <div class="enHeroImage enAboutHeroImage">
+          <img src="${publicAssetPath("images/kosoan-card.jpg")}" alt="A quiet tea room looking out to a garden in Tokyo" onerror="window.handleSipImageError(this)" />
+        </div>
+
+        <div class="enAboutHeroCopy">
+          <p class="kicker">About SIP Tokyo</p>
+          <h1>A quiet moment, steeped in Tokyo.</h1>
+          <p>A gentle pause for the soul.</p>
+        </div>
+      </header>
+
+      <main class="enAboutMain">
+        <section class="enAboutEssayBlock">
+          <p class="sectionLabel">Our Story</p>
+          <div class="enAboutEssay">
+            <p>There are days when we reach for tea instead of coffee.</p>
+            <p>Moments when we quietly long to slow down, breathe deeply, and soften the rhythm of the day.</p>
+            <p>SIP Tokyo is a quiet cultural journal inspired by tea, space, and the slower side of Tokyo.</p>
+            <p>Through tea spots, journals, rituals, and everyday moments, we explore the gentle beauty of Japanese tea culture — not as something distant or formal, but as something that can softly exist within daily life.</p>
+          </div>
+        </section>
+
+        <section class="enAboutEssayBlock">
+          <p class="sectionLabel">Why Tea?</p>
+          <div class="enAboutEssay">
+            <p>In Japan, tea is more than a drink.</p>
+            <p>It can be a pause between busy moments.<br>A quiet conversation.<br>A way to notice the seasons, light, and atmosphere around us.</p>
+            <p>We see tea as a small ritual — one that gently reconnects us with ourselves and with the present moment.</p>
+          </div>
+        </section>
+
+        <section class="enAboutEssayBlock">
+          <p class="sectionLabel">Quiet Tokyo</p>
+          <div class="enAboutEssay">
+            <p>Tokyo is often seen as fast and crowded.</p>
+            <p>Yet hidden between the streets are quiet tea rooms, peaceful corners, old kissaten, and spaces where time seems to slow down.</p>
+            <p>SIP Tokyo is a collection of those quieter moments.</p>
+          </div>
+        </section>
+
+        <section class="enAboutPhilosophy">
+          <p class="sectionLabel">Our Philosophy</p>
+          <div class="enAboutPhilosophyList">
+            ${philosophy
+              .map(
+                (item) => `
+                  <article>
+                    <span>${item.number}</span>
+                    <h2>${item.title}</h2>
+                  </article>
+                `,
+              )
+              .join("")}
+          </div>
+        </section>
+
+        <section class="enAboutEssayBlock">
+          <p class="sectionLabel">Our Hope</p>
+          <div class="enAboutEssay">
+            <p>We hope to quietly share the beauty of Japanese tea culture with people around the world.</p>
+            <p>Through matcha, Japanese tea, tea spaces, and thoughtful rituals, SIP Tokyo invites people to slow down, breathe deeply, and discover a softer rhythm of life.</p>
+          </div>
+        </section>
+
+        <section class="enAboutClosing">
+          <p class="sectionLabel">For Your Quiet Moment</p>
+          <h2>May today’s cup<br>bring a quieter moment.</h2>
+          <p>Rooted in Tokyo.<br>Shared quietly with the world. 🍵</p>
+        </section>
+      </main>
     </div>
   `;
 }
