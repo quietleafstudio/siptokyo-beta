@@ -6,6 +6,8 @@ export default defineConfig({
       input: {
         main: "index.html",
         en: "en/index.html",
+        enSpots: "en/spots/index.html",
+        journalHikawa: "journal/hikawa-matcha/index.html",
         studio: "studio.html",
       },
     },

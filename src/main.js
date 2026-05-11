@@ -5,6 +5,54 @@ const publicBasePath = import.meta.env?.BASE_URL || "/";
 const dataVersion = "20260502-2";
 let searchRenderTimer = null;
 
+const englishSpotHighlights = [
+  {
+    sourceName: "古桑庵",
+    displayName: "Kosoan",
+    area: "Jiyugaoka",
+    englishAddress: "1-24-23 Jiyugaoka, Meguro-ku, Tokyo 152-0035, Japan",
+    englishMemo: "A quiet place to let time slow down, with tea, tatami, and the softness of an old Tokyo house.",
+    comment: "A timeless corner of Tokyo, where tea and stillness quietly meet.",
+    tags: ["Traditional", "Quiet", "Garden View"],
+  },
+  {
+    sourceName: "ocha room ashita ITOEN",
+    displayName: "OCHA ROOM ASHITA ITOEN",
+    area: "Shibuya",
+    englishAddress: "Shibuya Scramble Square 10F, 2-24-12 Shibuya, Shibuya-ku, Tokyo 150-0002, Japan",
+    englishMemo: "A thoughtful stop for discovering Japanese tea with a sense of care, clarity, and quiet curiosity.",
+    comment: "A thoughtful place to discover the quiet depth of Japanese tea culture.",
+    tags: ["Ritual", "Culture", "Tea Experience"],
+  },
+  {
+    sourceName: "INARI TEA",
+    displayName: "INARI TEA",
+    area: "Ebisu",
+    englishAddress: "Kogetsu Building 101, 1-5-2 Ebisu, Shibuya-ku, Tokyo 150-0013, Japan",
+    englishMemo: "A gentle matcha pause in Ebisu, perfect for a quiet moment between city errands.",
+    comment: "A peaceful pause in the city, shaped by the soft bitterness of matcha.",
+    tags: ["Urban Quiet", "Solo Time", "Matcha"],
+  },
+  {
+    sourceName: "とらや 髙島屋新宿店",
+    displayName: "Toraya Takashimaya Shinjuku",
+    area: "Shinjuku",
+    englishAddress: "Shinjuku Takashimaya B1F, 5-24-2 Sendagaya, Shibuya-ku, Tokyo 151-0051, Japan",
+    englishMemo: "A refined place to enjoy tea and wagashi, where Japanese craft feels calm and beautifully measured.",
+    comment: "A refined moment where tea and wagashi express quiet Japanese beauty.",
+    tags: ["Heritage", "Wagashi", "Elegant"],
+  },
+  {
+    sourceName: "nana's green tea 自由が丘",
+    displayName: "nana's green tea Jiyugaoka",
+    area: "Jiyugaoka",
+    englishAddress: "1-29-18 Jiyugaoka, Meguro-ku, Tokyo 152-0035, Japan",
+    englishMemo: "A friendly modern tea space for matcha, conversation, and a soft reset in the day.",
+    comment: "A gentle modern space for quiet tea moments and soft conversation.",
+    tags: ["Modern", "Calm", "Matcha"],
+  },
+];
+
 initGoogleAnalytics();
 
 function publicAssetPath(path) {
@@ -47,6 +95,7 @@ const state = {
   loadError: "",
   isComposing: false,
   openJournalArticleId: null,
+  englishSpotQuery: "",
 };
 
 function readFavorites() {
@@ -200,6 +249,36 @@ function renderChips(items, activeValue, type) {
 }
 
 
+function renderEnglishHeader(activePage = "home") {
+  const links = [
+    { href: "/en#en-about", label: "About", page: "about" },
+    { href: "/en/spots", label: "Tea Spots", page: "spots" },
+    { href: "/#for-home", label: "For Home", page: "forHome" },
+    { href: "/#journal", label: "Journal", page: "journal" },
+    { href: "/en#en-featured", label: "Featured by SIP", page: "featured" },
+  ];
+
+  return `
+    <nav class="aboutNav" aria-label="SIP English navigation">
+      <a class="aboutLogo" href="/en">
+        <span class="logoMark">SIP</span>
+        <span class="brandTextStack">
+          <span>SIP Tokyo</span>
+          <small>Rooted in Tokyo</small>
+        </span>
+      </a>
+      ${renderLanguageSwitcher("en")}
+      <nav class="brandNav enNav" aria-label="English sections">
+        ${links
+          .map(
+            (link) => `<a class="brandNavLink${activePage === link.page ? " active" : ""}" href="${link.href}">${link.label}</a>`,
+          )
+          .join("")}
+      </nav>
+    </nav>
+  `;
+}
+
 function renderBrandNav(activePage = "spots") {
   const links = [
     { href: "#about", label: "About", page: "about" },
@@ -311,7 +390,19 @@ function render() {
   const areaFilters = getAreaFilters();
   const root = document.getElementById("root");
 
-  if (window.location.pathname.replace(/\/$/, "") === "/en") {
+  const normalizedPath = window.location.pathname.replace(/\/$/, "");
+
+  if (normalizedPath === "/en/spots" || normalizedPath === "/en/spots/index.html") {
+    root.innerHTML = renderEnglishTeaSpotsPage();
+    return;
+  }
+
+  if (normalizedPath === "/journal/hikawa-matcha" || normalizedPath === "/journal/hikawa-matcha/index.html") {
+    root.innerHTML = renderJournalArticlePage("journal-003");
+    return;
+  }
+
+  if (normalizedPath === "/en") {
     root.innerHTML = renderEnglishLandingPage();
     return;
   }
@@ -403,6 +494,144 @@ function render() {
 
 }
 
+function getEnglishSpotHighlights() {
+  return englishSpotHighlights
+    .map((entry) => {
+      const spot = state.spots.find((candidate) => candidate.name === entry.sourceName);
+      return spot ? { ...spot, english: entry } : null;
+    })
+    .filter(Boolean);
+}
+
+function matchesEnglishSpotQuery(spot, query) {
+  const normalizedQuery = query.trim().toLowerCase();
+
+  if (!normalizedQuery) return true;
+
+  const searchableText = [
+    spot.english.displayName,
+    spot.english.area,
+    spot.english.comment,
+    spot.english.englishAddress,
+    spot.name,
+    spot.area,
+    spot.address,
+    spot.genre,
+    spot.comment,
+    spot.note,
+    ...spot.english.tags,
+    ...spot.tags,
+    ...spot.searchTags,
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
+  return searchableText.includes(normalizedQuery);
+}
+
+function getFilteredEnglishSpotHighlights() {
+  return getEnglishSpotHighlights().filter((spot) => matchesEnglishSpotQuery(spot, state.englishSpotQuery));
+}
+
+function renderEnglishSpotSearch() {
+  return `
+    <label class="enSpotSearch" aria-label="Search quiet tea spots">
+      <span class="searchIcon" aria-hidden="true">⌕</span>
+      <input
+        value="${escapeHtml(state.englishSpotQuery)}"
+        placeholder="Search by name, area, or mood..."
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+        oninput="window.setEnglishSpotQuery(this.value)"
+      />
+    </label>
+  `;
+}
+
+function renderEnglishSpotCard(spot) {
+  const mapUrl = spot.mapsUrl || spot.mapUrl;
+  const tags = spot.english.tags
+    .slice(0, 5)
+    .map((tag) => `<span class="tagPill">${escapeHtml(tag)}</span>`)
+    .join("");
+  const links = [
+    mapUrl
+      ? `<a href="${escapeHtml(mapUrl)}" target="_blank" rel="noreferrer" onclick="window.trackSipExternalLink('google_maps_en', '${escapeHtml(spot.id)}')">View on Map</a>`
+      : "",
+    spot.officialUrl
+      ? `<a href="${escapeHtml(spot.officialUrl)}" target="_blank" rel="noreferrer" onclick="window.trackSipExternalLink('official_site_en', '${escapeHtml(spot.id)}')">Official Site</a>`
+      : "",
+  ]
+    .filter(Boolean)
+    .join("");
+
+  return `
+    <article class="spotCard enSpotCard" data-spot-id="${escapeHtml(spot.id)}">
+      <div class="photoWrap">
+        <img src="${escapeHtml(spot.image)}" alt="${escapeHtml(spot.english.displayName)} tea space" onerror="window.handleSipImageError(this)" />
+      </div>
+      <div class="spotBody">
+        <div class="spotMeta">
+          <span>${escapeHtml(spot.english.area)}</span>
+          <span>Tea Spot</span>
+        </div>
+        <h3>${escapeHtml(spot.english.displayName)}</h3>
+        ${spot.english.englishAddress ? `<div class="locationInfo"><p><span aria-hidden="true">📍</span>${escapeHtml(spot.english.englishAddress)}</p></div>` : ""}
+        <div class="tagWrap">${tags}</div>
+        <p class="comment">${escapeHtml(spot.english.comment)}</p>
+        ${spot.english.englishMemo ? `<div class="enSipMemo"><span>SIP Memo</span><p>${escapeHtml(spot.english.englishMemo)}</p></div>` : ""}
+        ${links ? `<div class="infoLinks enSpotLinks">${links}</div>` : ""}
+      </div>
+    </article>
+  `;
+}
+
+function renderEnglishTeaSpotsPage() {
+  const spots = getFilteredEnglishSpotHighlights();
+
+  return `
+    <div class="appShell enShell enSpotsShell">
+      <header class="enSpotsHero">
+        ${renderEnglishHeader("spots")}
+        <div class="enSpotsHeroCopy">
+          <p class="kicker">Tea Spots</p>
+          <h1>Quiet Tea Spots in Tokyo</h1>
+          <p>Five peaceful places to pause, sip, and breathe.</p>
+        </div>
+      </header>
+
+      <main class="enMain enSpotsMain">
+        <section class="enSpotsIntro" aria-label="SIP tea spot note">
+          <p>Curated for quiet pauses, gentle rituals, and spaces that let the city soften for a moment.</p>
+        </section>
+
+        <section class="enSpotSearchPanel" aria-label="Search tea spots">
+          ${renderEnglishSpotSearch()}
+        </section>
+
+        <section class="spotList enSpotList" aria-label="Quiet tea spots in Tokyo">
+          ${state.isLoading
+            ? `<div class="emptyState">Loading tea spots.</div>`
+            : state.loadError
+              ? `<div class="emptyState">Tea spot data could not be loaded.</div>`
+              : spots.length
+                ? spots.map(renderEnglishSpotCard).join("")
+                : `<div class="emptyState enSpotEmpty"><p>No quiet spots found.</p><span>Try another keyword, such as matcha, quiet, or Ebisu.</span></div>`}
+        </section>
+      </main>
+
+      <footer class="enFooter">
+        <p>SIP</p>
+        <span>Rooted in Tokyo</span>
+        <small>A gentle pause, wherever you are.</small>
+      </footer>
+    </div>
+  `;
+}
+
 function renderEnglishLandingPage() {
   const keywords = [
     {
@@ -422,7 +651,7 @@ function renderEnglishLandingPage() {
     {
       title: "Tea Spots",
       text: "Discover peaceful tea places across Tokyo.",
-      href: "/#spots",
+      href: "/en/spots",
     },
     {
       title: "Journal",
@@ -439,23 +668,7 @@ function renderEnglishLandingPage() {
   return `
     <div class="appShell enShell">
       <header class="enHero">
-        <nav class="aboutNav" aria-label="SIP English navigation">
-          <a class="aboutLogo" href="/en">
-            <span class="logoMark">SIP</span>
-            <span class="brandTextStack">
-              <span>SIP Tokyo</span>
-              <small>Rooted in Tokyo</small>
-            </span>
-          </a>
-          ${renderLanguageSwitcher("en")}
-          <nav class="brandNav enNav" aria-label="English sections">
-            <a class="brandNavLink" href="#en-about">About</a>
-            <a class="brandNavLink" href="/#spots">Tea Spots</a>
-            <a class="brandNavLink" href="/#for-home">For Home</a>
-            <a class="brandNavLink" href="/#journal">Journal</a>
-            <a class="brandNavLink" href="#en-featured">Featured by SIP</a>
-          </nav>
-        </nav>
+        ${renderEnglishHeader("home")}
 
         <div class="enHeroImage">
           <img src="${publicAssetPath("images/siptokyo-hero.png")}" alt="Matcha and herbal tea in soft Tokyo light" onerror="window.handleSipImageError(this)" />
@@ -467,7 +680,7 @@ function renderEnglishLandingPage() {
           <p>A gentle pause for the soul.</p>
           <div class="enHeroActions">
             <a class="enPrimaryCta" href="#en-about">Begin Your Quiet Moment</a>
-            <a class="enSecondaryCta" href="/#spots">Explore Tea Spots →</a>
+            <a class="enSecondaryCta" href="/en/spots">Explore Tea Spots →</a>
           </div>
         </div>
       </header>
@@ -732,8 +945,8 @@ function renderForHomePage() {
 }
 
 
-function renderJournalPage() {
-  const journalArticles = [
+function getJournalArticles() {
+  return [
     {
       id: "journal-001",
       number: "001",
@@ -775,16 +988,100 @@ function renderJournalPage() {
       ],
       closing: "同じ一杯にも、いくつもの美しさがある。",
     },
+    {
+      id: "journal-003",
+      number: "003",
+      title: "神社で出会った、静かな抹茶の時間",
+      subtitle: "上目黒氷川神社で出会った、外に開かれた小さな茶室と、静かな一服の記録。",
+      image: "/images/journal/hikawa-shrine-hero.jpg",
+      slug: "/journal/hikawa-matcha",
+      excerpt: "忙しく過ぎていく毎日の中で、\nふと、静かな場所に身を置きたくなる時があります。",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "忙しく過ぎていく毎日の中で、\nふと、静かな場所に身を置きたくなる時があります。",
+        },
+        {
+          type: "paragraph",
+          text: "先日訪れたのは、上目黒氷川神社で開かれていた「和文化ふれあい会」。\n境内の一角には、外に設えられた小さな茶室があり、和装姿の先生や生徒さんたちが、一杯ずつ丁寧にお茶を点てていました。",
+        },
+        {
+          type: "image",
+          src: "/images/journal/hikawa-tea-seat.jpg",
+          alt: "上目黒氷川神社の境内に設えられた茶席",
+          caption: "境内の一角に、外へ開かれた小さな茶席がありました。",
+        },
+        {
+          type: "paragraph",
+          text: "木々の間を風が抜け、\nやわらかな光が差し込む中でいただく抹茶は、どこか肩の力を抜いてくれるような静けさがありました。",
+        },
+        {
+          type: "paragraph",
+          text: "茶道というと、作法や格式のイメージを持つ方も多いかもしれません。\nけれど本来は、一碗のお茶を通して、人と人が向き合い、同じ時間を静かに味わう文化でもあります。",
+        },
+        {
+          type: "image",
+          src: "/images/journal/hikawa-matcha-bowl.jpg",
+          alt: "茶席でいただいた抹茶茶碗",
+          caption: "一碗のお茶に、場の静けさがそっと映るようでした。",
+        },
+        {
+          type: "paragraph",
+          text: "この日いただいたのは、手作りのお茶菓子とともに味わう一服。\n外に開かれた即席の茶室には、不思議と堅苦しさはなく、地域の人たちが自然に集い、お茶を囲むやさしい空気が流れていました。",
+        },
+        {
+          type: "image",
+          src: "/images/journal/hikawa-sweets.jpg",
+          alt: "手作りのお茶菓子",
+          caption: "手作りのお茶菓子とともにいただく一服。",
+        },
+        {
+          type: "video",
+          src: "/videos/hikawa-venue.mp4",
+          caption: "境内に生まれた、やわらかな茶席の空気。",
+        },
+        {
+          type: "paragraph",
+          text: "先生に少しお話を伺うと、「これからもっと海外の方にも、日本のお茶文化を知ってもらえたら嬉しいですね」と話してくださいました。",
+        },
+        {
+          type: "paragraph",
+          text: "その言葉を聞きながら、\n抹茶や日本茶の魅力は、味だけではなく、“静かな時間そのもの”にあるのかもしれないと感じます。",
+        },
+        {
+          type: "paragraph",
+          text: "忙しい日々の中で、\n一杯のお茶にそっと心を預ける時間。",
+        },
+        {
+          type: "paragraph",
+          text: "そんな小さな余白を、これからも大切にしていきたいと思いました。",
+        },
+        {
+          type: "image",
+          src: "/images/journal/hikawa-tea-room.jpg",
+          alt: "即席茶室のしつらえ",
+          caption: "外の光を受けながら、静かに整えられたしつらえ。",
+        },
+        {
+          type: "memo",
+          text: "静かな場所でいただく一服は、\n思っている以上に、心の呼吸をゆるやかにしてくれる。\n\nお茶は飲み物である前に、\n人と時間をつなぐ、小さな文化なのかもしれません。 🍵",
+        },
+      ],
+    },
   ];
+}
+
+function renderJournalPage() {
+  const journalArticles = getJournalArticles();
 
   const articles = [
     {
-      number: "03",
+      number: "04",
       title: "抹茶と煎茶の違い",
       category: "Tea basics",
     },
     {
-      number: "04",
+      number: "05",
       title: "茶室にある余白のこと",
       category: "Quiet living",
     },
@@ -847,6 +1144,7 @@ function renderJournalPage() {
 
 function renderJournalFeature(article) {
   const isOpen = state.openJournalArticleId === article.id;
+  const excerpt = getJournalArticleExcerpt(article);
 
   return `
     <article class="journalFeature ${isOpen ? "isOpen" : ""}" aria-label="Journal article ${article.number}">
@@ -861,22 +1159,18 @@ function renderJournalFeature(article) {
       </div>
 
       <div class="journalExcerpt" aria-hidden="${isOpen ? "true" : "false"}">
-        <p>${article.paragraphs[0].replaceAll("\n", "<br>")}</p>
+        <p>${excerpt.replaceAll("\n", "<br>")}</p>
       </div>
 
       <div class="journalArticlePanel" id="${article.id}-panel" aria-hidden="${isOpen ? "false" : "true"}">
-        <div class="journalArticleBody">
-          ${article.paragraphs
-            .map(
-              (paragraph) => `
-                <p>${paragraph.replaceAll("\n", "<br>")}</p>
-              `,
-            )
-            .join("")}
-        </div>
-
-        <p class="journalArticleClosing">${article.closing}</p>
+        ${renderJournalArticleContent(article)}
       </div>
+
+      ${
+        article.slug
+          ? `<a class="journalArticleLink" href="${article.slug}">記事ページで読む</a>`
+          : ""
+      }
 
       <button
         class="journalToggle"
@@ -889,6 +1183,107 @@ function renderJournalFeature(article) {
         <span aria-hidden="true">${isOpen ? "▲" : "▼"}</span>
       </button>
     </article>
+  `;
+}
+
+function getJournalArticleExcerpt(article) {
+  if (article.excerpt) {
+    return article.excerpt;
+  }
+
+  if (article.paragraphs?.[0]) {
+    return article.paragraphs[0];
+  }
+
+  return article.blocks?.find((block) => block.type === "paragraph")?.text || "";
+}
+
+function renderJournalArticleContent(article) {
+  if (article.blocks) {
+    return `<div class="journalArticleBody">${article.blocks.map(renderJournalBlock).join("")}</div>`;
+  }
+
+  return `
+    <div class="journalArticleBody">
+      ${article.paragraphs
+        .map(
+          (paragraph) => `
+            <p>${paragraph.replaceAll("\n", "<br>")}</p>
+          `,
+        )
+        .join("")}
+    </div>
+
+    <p class="journalArticleClosing">${article.closing}</p>
+  `;
+}
+
+function renderJournalBlock(block) {
+  if (block.type === "image") {
+    return `
+      <figure class="journalInlineMedia">
+        <img src="${block.src}" alt="${block.alt || ""}" loading="lazy">
+        ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ""}
+      </figure>
+    `;
+  }
+
+  if (block.type === "video") {
+    return `
+      <figure class="journalInlineMedia journalInlineVideo">
+        <video src="${block.src}" controls playsinline preload="metadata"></video>
+        ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ""}
+      </figure>
+    `;
+  }
+
+  if (block.type === "memo") {
+    return `
+      <aside class="journalSipMemo">
+        <span>SIP Memo</span>
+        <p>${block.text.replaceAll("\n", "<br>")}</p>
+      </aside>
+    `;
+  }
+
+  return `<p>${block.text.replaceAll("\n", "<br>")}</p>`;
+}
+
+function renderJournalArticlePage(articleId) {
+  const article = getJournalArticles().find((item) => item.id === articleId);
+
+  if (!article) {
+    return renderJournalPage();
+  }
+
+  return `
+    <div class="appShell journalShell journalDetailShell">
+      <header class="journalDetailHero">
+        <nav class="aboutNav" aria-label="SIP Tokyo">
+          <a class="aboutLogo" href="/">
+            <span class="logoMark">SIP</span>
+            <span>SIP Tokyo</span>
+          </a>
+          ${renderLanguageSwitcher("jp")}
+          ${renderBrandNav("journal")}
+        </nav>
+
+        <figure class="journalFeatureImage journalDetailImage">
+          <img src="${article.image}" alt="${article.title}" loading="eager">
+        </figure>
+
+        <div class="journalFeatureHeader journalDetailHeader">
+          <p>SIP Journal #${article.number}</p>
+          <h1>${article.title}</h1>
+          <span>${article.subtitle}</span>
+          <a class="journalBackLink" href="/#journal">Journal一覧へ</a>
+        </div>
+      </header>
+
+      <main class="journalMain journalDetailMain">
+        ${renderJournalArticleContent(article)}
+      </main>
+    </div>
   `;
 }
 
@@ -965,6 +1360,17 @@ window.trackSipExternalLink = (linkType, spotId) => {
     link_type: linkType,
     spot_id: spotId,
   });
+};
+
+window.setEnglishSpotQuery = (value) => {
+  state.englishSpotQuery = value;
+  render();
+  const input = document.querySelector(".enSpotSearch input");
+
+  if (input) {
+    input.focus();
+    input.setSelectionRange(state.englishSpotQuery.length, state.englishSpotQuery.length);
+  }
 };
 
 window.handleSipImageError = (image) => {

@@ -1816,5 +1816,84 @@
       "handle": "",
       "placeId": ""
     }
+  },
+  {
+    "id": "spot-10x2cal",
+    "name": "宇治園 裏参道ガーデン店",
+    "area": "渋谷",
+    "address": "〒150-0001 東京都渋谷区神宮前４丁目１５−２ 1F 壱番",
+    "station": "",
+    "walk": "",
+    "image": "https://imgfp.hotp.jp/IMGH/64/68/P039086468/P039086468_480.jpg",
+    "placeId": "ChIJl8zQA4eNGGARb0qdW2gsOW4",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "ひと息の奥に、静けさがやさしく残る。",
+    "mapUrl": "https://maps.google.com/?cid=7942428244569836143&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=7942428244569836143&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://brand.uji-en.co.jp/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,500-2,500円",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "渋谷",
+      "抹茶",
+      "宇治園 裏参道ガーデン店"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "imageFocus": "quiet-room"
+  },
+  {
+    "id": "inari-tea",
+    "name": "INARI TEA",
+    "area": "恵比寿",
+    "address": "〒150-0013 東京都渋谷区恵比寿１丁目５−２ こうげつビル 101",
+    "station": "",
+    "walk": "",
+    "image": "https://img.hanako.tokyo/2019/03/15145727/DMA-inariTea-005.jpg",
+    "placeId": "ChIJSYfBA_eLGGARfHCwEXFxjEA",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "一人時間"
+    ],
+    "comment": "ほろ苦い余韻で、午後をやさしく整える。",
+    "mapUrl": "https://maps.google.com/?cid=4651217245608898684&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=4651217245608898684&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "http://www.inari-tea.jp/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "単品のお茶あり"
+    ],
+    "priceRange": "価格確認中",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "恵比寿",
+      "抹茶",
+      "INARI TEA"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "imageFocus": "minimal-japanese"
   }
 ]
