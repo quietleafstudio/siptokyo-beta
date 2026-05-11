@@ -1022,7 +1022,7 @@ function renderAboutPage() {
 
         <section class="aboutClosing">
           <p class="sectionLabel">For Your Quiet Moment</p>
-          <h2>次の休憩が、少し美しくなりますように。</h2>
+          <h2>今日の一杯が、<br>少し静かな時間になりますように。</h2>
           <p>
             一人で整えたい日も、誰かと静かに話したい日も。SIP Tokyo は、東京のお茶時間を、ひとつずつ丁寧に集めていきます。
           </p>
