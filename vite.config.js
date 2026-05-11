@@ -7,6 +7,8 @@ export default defineConfig({
         main: "index.html",
         en: "en/index.html",
         enSpots: "en/spots/index.html",
+        enJournal: "en/journal/index.html",
+        enJournalHikawa: "en/journal/hikawa-matcha/index.html",
         journalHikawa: "journal/hikawa-matcha/index.html",
         studio: "studio.html",
       },

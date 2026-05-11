@@ -249,12 +249,12 @@ function renderChips(items, activeValue, type) {
 }
 
 
-function renderEnglishHeader(activePage = "home") {
+function renderEnglishHeader(activePage = "home", languageLinks = {}) {
   const links = [
     { href: "/en#en-about", label: "About", page: "about" },
     { href: "/en/spots", label: "Tea Spots", page: "spots" },
     { href: "/#for-home", label: "For Home", page: "forHome" },
-    { href: "/#journal", label: "Journal", page: "journal" },
+    { href: "/en/journal", label: "Journal", page: "journal" },
     { href: "/en#en-featured", label: "Featured by SIP", page: "featured" },
   ];
 
@@ -267,7 +267,7 @@ function renderEnglishHeader(activePage = "home") {
           <small>Rooted in Tokyo</small>
         </span>
       </a>
-      ${renderLanguageSwitcher("en")}
+      ${renderLanguageSwitcher("en", languageLinks)}
       <nav class="brandNav enNav" aria-label="English sections">
         ${links
           .map(
@@ -298,12 +298,15 @@ function renderBrandNav(activePage = "spots") {
   `;
 }
 
-function renderLanguageSwitcher(activeLanguage = "jp") {
+function renderLanguageSwitcher(activeLanguage = "jp", links = {}) {
+  const jpHref = links.jpHref || "/";
+  const enHref = links.enHref || "/en";
+
   return `
     <div class="languageSwitch" aria-label="Language switcher">
-      <a class="${activeLanguage === "jp" ? "active" : ""}" href="/" aria-current="${activeLanguage === "jp" ? "page" : "false"}">JP</a>
+      <a class="${activeLanguage === "jp" ? "active" : ""}" href="${jpHref}" aria-current="${activeLanguage === "jp" ? "page" : "false"}">JP</a>
       <span aria-hidden="true">/</span>
-      <a class="${activeLanguage === "en" ? "active" : ""}" href="/en" aria-current="${activeLanguage === "en" ? "page" : "false"}">EN</a>
+      <a class="${activeLanguage === "en" ? "active" : ""}" href="${enHref}" aria-current="${activeLanguage === "en" ? "page" : "false"}">EN</a>
     </div>
   `;
 }
@@ -394,6 +397,16 @@ function render() {
 
   if (normalizedPath === "/en/spots" || normalizedPath === "/en/spots/index.html") {
     root.innerHTML = renderEnglishTeaSpotsPage();
+    return;
+  }
+
+  if (normalizedPath === "/en/journal/hikawa-matcha" || normalizedPath === "/en/journal/hikawa-matcha/index.html") {
+    root.innerHTML = renderEnglishJournalArticlePage("en-journal-001");
+    return;
+  }
+
+  if (normalizedPath === "/en/journal" || normalizedPath === "/en/journal/index.html") {
+    root.innerHTML = renderEnglishJournalPage();
     return;
   }
 
@@ -628,6 +641,215 @@ function renderEnglishTeaSpotsPage() {
         <span>Rooted in Tokyo</span>
         <small>A gentle pause, wherever you are.</small>
       </footer>
+    </div>
+  `;
+}
+
+function getEnglishJournalArticles() {
+  return [
+    {
+      id: "en-journal-001",
+      number: "001",
+      title: "A Quiet Matcha Moment at a Local Shrine",
+      subtitle: "A quiet tea ceremony beneath the trees of Kamimeguro Hikawa Shrine in Tokyo.",
+      image: "/images/journal/hikawa-shrine-hero.jpg",
+      slug: "/en/journal/hikawa-matcha",
+      excerpt:
+        "In the middle of our busy daily lives,\nthere are moments when we quietly long for a place to slow down and breathe.",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "In the middle of our busy daily lives,\nthere are moments when we quietly long for a place to slow down and breathe.",
+        },
+        {
+          type: "paragraph",
+          text: "Recently, I visited a Japanese cultural event held at Kamimeguro Hikawa Shrine.",
+        },
+        {
+          type: "paragraph",
+          text: "In one corner of the shrine grounds stood a small tea space, gently arranged outdoors.\nTeachers and students dressed in kimono prepared each bowl of matcha with calm and thoughtful movements.",
+        },
+        {
+          type: "image",
+          src: "/images/journal/hikawa-tea-seat.jpg",
+          alt: "An outdoor tea space arranged within Kamimeguro Hikawa Shrine",
+          caption: "A small tea space gently arranged in one corner of the shrine grounds.",
+        },
+        {
+          type: "paragraph",
+          text: "As the breeze moved softly through the trees and sunlight filtered into the space, the matcha carried a quiet sense of ease — as if it naturally loosened the tension in the shoulders.",
+        },
+        {
+          type: "paragraph",
+          text: "Tea ceremony is often seen as something formal or difficult to approach.\nBut perhaps, at its heart, it is simply a way of sharing time quietly with others through a single bowl of tea.",
+        },
+        {
+          type: "image",
+          src: "/images/journal/hikawa-matcha-bowl.jpg",
+          alt: "A bowl of matcha at the shrine tea gathering",
+          caption: "A single bowl of tea, quietly holding the atmosphere of the moment.",
+        },
+        {
+          type: "paragraph",
+          text: "That day, we were served matcha alongside handmade sweets.\nThe temporary tea room, open to the outside air, felt warm and welcoming rather than formal.\nPeople gathered naturally, sharing tea and conversation in a gentle atmosphere.",
+        },
+        {
+          type: "image",
+          src: "/images/journal/hikawa-sweets.jpg",
+          alt: "Handmade sweets served with matcha",
+          caption: "Handmade sweets served with a bowl of matcha.",
+        },
+        {
+          type: "video",
+          src: "/videos/hikawa-venue.mp4",
+          caption: "The gentle atmosphere of an outdoor tea space at the shrine.",
+        },
+        {
+          type: "paragraph",
+          text: "While speaking with one of the teachers, she mentioned how happy she would be if more people from around the world could experience Japanese tea culture in the future.",
+        },
+        {
+          type: "paragraph",
+          text: "Hearing those words, I was reminded that the beauty of matcha and Japanese tea is not only in the taste itself, but in the quiet moments they create.",
+        },
+        {
+          type: "paragraph",
+          text: "In the midst of busy days,\nthere is something comforting about placing your heart gently into a single cup of tea.",
+        },
+        {
+          type: "paragraph",
+          text: "It made me want to continue cherishing these small pauses of calm in everyday life.",
+        },
+        {
+          type: "image",
+          src: "/images/journal/hikawa-tea-room.jpg",
+          alt: "The quiet arrangement of a temporary outdoor tea room",
+          caption: "A temporary tea room, quietly arranged beneath the open air.",
+        },
+        {
+          type: "memo",
+          text: "A quiet bowl of tea in a peaceful place\ncan soften the rhythm of the heart more than we expect.\n\nPerhaps tea is not simply a drink,\nbut a small culture that gently connects people and time. 🍵",
+        },
+      ],
+    },
+  ];
+}
+
+function renderEnglishJournalPage() {
+  const articles = getEnglishJournalArticles();
+
+  return `
+    <div class="appShell journalShell enJournalShell">
+      <header class="journalHero">
+        ${renderEnglishHeader("journal", { jpHref: "/#journal", enHref: "/en/journal" })}
+
+        <div class="journalHeroPanel enJournalHeroPanel">
+          <p class="kicker">SIP Journal</p>
+          <h1>Quiet stories behind a single cup.</h1>
+          <p>Thoughts on tea, ritual, and quiet living.</p>
+        </div>
+      </header>
+
+      <main class="journalMain">
+        <section class="journalIntro" aria-label="Journal introduction">
+          <p>
+            SIP Journal gathers quiet cultural notes on tea, space, and the small rituals that help us return to ourselves.
+          </p>
+        </section>
+
+        ${articles.map(renderEnglishJournalFeature).join("")}
+      </main>
+    </div>
+  `;
+}
+
+function renderEnglishJournalFeature(article) {
+  return `
+    <article class="journalFeature enJournalFeature" aria-label="SIP Journal article ${article.number}">
+      <figure class="journalFeatureImage">
+        <img src="${article.image}" alt="SIP Journal #${article.number} ${article.title}" loading="eager">
+      </figure>
+
+      <div class="journalFeatureHeader">
+        <p>SIP Journal #${article.number}</p>
+        <h2>${article.title}</h2>
+        <span>${article.subtitle}</span>
+      </div>
+
+      <div class="journalExcerpt">
+        <p>${article.excerpt.replaceAll("\n", "<br>")}</p>
+      </div>
+
+      <a class="journalToggle enJournalReadLink" href="${article.slug}">
+        <span>Read article</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </article>
+  `;
+}
+
+function renderEnglishJournalArticleContent(article) {
+  return `<div class="journalArticleBody enJournalArticleBody">${article.blocks.map(renderEnglishJournalBlock).join("")}</div>`;
+}
+
+function renderEnglishJournalBlock(block) {
+  if (block.type === "image") {
+    return `
+      <figure class="journalInlineMedia">
+        <img src="${block.src}" alt="${block.alt || ""}" loading="lazy">
+        ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ""}
+      </figure>
+    `;
+  }
+
+  if (block.type === "video") {
+    return `
+      <figure class="journalInlineMedia journalInlineVideo">
+        <video src="${block.src}" controls playsinline preload="metadata"></video>
+        ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ""}
+      </figure>
+    `;
+  }
+
+  if (block.type === "memo") {
+    return `
+      <aside class="journalSipMemo">
+        <span>SIP Memo</span>
+        <p>${block.text.replaceAll("\n", "<br>")}</p>
+      </aside>
+    `;
+  }
+
+  return `<p>${block.text.replaceAll("\n", "<br>")}</p>`;
+}
+
+function renderEnglishJournalArticlePage(articleId) {
+  const article = getEnglishJournalArticles().find((item) => item.id === articleId);
+
+  if (!article) {
+    return renderEnglishJournalPage();
+  }
+
+  return `
+    <div class="appShell journalShell journalDetailShell enJournalShell">
+      <header class="journalDetailHero">
+        ${renderEnglishHeader("journal", { jpHref: "/journal/hikawa-matcha", enHref: "/en/journal/hikawa-matcha" })}
+
+        <figure class="journalFeatureImage journalDetailImage">
+          <img src="${article.image}" alt="${article.title}" loading="eager">
+        </figure>
+
+        <div class="journalFeatureHeader journalDetailHeader">
+          <p>SIP Journal #${article.number}</p>
+          <h1>${article.title}</h1>
+          <span>${article.subtitle}</span>
+          <a class="journalBackLink" href="/en/journal">Back to Journal</a>
+        </div>
+      </header>
+
+      <main class="journalMain journalDetailMain">
+        ${renderEnglishJournalArticleContent(article)}
+      </main>
     </div>
   `;
 }
@@ -1264,7 +1486,7 @@ function renderJournalArticlePage(articleId) {
             <span class="logoMark">SIP</span>
             <span>SIP Tokyo</span>
           </a>
-          ${renderLanguageSwitcher("jp")}
+          ${renderLanguageSwitcher("jp", { jpHref: "/journal/hikawa-matcha", enHref: "/en/journal/hikawa-matcha" })}
           ${renderBrandNav("journal")}
         </nav>
 
