@@ -2100,14 +2100,15 @@
     "walk": "",
     "image": "/api/place-photo?name=places%2FChIJxfHBvNeLGGARcIocCOxoSx0%2Fphotos%2FAb43m-uL_q2pX87YQy_igdG2pR08bN6a9Y6GIpPZq0GiletqxnXRfSrXIrQyMqCZyp2pYKQ_e6RGF22tkOVOEwNXbChlr_DhPwJlF2Il5fCucqFdua9E0pAUZFt_oHIHpbonImrVvY-j9JfUPBaPnYh-qFjQyLFj2m-t2TjjqzVhuVo3bK--gnp_snEifogpOFPAki8p6FbbOKhve6TT8lYaPgHuDoxD8-qDaaDjyRB5HpuZbdBo2XW_nsQZtRIFQ8HPmZG5hTktJ1Q3o-NGWY3oop6Xa7h2gHqARlRpXSXZLvc76Q",
     "placeId": "ChIJxfHBvNeLGGARcIocCOxoSx0",
-    "type": "抹茶 / お茶候補",
-    "genre": "抹茶 / お茶候補",
+    "type": "チャイ / スパイスティー",
+    "genre": "チャイ / スパイスティー",
     "tags": [
-      "抹茶",
       "会話向け",
-      "一人時間"
+      "一人時間",
+      "ハーブ",
+      "チャイ"
     ],
-    "comment": "音を少し遠ざけて、お茶に心を預けたい。",
+    "comment": "路地裏高架下にある、特別なお茶の居場所",
     "mapUrl": "https://maps.google.com/?cid=2110896213310868080&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "mapsUrl": "https://maps.google.com/?cid=2110896213310868080&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "officialUrl": "https://www.chiyaba.com/",
@@ -2118,10 +2119,11 @@
       "単品のお茶あり"
     ],
     "priceRange": "価格確認中",
-    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "note": "「Chiya（チヤ）」はネパール語で“お茶”を意味し、「Ba（場）」には人が集い、響き合う場所という想いが込められています。\nネパール・バンチャー地方の小さな茶農家との出会いから始まったティースタンド。チャイやスパイスティー、茶葉の販売も楽しめます。",
     "searchTags": [
       "中目黒",
-      "抹茶",
+      "ハーブ",
+      "チャイ",
       "Chiyaba"
     ],
     "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
