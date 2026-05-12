@@ -1895,5 +1895,83 @@
       "placeId": ""
     },
     "imageFocus": "minimal-japanese"
+  },
+  {
+    "id": "sotei",
+    "name": "蒼亭 Sotei",
+    "area": "恵比寿",
+    "address": "〒150-0022 東京都渋谷区恵比寿南１丁目１６−３ 細井ビル",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJ-_rPsnqLGGARxe8kALkwvUA%2Fphotos%2FAb43m-tvgvah_8rSl3Epl2Ofdz4kcuxgE8c_LJd_0VEUKWOmqzvZ_3kBv0idmwATaja_QadA8F5wbD3cx0H938HqJXeQCtMovxmnOxKYq50uBtKNWvbe00Bn36HYmtvsAo0qP5vz6TcxHjVVI0WJeI2STi8y4uXFzCRknNYaCdlgAqZ0eLh39h91GHwc_NZzzU4F4GKNggYykP3rew7S2bC8Ym-k06u2nYxApiHOpGDI0Ihr6AiYj3Hc6uP3FPX6FnrXIE6YEWXkOHdL9I-Ogq04m0qi0OZw1VkKbxf8BE91MoKgwmq_keu0we6Eq5t48uOavwSVO2rZ5tpOBEw42duBKUUEcpLgv2B393XlTJV4TAeLUbcsbB5TYv2loeMbKAo52XQwtJRzVnehhq1BW_QrCyfRXPrQAPqQBD8qviw770HyJfeC1-XSGBQBsXL1PCsj",
+    "placeId": "ChIJ-_rPsnqLGGARxe8kALkwvUA",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "音を少し遠ざけて、お茶に心を預けたい。",
+    "mapUrl": "https://maps.google.com/?cid=4664938360155205573&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=4664938360155205573&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.instagram.com/sotei.official?igsh=MXZrNDN1aDQwcmZwdw%3D%3D&utm_source=qr",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,500-2,500円",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "恵比寿",
+      "抹茶",
+      "蒼亭 Sotei"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "maccha-house-with-harajuku",
+    "name": "MACCHA HOUSE 抹茶館 WITH HARAJUKU",
+    "area": "原宿",
+    "address": "〒150-0001 東京都渋谷区神宮前１丁目１４−３２ 2F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJr-IrmV2NGGAR5SoriOU4m9Y%2Fphotos%2FAb43m-vCl6f7-hZltFsnOBVyCo6dpPyDXtLlV5u9M-mNpdJlTVz4Z9qStnXWij_9kW-wDlttDstetX8Z3uXvYSKIrJedIEdZGMMuiDuus7AiS55bEPifCdFfAdQYE9O4DbW3tTVIZ0qL24B-re3XfheF5ufevppXPY72fSkeJihPM8JdHezYraGavlKlNm_5b7Loqhr24HWsMARW0pIJJyQI2Rq4O48g8y3i_U9G4wyEvlbhGiC5Gm6quWBvBjpQJ_Y8vWpC-wZiO7VxjfX2MEyuiOAQAS-wO2vt1MMyWx4srav5Q3ow3StYPNgWzmcBBnH2S35FGQew1yaf7Hawu8Qh11lrRnXzLJC44CMRnuC9gEl0z6Nh6mnJuz7JF_YY6V51EUKg3pjXdFyujd_ZGfmU8soayTwwm6zxc4rpie-PkE8X8Q",
+    "placeId": "ChIJr-IrmV2NGGAR5SoriOU4m9Y",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "静かな余白に、気持ちまでゆっくりほどける。",
+    "mapUrl": "https://maps.google.com/?cid=15464016303989926629&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=15464016303989926629&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://maccha-house.com/cr1339/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "最低注文金額確認"
+    ],
+    "priceRange": "1,500-2,500円",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "原宿",
+      "抹茶",
+      "MACCHA HOUSE 抹茶館 WITH HARAJUKU"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
   }
 ]
