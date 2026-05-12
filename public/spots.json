@@ -1973,5 +1973,202 @@
       "handle": "",
       "placeId": ""
     }
+  },
+  {
+    "id": "ten",
+    "name": "日本茶専門スタンドヽTEN",
+    "area": "下北沢",
+    "address": "〒155-0031 東京都世田谷区北沢２丁目１９−２",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJe_0mt4fzGGAR2AyDW3SoCdg%2Fphotos%2FAb43m-uYgmlLQvh9FVxQ3GtUWKo-_wkrDirYckk9H-pWntcASVus6m3wzq4RuO-qR4rmaG03R5_grcsgnoBmBfYTe5r73Vv5HHuE_AAAdE3KmIfkTLxHWrgDkARCzNYfGSf45Hu-GVFNvp9W9EV6ROdt6W_PUILqdsKrXv247MKNo-r7mUx0t1h8kzU0aCXCvcAAHb-0JCfL9m7Nv2JaQX9LRt4hfNvL_sZkuJm5pubZHAZyZRhgb60CDbvECEF13hPvE68PckmCyC6auxGgW4ocwXEqoTmub3TQ9gmmIACc-xB8cg",
+    "placeId": "ChIJe_0mt4fzGGAR2AyDW3SoCdg",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "静かな余白に、気持ちまでゆっくりほどける。",
+    "mapUrl": "https://maps.google.com/?cid=15567158804687817944&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=15567158804687817944&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://instagram.com/ten.shimokitazawa?igshid=MzRlODBiNWFlZA==",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,000円台",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "下北沢",
+      "抹茶",
+      "日本茶専門スタンドヽTEN"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "capoon",
+    "name": "CAPOON抹茶製造所 下北沢",
+    "area": "下北沢",
+    "address": "〒155-0031 東京都世田谷区北沢２丁目２６−１８ アーバンテラス下北沢 201",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJFyE0t87zGGARYkdNvxkDmQ8%2Fphotos%2FAb43m-ukCeY76WIJptGAmParZK7j_kp97VBgi-1zjorTWIVQlqTzSMHJnieARKrp_GP5LFMcQSgLA1bEjqHc9_Ed-pDHJOr3T0CQgYupb892FEuIEroocnTvms8M1HIN1mB6bxfQtq705ReEreFZB6WwwsVPSMnUKzTQwEOT0M2KaRmJ_zJDDDHAP1KtiAC6Tv7naFwEhRKN2_ApXgP0IXkG84p--PZxxtKtwZK8WDR6cNVDd5bFNZZCt1RK8JBRTYeGc6wjM6GWm05YseU1_h9lAyqv42qWHQ9ZaLspqG4ALSb6FbuCxNsl2JH5sLg_Cj4LoALteHa9kn8Q5Y_KH8J83eyNrUN2-qOhzixKBNdj35spBebl71_3B86uJ_5y0YYLQtpEdN1wirKhiOGJtXGclA724Gd1PQT1lrycmZ_0XnZDTIzZGkR_HKeSnD67uCSE",
+    "placeId": "ChIJFyE0t87zGGARYkdNvxkDmQ8",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "音を少し遠ざけて、お茶に心を預けたい。",
+    "mapUrl": "https://maps.google.com/?cid=1123932991124227938&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=1123932991124227938&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.instagram.com/capoon_shimokita/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "単品のお茶あり"
+    ],
+    "priceRange": "1,500-2,500円",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "下北沢",
+      "抹茶",
+      "CAPOON抹茶製造所 下北沢"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-ddufbn",
+    "name": "東京茶寮",
+    "area": "三軒茶屋",
+    "address": "〒154-0011 東京都世田谷区上馬１丁目３４−１５",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJSXxYEpj0GGARWOfR7f24PPs%2Fphotos%2FAb43m-vTkYeFSktDT-CS1-XBY4ypMyxfiOtq7HP0_80pZrcBdp399rp-fDigrKe8ZM0_sRCErY1MJW4f-uSRAWcgZ8IXnrJ51J1iqJIF9GlU3ERyDZJnuzseYeTFtZreFWyo0FGEWnfy1gkjB1PaIYo3SZI1NXkhnadWUMZ-5Wv-XPXql-1uV_QF_uN2bzCu3vCWmRmHntwmD9jnHtmIPpm2cUDnD5wZ5DYdLAQhzYl84Vv487mIEqABSc9PNiWNYknkSq4QZfH3T7d-Fi-U9ydIL4zhUVqQCrEuy-fge_tz22mv0g",
+    "placeId": "ChIJSXxYEpj0GGARWOfR7f24PPs",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "静かな余白に、気持ちまでゆっくりほどける。",
+    "mapUrl": "https://maps.google.com/?cid=18103548002878744408&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=18103548002878744408&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "http://www.tokyosaryo.jp/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "最低注文金額確認"
+    ],
+    "priceRange": "1,000円台",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "三軒茶屋",
+      "抹茶",
+      "東京茶寮"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "chiyaba",
+    "name": "Chiyaba",
+    "area": "中目黒",
+    "address": "〒153-0051 東京都目黒区上目黒２丁目４５−１２",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJxfHBvNeLGGARcIocCOxoSx0%2Fphotos%2FAb43m-uL_q2pX87YQy_igdG2pR08bN6a9Y6GIpPZq0GiletqxnXRfSrXIrQyMqCZyp2pYKQ_e6RGF22tkOVOEwNXbChlr_DhPwJlF2Il5fCucqFdua9E0pAUZFt_oHIHpbonImrVvY-j9JfUPBaPnYh-qFjQyLFj2m-t2TjjqzVhuVo3bK--gnp_snEifogpOFPAki8p6FbbOKhve6TT8lYaPgHuDoxD8-qDaaDjyRB5HpuZbdBo2XW_nsQZtRIFQ8HPmZG5hTktJ1Q3o-NGWY3oop6Xa7h2gHqARlRpXSXZLvc76Q",
+    "placeId": "ChIJxfHBvNeLGGARcIocCOxoSx0",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "音を少し遠ざけて、お茶に心を預けたい。",
+    "mapUrl": "https://maps.google.com/?cid=2110896213310868080&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=2110896213310868080&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.chiyaba.com/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "単品のお茶あり"
+    ],
+    "priceRange": "価格確認中",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "中目黒",
+      "抹茶",
+      "Chiyaba"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-ukodpd",
+    "name": "つきまさ下北沢店",
+    "area": "下北沢",
+    "address": "〒155-0032 東京都世田谷区代沢５丁目２８−１６ ＥＰＯＣＨ",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJyXFTPmnzGGARVVX2-Ho0fHQ%2Fphotos%2FAb43m-sbVgo9FZ5K3Q2yPzp6IAP7oNHW1rI2ekbRKsiUlBcQPuXcMXJMwoLQbjyoCdbPD2picw_2zD_zW6CPB_oEK0RjjLAFo9uoL43hMJwGH2soWyieHRoG1BGxz1k8xSd22ULeDsLyM9fYijpx_gMAJwUxk0YoG_D1-k0VJ1ynR7rATALgTJa8WrpJ6wWQGZNuYYhbmujB-W4mNxb8LavEvAHP3mSNNFJLMBZ5M28IBd4OQ0SOBeZ_5J6eIFZZW4GfsohQ-XjarXeTRMkk-IyJol0WbzMo71aq4saBCOWqpeJ5O7LnBfvJAclZgD8w6hqGac4o8cEQBrTxAlQsBiEPdKt2vfCwkfHbhQbrrHqqVC_duStejrcGi4Rsa7XstfxpKl4T-BGl3__pad4PuJiWccZ0OAfq5Oul0CEIhpdCykihxtg",
+    "placeId": "ChIJyXFTPmnzGGARVVX2-Ho0fHQ",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "ひと息の奥に、静けさがやさしく残る。",
+    "mapUrl": "https://maps.google.com/?cid=8393641508279309653&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=8393641508279309653&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "最低注文金額確認"
+    ],
+    "priceRange": "1,500-2,500円",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "下北沢",
+      "抹茶",
+      "つきまさ下北沢店"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式情報要確認",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
   }
 ]
