@@ -2169,5 +2169,363 @@
       "handle": "",
       "placeId": ""
     }
+  },
+  {
+    "id": "ippuku-and-matcha",
+    "name": "IPPUKU&MATCHA 日本橋店",
+    "area": "銀座",
+    "address": "〒103-0022 東京都中央区日本橋室町２丁目１−１ 日本橋三井タワ １階",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJWc9D3sOJGGARreTTMn8dLlU%2Fphotos%2FAb43m-s8Pl83qGjaoOb0GrJmON_xAPuvPHGzqLnVdkGHfVrelDN-md6xCCkQuD4R6BWWTFtmuCP1uveT0LCoX_nKQXAZ2onZFRVsl0Wndk9tqSu7L6tKcCdunFtUxEcXZLoTN8UWNSfZlaDEDPSwogfDSC5b-_v_OsSBwLVy1RoB6n5zG2dNgBozZP89kJdqwRGwav2urCH2xczL0h1kIHZ_lqN7EDdajIKVar3WZOVuucnUkayWvF5v170hQgfVH4KAI6TVHeNbtN4fCI9-jTbzpGm6ZoujmdGsRpJhIVJNY9huxLZNDno_oTCTeDl0gzdM_gIQKU7IAEWU2VPg1MkSEiemz7pDkUtQXtGhXcOTX8b_FUSqTyhj_UgkhHohegQMWLTWJrcjjns1HfWS9Os5ANLAJjchwm5ccixycUhDmuM8Ew",
+    "placeId": "ChIJWc9D3sOJGGARreTTMn8dLlU",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "静かな余白に、気持ちまでゆっくりほどける。",
+    "mapUrl": "https://maps.google.com/?cid=6137875774303364269&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=6137875774303364269&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://ippukuandmatcha.jp/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "予約推奨"
+    ],
+    "priceRange": "価格確認中",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "銀座",
+      "抹茶",
+      "IPPUKU&MATCHA 日本橋店"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "tanagokoro-tearoom",
+    "name": "TANAGOKORO TEAROOM",
+    "area": "銀座",
+    "address": "〒104-0061 東京都中央区銀座１丁目８−１５ GINZA TANAGOKORO 3F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJz-3f8-OLGGARNRzzp7RxAWM%2Fphotos%2FAb43m-vSavgLo0MROASdkIzl4ZZxsBqGF4WJ1wZmZbg86MqoLeHAMEhE1xEmR5chswhOzE7ZaBkuXvmbr3Ps54b4cZ2trig4t0Zu8QT_lq19wa66kvt_vFAVcB8GuDPY25rtc8Gh8ahKFiTBny5djXMJ5U_l54CeJco5GWTieDxuCKepvgjY3-13bsfEigrivsj2W3u43OJ4yKLIVfDGmxhh3hUcoMFwkL4WGJJC516WhwZr9fpYaPzVtwCa5qTaa7GS5lwwC2eSbqIxkhAoxh-ZaaUDQtJv6nq9Ovm08pj58IiNhg",
+    "placeId": "ChIJz-3f8-OLGGARNRzzp7RxAWM",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "洗練",
+      "一人時間"
+    ],
+    "comment": "背筋をふっと伸ばしたくなる、凛とした一杯。",
+    "mapUrl": "https://maps.google.com/?cid=7134108305457355829&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=7134108305457355829&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "http://www.tanagokoro-tearoom.com/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,500-2,500円",
+    "note": "すっきり整った空間で、背筋まで軽く伸びる一杯を。\n都会の途中に置いておきたい、上品なお茶時間。",
+    "searchTags": [
+      "銀座",
+      "抹茶",
+      "TANAGOKORO TEAROOM"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-95aphm",
+    "name": "日比谷 林屋新兵衛",
+    "area": "銀座",
+    "address": "〒100-0006 東京都千代田区有楽町１丁目１−２ 2F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJsZIPJO6LGGARROofTwwVlCM%2Fphotos%2FAb43m-uAmSLDN_QPDvYxMIg-oSukY6n6BJXpAYUhFwpXn9gR-_j4R6vPKbqhz88xeR6gyOeej2JRjmxijpb1IkYjc-ekXz6XRjcbSQRu02e1p1qfk4cb52WsDalz7kPyprNCtnHtOzunlks2638LjbCATXLAkRm-nywg1cqY0EPVbUIW3ZwTHSJkCSRnJyEi5kSVpF-C3tQJB7ptGxnqJ1H35GMBGD1uG1_GfdWvtyggksVv4QFCYD2exWdu6uBshEi-AOCAYeOEjZUrujWeqzKCrMj3x3Lhk31hVsjvWU3ar9C7OetWqutI8Z5kUzjpHwCz1iypFPyT5Mw2A50XVN3k0Q27DY7l5Ck69YboB7Mgr2PtIav4eVVERwRcVpa2G7Bvwy-nePixxyLqlwrg8F7BraSKJOTq2gA-zNdfgm0fUou3lO6dZl2anwV5ISGOcA",
+    "placeId": "ChIJsZIPJO6LGGARROofTwwVlCM",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "静かな余白に、気持ちまでゆっくりほどける。",
+    "mapUrl": "https://maps.google.com/?cid=2563697230491937348&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=2563697230491937348&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://kyo-hayashiya.jp/shoplist/hibiya/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "単品のお茶あり"
+    ],
+    "priceRange": "価格確認中",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "銀座",
+      "抹茶",
+      "日比谷 林屋新兵衛"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "nakamura-tokichi-ginza-store",
+    "name": "中村藤吉銀座店/Nakamura Tokichi Ginza store",
+    "area": "銀座",
+    "address": "〒104-0061 東京都中央区銀座６丁目１０−１ 4F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJo_1xReaLGGAR6Yv1OW2Gn4o%2Fphotos%2FAb43m-uIz_068uoW2CyejuhtEUbmYZWxr1H-YPF20aJJBfDELjWjq5TKtYV2DORIlvGJLfoGqgJur-0kgyiuBiMPpRLkilGl1-hh6V55yiyXfHKFVOpLOFKg5m6UEYj5UgQzFDX_B2jmo7FcGA-TS7owbMITgAXaIwmE43jGiEkXQowmbHUFSZaYPZnc4qaVwns2i4ObtkAYGzng2qqldgQpQLwBw7UzDcusUR_qD-DLauvY_Mc7uZwrJdKVy21HTDrMvppauTlmXQmN1JFw7Ajf3HXGoIltY7hgPbYLl1LhcgYmUw",
+    "placeId": "ChIJo_1xReaLGGAR6Yv1OW2Gn4o",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "洗練",
+      "一人時間"
+    ],
+    "comment": "背筋をふっと伸ばしたくなる、凛とした一杯。",
+    "mapUrl": "https://maps.google.com/?cid=9988850302213000169&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=9988850302213000169&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://tokichi.jp/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "予約推奨"
+    ],
+    "priceRange": "1,000円台",
+    "note": "すっきり整った空間で、背筋まで軽く伸びる一杯を。\n都会の途中に置いておきたい、上品なお茶時間。",
+    "searchTags": [
+      "銀座",
+      "抹茶",
+      "中村藤吉銀座店/Nakamura Tokichi Ginza store"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "the-et-soie",
+    "name": "日本茶カフェ thé et soie テ エ ソワ",
+    "area": "銀座",
+    "address": "〒103-0013 東京都中央区日本橋人形町３丁目４−３ 佐藤ビル 1階",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJCe_KFbCJGGARxt1ThNfjlZw%2Fphotos%2FAb43m-tauJwnBQ-lHBcT2suJ3irlW9mPBOObRjsU9H7s1a2GiQy-kM1l4ZZxudysr9QaPTdjREB0Q2CgSL3wz9hrFDdizxPbGPN8sh5KUXDR5J44CYO8k-U2IH1zWyAiOIGx6lrUnN_RIIeVtzV8Dd1DhJB6DYW-r6F4myx-av6XztEbYX9v56uAagBjl5sTwD649v5QGxd-4kyYn8vMcfNaDDAyxfHqs5W50W9BRdiFZdJoGdrOK1edkYJso5QaLPCb8egM77FL2KA8Q1SjpqZgsc9bW_83DV0vvGM6N58Gq3rprA",
+    "placeId": "ChIJCe_KFbCJGGARxt1ThNfjlZw",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "ひと息の奥に、静けさがやさしく残る。",
+    "mapUrl": "https://maps.google.com/?cid=11283174956224208326&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=11283174956224208326&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.instagram.com/the_et_soie?igsh=MWpjMXE4cmtya3d2OA==",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "単品のお茶あり"
+    ],
+    "priceRange": "1,000円台",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "銀座",
+      "抹茶",
+      "日本茶カフェ thé et soie テ エ ソワ"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-dq7mvl",
+    "name": "楠木茶房",
+    "area": "銀座",
+    "address": "〒100-0002 東京都千代田区皇居外苑１−１",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJ4Qy7Bq2LGGARuFPNYZNaFDo%2Fphotos%2FAb43m-sBaRk6yqSR4sC7PQNE5qAsVtSKkGIo2s4vjAgcl3D15Cqh0UjiF4AYG9SuTQUqE6oBkJWqcLUib9ZkGf7pN7RX2IIh0V6ranC_1weogHub870O6AOuB-vAeIgfHU8RNkmB4vA8dSEFed68r_E2WPnEx9SAuLfi21ZuzvN2N6YsddKOx3wgDRNWtBQA2-J0DTkNvEFTVjw-lxWiU_o4j0XTD_x0dUgJYceVQzzkRYs184c-v0esCtHXg4__7ev5t4rl8MtaU3OZiFLc-TIZ3Vh-s9dhI67NgaafXKW4ISVegQ",
+    "placeId": "ChIJ4Qy7Bq2LGGARuFPNYZNaFDo",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "ひと息の奥に、静けさがやさしく残る。",
+    "mapUrl": "https://maps.google.com/?cid=4185069542781572024&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=4185069542781572024&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://fng.or.jp/koukyo/place/rest/nanko-rest/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "最低注文金額確認"
+    ],
+    "priceRange": "価格確認中",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "銀座",
+      "抹茶",
+      "楠木茶房"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "atelier-matcha",
+    "name": "ATELIER MATCHA",
+    "area": "銀座",
+    "address": "〒104-0061 東京都中央区銀座８丁目１８−４ 東銀座ビル 1F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJCwW9-4yJGGARAHRZAhU1gBU%2Fphotos%2FAb43m-tyio9f2auRUqsrx1jij-qgOTwn0tCAd78HKpdj-4zFgzbKV5y90MwWFQf2N_WHw0PibQVyimyXr56eKlteDe59aBCLTH5ZWzhe4OWTDU4fYdTKsEMX7VhcbavMiRPLBEtJ1-3-SADR8l5qbkcj2r__-BZ949B6QseI1u0d2KokKwMuQGhduvBJzBJCsEPjHvOnFPfSnWuiptFgpJrIQbMl2eS-NA5qsKhjXrKbHPRGY_vcLc1vW8hLF3UzDeqhpHbxUQQwzof_-mciH8Yf6vJRjb9tyR6wAxm_YBnTrHQSyA",
+    "placeId": "ChIJCwW9-4yJGGARAHRZAhU1gBU",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "洗練",
+      "一人時間"
+    ],
+    "comment": "都会の余白に似合う、澄んだお茶時間。",
+    "mapUrl": "https://maps.google.com/?cid=1549296636165452800&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=1549296636165452800&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://ateliermatcha.com/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "単品のお茶あり"
+    ],
+    "priceRange": "1,500-2,500円",
+    "note": "すっきり整った空間で、背筋まで軽く伸びる一杯を。\n都会の途中に置いておきたい、上品なお茶時間。",
+    "searchTags": [
+      "銀座",
+      "抹茶",
+      "ATELIER MATCHA"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-zv9n59",
+    "name": "茶寮都路里 大丸東京店",
+    "area": "銀座",
+    "address": "〒100-0005 東京都千代田区丸の内１丁目９−１ 大丸東京店 10階",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJtxODuv6LGGARuRRx6E2TZuM%2Fphotos%2FAb43m-uNKFcyQo223boYQA5cVWA9LEF6BNuuqcu9_ZK4gJEqLP4EVq5Wrvrg_a4XGZh5W8vI937cCiQuZGeqAJUAk3Jo2GyEc_BpgCe9ZB4mpjTAYyf8oPrpWDJ2xj9kkkJzWx_kDk1QcG7EBfyaYcAnifSo7nuuKP12T5hXHdqJel3rpU0umTPENdmw-a9PDckS8uA4SfXSPHHMwO5RtcQXps__k3zLFTKIwLgcj4wMf7_1RV6Fx1INAXjc3KFK946NILwR103sQk5Qx9_UAA6an14ceYq8szq_9lD83_Rnh0kKcdhXNxfehpXsH0NiD33AugALELwr9E2zE65JgDRluiTcHIrifgU5tIgGpzqakMu3FpiQXV_kGGKcJKWIEvUXQaon7zlKtykKO0__nKBPVt8vmggFW9PJ0fSYg5dcGPConQi3W49OtWvzcEHbY5A6",
+    "placeId": "ChIJtxODuv6LGGARuRRx6E2TZuM",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "静かな余白に、気持ちまでゆっくりほどける。",
+    "mapUrl": "https://maps.google.com/?cid=16385946257055618233&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=16385946257055618233&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.giontsujiri.co.jp/store/tokyo-daimaru/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,500-2,500円",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "銀座",
+      "抹茶",
+      "茶寮都路里 大丸東京店"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
+  },
+  {
+    "id": "spot-1pt9qn2",
+    "name": "寿月堂 銀座歌舞伎座店",
+    "area": "銀座",
+    "address": "〒104-0061 東京都中央区銀座４丁目１２−１５ 歌舞伎座タワー5階",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJu7MHy-CLGGARTrOn12YTX68%2Fphotos%2FAb43m-t_wtSogmlKf3rMqfoZDI5WydDdEB2sfaWUh2TjgNp9ULzF80Uw55Hw5kbypN6yROCzvUV6rZ6tAdbv_U8j5ylziiML4H15Ey9QbqR5AX4uzSUOBL9dQFW2ndnn8qD0-Xgdqndn9l23WnqFk2enA1QEo1hR42w9k1yhAHZM3tu5C58T9jaGXDEhPgVVNpDbrjDseNx0vaDxMjevLq9farlQf62q41O5I0dB3vbhAyx-dkYVr6pjGz9LQKtOcluRWf5eldauW2JJHd5q5Tf0uF-T_HH-kNlLNPcOb04G4io7j_NyGom6VNCe63vzJN35hwXVCZh_3v6h_kBPFco4hWOWAZIJgSnLVY_wq2stYpzUSL2Ld4VEUfjoSvQDf-8rriLvJ4S8Ush2J8-7RxAUX0cb4T91P0TVKRHxfQh0-G6x2w",
+    "placeId": "ChIJu7MHy-CLGGARTrOn12YTX68",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "洗練",
+      "一人時間"
+    ],
+    "comment": "都会の余白に似合う、澄んだお茶時間。",
+    "mapUrl": "https://maps.google.com/?cid=12636840411850584910&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=12636840411850584910&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "http://maruyamanori.net/sp/kabuki-za/2013/02/post.html",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "単品のお茶あり"
+    ],
+    "priceRange": "価格確認中",
+    "note": "すっきり整った空間で、背筋まで軽く伸びる一杯を。\n都会の途中に置いておきたい、上品なお茶時間。",
+    "searchTags": [
+      "銀座",
+      "抹茶",
+      "寿月堂 銀座歌舞伎座店"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    }
   }
 ]
