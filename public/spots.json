@@ -2419,15 +2419,15 @@
     "walk": "",
     "image": "/api/place-photo?name=places%2FChIJCwW9-4yJGGARAHRZAhU1gBU%2Fphotos%2FAb43m-tyio9f2auRUqsrx1jij-qgOTwn0tCAd78HKpdj-4zFgzbKV5y90MwWFQf2N_WHw0PibQVyimyXr56eKlteDe59aBCLTH5ZWzhe4OWTDU4fYdTKsEMX7VhcbavMiRPLBEtJ1-3-SADR8l5qbkcj2r__-BZ949B6QseI1u0d2KokKwMuQGhduvBJzBJCsEPjHvOnFPfSnWuiptFgpJrIQbMl2eS-NA5qsKhjXrKbHPRGY_vcLc1vW8hLF3UzDeqhpHbxUQQwzof_-mciH8Yf6vJRjb9tyR6wAxm_YBnTrHQSyA",
     "placeId": "ChIJCwW9-4yJGGARAHRZAhU1gBU",
-    "type": "抹茶 / お茶候補",
-    "genre": "抹茶 / お茶候補",
+    "type": "抹茶",
+    "genre": "抹茶",
     "tags": [
       "抹茶",
       "会話向け",
       "洗練",
       "一人時間"
     ],
-    "comment": "都会の余白に似合う、澄んだお茶時間。",
+    "comment": "伝統とモダンの間で、静かに抹茶を味わう",
     "mapUrl": "https://maps.google.com/?cid=1549296636165452800&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "mapsUrl": "https://maps.google.com/?cid=1549296636165452800&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "officialUrl": "https://ateliermatcha.com/",
@@ -2437,8 +2437,8 @@
       "抹茶あり",
       "単品のお茶あり"
     ],
-    "priceRange": "1,500-2,500円",
-    "note": "すっきり整った空間で、背筋まで軽く伸びる一杯を。\n都会の途中に置いておきたい、上品なお茶時間。",
+    "priceRange": "590円〜1,600円",
+    "note": "木のやさしさと静かなコンクリート空間に、ゆっくり呼吸が整っていく。\n老舗・山政小山園が手がける、現代的な抹茶時間を楽しめる場所。",
     "searchTags": [
       "銀座",
       "抹茶",
