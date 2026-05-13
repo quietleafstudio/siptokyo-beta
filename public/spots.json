@@ -2457,31 +2457,32 @@
     "address": "〒100-0005 東京都千代田区丸の内１丁目９−１ 大丸東京店 10階",
     "station": "",
     "walk": "",
-    "image": "/api/place-photo?name=places%2FChIJtxODuv6LGGARuRRx6E2TZuM%2Fphotos%2FAb43m-uNKFcyQo223boYQA5cVWA9LEF6BNuuqcu9_ZK4gJEqLP4EVq5Wrvrg_a4XGZh5W8vI937cCiQuZGeqAJUAk3Jo2GyEc_BpgCe9ZB4mpjTAYyf8oPrpWDJ2xj9kkkJzWx_kDk1QcG7EBfyaYcAnifSo7nuuKP12T5hXHdqJel3rpU0umTPENdmw-a9PDckS8uA4SfXSPHHMwO5RtcQXps__k3zLFTKIwLgcj4wMf7_1RV6Fx1INAXjc3KFK946NILwR103sQk5Qx9_UAA6an14ceYq8szq_9lD83_Rnh0kKcdhXNxfehpXsH0NiD33AugALELwr9E2zE65JgDRluiTcHIrifgU5tIgGpzqakMu3FpiQXV_kGGKcJKWIEvUXQaon7zlKtykKO0__nKBPVt8vmggFW9PJ0fSYg5dcGPConQi3W49OtWvzcEHbY5A6",
+    "image": "https://rstatic.enjoytokyo.jp/assets/images/spot/af/l_20004268/img_5.jpg?1711090457&p=t&w=1200",
     "placeId": "ChIJtxODuv6LGGARuRRx6E2TZuM",
-    "type": "抹茶 / お茶候補",
-    "genre": "抹茶 / お茶候補",
+    "type": "抹茶 / 日本茶",
+    "genre": "抹茶 / 日本茶",
     "tags": [
       "抹茶",
       "日本茶",
       "会話向け",
       "一人時間"
     ],
-    "comment": "静かな余白に、気持ちまでゆっくりほどける。",
+    "comment": "京都・祇園の伝え継ぐ味わいを",
     "mapUrl": "https://maps.google.com/?cid=16385946257055618233&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "mapsUrl": "https://maps.google.com/?cid=16385946257055618233&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
     "officialUrl": "https://www.giontsujiri.co.jp/store/tokyo-daimaru/",
     "instagramUrl": "",
-    "menuUrl": "",
+    "menuUrl": "https://www.giontsujiri.co.jp/uploads/sougou.pdf",
     "menuSummary": [
       "抹茶あり",
       "カフェ利用OK"
     ],
     "priceRange": "1,500-2,500円",
-    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "note": "お茶や小豆の香りが、口に含んだ瞬間やさしく広がる。\n空間や素材の細部まで丁寧に整えられた、静かに余韻を楽しめる場所。",
     "searchTags": [
       "銀座",
       "抹茶",
+      "日本茶",
       "茶寮都路里 大丸東京店"
     ],
     "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
