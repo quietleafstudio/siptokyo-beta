@@ -2497,12 +2497,13 @@
     "address": "〒104-0061 東京都中央区銀座４丁目１２−１５ 歌舞伎座タワー5階",
     "station": "",
     "walk": "",
-    "image": "/api/place-photo?name=places%2FChIJu7MHy-CLGGARTrOn12YTX68%2Fphotos%2FAb43m-t_wtSogmlKf3rMqfoZDI5WydDdEB2sfaWUh2TjgNp9ULzF80Uw55Hw5kbypN6yROCzvUV6rZ6tAdbv_U8j5ylziiML4H15Ey9QbqR5AX4uzSUOBL9dQFW2ndnn8qD0-Xgdqndn9l23WnqFk2enA1QEo1hR42w9k1yhAHZM3tu5C58T9jaGXDEhPgVVNpDbrjDseNx0vaDxMjevLq9farlQf62q41O5I0dB3vbhAyx-dkYVr6pjGz9LQKtOcluRWf5eldauW2JJHd5q5Tf0uF-T_HH-kNlLNPcOb04G4io7j_NyGom6VNCe63vzJN35hwXVCZh_3v6h_kBPFco4hWOWAZIJgSnLVY_wq2stYpzUSL2Ld4VEUfjoSvQDf-8rriLvJ4S8Ush2J8-7RxAUX0cb4T91P0TVKRHxfQh0-G6x2w",
+    "image": "https://www.timeandstyle.com/jp/wp-content/uploads/2020/03/jyugetu_01.jpg",
     "placeId": "ChIJu7MHy-CLGGARTrOn12YTX68",
-    "type": "抹茶 / お茶候補",
-    "genre": "抹茶 / お茶候補",
+    "type": "抹茶 / 日本茶",
+    "genre": "抹茶 / 日本茶",
     "tags": [
       "抹茶",
+      "日本茶",
       "会話向け",
       "洗練",
       "一人時間"
@@ -2518,10 +2519,11 @@
       "単品のお茶あり"
     ],
     "priceRange": "価格確認中",
-    "note": "すっきり整った空間で、背筋まで軽く伸びる一杯を。\n都会の途中に置いておきたい、上品なお茶時間。",
+    "note": "竹に囲まれた静かな喫茶スペース。\n屋上庭園を眺めながら、お茶や甘味をゆっくり楽しめる、銀座の小さな余白のような場所。",
     "searchTags": [
       "銀座",
       "抹茶",
+      "日本茶",
       "寿月堂 銀座歌舞伎座店"
     ],
     "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
