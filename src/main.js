@@ -133,7 +133,7 @@ async function loadSpots() {
       throw lastError || new Error("spots.json could not be loaded");
     }
 
-    state.spots = spots.map(normalizeSpot);
+    state.spots = spots.map(normalizeSpot).filter((spot) => spot.isPublished !== false);
   } catch (error) {
     state.loadError = "店舗データを読み込めませんでした。";
     console.error(error);

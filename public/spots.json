@@ -119,7 +119,8 @@
     "stations": [
       "三軒茶屋",
       "西太子堂"
-    ]
+    ],
+    "isPublished": false
   },
   {
     "id": "ocha-room-ashita",
