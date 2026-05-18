@@ -2758,5 +2758,50 @@
     "stations": [
       "代官山"
     ]
+  },
+  {
+    "id": "cafe",
+    "name": "Cafe 椿",
+    "area": "広尾",
+    "address": "〒150-0012 東京都渋谷区広尾３丁目１２−３６ ワイマッツ広尾 5F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJcYXyq2mLGGARzcvupG_0Jvg%2Fphotos%2FAb43m-tWcMolYeMc40NfFA0txNNouN-M1SC1C47csk5i9Jpevpz2INjNudk9h7k58yhHyOSJf_i2z_lwY921I8pVw9aPCMBlLTTgQngo-qXgjCSsUvR8mC6rEr2fxtRlXP5XtkO-ymo2VaD0k5AsDOp3tvlsaLOWq9IoNDLefn_sRBGuweZ8eS8l_aHnUXb-rlqb0y-uQfjdcoLoFVfnURvpp6vzBjBVzerS_ZNikRmJtRlhn2LFF4zu6EB8y8qQ3dxjbwLlcLqcLIrs27x52m702QpV9ZOEvovdjeHe7XSSQXLsWXDPZqI6QkB5T2RbJb1eUEQcq5VcXisLwPXe6VCgtXtD7aYnsg9imMB8Wr3SQjP_Xz9puuyYdbYhsjrimbwReCaJxAbb_hZt_3AbL2FNqzwaAyrQcMxfS9PgEsVqWf13FEs",
+    "placeId": "ChIJcYXyq2mLGGARzcvupG_0Jvg",
+    "type": "抹茶 / お茶候補",
+    "genre": "抹茶 / お茶候補",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "美術館の余韻と一緒に、静かな一服を。",
+    "mapUrl": "https://maps.google.com/?cid=17881248130866793421&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=17881248130866793421&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "最低注文金額確認"
+    ],
+    "priceRange": "1,000円台",
+    "note": "山種美術館の中にある、落ち着いたお茶処。\n美術館のチケットがなくても利用できるので、広尾で静かに一服したい日にも立ち寄れます。",
+    "searchTags": [
+      "広尾",
+      "抹茶",
+      "Cafe 椿",
+      "山種美術館"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式情報要確認",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "広尾",
+    "stations": [
+      "広尾",
+      "恵比寿"
+    ]
   }
 ]
