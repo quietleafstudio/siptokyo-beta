@@ -2623,5 +2623,140 @@
     "stations": [
       "恵比寿"
     ]
+  },
+  {
+    "id": "boku-cafe",
+    "name": "Boku茶 Cafe",
+    "area": "代官山",
+    "address": "〒150-0034 東京都渋谷区代官山町１８−７ 代官山末廣ビル 1F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJg3Vim66LGGARe8IyKgpGGIg%2Fphotos%2FAb43m-sIarlKemQGO6AGjpdwIpW3vFrtalfDZc94ln2CecOD0TyO2D5vpLj9ycS6tuzXxJBCEinpKesWrFLIy0ifelyiYvfT5oK5h_ephOl91LU0S7pbSLsdSSxxvIGjutuu5e5JuwbxQ43cLYnhkZ1k5W-Hk_Vpr9PYMYBLCZrqOdJEEo75Fh78aJms3LeJVGMri6757xXrI5qLEvLSyF1dERHpC9W5WQz-FT73EIlnoZpGiT6ov19o0lPf9mTKjjppsDrlUHJBYfwW1XniIUX__CY6ErS17uGW_JKaCN_4C7AmMQ",
+    "placeId": "ChIJg3Vim66LGGARe8IyKgpGGIg",
+    "type": "抹茶",
+    "genre": "抹茶",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "代官山で、やさしい抹茶時間にひと息つく。",
+    "mapUrl": "https://maps.google.com/?cid=9806665198070841979&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=9806665198070841979&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.instagram.com/bokucha_cafe/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "カフェ利用OK",
+      "犬同伴OK"
+    ],
+    "priceRange": "1,000円台",
+    "note": "代官山の街角で、抹茶やお茶を気軽に楽しめる小さなカフェ。\n犬も一緒に入店できるので、散歩の途中に静かな一杯を楽しみたい日に。",
+    "searchTags": [
+      "代官山",
+      "抹茶",
+      "Boku茶 Cafe",
+      "犬同伴OK"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "代官山",
+    "stations": [
+      "代官山",
+      "恵比寿"
+    ]
+  },
+  {
+    "id": "tea-bar",
+    "name": "Tea Bar 聴景居",
+    "area": "代官山",
+    "address": "〒150-0033 東京都渋谷区猿楽町１８−８ ヒルサイドテラスF棟 B1F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJYTZLPoiLGGAR6LTCmyRvS-g%2Fphotos%2FAb43m-uVkK7oH4DmMAdk3dM1I7l93dPOTLAdZSmsu8axYLm-50GxJEwUAVqWOZJVqg9UQ9612oCOOMK2PF3bWHnu_lVDDfGFR404L4mepWiCxeb0zhk9b2fxxxG5MLOeCiqkhpAfD5-dJdyJpb_ZNvDMSTRjDifeZM1iAs0T_6xHLXHJRyv5XFoRncarsLukUFiN_7QBF75VTno4N0AniKuZTRdY2M4gVNSYL1T-vSAH26_MnoxWa8Fgm6OKtUrdMqXgyK8uFPk0zH1OFebN41FzMNSOaMqZre4oRyYIjLkl1O5NKaK_1TQ8gAmxJe6OMmuHRWZDR6tAlqUKW9aa9mhtT9x6wPacDWrNP-xsb_UHWEZSSZOax5afOW2G-_1bRIg88Ubgsh1P3U8-I8C0UB9JouDcf9K7bHa96HsnOL4isjYrpA",
+    "placeId": "ChIJYTZLPoiLGGAR6LTCmyRvS-g",
+    "type": "日本茶",
+    "genre": "日本茶",
+    "tags": [
+      "日本茶",
+      "一人時間",
+      "洗練"
+    ],
+    "comment": "静かな景色を聴くように、日本茶と向き合う。",
+    "mapUrl": "https://maps.google.com/?cid=16738594643075314920&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=16738594643075314920&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.conranshop.jp/brand/stores?c=18",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "日本茶あり",
+      "予約推奨"
+    ],
+    "priceRange": "価格確認中",
+    "note": "代官山の落ち着いた空気の中で、日本茶を静かに味わえる場所。\n余白のある空間で、一杯の香りや温度にゆっくり耳を澄ませたくなる。",
+    "searchTags": [
+      "代官山",
+      "日本茶",
+      "Tea Bar 聴景居"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "代官山",
+    "stations": [
+      "代官山"
+    ]
+  },
+  {
+    "id": "spot-1um0p2g",
+    "name": "春水堂 代官山店",
+    "area": "代官山",
+    "address": "〒150-0034 東京都渋谷区代官山町２０−９ アクシス２０９代官山 3F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJNQuSu0WLGGARo5a0NWOfUIY%2Fphotos%2FAb43m-vpwYMn1fEqnyxErsPgm4NGukI96jWKHwMqGWDeEY4rFs5y4pIHxjHfYQPzgzH06uJsErXvPSpKjmMBoWcMQQo2qzuBPZmg_hfJlDyl8-f2JkBy-cq8qx1GTg0wCrwj0MLOCroGFWerLU4BcAH6U9rvFBUPsVUNWNWAeIilaLA6GD3I07UslUtCnp005g2u_kMhN73ZncwmwBgcJbsMF9tVBQlNWOJqT0BTMFFtrNElEzYTBGktJXXqeZa1KgJWsQFmUsNgo9YLSSJRzxvw8FkE0HKYl3F74JZ9puiJ0q4c1A",
+    "placeId": "ChIJNQuSu0WLGGARo5a0NWOfUIY",
+    "type": "タピオカティー",
+    "genre": "タピオカティー",
+    "tags": [
+      "タピオカティー",
+      "台湾茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "台湾茶の甘い余韻で、午後をゆるめる。",
+    "mapUrl": "https://maps.google.com/?cid=9678410847670802083&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=9678410847670802083&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.chunshuitang.jp/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "タピオカティーあり",
+      "台湾茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "価格確認中",
+    "note": "台湾茶をベースにしたタピオカティーを、代官山でゆっくり楽しめる場所。\n甘さと茶葉の香りが重なり、会話の合間にも一人時間にもなじむ軽やかなお茶時間。",
+    "searchTags": [
+      "代官山",
+      "タピオカティー",
+      "台湾茶",
+      "春水堂 代官山店"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "代官山",
+    "stations": [
+      "代官山"
+    ]
   }
 ]
