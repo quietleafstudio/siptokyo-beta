@@ -2531,5 +2531,97 @@
       "handle": "",
       "placeId": ""
     }
+  },
+  {
+    "id": "tea-bucks",
+    "name": "TEA BUCKS",
+    "area": "恵比寿",
+    "address": "〒150-0021 東京都渋谷区恵比寿西２丁目１２−１４",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJJTy_96mLGGARSOec-vL9SbQ%2Fphotos%2FAb43m-tXGV5AGKSLX_HGkEGpCJ8vR6712aUXWHxqs27UjmrPeiGKPk6LBrZArGn7auWTy7HowbeHh9xXQeCy11gkO9Amz9IAteNisWPLvNu--zGLMc2wKVf2BhZuIhvSNrAPKg2lVCHaaLL2xF5oDEECk-nqH39-Ot6jbreeDGlaVDN7oDbqMTioSFrpUmVLUFNO4J5z1KPD2O_TZjEyDELDLH79USXBXogS-ZiAFo5sxheZMgXYTYrxBiJWXyXpESdoFs2q15d49BoqR3fWiCUmEzHWk1UMuZ4pYnRD1BdHR1Rp1A",
+    "placeId": "ChIJJTy_96mLGGARSOec-vL9SbQ",
+    "type": "日本茶",
+    "genre": "日本茶",
+    "tags": [
+      "日本茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "代官山のそばで、日本茶に静かに向き合う。",
+    "mapUrl": "https://maps.google.com/?cid=12991193820155406152&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=12991193820155406152&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://teabucks.jp/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "日本茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,000円台",
+    "note": "日本茶をカジュアルに、けれどきちんと味わえるティースタンド。\n恵比寿と代官山の間で、日常にすっと馴染む一杯を選べそう。",
+    "searchTags": [
+      "恵比寿",
+      "代官山",
+      "日本茶",
+      "TEA BUCKS"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "恵比寿",
+    "stations": [
+      "恵比寿",
+      "代官山"
+    ]
+  },
+  {
+    "id": "urn-chai-and-tea-ebisu",
+    "name": "uRn.chAi&TeA EBISU",
+    "area": "恵比寿",
+    "address": "〒150-0013 東京都渋谷区恵比寿１丁目２２−２３",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJNe4aW6qLGGARLrrJYY9KlLY%2Fphotos%2FAb43m-v8u15tGNyWPnuiGEE6cXajj9zjDvM64CM3JMjxMkX2ba3-0aetXsVvcWd4jSnFJPYBNpcpoVb4MUJVwx00H4443t507EANXAOsJPHc55dDqDiOVPCCPS_IQCq9tidP5FBqq9-tQ47VsdOul3FE50LXf8dhuO1xYj8dBU3TYNQJxA-khsk1PY1gf-yYiouHF1g5Ykg80hBfkguFKDwOZfeWglSljXldBWS1O39shMRC77zN5uAc3LR6hEvwHP1-hNj5tKEv645z9zKknLntD2pRe3hAJmNiCHRR7exB0sOAmw",
+    "placeId": "ChIJNe4aW6qLGGARLrrJYY9KlLY",
+    "type": "ハーブティー",
+    "genre": "ハーブティー",
+    "tags": [
+      "ハーブティー",
+      "チャイ",
+      "会話向け",
+      "一人時間",
+      "異国感"
+    ],
+    "comment": "スパイスとハーブの香りで、気分をゆるめる。",
+    "mapUrl": "https://maps.google.com/?cid=13156222391137450542&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=13156222391137450542&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://urn-jp.com/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "ハーブティーあり",
+      "チャイあり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "500円〜",
+    "note": "チャイやハーブティーの香りが、街の中に少し異国の余韻を連れてくる。\n軽やかに立ち寄れて、会話にも一人時間にもなじむ恵比寿のお茶時間。",
+    "searchTags": [
+      "恵比寿",
+      "ハーブティー",
+      "チャイ",
+      "uRn.chAi&TeA EBISU"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "恵比寿",
+    "stations": [
+      "恵比寿"
+    ]
   }
 ]
