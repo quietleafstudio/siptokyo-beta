@@ -9,11 +9,38 @@ const scoreWeights = [
   ["access", "アクセス", 5],
 ];
 
-const areaOptions = ["自由が丘", "新宿", "表参道", "浅草", "渋谷", "三軒茶屋", "銀座", "代々木上原"];
-const genreOptions = ["抹茶", "日本茶", "ハーブ", "中国茶", "和菓子", "薬膳茶"];
+const stationAreas = {
+  "渋谷区": ["渋谷", "恵比寿", "代々木上原", "原宿", "代官山", "広尾", "神泉", "笹塚"],
+  "世田谷区": ["三軒茶屋", "下北沢", "二子玉川", "経堂", "豪徳寺", "駒沢大学", "千歳烏山", "成城学園前"],
+  "目黒区": ["中目黒", "自由が丘", "学芸大学", "祐天寺", "都立大学", "目黒", "洗足"],
+  "台東区": ["浅草", "蔵前", "上野", "谷中", "御徒町", "田原町", "入谷"],
+  "中央区": ["銀座", "日本橋", "人形町", "築地", "東銀座", "三越前", "茅場町"],
+  "港区": ["表参道", "青山一丁目", "六本木", "麻布十番", "赤坂", "新橋", "白金台", "品川"],
+  "新宿区": ["新宿", "神楽坂", "高田馬場", "四ツ谷", "早稲田", "新宿三丁目", "飯田橋"],
+  "千代田区": ["東京", "日比谷", "有楽町", "神保町", "御茶ノ水", "秋葉原", "永田町"],
+  "文京区": ["根津", "千駄木", "本郷三丁目", "後楽園", "茗荷谷", "護国寺"],
+  "墨田区": ["押上", "とうきょうスカイツリー", "本所吾妻橋", "錦糸町", "両国", "曳舟"],
+  "江東区": ["清澄白河", "門前仲町", "豊洲", "亀戸", "木場", "森下"],
+  "品川区": ["目黒", "五反田", "大井町", "戸越銀座", "武蔵小山", "天王洲アイル"],
+  "大田区": ["蒲田", "大森", "田園調布", "池上", "洗足池", "羽田空港"],
+  "中野区": ["中野", "東中野", "中野坂上", "新井薬師前", "鷺ノ宮"],
+  "杉並区": ["荻窪", "西荻窪", "高円寺", "阿佐ヶ谷", "永福町", "浜田山"],
+  "豊島区": ["池袋", "目白", "巣鴨", "大塚", "駒込", "雑司が谷"],
+  "北区": ["赤羽", "王子", "田端", "十条", "駒込"],
+  "荒川区": ["日暮里", "西日暮里", "町屋", "南千住", "三河島"],
+  "板橋区": ["板橋", "大山", "成増", "ときわ台", "志村坂上"],
+  "練馬区": ["練馬", "江古田", "石神井公園", "大泉学園", "光が丘"],
+  "足立区": ["北千住", "綾瀬", "西新井", "竹ノ塚", "梅島"],
+  "葛飾区": ["亀有", "金町", "新小岩", "青砥", "柴又"],
+  "江戸川区": ["葛西", "西葛西", "小岩", "船堀", "瑞江", "篠崎"],
+};
+const wardOptions = Object.keys(stationAreas);
+const genreOptions = ["抹茶", "日本茶", "ハーブティー", "チャイ", "お茶", "中国茶", "和菓子", "薬膳茶"];
 
 const state = {
   mode: "query",
+  ward: "目黒区",
+  station: "自由が丘",
   area: "自由が丘",
   genre: "抹茶",
   mapsUrl: "",
@@ -177,9 +204,27 @@ async function lookupMapsData(mapsUrl) {
   }
 }
 
+function getStationOptions(ward = state.ward) {
+  return stationAreas[ward] || [];
+}
+
+function getResearchArea() {
+  return state.station || getStationOptions()[0] || state.ward || state.area;
+}
+
+function getResearchQueryLabel() {
+  return [state.ward, state.station].filter(Boolean).join(" ") || getResearchArea();
+}
+
 async function searchPlaces(area, genre) {
   try {
-    const url = `/api/places-search?area=${encodeURIComponent(area)}&genre=${encodeURIComponent(genre)}`;
+    const params = new URLSearchParams({
+      area,
+      genre,
+      ward: state.ward || "",
+      station: state.station || "",
+    });
+    const url = `/api/places-search?${params.toString()}`;
     const response = await fetch(url, { cache: "no-store" });
     if (!response.ok) {
       throw new Error(`places search failed: ${response.status}`);
@@ -382,7 +427,7 @@ function inferMenuSummary(genre, index) {
   return unique([
     genre === "抹茶" ? "抹茶あり" : "",
     genre === "日本茶" ? "日本茶飲み比べあり" : "",
-    genre === "ハーブ" ? "ハーブティーあり" : "",
+    (genre === "ハーブ" || genre === "ハーブティー") ? "ハーブティーあり" : "",
     pick(["カフェ利用OK", "単品のお茶あり", "予約推奨", "最低注文金額確認"], index),
   ]);
 }
@@ -460,12 +505,14 @@ async function generateQueryResults() {
   state.copyStatus = "";
   render();
 
-  const data = await searchPlaces(state.area, state.genre);
+  const researchArea = getResearchArea();
+  state.area = researchArea;
+  const data = await searchPlaces(researchArea, state.genre);
   state.isSearchLoading = false;
   state.searchMeta = data.meta || null;
 
   if (Array.isArray(data.places) && data.places.length) {
-    state.results = data.places.slice(0, 20).map((place, index) => buildCandidateFromPlace(place, index, state.area, state.genre));
+    state.results = data.places.slice(0, 20).map((place, index) => buildCandidateFromPlace(place, index, researchArea, state.genre));
     state.searchError = "";
   } else {
     state.results = [];
@@ -504,6 +551,8 @@ async function generateMapsResult() {
     coordinates: apiPlaceData?.coordinates || urlPlaceData.coordinates || "",
   };
   const address = placeData.address || "Google Mapsで住所を開いて確認";
+  const researchArea = getResearchArea();
+  state.area = researchArea;
   const autoTags = inferTeaTags({
     name: placeData.name,
     address,
@@ -515,7 +564,7 @@ async function generateMapsResult() {
   state.mode = "maps";
   state.isLookupLoading = false;
   state.results = [
-    buildCandidate(0, state.area, state.genre, {
+    buildCandidate(0, researchArea, state.genre, {
       id: `maps-${slug(placeData.name) || Date.now()}`,
       name: placeData.name,
       address,
@@ -703,7 +752,7 @@ function render() {
   const adopted = activeDecisions.filter((value) => value === "採用").length;
   const pending = activeDecisions.filter((value) => value === "保留").length;
   const rejected = activeDecisions.filter((value) => value === "不採用").length;
-  const headline = state.mode === "maps" ? "Google Maps URL" : `${state.area} × ${state.genre}`;
+  const headline = state.mode === "maps" ? "Google Maps URL" : `${getResearchQueryLabel()} × ${state.genre}`;
   const searchMetaText = state.searchMeta
     ? `${state.searchMeta.returnedCount || 0}件取得 / 登録済み${state.searchMeta.registeredExcluded || 0}件除外 / エリア外${state.searchMeta.areaExcluded || 0}件除外`
     : "";
@@ -713,7 +762,7 @@ function render() {
       <header class="studioHeader">
         <p class="eyebrow">SIP Studio</p>
         <h1>Research</h1>
-        <p class="lead">Google Maps URL 1本、またはエリア × ジャンルから、SIP Tokyo登録候補を半自動生成する管理画面。</p>
+        <p class="lead">Google Maps URL 1本、または区 × 駅 × ジャンルから、SIP Tokyo登録候補を半自動生成する管理画面。</p>
       </header>
 
       <section class="searchBoard" aria-label="検索条件">
@@ -723,8 +772,12 @@ function render() {
         </label>
         <button id="mapsResearchButton" type="button">${state.isLookupLoading ? "取得中..." : "URLから生成"}</button>
         <label>
-          <span>エリア</span>
-          <select id="areaSelect">${renderOptions(areaOptions, state.area)}</select>
+          <span>区</span>
+          <select id="wardSelect">${renderOptions(wardOptions, state.ward)}</select>
+        </label>
+        <label>
+          <span>駅</span>
+          <select id="stationSelect">${renderOptions(getStationOptions(), state.station)}</select>
         </label>
         <label>
           <span>ジャンル</span>
@@ -767,7 +820,7 @@ function render() {
               ? `<div class="emptyState">${escapeHtml(state.searchError)}</div>`
             : state.results.length
               ? state.results.map(renderCandidate).join("")
-              : `<div class="emptyState">Google Maps URLを入力するか、エリア × ジャンルで検索してください。</div>`
+              : `<div class="emptyState">Google Maps URLを入力するか、区 × 駅 × ジャンルで検索してください。</div>`
         }
       </main>
       ${renderAdoptedJsonSection()}
@@ -782,12 +835,24 @@ document.addEventListener("input", (event) => {
 });
 
 document.addEventListener("change", (event) => {
-  if (event.target.id === "areaSelect") {
-    state.area = event.target.value;
+  if (event.target.id === "wardSelect") {
+    state.ward = event.target.value;
+    state.station = getStationOptions(state.ward)[0] || "";
+    state.area = getResearchArea();
+    render();
+    return;
+  }
+
+  if (event.target.id === "stationSelect") {
+    state.station = event.target.value;
+    state.area = getResearchArea();
+    render();
+    return;
   }
 
   if (event.target.id === "genreSelect") {
     state.genre = event.target.value;
+    render();
   }
 });
 
