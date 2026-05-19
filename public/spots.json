@@ -3110,5 +3110,48 @@
     "stations": [
       "駒沢大学"
     ]
+  },
+  {
+    "id": "green-witch-tea-house",
+    "name": "Green Witch TEA HOUSE",
+    "area": "千歳烏山",
+    "address": "〒157-0063 東京都世田谷区粕谷１丁目１１−２２",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJy-cb5qvxGGARftbah0HH9ck%2Fphotos%2FAb43m-sZ52VI2qyenGc7n76-XHZEpsBZBOsYnH9eMSzxu9GZs_nliOjyPJ67EmrxYdEfoKyH_Ye24doUNPsA-UtYdhmHJ88z0iLNhCGEaLgHPblITqJNWXWHjDs9w_-4KuCx21CPjYLrMWwm0LJ5JqPcICh8OkX_X7Rb_OFhw7jeE_cDLEsmlVrlsqbWvjX4YWoMBI4LV0aq1nEcM4ThpsB3zck8BdrNOQqWKfR5nB3gO1Z4di1rfs2tLWmBFhjMozTEsb78w-aeqVjgTz1J5x8TIPx9y18NJqt6MOIYcdRSRbbbVjr1KVlbzzmfDTPm029W63h2PNA_50--hxO6fSUPG91iS95QmO2o2yZhguPkwKaxnnJMrHZCyYGhDq-BvPvihYevr9HlhbholptVvK4aT_QJNjKwVEPpLXbEFrT1k3VBFRezrq0qdlm0bwi2Jti0",
+    "placeId": "ChIJy-cb5qvxGGARftbah0HH9ck",
+    "type": "チャイ",
+    "genre": "チャイ",
+    "tags": [
+      "チャイ",
+      "会話向け",
+      "洗練",
+      "一人時間"
+    ],
+    "comment": "きれいな空気ごと味わいたい、上品な一席。",
+    "mapUrl": "https://maps.google.com/?cid=14552756855183693438&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=14552756855183693438&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://instagram.com/greenwitch_teahouse?igshid=YmMyMTA2M2Y=",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "単品のお茶あり"
+    ],
+    "priceRange": "500円〜",
+    "note": "すっきり整った空間で、背筋まで軽く伸びる一杯を。\n都会の途中に置いておきたい、上品なお茶時間。",
+    "searchTags": [
+      "千歳烏山",
+      "チャイ",
+      "Green Witch TEA HOUSE"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "千歳烏山",
+    "stations": [
+      "千歳烏山"
+    ]
   }
 ]
