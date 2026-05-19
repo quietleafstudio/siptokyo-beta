@@ -2891,5 +2891,93 @@
     "stations": [
       "三軒茶屋"
     ]
+  },
+  {
+    "id": "manimani",
+    "name": "まにまに / manimani",
+    "area": "笹塚",
+    "address": "〒151-0073 東京都渋谷区笹塚３丁目１３−８ エーデルハイム 102",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJ3yJYj_bzGGARQjFEN2Un4ak%2Fphotos%2FAb43m-trPRnalZxT28m-Ym-ICWPpIyMEXqOuQCREiAzculuyq0dUNlKotLnfcqnoYdcZFB4Ndg1kXIUGA3fSVZSj719EmCEmzlEyCldBKVAaxMqEWIPYxkqy-j7eh0Qbl-5h5ll4zl3cvdeF4khZHOe10u0g2D6ajGSVwLpX5_pKweK_zqm8H2SjerGoBHK-zQc6wQXrWYoE4O8CtOh49Ebyg_c-Xdnkm7Io5Nwhde9ZHU_gcBQ9ZQ-ywo9Cp7nZzm3N1ZRBRSs-Aep_EUZGIzY3IoC2WJjHJLtwdWTFhowRIhvT8w",
+    "placeId": "ChIJ3yJYj_bzGGARQjFEN2Un4ak",
+    "type": "抹茶",
+    "genre": "抹茶",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "静かな余白に、気持ちまでゆっくりほどける。",
+    "mapUrl": "https://maps.google.com/?cid=12241108577842114882&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=12241108577842114882&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.instagram.com/manimani_sasazuka/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,000円台",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "笹塚",
+      "抹茶",
+      "まにまに / manimani"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "笹塚",
+    "stations": [
+      "笹塚"
+    ]
+  },
+  {
+    "id": "dan-de-chaya",
+    "name": "だんで茶屋 Dan de CHAYA",
+    "area": "代々木八幡・代々木公園",
+    "address": "〒151-0053 東京都渋谷区代々木５丁目２−５",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJJ4UEcjjzGGARvA8_wwWuI3I%2Fphotos%2FAb43m-sdYKI6UYU5iANUD-bBwZS66tOnsRssJpCUXsIAO7KKXQX6G4CPcIxl_5RoSJNdwmTkQMNozDm6o2O-c_vbeOZRx3nqr1hMwBPAx57mGNjvxW_litVvkPCvMsdEp_v-CfXeIMZO0ylkmP5eIh6rAWa56PDvFwOgGxYJdPIkd5gN8YcUyFiq7ytFDJhNoGDsfHlY07TtjmI2osio4X-Ws1jhir_gvV1OmivfAin6wxwqDrCN4wpaDPSAt-uOIFwqrCss27bIECJGXJvoW4Pwaf5veof24LvWiiGlhu7hWeujS48UWy4KpF6o6xPrlMUp_-zdomZBuLl1OeMB6uKNXAfoW4UmfuCuItIUzXoCSfDI0K00i4iPH9wNl3xogtFDE1VGjMsWFrJJtFYtYi96PNCHy7BYXS8WQ5g_jd2KCG0tPnsF",
+    "placeId": "ChIJJ4UEcjjzGGARvA8_wwWuI3I",
+    "type": "養生茶",
+    "genre": "養生茶",
+    "tags": [
+      "養生茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "からだをいたわる一杯で、静かに整える。",
+    "mapUrl": "https://maps.google.com/?cid=8224608684282417084&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=8224608684282417084&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "http://dandechaya.com/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "養生茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "800円〜",
+    "note": "代々木八幡・代々木公園のそばで、養生茶をゆっくり味わえる茶屋。\nからだをいたわるような一杯が、慌ただしい日常に静かな余白をつくってくれそう。",
+    "searchTags": [
+      "代々木八幡",
+      "代々木公園",
+      "養生茶",
+      "だんで茶屋 Dan de CHAYA"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "代々木八幡",
+    "stations": [
+      "代々木八幡",
+      "代々木公園"
+    ]
   }
 ]
