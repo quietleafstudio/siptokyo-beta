@@ -3067,5 +3067,48 @@
     "stations": [
       "二子玉川"
     ]
+  },
+  {
+    "id": "awhile-chai-and-soda",
+    "name": "awhile chai & soda",
+    "area": "駒沢大学",
+    "address": "〒154-0012 東京都世田谷区駒沢４丁目１６−１６ 横山ビル 2F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJdRLjioP1GGARsMxSlCVMWgE%2Fphotos%2FAb43m-tXlEzLPhzRA5U1pRykfDKNRJ7OLgjcfNklbLz9vZUIRh9IO80TEKgn60Vhg3OlF04dtXYfxBnJ0DpoqvCaTQE8j0nctwdlrFHrz9lmDArCi5Ly5jIBB6qvlCT37OHj1xQ1D3xl_aP95nitQ-DxK-l0_C-Hlg9pQsWDmjf9JCSmruXG_apus6VcZKdSaC-3RIjLUeis_FPOTP5txJH5XqvpY83i-ke_bT5K3nv6u1ribB-TOmaje428568Hz2exX-slGiHsEDFN_ziHtyjyzPo7YumHAuV3UajQZpJM1zQDtA",
+    "placeId": "ChIJdRLjioP1GGARsMxSlCVMWgE",
+    "type": "チャイ",
+    "genre": "チャイ",
+    "tags": [
+      "チャイ",
+      "会話向け",
+      "異国感",
+      "一人時間"
+    ],
+    "comment": "異国の香りがふわりと残る、静かな一杯。",
+    "mapUrl": "https://maps.google.com/?cid=97474066227842224&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=97474066227842224&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://instagram.com/awhile_chaiandsoda?igshid=YTQwZjQ0NmI0OA==",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,000円台",
+    "note": "異国の香りを少しだけまとった、奥行きのある一杯。\n日常の外側へふっと出られる、お茶時間になりそう。",
+    "searchTags": [
+      "駒沢大学",
+      "チャイ",
+      "awhile chai & soda"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "駒沢大学",
+    "stations": [
+      "駒沢大学"
+    ]
   }
 ]
