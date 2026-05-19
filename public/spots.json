@@ -3024,5 +3024,48 @@
       "世田谷",
       "三軒茶屋"
     ]
+  },
+  {
+    "id": "tsumugi",
+    "name": "和カフェTsumugi 二子玉川ライズ店",
+    "area": "二子玉川",
+    "address": "〒158-0094 東京都世田谷区玉川２丁目２１−１",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJYeAEpGf1GGAR9GnZfGDsihw%2Fphotos%2FAb43m-ub6bvKrxW49u_C5uFd6R6aibKjlZHMMmQMO_jNZ0adtOim9p2ZvbELA9_uR6ackWVUdpS8_usHu-ReYncaV9Ll3FR_gHm5Bjsimy2FnMNG-LMGkFbyNHTIJX6iIZyS7zoqjJLaNlnYZbDXZ51oOa89TNTA2LuOql3ZXW0UMwIc-j7fC3AcgJUhivzYsEJih1A_ydKQcoctl-oYHIjI3GpXHqCkRFiKfMvCTHUPokPy7bKPl04hsdAXbIr7qE9pMY2fj15NKcxGLbwImyEFlV8qPn2pS5l19C84O9jKYdEc4A",
+    "placeId": "ChIJYeAEpGf1GGAR9GnZfGDsihw",
+    "type": "抹茶",
+    "genre": "抹茶",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "音を少し遠ざけて、お茶に心を預けたい。",
+    "mapUrl": "https://maps.google.com/?cid=2056716079003691508&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=2056716079003691508&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://shop.pronto.co.jp/detail/9048/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,000円台",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "二子玉川",
+      "抹茶",
+      "和カフェTsumugi 二子玉川ライズ店"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "二子玉川",
+    "stations": [
+      "二子玉川"
+    ]
   }
 ]
