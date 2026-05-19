@@ -2803,5 +2803,93 @@
       "広尾",
       "恵比寿"
     ]
+  },
+  {
+    "id": "three",
+    "name": "THREE",
+    "area": "三軒茶屋",
+    "address": "〒154-0024 東京都世田谷区三軒茶屋２丁目１０−１４ GREST三軒茶屋 2F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJc-7_grn1GGARx4HTGmquSpE%2Fphotos%2FAb43m-sXyST1-5SxxI8jF5jTrAHLJN9rx7NQLfiEn_Q7SqzmeUSx_CkVGxZkIK8GPubDZeiBZ4QUWMAIaFq8EM-1wzPus8nBb-JQWg4HUMhNAvAeh5tectZqdCeZ0VBH4kAF9qZaJESMCdVxTKqABY0zZYK-GGw_DXO9Fjkv0KXMPlRJ-mWXDIeErlI5F4WKPcFU7Z1k2kE98qAZ32gF4Vb_u1ITd2ppXtvEId1c28Gd5nDjCT2eXEjwrCKsg9-RFiIzzdI_w0cQ4aC5aihFaecE_EVCH3JWZGn9MP594nDFM-dHdQ",
+    "placeId": "ChIJc-7_grn1GGARx4HTGmquSpE",
+    "type": "抹茶",
+    "genre": "抹茶",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "静かな余白に、気持ちまでゆっくりほどける。",
+    "mapUrl": "https://maps.google.com/?cid=10469372054515974599&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=10469372054515974599&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://tabelog.com/tokyo/A1317/A131706/13290398/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,000円台",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "三軒茶屋",
+      "抹茶",
+      "THREE"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "三軒茶屋",
+    "stations": [
+      "三軒茶屋"
+    ]
+  },
+  {
+    "id": "spot-i0c9sx",
+    "name": "台湾茶藝館 桜樺苑（インファエン）",
+    "area": "三軒茶屋",
+    "address": "〒154-0024 東京都世田谷区三軒茶屋１丁目５−９",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJb9N2ahP1GGARqyXIBbIkcwo%2Fphotos%2FAb43m-uHgU7UYuec_XemBiey7nh23V2gTvuX_-9gVPDcZmgbD4jJdXI5FC7VSIZ73Ed418IuJYcWb1wmdlnXoYYDvJDhdd9IaSSZIiPG9J-Z9qxiJXUkhQQkY-Qvtyjzo8IHDuPCiVZZ0zhYwb7OQjjMvGUoCuCMevE3wTDVEdnGjzWT4xrjE6tuPAy8gYEM0j8zr1k_48cFwRvxhDAyXbHbDxC4NwfT37CtbZoQ0c9vX83n1j8AsMLHPHVGcdt09i7r7c9IEpp7SAZzv2GaA0kzWksrdzbir5zfbTCM-XP_sNNN1g",
+    "placeId": "ChIJb9N2ahP1GGARqyXIBbIkcwo",
+    "type": "台湾茶",
+    "genre": "台湾茶",
+    "tags": [
+      "台湾茶",
+      "中国茶",
+      "異国感",
+      "一人時間"
+    ],
+    "comment": "台湾茶の香りがふわりと残る、静かな一杯。",
+    "mapUrl": "https://maps.google.com/?cid=752985909720786347&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=752985909720786347&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.ying-hua-yuan.com/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "台湾茶あり",
+      "単品のお茶あり"
+    ],
+    "priceRange": "700円〜",
+    "note": "台湾茶の香りと余韻を、三軒茶屋でゆっくり味わえる茶藝館。\n日常の外側へふっと出られるような、静かで奥行きのあるお茶時間になりそう。",
+    "searchTags": [
+      "三軒茶屋",
+      "台湾茶",
+      "中国茶",
+      "台湾茶藝館 桜樺苑（インファエン）"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "三軒茶屋",
+    "stations": [
+      "三軒茶屋"
+    ]
   }
 ]
