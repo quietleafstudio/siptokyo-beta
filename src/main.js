@@ -513,10 +513,21 @@ function render() {
 }
 
 function getEnglishSpotHighlights() {
-  return englishSpotHighlights
-    .map((entry) => {
-      const spot = state.spots.find((candidate) => candidate.name === entry.sourceName);
-      return spot ? { ...spot, english: entry } : null;
+  const manualEntries = new Map(englishSpotHighlights.map((entry) => [entry.sourceName, entry]));
+
+  return state.spots
+    .map((spot) => {
+      const entry = manualEntries.get(spot.name) || spot.i18n?.en;
+      if (!entry) return null;
+
+      return {
+        ...spot,
+        english: {
+          ...entry,
+          englishAddress: entry.englishAddress || entry.address || "",
+          englishMemo: entry.englishMemo || entry.memo || "",
+        },
+      };
     })
     .filter(Boolean);
 }
@@ -571,6 +582,7 @@ function renderEnglishSpotSearch() {
 
 function renderEnglishSpotCard(spot) {
   const mapUrl = spot.mapsUrl || spot.mapUrl;
+  const spotType = spot.english.genre || "Tea Spot";
   const tags = spot.english.tags
     .slice(0, 5)
     .map((tag) => `<span class="tagPill">${escapeHtml(tag)}</span>`)
@@ -594,13 +606,14 @@ function renderEnglishSpotCard(spot) {
       <div class="spotBody">
         <div class="spotMeta">
           <span>${escapeHtml(spot.english.area)}</span>
-          <span>Tea Spot</span>
+          <span>${escapeHtml(spotType)}</span>
         </div>
         <h3>${escapeHtml(spot.english.displayName)}</h3>
         ${spot.english.englishAddress ? `<div class="locationInfo"><p><span aria-hidden="true">📍</span>${escapeHtml(spot.english.englishAddress)}</p></div>` : ""}
         <div class="tagWrap">${tags}</div>
         <p class="comment">${escapeHtml(spot.english.comment)}</p>
         ${spot.english.englishMemo ? `<div class="enSipMemo"><span>SIP Memo</span><p>${escapeHtml(spot.english.englishMemo)}</p></div>` : ""}
+        ${spot.english.priceRange ? `<p class="priceRange">Price: ${escapeHtml(spot.english.priceRange)}</p>` : ""}
         ${links ? `<div class="infoLinks enSpotLinks">${links}</div>` : ""}
       </div>
     </article>
@@ -617,7 +630,7 @@ function renderEnglishTeaSpotsPage() {
         <div class="enSpotsHeroCopy">
           <p class="kicker">Tea Spots</p>
           <h1>Quiet Tea Spots in Tokyo</h1>
-          <p>Five peaceful places to pause, sip, and breathe.</p>
+          <p>Peaceful places to pause, sip, and breathe.</p>
         </div>
       </header>
 
