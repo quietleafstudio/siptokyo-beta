@@ -4416,5 +4416,66 @@
         "priceRange": "Around ¥1,000"
       }
     }
+  },
+  {
+    "id": "spot-din5qv",
+    "name": "カフェ モクシャチャイ 中目黒",
+    "area": "中目黒",
+    "address": "〒153-0043 東京都目黒区東山１丁目３−６ クレール東山 2F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJiRKEON2LGGARXqYJETzDCes%2Fphotos%2FAb43m-vsH6kVRZ8cxFm9xX1qgjj9r7wG2rAjomQcLzqycOcCfeZJyumYvFy-i3AJrikaMMK0EhIYyOOVFQYOm0kcgTDd7RIASLtisZb9R6eRF9tmwYg0QliOfcklBydqxl8KgUghVXjd2tFyXPnj5Yh2aG6Set2_CY967SH7Ort1RCHXiqPLz41-95bN1gxjkVBcvs5zTpWHBwv3tbmuSEcN_hg2AxLy4Qp6Aj6YfAz2Fz8hVJPU0WCAOe8AYAqV9zezDVpBnK_hYmL7HWxa_9yjpLZEX0Yp1_79vPaMtHJNiKdSxg",
+    "placeId": "ChIJiRKEON2LGGARXqYJETzDCes",
+    "type": "チャイ",
+    "genre": "チャイ",
+    "tags": [
+      "チャイ",
+      "会話向け",
+      "異国感",
+      "一人時間"
+    ],
+    "comment": "湯気の向こうに、遠い街の気配が揺れる。",
+    "mapUrl": "https://maps.google.com/?cid=16936282536454760030&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=16936282536454760030&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://mokshajapan.jp/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "カフェ利用OK"
+    ],
+    "priceRange": "600円〜",
+    "note": "異国の香りを少しだけまとった、奥行きのある一杯。\n日常の外側へふっと出られる、お茶時間になりそう。",
+    "searchTags": [
+      "中目黒",
+      "チャイ",
+      "カフェ モクシャチャイ 中目黒"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "中目黒",
+    "stations": [
+      "中目黒",
+      "池尻大橋"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Cafe Moksha Chai Nakameguro",
+        "area": "Nakameguro",
+        "address": "Claire Higashiyama 2F, 1-3-6 Higashiyama, Meguro-ku, Tokyo 153-0043, Japan",
+        "genre": "Chai",
+        "tags": [
+          "Chai",
+          "Good for Conversation",
+          "A Sense of Elsewhere",
+          "Solo Time"
+        ],
+        "comment": "A quiet cup where warm spice lingers softly in the air.",
+        "memo": "A chai cafe with a gentle sense of escape and layered spice. A warm stop for stepping just outside the everyday pace of Nakameguro.",
+        "priceRange": "From ¥600"
+      }
+    }
   }
 ]
