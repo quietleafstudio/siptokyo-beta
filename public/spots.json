@@ -4477,5 +4477,65 @@
         "priceRange": "From ¥600"
       }
     }
+  },
+  {
+    "id": "kephi-and-aeunn",
+    "name": "kephi & aeunn",
+    "area": "自由が丘",
+    "address": "〒158-0081 東京都世田谷区深沢２丁目１５−５",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJtypc8G31GGAR0UN-FvTY0ZI%2Fphotos%2FAb43m-uVSbhVIh8PP7r9AtTrf6nC9BzfxIaMdCtEoYv_vm0Lzny_T5eSfhaRN6NKf1CgqKBR0VeJnatrPkPqHpUxvZhoYwpI09F4QTJgIw3IfSh_CGxOFWi4vHzF2cU7Tkm22nACz7zU9nBxjsa2OS9_dIjT0Ta_BHegUG5hbF6STEvgCg55pacoUnXcdI6jJ9W86QXnY3mnxIoFDAWRrKMintJyYleQwg8eHCiHf2v6Y4n6SwzhRGRoYU0b1wNNAW2NEL4FYZrIQTCbvXh_M8__UGQh8kZ3UBuqes9lW-ogLae_0g",
+    "placeId": "ChIJtypc8G31GGAR0UN-FvTY0ZI",
+    "type": "チャイ",
+    "genre": "チャイ",
+    "tags": [
+      "チャイ",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "静かな余白に、気持ちまでゆっくりほどける。",
+    "mapUrl": "https://maps.google.com/?cid=10579475542530999249&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=10579475542530999249&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.instagram.com/kephi_tokyo/?igshid=YmMyMTA2M2Y=",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "単品のお茶あり"
+    ],
+    "priceRange": "600円〜",
+    "note": "鍼灸師が営む土日だけチャイ屋さん。言葉が自然にほどけていく時間。\nゆっくり過ごしたい日に選びたくなる。",
+    "searchTags": [
+      "自由が丘",
+      "駒沢大学",
+      "チャイ",
+      "kephi & aeunn"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "駒沢大学",
+    "stations": [
+      "駒沢大学",
+      "自由が丘"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "kephi & aeunn",
+        "area": "Jiyugaoka / Komazawa-daigaku",
+        "address": "2-15-5 Fukasawa, Setagaya-ku, Tokyo 158-0081, Japan",
+        "genre": "Chai",
+        "tags": [
+          "Chai",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A quiet chai pause where words begin to soften.",
+        "memo": "A weekend-only chai shop run by an acupuncturist. A gentle place to slow down, breathe, and let conversation unfold naturally.",
+        "priceRange": "From ¥600"
+      }
+    }
   }
 ]
