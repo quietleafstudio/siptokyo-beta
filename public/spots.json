@@ -4356,5 +4356,65 @@
         "priceRange": "From ¥500"
       }
     }
+  },
+  {
+    "id": "spot-13jmkr9",
+    "name": "成城あんや",
+    "area": "成城学園前",
+    "address": "〒157-0066 東京都世田谷区成城６丁目５−２７",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJze4ulWjxGGARpcVVa0fAhtY%2Fphotos%2FAb43m-vlOCS3AQ_YsTpN0ynnWfcqI1tsWDv5m1zv_cHfbUTyWKuliPD16JWOvcVrE8rF4b5Hwz0quSA8BMMdvyX6gGkpcTf47xg_57lYzWjgfZ7Pq0cwHQ465j2z8UJbWVeplsuRAz9KsvwbFlUZU72CyYUYUlkODgxUTissll1TzKR1bx5DXUXA_cNwdK4AbS1DKujdMQA_3G-TxKSkBxR00jpFZ48iycgu0nIC4vE5ob4dKjhdD8KXTzIRt3iBQME4H96IVRWOHKioYmp9DOqKvZ_3x-3LvxAiP8crPRvNSEHXqPuwuxE1cUOdoDtQ06vVzWWdZ5Xug0nPi3nDuaxSFjTpxFh7-VX3krUynSy5uUxcfSYE9q0nPHeoV57JJ3yKXpnraZU9a9ZtbLw7D9SAsgCYI86tNn6buXgT-vAkyFE",
+    "placeId": "ChIJze4ulWjxGGARpcVVa0fAhtY",
+    "type": "抹茶 / 日本茶",
+    "genre": "抹茶 / 日本茶",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "一人時間"
+    ],
+    "comment": "ほろ苦い余韻で、午後をやさしく整える。",
+    "mapUrl": "https://maps.google.com/?cid=15458254183971800485&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=15458254183971800485&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "http://www.seijoanya.com/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,000円台",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "成城学園前",
+      "抹茶",
+      "日本茶",
+      "成城あんや"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "成城学園前",
+    "stations": [
+      "成城学園前"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Seijo Anya",
+        "area": "Seijogakuen-mae",
+        "address": "6-5-27 Seijo, Setagaya-ku, Tokyo 157-0066, Japan",
+        "genre": "Matcha / Japanese Tea",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Solo Time"
+        ],
+        "comment": "A gentle afternoon pause with a soft, bittersweet finish.",
+        "memo": "A refined Japanese sweets shop in Seijo, where matcha and tea offer a quiet moment beside delicate wagashi. A calm choice for a small reset in the day.",
+        "priceRange": "Around ¥1,000"
+      }
+    }
   }
 ]
