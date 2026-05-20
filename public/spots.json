@@ -41,7 +41,26 @@
     "stations": [
       "自由が丘",
       "奥沢"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Kosoan",
+        "area": "Jiyugaoka",
+        "address": "1-24-23 Jiyugaoka, Meguro-ku, Tokyo, Japan",
+        "genre": "Matcha / Wagashi / Old House",
+        "tags": [
+          "Quiet",
+          "Matcha",
+          "Old House",
+          "Solo Time",
+          "Wagashi",
+          "Garden View"
+        ],
+        "comment": "Tatami, garden light, and time that slowly comes undone.",
+        "memo": "A beloved old house cafe where a line is common, but the quiet atmosphere is worth the wait. Shoes come off at the entrance, and the tatami room feels gently nostalgic, like visiting someone’s home.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "nanas-jiyugaoka",
@@ -80,7 +99,25 @@
     "nearestStation": "自由が丘",
     "stations": [
       "自由が丘"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "nana's green tea Jiyugaoka",
+        "area": "Jiyugaoka",
+        "address": "1-29-18 Jiyugaoka, Meguro-ku, Tokyo, Japan",
+        "genre": "Japanese Tea / Matcha",
+        "tags": [
+          "Matcha",
+          "Solo Time",
+          "Good for Conversation",
+          "Japanese Tea",
+          "Stay Awhile"
+        ],
+        "comment": "An easy city pause for choosing matcha or Japanese tea.",
+        "memo": "With matcha, hojicha, sencha, and more, this bright, high-ceilinged space is easy to use alone or with others. Counter, table, and sofa seating make it feel open and comfortable.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "tea-tatamo",
@@ -120,7 +157,24 @@
       "三軒茶屋",
       "西太子堂"
     ],
-    "isPublished": false
+    "isPublished": false,
+    "i18n": {
+      "en": {
+        "displayName": "TEA TATAMO! Sangenjaya",
+        "area": "Sangenjaya",
+        "address": "Sangenjaya, Setagaya-ku, Tokyo, Japan",
+        "genre": "Japanese Tea / Tatami",
+        "tags": [
+          "Japanese Tea",
+          "Tatami",
+          "Matcha",
+          "Solo Time"
+        ],
+        "comment": "A compact tea stop with the softness of tatami under the day.",
+        "memo": "A small tea place for enjoying Japanese tea and matcha in a casual way. Best for a short, focused tea pause rather than a long, spacious stay.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "ocha-room-ashita",
@@ -269,7 +323,24 @@
       "新宿三丁目",
       "東新宿",
       "新宿"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "MATCHA CAFE MAME-TO-CHA Shinjuku",
+        "area": "Shinjuku",
+        "address": "Shinjuku, Tokyo, Japan",
+        "genre": "Matcha / Japanese Tea",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Solo Time",
+          "Good for Conversation"
+        ],
+        "comment": "A clean matcha pause tucked into the rhythm of Shinjuku.",
+        "memo": "A modern matcha stop where the flavor feels direct and clear. Useful for a quiet reset when the city starts to feel too fast.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "abaibhube",
@@ -313,7 +384,24 @@
       "新宿三丁目",
       "新宿御苑前",
       "新宿"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Abhaibhube Cafe Organic Herbal Tea",
+        "area": "Shinjuku",
+        "address": "Shinjuku, Tokyo, Japan",
+        "genre": "Herbal Tea",
+        "tags": [
+          "Herbal Tea",
+          "Quiet",
+          "Solo Time",
+          "A Hint of Elsewhere"
+        ],
+        "comment": "A calm herbal pause with a soft, natural scent.",
+        "memo": "Born from a Thai herbal tradition, this cafe offers fragrant organic herbal teas in a gentle setting. A quiet choice for days when you want something soothing rather than strong.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "sabou-botan",
@@ -363,7 +451,26 @@
     "stations": [
       "自由が丘",
       "奥沢"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Sabou Botan",
+        "area": "Jiyugaoka / Okusawa",
+        "address": "5-33-13 Okusawa, Setagaya-ku, Tokyo, Japan",
+        "genre": "Matcha / Japanese Tea / Wagashi",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Quiet",
+          "Good for Conversation",
+          "Solo Time",
+          "Wagashi"
+        ],
+        "comment": "A small Okusawa pause where tea and sweetness linger softly.",
+        "memo": "Matcha and sweets feel quietly at home in the gentle light. A place to loosen the heart a little while walking around Jiyugaoka.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "susumuya-tea-jiyugaoka",
@@ -409,7 +516,24 @@
     "stations": [
       "自由が丘",
       "奥沢"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Susumuya Tea Store Tokyo Jiyugaoka",
+        "area": "Jiyugaoka",
+        "address": "1-25-5 Jiyugaoka, Meguro-ku, Tokyo, Japan",
+        "genre": "Matcha / Japanese Tea",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A Jiyugaoka cup where even choosing tea leaves feels pleasant.",
+        "memo": "The aroma of tea leaves rises with quiet clarity. A refined Japanese tea moment for changing the mood in the middle of the day.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "yotsuba-tea",
@@ -450,7 +574,22 @@
     "nearestStation": "自由が丘",
     "stations": [
       "自由が丘"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "YOTSUBA TEA",
+        "area": "Jiyugaoka",
+        "address": "Koubaikyo 03, 2-15-23 Jiyugaoka, Meguro-ku, Tokyo, Japan",
+        "genre": "Japanese Tea",
+        "tags": [
+          "Japanese Tea",
+          "Good for Conversation"
+        ],
+        "comment": "A light, bright tea moment on a Jiyugaoka street corner.",
+        "memo": "A cheerful cup that makes the afternoon feel a little lighter. Good for a small solo pause or an easy conversation with a friend.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "rengetsutei",
@@ -496,7 +635,24 @@
     "stations": [
       "自由が丘",
       "九品仏"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Rengetsutei Taiwanese Tea",
+        "area": "Jiyugaoka",
+        "address": "A&D House 102, 2-15-10 Jiyugaoka, Meguro-ku, Tokyo, Japan",
+        "genre": "Japanese Tea / Chinese Tea",
+        "tags": [
+          "Japanese Tea",
+          "Chinese Tea",
+          "Quiet",
+          "Good for Conversation"
+        ],
+        "comment": "A quiet doorway into the steam and scent of Taiwanese tea.",
+        "memo": "The fragrance of Taiwanese tea can feel like a small journey. A deep, lingering seat for watching the steam without hurry.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "gancha-bou",
@@ -544,7 +700,25 @@
     "stations": [
       "中目黒",
       "代官山"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Gancha-bou",
+        "area": "Nakameguro",
+        "address": "1F, 3-15-5 Kamimeguro, Meguro-ku, Tokyo, Japan",
+        "genre": "Japanese Tea / Chinese Tea",
+        "tags": [
+          "Japanese Tea",
+          "Chinese Tea",
+          "Quiet",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A hidden Nakameguro seat for sinking into the depth of rock tea.",
+        "memo": "The layered aroma of rock tea quietly draws the mind inward. A tea place for breathing deeply while the outline of the city fades a little.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "tea-tatamo-komazawa",
@@ -587,7 +761,24 @@
     "nearestStation": "駒沢大学",
     "stations": [
       "駒沢大学"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "TEA TATAMO! Komazawa",
+        "area": "Komazawa University",
+        "address": "Komazawa, Setagaya-ku, Tokyo, Japan",
+        "genre": "Matcha / Wagashi",
+        "tags": [
+          "Matcha",
+          "Wagashi",
+          "Solo Time",
+          "Good for Conversation"
+        ],
+        "comment": "A small matcha pause near Komazawa, softened by wagashi.",
+        "memo": "A casual tea stop for matcha and Japanese sweets. The compact feel works well for a focused cup between errands or walks.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "yakumo-saryo",
@@ -637,7 +828,26 @@
     "stations": [
       "都立大学",
       "自由が丘"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Yakumo Saryo / Baishinka",
+        "area": "Jiyugaoka / Yakumo",
+        "address": "3-4-7 Yakumo, Meguro-ku, Tokyo, Japan",
+        "genre": "Matcha / Japanese Tea / Wagashi",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Quiet",
+          "Good for Conversation",
+          "Solo Time",
+          "Wagashi"
+        ],
+        "comment": "A serene tea room filled with the presence of garden and wagashi.",
+        "memo": "Garden stillness and the aroma of Japanese tea slowly overlap. A refined, spacious place to keep for a special quiet afternoon.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "saryo-itoen",
@@ -683,7 +893,24 @@
     "stations": [
       "新宿",
       "新宿西口"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Saryo ITOEN Keio Shinjuku",
+        "area": "Shinjuku",
+        "address": "Keio Department Store Shinjuku 2F, 1-1-4 Nishi-Shinjuku, Shinjuku-ku, Tokyo, Japan",
+        "genre": "Matcha / Japanese Tea",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A calm cup close to the flow of people.",
+        "memo": "The soft aroma of matcha gently loosens a busy mind. Even inside a station-side department store, it offers a small return to your own rhythm.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "the-matcha-tokyo",
@@ -727,7 +954,23 @@
     "stations": [
       "新宿",
       "新宿三丁目"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "THE MATCHA TOKYO Shinjuku",
+        "area": "Shinjuku",
+        "address": "NEWoMan Shinjuku 1F, 4-1-6 Shinjuku, Shinjuku-ku, Tokyo, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "Straight matcha aroma that quietly clears the mood.",
+        "memo": "Each sip lets the clean outline of matcha spread softly. A place to take one deeper breath within the speed of Shinjuku.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "matcha-cafe",
@@ -771,7 +1014,23 @@
     "stations": [
       "新宿御苑前",
       "新宿三丁目"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Maccho MATCHA CAFE",
+        "area": "Shinjuku",
+        "address": "Kawamoto Building 1F, 2-15-8 Shinjuku, Shinjuku-ku, Tokyo, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A small quietness waiting beyond the side street.",
+        "memo": "The bitterness and gentle sweetness of matcha settle slowly into the mood. A quiet detour that feels worth stepping away for.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "spot-owaavs",
@@ -818,7 +1077,24 @@
       "都庁前",
       "西新宿",
       "新宿"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Kyoto Saryo Suisen Shinjuku",
+        "area": "Shinjuku",
+        "address": "2-6-1 Nishi-Shinjuku, Shinjuku-ku, Tokyo, Japan",
+        "genre": "Matcha / Japanese Tea",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A deep matcha finish that lingers quietly.",
+        "memo": "A rich cup gently settles the noise in the mind. At the foot of the high-rise city, the mood becomes a little still.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "spot-1uvezc7",
@@ -927,7 +1203,23 @@
     "stations": [
       "新宿御苑前",
       "新宿三丁目"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "NIGICHA Shinjuku Gyoenmae",
+        "area": "Shinjuku",
+        "address": "1-3-8 Shinjuku, Shinjuku-ku, Tokyo, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "Simple comfort that lets the shoulders soften.",
+        "memo": "Gentle matcha aroma and an easy, unpretentious mood make this feel like a restful break. A place to feel quietly satisfied without ceremony.",
+        "priceRange": ""
+      }
+    }
   },
   {
     "id": "spot-f8fx29",
@@ -1626,6 +1918,23 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "Chacha Kobo Japanese Tea Cafe",
+        "area": "Nishiwaseda / Takadanobaba",
+        "address": "2-21-19 Nishiwaseda, Shinjuku-ku, Tokyo, Japan",
+        "genre": "Japanese Tea / Matcha",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A gentle stillness remains at the center of the cup.",
+        "memo": "A small Japanese tea cafe where the depth of tea offers an easy pause. A warm choice for matcha, sweets, and quiet conversation.",
+        "priceRange": "Around ¥1,000"
+      }
     }
   },
   {
@@ -1746,6 +2055,22 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "Cha no Tsutaya",
+        "area": "Takadanobaba",
+        "address": "1-17-17 Takadanobaba, Shinjuku-ku, Tokyo, Japan",
+        "genre": "Japanese Tea / Matcha",
+        "tags": [
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A place to set sound aside and rest with tea.",
+        "memo": "A neighborhood tea spot where a cup can create a small pocket of quiet. Good for a simple matcha pause around Takadanobaba.",
+        "priceRange": "Around ¥1,000"
+      }
     }
   },
   {
@@ -1798,6 +2123,23 @@
     "instagram": {
       "handle": "koicha_saryo",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "Koicha Saryo Issa",
+        "area": "Asakusa",
+        "address": "2F, 2-7-3 Asakusa, Taito-ku, Tokyo, Japan",
+        "genre": "Matcha / Japanese Tea",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A rich matcha pause within the old rhythm of Asakusa.",
+        "memo": "A tea stop for tasting deep matcha in a setting close to Asakusa’s slower streets. A quiet cup after walking through the neighborhood.",
+        "priceRange": "Around ¥1,000"
+      }
     }
   },
   {
@@ -1849,6 +2191,23 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "THE MATCHA TOKYO SKYTREE Solamachi",
+        "area": "Skytree / Oshiage",
+        "address": "Tokyo Skytree Town Solamachi, 1-1-2 Oshiage, Sumida-ku, Tokyo, Japan",
+        "genre": "Matcha / Tea Stand",
+        "tags": [
+          "Matcha",
+          "Refined",
+          "Solo Time",
+          "Good for Conversation"
+        ],
+        "comment": "A clean matcha note above the movement of the city.",
+        "memo": "A modern matcha stop inside Solamachi. Useful for a clear, quick cup while moving through the Skytree area.",
+        "priceRange": "Price to confirm"
+      }
     }
   },
   {
@@ -1901,6 +2260,23 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "Kotobukiseian Chashitsu Asakusa",
+        "area": "Asakusa",
+        "address": "2-29-3 Asakusa, Taito-ku, Tokyo, Japan",
+        "genre": "Matcha / Sweets",
+        "tags": [
+          "Matcha",
+          "Quiet",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A calm matcha break near Hanayashiki-dori.",
+        "memo": "A place where matcha and sweets give the lively Asakusa streets a softer edge. A quiet stop for a small pause between walks.",
+        "priceRange": "Price to confirm"
+      }
     }
   },
   {
@@ -1956,6 +2332,23 @@
     "instagram": {
       "handle": "yanakachashitsu_kum",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "Yanaka Chashitsu KUM",
+        "area": "Yanaka",
+        "address": "6-4-5 Yanaka, Taito-ku, Tokyo, Japan",
+        "genre": "Japanese Tea / Tea Room",
+        "tags": [
+          "Matcha",
+          "Quiet",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A tea room with the slower rhythm of old Tokyo.",
+        "memo": "A small tea space in Yanaka where the pace feels naturally softer. Good for sitting quietly with tea and letting the neighborhood atmosphere settle in.",
+        "priceRange": "Price to confirm"
+      }
     }
   },
   {
@@ -2011,6 +2404,23 @@
     "instagram": {
       "handle": "hotoka.hojicha.factory",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "Hotoka HOJICHA FACTORY",
+        "area": "Mukojima / Skytree",
+        "address": "1-3-14 Mukojima, Sumida-ku, Tokyo, Japan",
+        "genre": "Hojicha / Roasted Green Tea",
+        "tags": [
+          "Hojicha",
+          "Japanese Tea",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A roasted tea aroma that gently gathers the mood.",
+        "memo": "A hojicha-focused stop where the warm roasted scent becomes the center of the experience. A simple place for tea with a calm, grounded feeling.",
+        "priceRange": "Around ¥1,000"
+      }
     }
   },
   {
@@ -2063,6 +2473,23 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "Hagoromo Saryo Asakusa",
+        "area": "Asakusa",
+        "address": "B1F Onyado Nono Asakusa Bettei, 2-7-26 Asakusa, Taito-ku, Tokyo, Japan",
+        "genre": "Matcha / Japanese Tea / Sweets",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A soft tea pause tucked into Asakusa’s old-town air.",
+        "memo": "A place for enjoying tea and sweets with a calm Japanese mood. It can turn an Asakusa walk into a slower, sweeter pause.",
+        "priceRange": "Price to confirm"
+      }
     }
   },
   {
@@ -2323,6 +2750,23 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "TEN Japanese Tea Stand",
+        "area": "Shimokitazawa",
+        "address": "2-19-2 Kitazawa, Setagaya-ku, Tokyo, Japan",
+        "genre": "Japanese Tea / Matcha",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A creative Shimokitazawa tea stand for a clear, quick pause.",
+        "memo": "A casual Japanese tea stand where the cup feels direct and refreshing. Good for a short tea moment while wandering through Shimokitazawa.",
+        "priceRange": "Around ¥1,000"
+      }
     }
   },
   {
@@ -2362,6 +2806,22 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "CAPOON Matcha Factory Shimokitazawa",
+        "area": "Shimokitazawa",
+        "address": "Urban Terrace Shimokitazawa 201, 2-26-18 Kitazawa, Setagaya-ku, Tokyo, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "Fresh matcha with a quiet sense of craft.",
+        "memo": "Their house-blended matcha is carefully stone-milled in the shop each day. A quiet cup where the aroma and depth of real matcha come through.",
+        "priceRange": "¥1,500-2,500"
+      }
     }
   },
   {
@@ -2400,6 +2860,22 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "Tokyo Saryo",
+        "area": "Sangenjaya",
+        "address": "1-34-15 Kamiuma, Setagaya-ku, Tokyo, Japan",
+        "genre": "Japanese Tea / Sencha",
+        "tags": [
+          "Japanese Tea",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A white, quiet space for facing Japanese tea.",
+        "memo": "Known as the world’s first hand-drip Japanese tea shop, Tokyo Saryo offers carefully selected single-origin sencha tastings in a minimal, calm space.",
+        "priceRange": "Around ¥1,000"
+      }
     }
   },
   {
@@ -2438,6 +2914,23 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "Chiyaba",
+        "area": "Nakameguro",
+        "address": "2-45-12 Kamimeguro, Meguro-ku, Tokyo, Japan",
+        "genre": "Chai / Spiced Tea",
+        "tags": [
+          "Good for Conversation",
+          "Solo Time",
+          "Herbal",
+          "Chai"
+        ],
+        "comment": "A distinctive tea hideaway beneath the tracks.",
+        "memo": "A tucked-away place under the elevated tracks for spiced teas, white tea, and a darker, more individual atmosphere. It may not be for everyone, but it suits days when you want to enjoy a strong sense of place.",
+        "priceRange": "From ¥1,000"
+      }
     }
   },
   {
@@ -2477,6 +2970,22 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "Tsukimasa Shimokitazawa",
+        "area": "Shimokitazawa",
+        "address": "EPOCH, 5-28-16 Daizawa, Setagaya-ku, Tokyo, Japan",
+        "genre": "Matcha / Tea",
+        "tags": [
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A small local pause with a gentle tea sweetness.",
+        "memo": "A relaxed Shimokitazawa stop where tea and sweets feel easy and familiar. Good for a casual break with a local mood.",
+        "priceRange": "¥1,500-2,500"
+      }
     }
   },
   {
@@ -2516,6 +3025,22 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "IPPUKU & MATCHA Nihonbashi",
+        "area": "Nihonbashi / Ginza",
+        "address": "Nihonbashi Mitsui Tower 1F, 2-1-1 Nihonbashi Muromachi, Chuo-ku, Tokyo, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "High-quality Uji matcha for a quiet, focused cup.",
+        "memo": "Made with hand-picked first harvest tea from Uji, Kyoto. Each bowl lets you slowly enjoy the soft aroma and lingering finish of refined matcha.",
+        "priceRange": "Price to confirm"
+      }
     }
   },
   {
@@ -2556,6 +3081,23 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "TANAGOKORO TEAROOM",
+        "area": "Ginza",
+        "address": "GINZA TANAGOKORO 3F, 1-8-15 Ginza, Chuo-ku, Tokyo, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Good for Conversation",
+          "Refined",
+          "Solo Time"
+        ],
+        "comment": "A poised cup that makes you sit a little taller.",
+        "memo": "A refined Ginza tea room with a clear, composed mood. A polished place for a quiet matcha pause in the city.",
+        "priceRange": "¥1,500-2,500"
+      }
     }
   },
   {
@@ -2597,6 +3139,23 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "Hibiya Hayashiya Shinbei",
+        "area": "Hibiya / Ginza",
+        "address": "2F, 1-1-2 Yurakucho, Chiyoda-ku, Tokyo, Japan",
+        "genre": "Matcha / Japanese Tea",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A soft pause carried by the calm of a long-established tea house.",
+        "memo": "With more than 260 years of history behind it, the atmosphere feels gently settled. A place to spend a quiet moment with matcha or Japanese tea.",
+        "priceRange": "Price to confirm"
+      }
     }
   },
   {
@@ -2637,6 +3196,23 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "Nakamura Tokichi Ginza",
+        "area": "Ginza",
+        "address": "4F, 6-10-1 Ginza, Chuo-ku, Tokyo, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Good for Conversation",
+          "Refined",
+          "Solo Time"
+        ],
+        "comment": "A refined Ginza cup with the depth of Uji tea.",
+        "memo": "A polished place to enjoy matcha and sweets from a long-loved Kyoto tea brand. The mood is elegant without feeling heavy.",
+        "priceRange": "Around ¥1,000"
+      }
     }
   },
   {
@@ -2677,6 +3253,23 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "the et soie Japanese Tea Cafe",
+        "area": "Nihonbashi / Ningyocho",
+        "address": "Sato Building 1F, 3-4-3 Nihonbashi Ningyocho, Chuo-ku, Tokyo, Japan",
+        "genre": "Japanese Tea / Matcha",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A quiet cup that feels soft and carefully chosen.",
+        "memo": "A small Japanese tea cafe where the mood is gentle and understated. Good for a calm cup in the older streets around Ningyocho.",
+        "priceRange": "Around ¥1,000"
+      }
     }
   },
   {
@@ -2717,6 +3310,23 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "Kusunoki Sabo",
+        "area": "Imperial Palace / Marunouchi",
+        "address": "1-1 Kokyogaien, Chiyoda-ku, Tokyo, Japan",
+        "genre": "Matcha / Japanese Tea",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A quiet tea pause beside the openness of the Imperial Palace grounds.",
+        "memo": "A calm rest spot near the Imperial Palace gardens. The sense of space around it makes tea feel a little more unhurried.",
+        "priceRange": "Price to confirm"
+      }
     }
   },
   {
@@ -2757,6 +3367,23 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "ATELIER MATCHA",
+        "area": "Ginza",
+        "address": "Higashi-Ginza Building 1F, 8-18-4 Ginza, Chuo-ku, Tokyo, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Good for Conversation",
+          "Refined",
+          "Solo Time"
+        ],
+        "comment": "A modern matcha moment between tradition and the city.",
+        "memo": "Wood warmth and quiet concrete help the breath settle. Created by the long-established Yamamasa Koyamaen, it offers a contemporary way to enjoy matcha.",
+        "priceRange": "¥590-1,600"
+      }
     }
   },
   {
@@ -2798,6 +3425,23 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "Saryo Tsujiri Daimaru Tokyo",
+        "area": "Tokyo Station / Ginza",
+        "address": "Daimaru Tokyo 10F, 1-9-1 Marunouchi, Chiyoda-ku, Tokyo, Japan",
+        "genre": "Matcha / Japanese Tea",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A taste of Kyoto Gion, carried gently into Tokyo.",
+        "memo": "The aroma of tea and azuki spreads softly from the first bite. A carefully composed place for enjoying a quiet aftertaste of tea and sweets.",
+        "priceRange": "¥1,500-2,500"
+      }
     }
   },
   {
@@ -2840,6 +3484,24 @@
     "instagram": {
       "handle": "",
       "placeId": ""
+    },
+    "i18n": {
+      "en": {
+        "displayName": "Jugetsudo Ginza Kabukiza",
+        "area": "Ginza",
+        "address": "Kabukiza Tower 5F, 4-12-15 Ginza, Chuo-ku, Tokyo, Japan",
+        "genre": "Matcha / Japanese Tea",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Good for Conversation",
+          "Refined",
+          "Solo Time"
+        ],
+        "comment": "A clear tea moment surrounded by Ginza’s quiet elegance.",
+        "memo": "A serene tea space framed by bamboo, with views toward the rooftop garden. A small Ginza margin for slowly enjoying tea and sweets.",
+        "priceRange": "Price to confirm"
+      }
     }
   },
   {
@@ -3254,7 +3916,23 @@
     "nearestStation": "三軒茶屋",
     "stations": [
       "三軒茶屋"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "THREE",
+        "area": "Sangenjaya",
+        "address": "GREST Sangenjaya 2F, 2-10-14 Sangenjaya, Setagaya-ku, Tokyo, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A quiet space that lets the mind slowly loosen.",
+        "memo": "A Sangenjaya spot for a small matcha pause. Soft bitterness and sweetness make it feel easy to step out of the day for a moment.",
+        "priceRange": "Around ¥1,000"
+      }
+    }
   },
   {
     "id": "spot-i0c9sx",
@@ -3299,7 +3977,24 @@
     "nearestStation": "三軒茶屋",
     "stations": [
       "三軒茶屋"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Ying Hua Yuan Taiwanese Tea House",
+        "area": "Sangenjaya",
+        "address": "1-5-9 Sangenjaya, Setagaya-ku, Tokyo, Japan",
+        "genre": "Taiwanese Tea",
+        "tags": [
+          "Taiwanese Tea",
+          "Chinese Tea",
+          "A Hint of Elsewhere",
+          "Solo Time"
+        ],
+        "comment": "A quiet cup with the lingering scent of Taiwanese tea.",
+        "memo": "A tea house in Sangenjaya for slowly enjoying the aroma and depth of Taiwanese tea. A cup here can feel like stepping gently outside the day.",
+        "priceRange": "From ¥700"
+      }
+    }
   },
   {
     "id": "manimani",
@@ -3464,7 +4159,24 @@
     "stations": [
       "世田谷",
       "三軒茶屋"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Higetsu Medicinal Tea Cafe",
+        "area": "Sangenjaya / Setagaya",
+        "address": "1-20-6 Tsurumaki, Setagaya-ku, Tokyo, Japan",
+        "genre": "Medicinal Tea",
+        "tags": [
+          "Medicinal Tea",
+          "Good for Conversation",
+          "A Hint of Elsewhere",
+          "Solo Time"
+        ],
+        "comment": "Steam, herbs, and the feeling of somewhere far away.",
+        "memo": "A cup with a layered, slightly exotic aroma. It feels like a soft step outside daily life, with medicinal tea at the center.",
+        "priceRange": "From ¥500"
+      }
+    }
   },
   {
     "id": "tsumugi",
@@ -3507,7 +4219,23 @@
     "nearestStation": "二子玉川",
     "stations": [
       "二子玉川"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Wa-Cafe Tsumugi Futako-Tamagawa Rise",
+        "area": "Futako-Tamagawa",
+        "address": "2-21-1 Tamagawa, Setagaya-ku, Tokyo, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A place to set sound aside and rest with tea.",
+        "memo": "A comfortable cafe for matcha and Japanese-style sweets inside Futako-Tamagawa Rise. Easy to use for both solo breaks and conversation.",
+        "priceRange": "Around ¥1,000"
+      }
+    }
   },
   {
     "id": "awhile-chai-and-soda",
@@ -3550,7 +4278,24 @@
     "nearestStation": "駒沢大学",
     "stations": [
       "駒沢大学"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "awhile chai & soda",
+        "area": "Komazawa University",
+        "address": "Yokoyama Building 2F, 4-16-16 Komazawa, Setagaya-ku, Tokyo, Japan",
+        "genre": "Chai",
+        "tags": [
+          "Chai",
+          "Good for Conversation",
+          "A Hint of Elsewhere",
+          "Solo Time"
+        ],
+        "comment": "A quiet cup with a soft trace of spice.",
+        "memo": "A chai-focused spot where the aroma brings a subtle sense of elsewhere. A relaxed pause for days when you want something warm, fragrant, and a little different.",
+        "priceRange": "Around ¥1,000"
+      }
+    }
   },
   {
     "id": "green-witch-tea-house",
@@ -3593,6 +4338,23 @@
     "nearestStation": "千歳烏山",
     "stations": [
       "千歳烏山"
-    ]
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Green Witch TEA HOUSE",
+        "area": "Chitose-Karasuyama",
+        "address": "1-11-22 Kasuya, Setagaya-ku, Tokyo, Japan",
+        "genre": "Chai",
+        "tags": [
+          "Chai",
+          "Good for Conversation",
+          "Refined",
+          "Solo Time"
+        ],
+        "comment": "A refined seat for tasting tea with clean, quiet air.",
+        "memo": "A calm tea house with a composed atmosphere and a gentle sense of escape. A good choice when you want a polished cup without rushing.",
+        "priceRange": "From ¥500"
+      }
+    }
   }
 ]
