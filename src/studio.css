@@ -581,3 +581,38 @@ input {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+@media (max-width: 767px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .studioShell {
+    max-width: 100%;
+    padding-inline: 14px;
+  }
+
+  .searchBoard,
+  .mapsBoard,
+  .candidateCard,
+  .adoptedJsonPanel {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .candidateList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .studioShell {
+    width: min(100%, 1280px);
+    padding-inline: 32px;
+  }
+
+  .candidateList {
+    gap: 24px;
+  }
+}
