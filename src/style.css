@@ -2188,6 +2188,148 @@ address {
   line-height: 1.75;
 }
 
+.contactShell {
+  display: grid;
+  gap: 34px;
+  padding-bottom: 64px;
+}
+
+.contactHero {
+  display: grid;
+  gap: 30px;
+}
+
+.contactIntro {
+  display: grid;
+  gap: 14px;
+  padding: 34px 4px 4px;
+}
+
+.contactIntro h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", Georgia, serif;
+  font-size: clamp(38px, 12vw, 58px);
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: 0;
+}
+
+.contactIntro p:last-child {
+  margin: 0;
+  max-width: 32em;
+  color: rgba(64, 71, 60, 0.78);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.85;
+}
+
+.contactMain {
+  display: grid;
+  justify-items: center;
+}
+
+.contactLetter {
+  width: 100%;
+  max-width: 680px;
+  border: 1px solid rgba(225, 218, 203, 0.92);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 254, 251, 0.95), rgba(249, 246, 238, 0.92)),
+    var(--white);
+  padding: 24px 18px;
+  box-shadow: 0 18px 44px rgba(46, 41, 32, 0.08);
+}
+
+.contactLetter > p {
+  margin: 0 0 24px;
+  color: rgba(64, 71, 60, 0.74);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", Georgia, serif;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.contactForm {
+  display: grid;
+  gap: 18px;
+}
+
+.contactForm label {
+  display: grid;
+  gap: 8px;
+}
+
+.contactForm label span {
+  color: var(--leaf);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.contactForm input,
+.contactForm textarea {
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid rgba(194, 188, 176, 0.82);
+  border-radius: 14px;
+  outline: none;
+  background: rgba(255, 254, 251, 0.92);
+  color: var(--ink);
+  padding: 14px 15px;
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.contactForm textarea {
+  resize: vertical;
+  min-height: 168px;
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+  border-color: rgba(83, 111, 73, 0.62);
+  box-shadow: 0 0 0 4px rgba(83, 111, 73, 0.08);
+}
+
+.contactForm button {
+  justify-self: start;
+  min-width: 132px;
+  min-height: 48px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--leaf-dark);
+  color: var(--white);
+  padding: 0 24px;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  box-shadow: 0 12px 26px rgba(51, 77, 53, 0.16);
+}
+
+.contactForm button:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
+.contactStatus {
+  min-height: 1.7em;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.7;
+}
+
+.contactStatus.isSuccess {
+  color: var(--leaf-dark);
+}
+
+.contactStatus.isError {
+  color: #9a4d3d;
+}
+
 /* Responsive magazine layout */
 body,
 .appShell,
@@ -2206,7 +2348,9 @@ body,
 .journalFeature,
 .journalArticleCard,
 .enSpotsShell,
-.enShell {
+.enShell,
+.contactShell,
+.contactLetter {
   min-width: 0;
 }
 
@@ -2315,6 +2459,24 @@ body,
   .enSpotCard .photoWrap,
   .enSpotCard .photoWrap img {
     min-height: 292px;
+  }
+
+  .contactShell {
+    gap: 52px;
+  }
+
+  .contactHero,
+  .contactMain {
+    width: min(100%, 960px);
+    margin-inline: auto;
+  }
+
+  .contactIntro {
+    padding-top: 56px;
+  }
+
+  .contactLetter {
+    padding: 38px 42px;
   }
 
   .journalMain,

@@ -3,6 +3,7 @@ import { initGoogleAnalytics, trackAnalyticsEvent } from "./analytics.js";
 const primaryTagOrder = ["静か", "抹茶", "ハーブ", "古民家", "一人時間", "会話向け"];
 const publicBasePath = import.meta.env?.BASE_URL || "/";
 const dataVersion = "20260502-2";
+const formspreeEndpoint = import.meta.env?.VITE_FORMSPREE_ENDPOINT || "https://formspree.io/f/xwvzvyog";
 let searchRenderTimer = null;
 
 const englishSpotHighlights = [
@@ -256,6 +257,7 @@ function renderEnglishHeader(activePage = "home", languageLinks = {}) {
     { href: "/#for-home", label: "For Home", page: "forHome" },
     { href: "/en/journal", label: "Journal", page: "journal" },
     { href: "/en#en-featured", label: "Featured by SIP", page: "featured" },
+    { href: "/en/contact", label: "Contact", page: "contact" },
   ];
 
   return `
@@ -285,6 +287,7 @@ function renderBrandNav(activePage = "spots") {
     { href: "#", label: "Spot guide", page: "spots" },
     { href: "#for-home", label: "For Home", page: "forHome" },
     { href: "#journal", label: "Journal", page: "journal" },
+    { href: "/contact", label: "Contact", page: "contact" },
   ];
 
   return `
@@ -394,6 +397,16 @@ function render() {
   const root = document.getElementById("root");
 
   const normalizedPath = window.location.pathname.replace(/\/$/, "");
+
+  if (normalizedPath === "/contact" || normalizedPath === "/contact/index.html") {
+    root.innerHTML = renderContactPage("jp");
+    return;
+  }
+
+  if (normalizedPath === "/en/contact" || normalizedPath === "/en/contact/index.html") {
+    root.innerHTML = renderContactPage("en");
+    return;
+  }
 
   if (normalizedPath === "/en/spots" || normalizedPath === "/en/spots/index.html") {
     root.innerHTML = renderEnglishTeaSpotsPage();
@@ -659,6 +672,100 @@ function renderEnglishTeaSpotsPage() {
         <span>Rooted in Tokyo</span>
         <small>A gentle pause, wherever you are.</small>
       </footer>
+    </div>
+  `;
+}
+
+function renderContactPage(language = "jp") {
+  const isEnglish = language === "en";
+  const copy = isEnglish
+    ? {
+        activeLanguage: "en",
+        activePage: "contact",
+        title: "Contact",
+        subtitle: "Questions, collaborations, or quiet recommendations are always welcome. 🍃",
+        name: "Name",
+        email: "Email",
+        message: "Message",
+        button: "Send",
+        subject: "SIP Tokyo English contact",
+        success: "Thank you for your message. 🍃",
+        error: "Something went quiet for a moment. Please try again.",
+        invalid: "Please fill in your name, email, and message.",
+        intro: "A small note is enough. We read each message with care.",
+        jpHref: "/contact",
+        enHref: "/en/contact",
+      }
+    : {
+        activeLanguage: "jp",
+        activePage: "contact",
+        title: "お問い合わせ",
+        subtitle: "ご質問や掲載相談、おすすめのお茶スポットなど、\nお気軽にお送りください。🍃",
+        name: "お名前",
+        email: "メールアドレス",
+        message: "メッセージ",
+        button: "送信する",
+        subject: "SIP Tokyo お問い合わせ",
+        success: "メッセージありがとうございます。🍃",
+        error: "送信できませんでした。少し時間を置いて、もう一度お試しください。",
+        invalid: "お名前、メールアドレス、メッセージを入力してください。",
+        intro: "静かな手紙のように、ひとつずつ大切に受け取ります。",
+        jpHref: "/contact",
+        enHref: "/en/contact",
+      };
+
+  return `
+    <div class="appShell contactShell ${isEnglish ? "enContactShell" : ""}">
+      <header class="contactHero">
+        ${
+          isEnglish
+            ? renderEnglishHeader(copy.activePage, { jpHref: copy.jpHref, enHref: copy.enHref })
+            : `<nav class="aboutNav" aria-label="SIP Tokyo">
+                <a class="aboutLogo" href="/">
+                  <span class="logoMark">SIP</span>
+                  <span>SIP Tokyo</span>
+                </a>
+                ${renderLanguageSwitcher(copy.activeLanguage, { jpHref: copy.jpHref, enHref: copy.enHref })}
+                ${renderBrandNav(copy.activePage)}
+              </nav>`
+        }
+
+        <div class="contactIntro">
+          <p class="kicker">${isEnglish ? "Contact SIP Tokyo" : "Contact SIP Tokyo"}</p>
+          <h1>${copy.title}</h1>
+          <p>${copy.subtitle.replaceAll("\n", "<br>")}</p>
+        </div>
+      </header>
+
+      <main class="contactMain">
+        <section class="contactLetter" aria-label="${escapeHtml(copy.title)}">
+          <p>${copy.intro}</p>
+
+          <form
+            class="contactForm"
+            action="${formspreeEndpoint}"
+            method="POST"
+            onsubmit="window.submitSipContact(event, '${language}')"
+            novalidate
+          >
+            <input type="hidden" name="_subject" value="${escapeHtml(copy.subject)}">
+            <label>
+              <span>${copy.name}</span>
+              <input name="name" type="text" autocomplete="name" required>
+            </label>
+            <label>
+              <span>${copy.email}</span>
+              <input name="email" type="email" autocomplete="email" required>
+            </label>
+            <label>
+              <span>${copy.message}</span>
+              <textarea name="message" rows="7" required></textarea>
+            </label>
+            <button type="submit">${copy.button}</button>
+            <p class="contactStatus" role="status" aria-live="polite" data-success="${escapeHtml(copy.success)}" data-error="${escapeHtml(copy.error)}" data-invalid="${escapeHtml(copy.invalid)}"></p>
+          </form>
+        </section>
+      </main>
     </div>
   `;
 }
@@ -1705,6 +1812,54 @@ window.setEnglishSpotQuery = (value) => {
   if (input) {
     input.focus();
     input.setSelectionRange(state.englishSpotQuery.length, state.englishSpotQuery.length);
+  }
+};
+
+window.submitSipContact = async (event, language = "jp") => {
+  event.preventDefault();
+
+  const form = event.currentTarget;
+  const status = form.querySelector(".contactStatus");
+  const button = form.querySelector("button[type='submit']");
+  const formData = new FormData(form);
+  const requiredValues = ["name", "email", "message"].map((field) => String(formData.get(field) || "").trim());
+  const email = String(formData.get("email") || "").trim();
+  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  status.textContent = "";
+  status.className = "contactStatus";
+
+  if (requiredValues.some((value) => !value) || !isValidEmail) {
+    status.textContent = status.dataset.invalid;
+    status.classList.add("isError");
+    return;
+  }
+
+  button.disabled = true;
+
+  try {
+    const response = await fetch(formspreeEndpoint, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Formspree error: ${response.status}`);
+    }
+
+    form.reset();
+    status.textContent = status.dataset.success;
+    status.classList.add("isSuccess");
+    trackAnalyticsEvent("contact_submit", { language });
+  } catch (error) {
+    console.error(error);
+    status.textContent = status.dataset.error;
+    status.classList.add("isError");
+  } finally {
+    button.disabled = false;
   }
 };
 
