@@ -4897,5 +4897,66 @@
         "priceRange": "Around ¥1,000"
       }
     }
+  },
+  {
+    "id": "matcha-times-asakusa",
+    "name": "MATCHA TIMES Asakusa",
+    "area": "浅草",
+    "address": "〒111-0034 東京都台東区雷門１丁目９−２ ウエストビル 2階",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJqTlo7dmPGGARqTuIqtcZ_Nc%2Fphotos%2FAb43m-vW2oZASQFDxmCOT83WPCdFvLsLk1wWdU33hTWtZ5TvkXe-Oq41lnkPQIk3tgRLjLNdx9lBcEtH_5sMuiAVFU3h1fuB6FIRFNHLAxjGy9d02VoWQjZ3Nxm44hQgm7DyTOc4WB9HjiOyTQE_DYP9jMamIo5px1Wrv-DqmSBXXLc4Z0JkPole7jdzE_cew4IdZ37SBt07dt4z_XDsl6io81wwzmnhZMJ1ua3MpKeWxQhN3_nNEWozALMJjhqtVrGOazVh6mkenUQZwqmn8y8g5v9Ulxo0h2-AiFkAJ7B4ggnA_g",
+    "placeId": "ChIJqTlo7dmPGGARqTuIqtcZ_Nc",
+    "type": "抹茶",
+    "genre": "抹茶",
+    "tags": [
+      "日本茶",
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "ひと息の奥に、静けさがやさしく残る。",
+    "mapUrl": "https://maps.google.com/?cid=15563342826355309481&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=15563342826355309481&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://matcha-times.com/en/index.html",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "最低注文金額確認"
+    ],
+    "priceRange": "1,000円台",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "浅草",
+      "抹茶",
+      "MATCHA TIMES Asakusa"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "浅草",
+    "stations": [
+      "浅草",
+      "田原町"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "MATCHA TIMES Asakusa",
+        "area": "Asakusa",
+        "address": "West Building 2F, 1-9-2 Kaminarimon, Taito-ku, Tokyo 111-0034, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Japanese Tea",
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A gentle matcha pause with a quiet aftertaste.",
+        "memo": "A calm Asakusa spot for letting matcha’s deep green and soft bitterness settle into the day.",
+        "priceRange": "Around ¥1,000"
+      }
+    }
   }
 ]
