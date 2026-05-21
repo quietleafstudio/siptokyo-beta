@@ -4537,5 +4537,65 @@
         "priceRange": "From ¥600"
       }
     }
+  },
+  {
+    "id": "ohana-and",
+    "name": "薬膳茶カフェOhana&",
+    "area": "自由が丘",
+    "address": "〒152-0031 東京都目黒区中根１丁目６−１ ニューヨークコーナ 161-4B",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJ87FqRpj1GGARLQeCVucuQH8%2Fphotos%2FAb43m-vj-zoQFn3BiELhyFiw5_jRGoHd9aHJ2P9gbRrr_w8XcL6scWJ7zVyiENqch3zU2WqhDcYg3RtvOhrOXMRXR1YfiG8r01paEEeO99hfC2GW2gga1jbA-_LlXPLQtFKNHknRf93Ncn-pROKdXttcJyuBqD4O917FHg7NdNHucNYJsOi0oLRcOa4LG-clYpmJdsnfm8qGpAvlmPSO68anBaktzwtJe-HUO6_bm6D9qEB0kp5EHFavaUNcSvx_oJmRxY0VxXFl6Ps5GFrzFJzxMIec4SBvLba7cHB1q9pGimL9tQ",
+    "placeId": "ChIJ87FqRpj1GGARLQeCVucuQH8",
+    "type": "薬膳茶",
+    "genre": "薬膳茶",
+    "tags": [
+      "薬膳茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "日常に寄り添う薬膳生活をお届け。",
+    "mapUrl": "https://maps.google.com/?cid=9169380412450015021&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=9169380412450015021&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://yakuzencafe-ohana.jp/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,000円台",
+    "note": "カフェ・サロン、シェアスペースを併設しているハワイと和を融合した空間。\nホット一息つけて今を大切に感じることができる場所。",
+    "searchTags": [
+      "都立大学",
+      "自由が丘",
+      "薬膳茶",
+      "薬膳茶カフェOhana&"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "都立大学",
+    "stations": [
+      "都立大学",
+      "自由が丘"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Yakuzencafe Ohana&",
+        "area": "Toritsu-daigaku / Jiyugaoka",
+        "address": "New York Corner 161-4B, 1-6-1 Nakane, Meguro-ku, Tokyo 152-0031, Japan",
+        "genre": "Herbal Wellness Tea",
+        "tags": [
+          "Herbal Wellness Tea",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A gentle tea space for everyday wellness.",
+        "memo": "A calm cafe, salon, and shared space with a soft blend of Hawaiian and Japanese atmosphere. A quiet place to pause and return to the present moment.",
+        "priceRange": "Around ¥1,000"
+      }
+    }
   }
 ]
