@@ -4958,5 +4958,67 @@
         "priceRange": "Around ¥1,000"
       }
     }
+  },
+  {
+    "id": "spot-1563nml",
+    "name": "ハーブティー専門店 ウッドチャック",
+    "area": "押上",
+    "address": "〒131-0045 東京都墨田区押上１丁目３２−６ 伊五番館 2階",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJa5Ydae-PGGARw723pEooBDs%2Fphotos%2FAb43m-v5DUb8fjJOE5HGI5kPZI0w0fUI35164ivqIs-UzYVQd-6Hlrr0Aat-M1uRPco8zrD0ZyEm23ppHB2JtostOSnxuFR5x1iB2_4B90J69fKJABcUeaD2te1eOl_wYbVt5Z0K8V3GHfQhzvJSjNqAgKDQ4stLRLOBZaGNyMI_164wnwVBOryJLCUXRunPaqh1g8e1g0fhkEiphtIe7Gj2C69k9q261AnnW-jYOuQJ-P9UxhrvpbrkdFZHU4pDTLHRwL9JpLzxeFBhA5D1hyUpFf_bPCwLsay7LbwPEtgQrXWvLalGwrUKl6zpFiwDdq9_eRYl2QLSKx-K7NnhlJqUry4A4wzuJY5BypL5Apw3JtYvDDyDljk5mNYprjLiGcaAzWnjmI70MNwq8yoFLVb_4SJTqtcGLg8Pd0Znkqlfjk2cMA",
+    "placeId": "ChIJa5Ydae-PGGARw723pEooBDs",
+    "type": "ハーブティー",
+    "genre": "ハーブティー",
+    "tags": [
+      "ハーブティー",
+      "ハーブ",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "少し旅する気分で、お茶に深く浸りたい。",
+    "mapUrl": "https://maps.google.com/?cid=4252568249200786883&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=4252568249200786883&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://tea-woodchuck.jp/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "ハーブティーあり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "550円〜",
+    "note": "いままでになかったハーブティーを味わえる。\n日々「おいしいハーブティー」を研究し、王道から変わり種まで、オリジナルブレンドを提供してくれる。やすらぎのお茶時間になりそう。",
+    "searchTags": [
+      "押上",
+      "ハーブティー",
+      "ハーブティー専門店 ウッドチャック"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "押上",
+    "stations": [
+      "押上",
+      "とうきょうスカイツリー"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Woodchuck Herbal Tea Shop",
+        "area": "Oshiage",
+        "address": "Igobankan 2F, 1-32-6 Oshiage, Sumida-ku, Tokyo 131-0045, Japan",
+        "genre": "Herbal Tea",
+        "tags": [
+          "Herbal Tea",
+          "Herbs",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A herbal tea pause with the feeling of a small quiet journey.",
+        "memo": "A specialty shop exploring new ways to enjoy herbal tea, from classic blends to more unexpected flavors. A soothing tea moment near Oshiage.",
+        "priceRange": "From ¥550"
+      }
+    }
   }
 ]
