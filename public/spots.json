@@ -4597,5 +4597,65 @@
         "priceRange": "Around ¥1,000"
       }
     }
+  },
+  {
+    "id": "jian",
+    "name": "jian / ジアン",
+    "area": "学芸大学",
+    "address": "〒152-0004 東京都目黒区鷹番３丁目１５−１８",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJZWnloG_1GGARYZ33TEqn07E%2Fphotos%2FAb43m-uybJ5BgTxLkr1jhAekM7HDfPyb18GxUZtMgxJZJQl9VcQ0kfkEt3Y-FKukriu12kZmoAsk61mGaZluTurkvqplRV5kRngBch8x1SR0EZKg5DsfqxE9otXKbRY5XXJNFKHn4yjN1HzgAi8EwI5zmDrD3ChmYcXM41Nb8aBFKFrgiU5x7ZjXXJcwN3hj6HNqgTbEq8pvj2g1SKO0V3Ltd3H058iZ_qdhYx75RvibEINVLNbpaNkTHRkaXs6FzzQNHuTiHtDVZ9KPhY_BEqorMuaPVWnHPGFrJFuc1JkSqCHJTA",
+    "placeId": "ChIJZWnloG_1GGARYZ33TEqn07E",
+    "type": "漢方",
+    "genre": "漢方",
+    "tags": [
+      "漢方",
+      "会話向け",
+      "異国感",
+      "一人時間"
+    ],
+    "comment": "漢方のエッセンスを味わう、静かな一杯。",
+    "mapUrl": "https://maps.google.com/?cid=12813769302359907681&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=12813769302359907681&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://jian-tea.jp/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,000円台",
+    "note": "jianの合言葉は、\"Enjoy ! Kampo\"。\n\"なんとなくつらい\"を\"心地よい\"に変えていく、優しいお茶時間になる予感。",
+    "searchTags": [
+      "学芸大学",
+      "漢方",
+      "jian / ジアン"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "学芸大学",
+    "stations": [
+      "学芸大学"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "jian",
+        "area": "Gakugei-daigaku",
+        "address": "3-15-18 Takaban, Meguro-ku, Tokyo 152-0004, Japan",
+        "genre": "Kampo Tea",
+        "tags": [
+          "Kampo Tea",
+          "Good for Conversation",
+          "A Sense of Elsewhere",
+          "Solo Time"
+        ],
+        "comment": "A quiet cup shaped by the gentle essence of kampo.",
+        "memo": "With the phrase \"Enjoy ! Kampo\" at its heart, jian offers a soft tea moment for turning vague heaviness into something more comfortable.",
+        "priceRange": "Around ¥1,000"
+      }
+    }
   }
 ]
