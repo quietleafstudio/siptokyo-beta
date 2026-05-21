@@ -5571,5 +5571,50 @@
         "priceRange": "From ¥700"
       }
     }
+  },
+  {
+    "id": "spot-1pdpzgo",
+    "name": "雨音茶寮 あまねさりょう",
+    "area": "上野/千駄木",
+    "address": "〒113-0022 東京都文京区千駄木２丁目４４−１９",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJ5xkzy7SNGGARu3XVzHDPBAM%2Fphotos%2FAb43m-sgC4iQLYMbrZkWgJhNDKTVCFX10-N-KxU6nJgDQ4VPJl_qxECkAZ_0zOGckfwyFZParZ46DjTMGJBQGqScW6s-vSonRMCHJ-SW3xsZXxDRtKDvX0-9jsYhe-_fwJJ5xZly7sKqdU4wXyXPkBk26DZeq4xz1SoZMXqAvdgQDRunUEQZ3TOnliJR75rgloGYTDdat9S1VoFo8rThJo82CVa2DX5xRSrcgFbGWjgyUywAayFf6pFyxpPu6FGg1JCmtHHGp174Xty_OfW_rFyxjY2MYBu3UQmyAXLHzQqGIBUwWw",
+    "placeId": "ChIJ5xkzy7SNGGARu3XVzHDPBAM",
+    "type": "日本茶",
+    "genre": "日本茶",
+    "tags": [
+      "日本茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "音を少し遠ざけて、お茶に心を預けたい。",
+    "mapUrl": "https://maps.google.com/?cid=217526765400454587&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=217526765400454587&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.amanesaryo.com/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "予約推奨"
+    ],
+    "priceRange": "600円〜",
+    "note": "湯気の向こうに、日本茶の静かな香りが立ちのぼる。\n急がない気分で訪れたい、落ち着いた一杯の場所。",
+    "searchTags": [
+      "上野",
+      "千駄木",
+      "日本茶",
+      "雨音茶寮 あまねさりょう"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "千駄木",
+    "stations": [
+      "千駄木",
+      "根津",
+      "日暮里"
+    ]
   }
 ]
