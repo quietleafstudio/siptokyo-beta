@@ -4657,5 +4657,66 @@
         "priceRange": "Around ¥1,000"
       }
     }
+  },
+  {
+    "id": "spot-vfjfjk",
+    "name": "茶々音 蒲田 薬膳茶専門店",
+    "area": "蒲田",
+    "address": "〒144-0051 東京都大田区西蒲田７丁目３２−７ 1階",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJz_AkgXRhGGAR0q2T2DHRxbI%2Fphotos%2FAb43m-vV34PLXt6PhdWUvcB4J4IRK3wjE7RdMDka0QYPqky8vEUzivC-15O5rnPSZMEgEiuNzysMN5IWx_8Blx1ErT44Nku-gQDrjuvDfwZDB9GZzkYqDuS3urd86n_T2_3ZRSQ3yd9EvHV5wezqLEdTBOjUkaZXqvvKyW3G4rzLlwi1LYfC6gly78kd5zSJ2Mf06he-Q7WgqyujcAVaL2ubiOiPRLnGdwf5PXUWfNUsGObFYp1M_2f23LbJnBTF3MfCU5bDVdl1XayW4fWmJ3iaZtHwy4DGs2zJSZURh5Nhb_IVGg",
+    "placeId": "ChIJz_AkgXRhGGAR0q2T2DHRxbI",
+    "type": "薬膳茶",
+    "genre": "薬膳茶",
+    "tags": [
+      "薬膳茶",
+      "会話向け",
+      "異国感",
+      "一人時間"
+    ],
+    "comment": "少し旅する気分で、お茶に深く浸りたい。",
+    "mapUrl": "https://maps.google.com/?cid=12881932321180331474&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=12881932321180331474&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://happytry.net/detail/3514",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,000円台",
+    "note": "異国の香りを少しだけまとった、優しく寄り添う憩いの場。\n日常の外側へふっと出られるお茶時間になりそう。心と体を整える奥行きのある薬膳茶の一杯を。",
+    "searchTags": [
+      "蒲田",
+      "薬膳茶",
+      "茶々音 蒲田 薬膳茶専門店"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "蒲田",
+    "stations": [
+      "蒲田",
+      "蓮沼"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Chachane Kamata Herbal Wellness Tea",
+        "area": "Kamata",
+        "address": "1F, 7-32-7 Nishikamata, Ota-ku, Tokyo 144-0051, Japan",
+        "genre": "Herbal Wellness Tea",
+        "tags": [
+          "Herbal Wellness Tea",
+          "Good for Conversation",
+          "A Sense of Elsewhere",
+          "Solo Time"
+        ],
+        "comment": "A quiet cup that feels like stepping gently away from the day.",
+        "memo": "A soft, restorative tea space with a hint of elsewhere. A cup of herbal wellness tea that invites the body and mind to settle.",
+        "priceRange": "Around ¥1,000"
+      }
+    }
   }
 ]
