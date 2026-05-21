@@ -5386,5 +5386,190 @@
         "priceRange": "From ¥600"
       }
     }
+  },
+  {
+    "id": "yusoshi-chano-ma",
+    "name": "和カフェyusoshi chano-ma 上野",
+    "area": "上野",
+    "address": "〒110-8502 東京都台東区上野６丁目１５−１ 上野マルイ 9F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJccx7Ap-OGGART4XXMecQl1U%2Fphotos%2FAb43m-s0pmisZCfiHlzNfG9Q-j-1PYUalxhOfRiAVGew7I1QodDSLcTIPPVPG_6ftPgumbR6bZWy_3Vj4E22YZ9KpG04MbTbPecOqHA2lVeWeVgt5QQI9DRwQ-ttFSEGe0MzpDFNsPThYpx2fQlJLESrau2mZVBgTwcmSdz4fQHevLxCLaMXistx87Gk4rKkauhLx7twUcyq82ros1yhkbc-BGvZqNg_2PLrFx2F1v7YxDO1hovj3H_NqDhwI3XKP7NJFAyaVclLMLPWZZ54nu9CpPzoaNEu2fj9TXygNOj5YelJp3nfOyPYyf1rCQ0iLXFOxQo9eQL_tF1rbDXASzMPLTxegT5-M9Nc8ibMtz4jyFjUaEV-w98OKJgAUuHhIMV9CPZa725Ri5xMEPf_Vmp0Hwg8wqf04Ua8n9RsNxfAna8JLY21",
+    "placeId": "ChIJccx7Ap-OGGART4XXMecQl1U",
+    "type": "日本茶 / 抹茶",
+    "genre": "日本茶 / 抹茶",
+    "tags": [
+      "日本茶",
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "音を少し遠ざけて、お茶に心を預けたい。",
+    "mapUrl": "https://maps.google.com/?cid=6167416799866881359&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=6167416799866881359&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.dd-holdings.jp/shops/chanoma/ueno#/?utm_source=mybusiness&utm_medium=google",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "カフェ利用OK"
+    ],
+    "priceRange": "600円〜",
+    "note": "湯気の向こうに、日本茶の静かな香りが立ちのぼる。\n急がない気分で訪れたい、落ち着いた一杯の場所。",
+    "searchTags": [
+      "上野",
+      "日本茶",
+      "抹茶",
+      "和カフェyusoshi chano-ma 上野"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "上野",
+    "stations": [
+      "上野"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "yusoshi chano-ma Ueno",
+        "area": "Ueno",
+        "address": "Ueno Marui 9F, 6-15-1 Ueno, Taito-ku, Tokyo 110-8502, Japan",
+        "genre": "Japanese Tea / Matcha",
+        "tags": [
+          "Japanese Tea",
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A calm tea pause that lets the noise of Ueno soften.",
+        "memo": "A relaxed cafe space in Ueno where Japanese tea offers a gentle moment to slow down and settle into the day.",
+        "priceRange": "From ¥600"
+      }
+    }
+  },
+  {
+    "id": "spot-gyodr1",
+    "name": "茶房松緒",
+    "area": "上野",
+    "address": "〒113-0034 東京都文京区湯島２丁目３３−１１−１０１ 岡田ビル",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJ1UCxKiKMGGAR7H67dmtTxbA%2Fphotos%2FAb43m-vcKgeBiF7zKFFm6-tLguidg-WZLAkW4Y-h2-fRv2VoBUgjKtKraoAgKM_v8xj6HA_kRTX4hUCARo5hT8k80I43YJ1lMnD2G97pMbejkG-Myn8vYCb378VcFjZjQNJbcYuaiusa409AixDaEDHDKI-OCO1OWXgYPGxRUj4XbMdzW3AqMKJ5m3mDICSOlEeeraRoL3sYdWkajFk9dQiIg8W-FU9vg4RVwQV61NCM7rx7CUVqY3RmbHUrZiRbRv9ZPWNJlucxLOl0HMlS81ygvhScubidOZp3V4iBzEnLS63R4LMTri0-Mny1n2uipirJ6mih68OJMHlmTFZbTTGjod7hZqOazOyagNsc7rN42yTlAl3g0yJyyNdHcOO51G1k6FL_BRc0w6cGpyHcrggb-LzzdmQHLIoD2PQngMU1TyUDHJyA",
+    "placeId": "ChIJ1UCxKiKMGGAR7H67dmtTxbA",
+    "type": "日本茶 / 抹茶",
+    "genre": "日本茶 / 抹茶",
+    "tags": [
+      "日本茶",
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "ひと息の奥に、静けさがやさしく残る。",
+    "mapUrl": "https://maps.google.com/?cid=12737678842105921260&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=12737678842105921260&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://sabomatsuo.com/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "単品のお茶あり"
+    ],
+    "priceRange": "1,000円台",
+    "note": "湯気の向こうに、日本茶の静かな香りが立ちのぼる。\n急がない気分で訪れたい、落ち着いた一杯の場所。",
+    "searchTags": [
+      "上野",
+      "日本茶",
+      "抹茶",
+      "茶房松緒"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "湯島",
+    "stations": [
+      "湯島",
+      "上野"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Sabo Matsuo",
+        "area": "Ueno / Yushima",
+        "address": "Okada Building 101, 2-33-11 Yushima, Bunkyo-ku, Tokyo 113-0034, Japan",
+        "genre": "Japanese Tea / Matcha",
+        "tags": [
+          "Japanese Tea",
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A quiet tea pause with a soft stillness at the end.",
+        "memo": "A calm tea room near Yushima where Japanese tea rises gently through the steam. A place for an unrushed cup.",
+        "priceRange": "Around ¥1,000"
+      }
+    }
+  },
+  {
+    "id": "ecute",
+    "name": "やなぎ茶屋 ecute上野",
+    "area": "上野",
+    "address": "〒110-0005 東京都台東区上野７丁目１−１ エキュート上野 改札外2階",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJHZVZLo-PGGARkgSqDiuGUxs%2Fphotos%2FAb43m-tYRgDUW-c9uC0pe5AP2kdcypPDKnLQoQCD2YyKVk2VsrF6bnd9iA13cwev2fGi2eEihYTfidRJJ67fORyVPcTV4T8xxpwvVg3lST0a-nTPVDeshFDg7UghjujDr4FltZ-Kt97gfKaWDm-Xyogs7olRGDR4YeOdVxWxm3wCVFn2ajITqlLRdPSDEcIhKUkfNi9fRyUJnzdnpjSxxdXN79ZhtW1Mjra8_fHx7tjfSumlpHzFC1yGWpDsXeIiyY7fXV6Bg61aJ5uGmWsbCME6KAiV7TbKmEMD4bIa3GaxZHMlRxLXMFTPVuAGqL4ABstyvrUKBduIvL7FwheNes9rlWDVygI3iyeBCL8BeeR4780P6PLVqe0gGKhzCbuTbvT040SMNpuZlWi4r67fswF2nOTlDbVuUTjvqukJchsZyMBFOQ",
+    "placeId": "ChIJHZVZLo-PGGARkgSqDiuGUxs",
+    "type": "日本茶 / 抹茶",
+    "genre": "日本茶 / 抹茶",
+    "tags": [
+      "日本茶",
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "ひと息の奥に、静けさがやさしく残る。",
+    "mapUrl": "https://maps.google.com/?cid=1969064981578777746&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=1969064981578777746&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://shop.create-restaurants.co.jp/1206/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "日本茶飲み比べあり",
+      "予約推奨"
+    ],
+    "priceRange": "700円〜",
+    "note": "湯気の向こうに、日本茶の静かな香りが立ちのぼる。\n急がない気分で訪れたい、落ち着いた一杯の場所。",
+    "searchTags": [
+      "上野",
+      "日本茶",
+      "抹茶",
+      "やなぎ茶屋 ecute上野"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "上野",
+    "stations": [
+      "上野"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Yanagi Chaya ecute Ueno",
+        "area": "Ueno",
+        "address": "ecute Ueno 2F, 7-1-1 Ueno, Taito-ku, Tokyo 110-0005, Japan",
+        "genre": "Japanese Tea / Matcha",
+        "tags": [
+          "Japanese Tea",
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A gentle tea pause tucked into the movement of Ueno Station.",
+        "memo": "A convenient Ueno tea stop where Japanese tea and matcha offer a small, calm reset between errands or travel.",
+        "priceRange": "From ¥700"
+      }
+    }
   }
 ]
