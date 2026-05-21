@@ -5079,5 +5079,66 @@
         "priceRange": "Around ¥1,000"
       }
     }
+  },
+  {
+    "id": "spot-jknb9w",
+    "name": "青玄茶荘",
+    "area": "浅草",
+    "address": "〒130-0001 東京都墨田区吾妻橋１丁目１３−２ 小田アパート",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJ3UOy98WOGGARmiG343Z8r0E%2Fphotos%2FAb43m-s1I1hhXcmMDvqyWiRwER4q2yThHrVQo109Unhia-GTKR-Ipkl2Z8aq_EeRYFH9IlRZObAuLcMZhC6yT2hQDrsATF-hOIDr4HQ4g8FoDL4Btiw_0p-wo3eSYE9nPVFq4P94dSlwrijLKmya46viz1D-rlumkdBzp7r0ThARgWWYLDA1XxXFLnmBq53D5YUpBwbNaGLR0FqeLCSJpcUyE8eHSz0KE81LwxGbjoi-4FLLmJE4ZYu3HGMotkseN5F3IZM07e-jgklS5YYJDA42qJOn_9aCl1_VL856f_kAe_ep0DW8c_UyJtN-dKuLfO-LfQM8tCBBWBSscTl0YHiyzO8yAa9lcy5s84pCShfk0TdnbIx_bnlWl79vDI2Ihq8YO63n3LiX2s8gKy7AaF2dCwiSciFsA-ABjB6mMer4CHBYX_c",
+    "placeId": "ChIJ3UOy98WOGGARmiG343Z8r0E",
+    "type": "中国茶",
+    "genre": "中国茶",
+    "tags": [
+      "中国茶",
+      "会話向け",
+      "異国感",
+      "一人時間"
+    ],
+    "comment": "少し旅する気分で、お茶に深く浸りたい。",
+    "mapUrl": "https://maps.google.com/?cid=4733138583458095514&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=4733138583458095514&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.instagram.com/seigen_chaso/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,000円台",
+    "note": "異国の香りを少しだけまとった、奥行きのある一杯。\n日常の外側へふっと出られる、お茶時間になりそう。",
+    "searchTags": [
+      "浅草",
+      "中国茶",
+      "青玄茶荘"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "本所吾妻橋",
+    "stations": [
+      "本所吾妻橋",
+      "浅草"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Seigen Chaso",
+        "area": "Asakusa / Honjo-azumabashi",
+        "address": "Oda Apartment, 1-13-2 Azumabashi, Sumida-ku, Tokyo 130-0001, Japan",
+        "genre": "Chinese Tea",
+        "tags": [
+          "Chinese Tea",
+          "Good for Conversation",
+          "A Sense of Elsewhere",
+          "Solo Time"
+        ],
+        "comment": "A Chinese tea pause with the feeling of a small quiet journey.",
+        "memo": "A tea space with a subtle sense of elsewhere, where a cup of Chinese tea can gently pull you outside the everyday.",
+        "priceRange": "Around ¥1,000"
+      }
+    }
   }
 ]
