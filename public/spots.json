@@ -4718,5 +4718,184 @@
         "priceRange": "Around ¥1,000"
       }
     }
+  },
+  {
+    "id": "chotto-matcha-asakusa",
+    "name": "Chotto Matcha - Asakusa",
+    "area": "浅草",
+    "address": "〒111-0033 東京都台東区花川戸１丁目１０−１４",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJ-UMGTwCPGGARCclrLsLYRck%2Fphotos%2FAb43m-v5gyNLB6ZLWg5h6m-AsNfvzuQGbhz-2pXLIDg-qnft5i0hdtVZzXgEHwSR1LT-0JxIBXG-WkMiRSpTtEHajCvYOm1MIKhFAQORF8DV2wQXE8XMITDnvmlaBkmNb8D-5HO6E53JNJde0COADO79uk4glC8-JwLDn_B4xLi6cuB9b2Cqj5It2b8Uy7cRD_6kKMPZeTVfly4V8qa5wK9mPcjkJE3ZgQ7W5YbKS08ouS3iU8VSOue-b6awUzhb67UEChPQXemP1e6-RySEmVLkDVfyCHWpmaEzbITq1zYv0Ny8zg",
+    "placeId": "ChIJ-UMGTwCPGGARCclrLsLYRck",
+    "type": "抹茶",
+    "genre": "抹茶",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "音を少し遠ざけて、お茶に心を預けたい。",
+    "mapUrl": "https://maps.google.com/?cid=14503236503530621193&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=14503236503530621193&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "http://chottomatcha.net/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,500-2,500円",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "浅草",
+      "抹茶",
+      "Chotto Matcha - Asakusa"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "浅草",
+    "stations": [
+      "浅草"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Chotto Matcha - Asakusa",
+        "area": "Asakusa",
+        "address": "1-10-14 Hanakawado, Taito-ku, Tokyo 111-0033, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A matcha pause that lets the city noise drift a little farther away.",
+        "memo": "A small Asakusa stop for easing into matcha at your own pace. A quiet cup with a soft bittersweet finish.",
+        "priceRange": "¥1,500-¥2,500"
+      }
+    }
+  },
+  {
+    "id": "maccha-house",
+    "name": "MACCHA HOUSE 抹茶館 浅草仲見世通り店",
+    "area": "浅草",
+    "address": "〒111-0032 東京都台東区浅草１丁目３０−６ 橋本ビル 1F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJEbJdCACPGGARTJVQDIClMOA%2Fphotos%2FAb43m-tiCIuzKlq5suByECtDZRDuD1vrkyBeebqnUGI1lVx-G3lBv2Vtt8U4qxwYS56ENCMwLh1_qvdr0nEXig5nsiwIefqGKOwHzIjIDV0IwSUzLsBlJkuVjW48O0pFBI70OomXnLlYcL3wAfnTOcrZfrWb6Y8YjJGUBP_2A3tnPsv6eGZZTmfKkjk3ms3e5mPEVj70yXCU1gfIHBZ7uGJt96sEHbDydryKL_0pkJ2h8FZqO7SD6PBsSNTgFCQrJQGT_eGEOxiQzjui1kb2-LjquLwAFa7H1qAICLeEkZvd-jeVZq7n2A1Z-ypflTu6I5R4JLZA9a5yJ_aGAYtrfRrYPTQCmyzh7kvfJDUPk8MyzAI1JrA0kuWatzPHdtYssvl9VE1H3yzIvVd4j4Ur3GOOuZFUyNiRm5PFvb9LQ9JUqxdV2MyeFGSBAP3H2yBXF4pA",
+    "placeId": "ChIJEbJdCACPGGARTJVQDIClMOA",
+    "type": "抹茶",
+    "genre": "抹茶",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "ひと息の奥に、静けさがやさしく残る。",
+    "mapUrl": "https://maps.google.com/?cid=16154593832758973772&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=16154593832758973772&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://maccha-house.com/cr1489/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "予約推奨"
+    ],
+    "priceRange": "1,000円台",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "浅草",
+      "抹茶",
+      "MACCHA HOUSE 抹茶館 浅草仲見世通り店"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "浅草",
+    "stations": [
+      "浅草"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "MACCHA HOUSE Asakusa Nakamise-dori",
+        "area": "Asakusa",
+        "address": "Hashimoto Building 1F, 1-30-6 Asakusa, Taito-ku, Tokyo 111-0032, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A gentle matcha pause tucked into the rhythm of Asakusa.",
+        "memo": "A casual matcha stop along Nakamise-dori, where the deep green of matcha offers a small reset between busy streets.",
+        "priceRange": "Around ¥1,000"
+      }
+    }
+  },
+  {
+    "id": "spot-1w1cnmn",
+    "name": "寿清庵 茶室 抹茶カフェ",
+    "area": "浅草",
+    "address": "〒111-0032 東京都台東区浅草２丁目２９−３",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJcxNkTACPGGARQ71_twkB5so%2Fphotos%2FAb43m-vAJ7uDne-bhBpUm2t_vZQ54Xp5W79QkKZmy5Px0Z9juHBC2crS5O7Xd6uvvlxl0NCdYrxGQN2un3CRdy2GPxQZzZYopocW835Of5r91Zj47yiKl_v-QVcoHEoODHBATrFsGaOHUpcoODEv3C8nR7dUoGlew6EXFxlZC_ukQ1_c8GtTdcjw08_Ha27tJ2CAaO7IrM8pWvX0fXE9H9DgaM4w51HkF0l40jZMnsuQNnG5ln90RLE529eduzaD28qU4ChrooKRuDqZhzBKIi9-mrW01y-6wHU_2x5GDQgL4RD47KiX5nwQIfkd0tHFVOR0mitnpgZ6YxbCQxAGXPgmXecf89zxA3geetgm7CGlcBW4XZt2neNgOERE-1AaHHXRk8HASQFV0U63LNrjoXgdpBTeBot5dCwS4LcoH83Nybz0Qw",
+    "placeId": "ChIJcxNkTACPGGARQ71_twkB5so",
+    "type": "抹茶",
+    "genre": "抹茶",
+    "tags": [
+      "抹茶",
+      "静か",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "ひと息の奥に、静けさがやさしく残る。",
+    "mapUrl": "https://maps.google.com/?cid=14620374381549829443&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=14620374381549829443&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "最低注文金額確認"
+    ],
+    "priceRange": "1,000円台",
+    "note": "静かな午後に、丁寧な一杯をひとりで味わいたい。\n気持ちまでふっと整う、余白のあるお茶時間。",
+    "searchTags": [
+      "浅草",
+      "抹茶",
+      "寿清庵 茶室 抹茶カフェ"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式情報要確認",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "浅草",
+    "stations": [
+      "浅草"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Juseian Tea Room Matcha Cafe",
+        "area": "Asakusa",
+        "address": "2-29-3 Asakusa, Taito-ku, Tokyo 111-0032, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Quiet",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A quiet pause where a cup of matcha leaves a soft stillness behind.",
+        "memo": "A matcha cafe for settling into a calmer afternoon. A gentle tea moment with space to slow down and return to yourself.",
+        "priceRange": "Around ¥1,000"
+      }
+    }
   }
 ]
