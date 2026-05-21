@@ -5140,5 +5140,127 @@
         "priceRange": "Around ¥1,000"
       }
     }
+  },
+  {
+    "id": "spot-4derqo",
+    "name": "茶々工房ふたつめ",
+    "area": "浅草",
+    "address": "〒111-0032 東京都台東区浅草１丁目３７−６ ライオンズマンション雷門 103",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJI6WnnQuPGGARdCd19Rz8wbQ%2Fphotos%2FAb43m-vJRM8-SOiW1dT1yKsQB0rXxY3VNL196q4jKivZ-1bKSkFVc1qO-zMDc4vXBFNUI7xwDGts9uNKfDDgC02v9R4e03gFSZt6eeYrdzY7FauWg40V2W-c8qBReneGEA6fqubkzKEgz53AHQVCRbzkpRtQ7A0BxqRKBsPIJLR2Otff6Cz3FaBDqA0sZRnzVtnj0KEMiaa6g-Yy7W4jGhBcKbJkOVV8Q77aKDfWwTN7EuLjZQ8hLL0K4n2Evf2NQwSCXqQ2grZKUFAZjzI7ovbeZaVAy8iIgbrq-eBw8ukPKK4op5aNIIWYN5dbU1eVqrujrTSlipNYWx9N8NuERMF9rY5nr4z9hzqmLHVBOVaIAnFPOhcdfmnYEN8-ihT7RnPQzYGgZS6Fgi98yKEgMxjPHX6xtzDNudGc5qssLAsRMHlujOa1",
+    "placeId": "ChIJI6WnnQuPGGARdCd19Rz8wbQ",
+    "type": "抹茶",
+    "genre": "抹茶",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "静かな余白に、気持ちまでゆっくりほどける。",
+    "mapUrl": "https://maps.google.com/?cid=13024968798639564660&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=13024968798639564660&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.instagram.com/chacha.futatsume/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "予約推奨"
+    ],
+    "priceRange": "700円〜",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "浅草",
+      "抹茶",
+      "茶々工房ふたつめ"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "浅草",
+    "stations": [
+      "浅草",
+      "田原町"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Chacha Kobo Futatsume",
+        "area": "Asakusa",
+        "address": "Lions Mansion Kaminarimon 103, 1-37-6 Asakusa, Taito-ku, Tokyo 111-0032, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A quiet matcha pause that lets the day soften.",
+        "memo": "A small Asakusa tea stop where matcha’s deep green and gentle bitterness make room for a soft break.",
+        "priceRange": "From ¥700"
+      }
+    }
+  },
+  {
+    "id": "spot-awseow",
+    "name": "北斎茶房",
+    "area": "錦糸町",
+    "address": "〒130-0014 東京都墨田区亀沢４丁目８−５",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJaQ76ly6JGGARU3DZ0pperkk%2Fphotos%2FAb43m-tUVH46HolhPPhaFErjKmBYgzGlVeVskWXy4pZS0xvaFsrfx3hN0Q5pbwsr0GSG9y70p6Whv5VzvW_NxROA_NZPHoldLgG5JV3hTy--KDfuTXLi5ll0Hp8Wa6ePCoTq2WdFOWUgm6P0NVBAPMVoXF0y26Q-Njn57EVjmapAiqpqvf7WWObyk1fQbncXbm1ZQisjVxJGPVKfzFXV8U_6JxazqMRxd0VjaAAJgFetkzmvOXwKCySLn2lo2IDplU0HBSux4Y8xAvohP4tmnKIQFMP_pszyfrK9qe3ZubuOp8RDF_0tt_41hz3THFiVBMXg2HyhDGbzX7usGM0zLdCi4NiS-2eRKg_h9JhLXMVf7cwxmNWO1vi4ww0nS52KXz2A1I5EaD2AZ8rjsRr7VMi5CGJfjcQ-E6naXVnVAFEttfDbyMVY9V4-Pqt39PaK4A",
+    "placeId": "ChIJaQ76ly6JGGARU3DZ0pperkk",
+    "type": "抹茶",
+    "genre": "抹茶",
+    "tags": [
+      "抹茶",
+      "日本茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "ひと息の奥に、静けさがやさしく残る。",
+    "mapUrl": "https://maps.google.com/?cid=5309285029771833427&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=5309285029771833427&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.instagram.com/explore/locations/679152/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "単品のお茶あり"
+    ],
+    "priceRange": "1,000円〜",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "錦糸町",
+      "抹茶",
+      "北斎茶房"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "錦糸町",
+    "stations": [
+      "錦糸町",
+      "両国"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Hokusai Sabo",
+        "area": "Kinshicho",
+        "address": "4-8-5 Kamezawa, Sumida-ku, Tokyo 130-0014, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Japanese Tea",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A gentle pause where tea leaves a quiet stillness behind.",
+        "memo": "A calm tea and sweets stop near Kinshicho, where matcha and Japanese tea offer a soft moment away from the city’s pace.",
+        "priceRange": "From ¥1,000"
+      }
+    }
   }
 ]
