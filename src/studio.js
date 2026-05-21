@@ -8,6 +8,7 @@ const scoreWeights = [
   ["worldview", "世界観", 7],
   ["access", "アクセス", 5],
 ];
+const hiddenUserTags = new Set(["お茶候補"]);
 
 const stationAreas = {
   "渋谷区": ["渋谷", "恵比寿", "代々木上原", "原宿", "代官山", "広尾", "神泉", "笹塚"],
@@ -36,6 +37,8 @@ const stationAreas = {
 };
 const wardOptions = Object.keys(stationAreas);
 const genreOptions = ["抹茶", "日本茶", "ハーブティー", "チャイ", "お茶", "中国茶", "和菓子", "薬膳茶"];
+const decisionsStorageKey = "sipStudioDecisions";
+const rejectedStorageKey = "sipStudioRejectedCandidates";
 
 const state = {
   mode: "query",
@@ -46,6 +49,8 @@ const state = {
   mapsUrl: "",
   results: [],
   decisions: readDecisions(),
+  rejectedCandidates: readRejectedCandidates(),
+  rejectedExcludedCount: 0,
   isLookupLoading: false,
   isSearchLoading: false,
   searchError: "",
@@ -55,14 +60,27 @@ const state = {
 
 function readDecisions() {
   try {
-    return JSON.parse(localStorage.getItem("sipStudioDecisions") || "{}");
+    return JSON.parse(localStorage.getItem(decisionsStorageKey) || "{}");
   } catch {
     return {};
   }
 }
 
 function saveDecisions() {
-  localStorage.setItem("sipStudioDecisions", JSON.stringify(state.decisions));
+  localStorage.setItem(decisionsStorageKey, JSON.stringify(state.decisions));
+}
+
+function readRejectedCandidates() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(rejectedStorageKey) || "[]");
+    return Array.isArray(stored) ? stored.filter((item) => item?.key) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveRejectedCandidates() {
+  localStorage.setItem(rejectedStorageKey, JSON.stringify(state.rejectedCandidates));
 }
 
 function escapeHtml(value) {
@@ -106,6 +124,66 @@ function pick(list, index) {
 
 function unique(values) {
   return [...new Set(values.filter(Boolean))];
+}
+
+function cleanUserLabel(value) {
+  if (!value) return "";
+
+  return String(value)
+    .split("/")
+    .map((part) => part.trim())
+    .filter((part) => part && !hiddenUserTags.has(part))
+    .join(" / ");
+}
+
+function cleanUserTags(tags) {
+  return Array.isArray(tags) ? unique(tags.map(cleanUserLabel).filter((tag) => tag && !hiddenUserTags.has(tag))) : [];
+}
+
+function normalizeIdentityText(value) {
+  return String(value || "")
+    .normalize("NFKC")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
+}
+
+function getCandidateIdentity(candidate) {
+  const placeId = normalizeIdentityText(candidate.placeId);
+  if (placeId) return `place:${placeId}`;
+
+  const name = normalizeIdentityText(candidate.name);
+  const address = normalizeIdentityText(candidate.address);
+  return `name-address:${name}|${address}`;
+}
+
+function isRejectedCandidate(candidate) {
+  const identity = getCandidateIdentity(candidate);
+  return state.decisions[candidate.id] === "不採用" || state.rejectedCandidates.some((item) => item.key === identity);
+}
+
+function addRejectedCandidate(candidate) {
+  const key = getCandidateIdentity(candidate);
+  if (!key || state.rejectedCandidates.some((item) => item.key === key)) return;
+
+  state.rejectedCandidates = [
+    ...state.rejectedCandidates,
+    {
+      key,
+      placeId: candidate.placeId || "",
+      name: candidate.name || "",
+      address: candidate.address || "",
+      source: candidate.source?.provider || "",
+      rejectedAt: new Date().toISOString(),
+    },
+  ];
+  saveRejectedCandidates();
+}
+
+function filterRejectedCandidates(candidates) {
+  const filtered = candidates.filter((candidate) => !isRejectedCandidate(candidate));
+  state.rejectedExcludedCount = candidates.length - filtered.length;
+  return filtered;
 }
 
 function clamp(value, min, max) {
@@ -257,7 +335,7 @@ function inferTeaTags(candidate) {
   ];
 
   const inferred = tagRules.filter(([, pattern]) => pattern.test(text)).map(([tag]) => tag);
-  return unique([candidate.genreQuery, ...inferred, "一人時間"]).slice(0, 6);
+  return cleanUserTags([candidate.genreQuery, ...inferred, "一人時間"]).slice(0, 6);
 }
 
 function buildMemoDraft(candidate) {
@@ -381,13 +459,15 @@ function buildCandidate(index, area, genre, overrides = {}) {
   const streets = ["1-3-8", "2-12-4", "3-6-11", "4-9-2", "5-18-7"];
   const name = overrides.name || `${area}${pick(styles, index)} ${pick(["葉音", "香月", "翠日", "茶々", "雨庭"], index)} ${index + 1}`;
   const id = `${slug(area)}-${slug(genre)}-${index + 1}`;
-  const fallbackTags = unique([
+  const fallbackTags = cleanUserTags([
     genre,
     pick(["一人時間", "会話向け", "静か"], index),
     pick(["駅近", "明るい", "上品", "穴場"], index + 1),
   ]);
   const score = buildScore(index, genre);
   const mapsUrl = overrides.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${area} ${genre} カフェ`)}`;
+  const resolvedTags = cleanUserTags(overrides.tags || fallbackTags);
+  const resolvedGenreGuess = cleanUserLabel(overrides.genreGuess || `${genre} / ${pick(["カフェ", "茶房", "喫茶", "和菓子"], index)}`);
 
   return {
     id: overrides.id || id,
@@ -411,12 +491,12 @@ function buildCandidate(index, area, genre, overrides = {}) {
     hours: overrides.hours || pick(["11:00-19:00", "10:00-20:00", "12:00-18:00", "営業時間確認中"], index),
     photoUrl: overrides.photoUrl || "",
     photoLabel: overrides.photoLabel || "photo pending",
-    genreGuess: overrides.genreGuess || `${genre} / ${pick(["カフェ", "茶房", "喫茶", "和菓子"], index)}`,
-    tags: overrides.tags || fallbackTags,
+    genreGuess: resolvedGenreGuess,
+    tags: resolvedTags,
     score,
     totalScore: Object.values(score).reduce((sum, value) => sum + value, 0),
-    commentDraft: overrides.commentDraft || buildCommentDraft({ name, area, genreQuery: genre, tags: overrides.tags || fallbackTags, score }),
-    memoDraft: overrides.memoDraft || buildMemoDraft({ tags: overrides.tags || fallbackTags }),
+    commentDraft: overrides.commentDraft || buildCommentDraft({ name, area, genreQuery: genre, tags: resolvedTags, score }),
+    memoDraft: overrides.memoDraft || buildMemoDraft({ tags: resolvedTags }),
     menuSummary: overrides.menuSummary || inferMenuSummary(genre, index),
     priceRange: overrides.priceRange || pick(["1,000円台", "1,500-2,500円", "価格確認中"], index),
     riskFlags: overrides.riskFlags || (index % 5 === 0 ? ["コース中心の可能性", "単品利用要確認"] : []),
@@ -485,7 +565,7 @@ function buildCandidateFromPlace(place, index, area, genre) {
     rating: place.rating || null,
     photoUrl: place.photoUrl || "",
     photoLabel: "Google Places",
-    genreGuess: `${genre} / お茶候補`,
+    genreGuess: genre,
     tags,
     score,
     commentDraft: buildCommentDraft({ ...place, genreQuery: genre, tags, score }),
@@ -502,6 +582,7 @@ async function generateQueryResults() {
   state.mode = "query";
   state.isSearchLoading = true;
   state.searchError = "";
+  state.rejectedExcludedCount = 0;
   state.copyStatus = "";
   render();
 
@@ -512,7 +593,8 @@ async function generateQueryResults() {
   state.searchMeta = data.meta || null;
 
   if (Array.isArray(data.places) && data.places.length) {
-    state.results = data.places.slice(0, 20).map((place, index) => buildCandidateFromPlace(place, index, researchArea, state.genre));
+    const candidates = data.places.slice(0, 20).map((place, index) => buildCandidateFromPlace(place, index, researchArea, state.genre));
+    state.results = filterRejectedCandidates(candidates);
     state.searchError = "";
   } else {
     state.results = [];
@@ -537,6 +619,7 @@ async function generateMapsResult() {
   state.isLookupLoading = true;
   state.searchError = "";
   state.searchMeta = null;
+  state.rejectedExcludedCount = 0;
   state.copyStatus = "";
   render();
 
@@ -563,8 +646,7 @@ async function generateMapsResult() {
 
   state.mode = "maps";
   state.isLookupLoading = false;
-  state.results = [
-    buildCandidate(0, researchArea, state.genre, {
+  const candidate = buildCandidate(0, researchArea, state.genre, {
       id: `maps-${slug(placeData.name) || Date.now()}`,
       name: placeData.name,
       address,
@@ -581,15 +663,15 @@ async function generateMapsResult() {
       sourceInput: mapsUrl,
       photoLabel: "Google Maps URL",
       tags: autoTags,
-      genreGuess: `${state.genre} / お茶候補`,
+      genreGuess: state.genre,
       memoDraft,
       riskFlags: unique([
         "URL由来",
         placeData.address ? "住所候補あり" : "住所はMapsで確認",
         placeData.officialUrl || placeData.instagramUrl || placeData.menuUrl ? "外部リンク候補あり" : "公式情報要確認",
       ]),
-    }),
-  ];
+    });
+  state.results = filterRejectedCandidates([candidate]);
   render();
 }
 
@@ -618,8 +700,9 @@ function renderScore(candidate) {
 }
 
 function buildDraftSpot(candidate) {
-  const type = candidate.genreGuess || candidate.genreQuery || "";
+  const type = cleanUserLabel(candidate.genreGuess || candidate.genreQuery || "");
   const mapUrl = candidate.mapsUrl || "";
+  const tags = cleanUserTags(candidate.tags);
 
   return {
     id: idSlugFromName(candidate.name),
@@ -632,7 +715,7 @@ function buildDraftSpot(candidate) {
     placeId: candidate.placeId || "",
     type,
     genre: type,
-    tags: candidate.tags,
+    tags,
     comment: candidate.commentDraft || buildCommentDraft(candidate),
     mapUrl,
     mapsUrl: mapUrl,
@@ -642,7 +725,7 @@ function buildDraftSpot(candidate) {
     menuSummary: candidate.menuSummary,
     priceRange: candidate.priceRange || "",
     note: candidate.memoDraft,
-    searchTags: unique([candidate.area, candidate.genreQuery, candidate.name]),
+    searchTags: cleanUserTags([candidate.area, candidate.genreQuery, candidate.name]),
     cautionNote: candidate.riskFlags.join(" / "),
     instagram: { handle: "", placeId: "" },
   };
@@ -691,9 +774,11 @@ function renderCandidate(candidate, index) {
   ]
     .filter(Boolean)
     .join("");
-  const riskFlags = candidate.riskFlags.map((flag) => `<span>${escapeHtml(flag)}</span>`).join("");
+  const riskFlags = cleanUserTags(candidate.riskFlags).map((flag) => `<span>${escapeHtml(flag)}</span>`).join("");
   const menuSummary = candidate.menuSummary.map((item) => `<span>${escapeHtml(item)}</span>`).join("");
   const draftJson = JSON.stringify(buildDraftSpot(candidate), null, 2);
+  const genreGuess = cleanUserLabel(candidate.genreGuess);
+  const tags = cleanUserTags(candidate.tags);
 
   return `
     <article class="candidateCard">
@@ -709,8 +794,8 @@ function renderCandidate(candidate, index) {
         <div><dt>評価 / 口コミ</dt><dd>${candidate.rating ? `${candidate.rating} / ${candidate.reviewCount}件` : "確認中"}</dd></div>
         <div><dt>営業時間</dt><dd>${escapeHtml(candidate.hours)}</dd></div>
         <div><dt>placeId</dt><dd>${escapeHtml(candidate.placeId || "確認中")}</dd></div>
-        <div><dt>ジャンル推定</dt><dd>${escapeHtml(candidate.genreGuess)}</dd></div>
-        <div><dt>タグ候補</dt><dd>${candidate.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</dd></div>
+        <div><dt>ジャンル推定</dt><dd>${escapeHtml(genreGuess)}</dd></div>
+        <div><dt>タグ候補</dt><dd>${tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</dd></div>
         <div><dt>メニュー要約</dt><dd>${menuSummary || "確認中"}</dd></div>
       </dl>
       <section class="scorePanel" aria-label="SIPスコア内訳">
@@ -751,10 +836,12 @@ function render() {
     .map(([, value]) => value);
   const adopted = activeDecisions.filter((value) => value === "採用").length;
   const pending = activeDecisions.filter((value) => value === "保留").length;
-  const rejected = activeDecisions.filter((value) => value === "不採用").length;
+  const rejected = state.rejectedCandidates.length;
   const headline = state.mode === "maps" ? "Google Maps URL" : `${getResearchQueryLabel()} × ${state.genre}`;
   const searchMetaText = state.searchMeta
-    ? `${state.searchMeta.returnedCount || 0}件取得 / 登録済み${state.searchMeta.registeredExcluded || 0}件除外 / エリア外${state.searchMeta.areaExcluded || 0}件除外`
+    ? `${state.searchMeta.returnedCount || 0}件取得 / 登録済み${state.searchMeta.registeredExcluded || 0}件除外 / エリア外${state.searchMeta.areaExcluded || 0}件除外 / 不採用済み${state.rejectedExcludedCount || 0}件除外`
+    : state.rejectedExcludedCount
+      ? `不採用済み${state.rejectedExcludedCount}件除外`
     : "";
 
   root.innerHTML = `
@@ -806,7 +893,7 @@ function render() {
         <div class="decisionStats">
           <span>採用 ${adopted}</span>
           <span>保留 ${pending}</span>
-          <span>不採用 ${rejected}</span>
+          <span>不採用済み ${rejected}</span>
         </div>
       </section>
 
@@ -820,7 +907,9 @@ function render() {
               ? `<div class="emptyState">${escapeHtml(state.searchError)}</div>`
             : state.results.length
               ? state.results.map(renderCandidate).join("")
-              : `<div class="emptyState">Google Maps URLを入力するか、区 × 駅 × ジャンルで検索してください。</div>`
+              : state.rejectedExcludedCount
+                ? `<div class="emptyState">不採用済み候補を${state.rejectedExcludedCount}件除外しました。別の条件で検索してください。</div>`
+                : `<div class="emptyState">Google Maps URLを入力するか、区 × 駅 × ジャンルで検索してください。</div>`
         }
       </main>
       ${renderAdoptedJsonSection()}
@@ -870,6 +959,19 @@ document.addEventListener("click", (event) => {
   if (event.target.matches(".decisionButton")) {
     const id = event.target.dataset.id;
     const decision = event.target.dataset.decision;
+    const candidate = state.results.find((item) => item.id === id);
+
+    if (decision === "不採用" && candidate) {
+      addRejectedCandidate(candidate);
+      delete state.decisions[id];
+      state.results = state.results.filter((item) => item.id !== id);
+      state.rejectedExcludedCount += 1;
+      state.copyStatus = "";
+      saveDecisions();
+      render();
+      return;
+    }
+
     state.decisions[id] = state.decisions[id] === decision ? "" : decision;
     state.copyStatus = "";
     saveDecisions();

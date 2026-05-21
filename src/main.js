@@ -1,6 +1,7 @@
 import { initGoogleAnalytics, trackAnalyticsEvent } from "./analytics.js";
 
 const primaryTagOrder = ["静か", "抹茶", "ハーブ", "古民家", "一人時間", "会話向け"];
+const hiddenUserTags = new Set(["お茶候補"]);
 const publicBasePath = import.meta.env?.BASE_URL || "/";
 const dataVersion = "20260502-2";
 const formspreeEndpoint = import.meta.env?.VITE_FORMSPREE_ENDPOINT || "https://formspree.io/f/xwvzvyog";
@@ -147,12 +148,28 @@ async function loadSpots() {
 function normalizeSpot(spot) {
   return {
     ...spot,
-    tags: Array.isArray(spot.tags) ? spot.tags : [],
-    searchTags: Array.isArray(spot.searchTags) ? spot.searchTags : [],
+    type: cleanPublicLabel(spot.type),
+    genre: cleanPublicLabel(spot.genre),
+    tags: cleanPublicTags(spot.tags),
+    searchTags: cleanPublicTags(spot.searchTags),
     stations: Array.isArray(spot.stations) ? spot.stations : [],
     image: normalizeImagePath(spot.image || ""),
     menuSummary: Array.isArray(spot.menuSummary) ? spot.menuSummary : [],
   };
+}
+
+function cleanPublicTags(tags) {
+  return Array.isArray(tags) ? uniqueValues(tags.map(cleanPublicLabel).filter((tag) => tag && !hiddenUserTags.has(tag))) : [];
+}
+
+function cleanPublicLabel(value) {
+  if (!value) return "";
+
+  return String(value)
+    .split("/")
+    .map((part) => part.trim())
+    .filter((part) => part && !hiddenUserTags.has(part))
+    .join(" / ");
 }
 
 function normalizeImagePath(image) {
