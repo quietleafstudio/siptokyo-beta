@@ -1680,14 +1680,15 @@
     "walk": "",
     "image": "/api/place-photo?name=places%2FChIJdc7f_86LGGARRFWl0bQYmjk%2Fphotos%2FAb43m-vgjkPZgvb3owwk7uE9I-Rr1hIpAOZ5eOPxv8F5Po8DnfhsrRHflHa1k5hTYzx2yfVgLSCraVCSWPTXYhV9fkm5sDCbPcUCRXURIS9D8V1_sQFlrm1eccRvbgLgFyV3v_Vo7wK9E7G_w-J-g1kK4gh3eFN5g_pN3MLcHWV4VZBUJQiWklgujbA6jVy9O3ulIdX2ApHuB83-7Ife5-T--wjwfxiLBV8tmDchAp4GVjEU3HT6uLi6Ld2UAqqA0KUzWnFF-WtDxCpPq8tk9kP6sBd3WwM4CV1dqzFbkjeEBU2kPI6j4vvtxrmB4sc49hGWTRYYhcyLzbvdO4VY4LRxODe399sGpy0Aud2QnUqvCVvR5RnG_pnnYAHgTd2U403E15pewR-7iIWXUGxvhtRTuJAhpFDQM9Pwe6-BP0jgrY_qiw",
     "placeId": "ChIJdc7f_86LGGARRFWl0bQYmjk",
-    "type": "抹茶 / お茶候補",
-    "genre": "抹茶 / お茶候補",
+    "type": "お茶 / ハーブティ",
+    "genre": "お茶 / ハーブティ",
     "tags": [
-      "抹茶",
       "日本茶",
+      "ハーブティ",
       "ゆったり",
       "会話向け",
-      "一人時間"
+      "一人時間",
+      "隠れ家"
     ],
     "comment": "代官山の静かな午後に似合う、やわらかなお茶時間。",
     "mapUrl": "https://maps.google.com/?cid=4150657171465786692&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
@@ -1696,15 +1697,16 @@
     "instagramUrl": "",
     "menuUrl": "",
     "menuSummary": [
-      "抹茶あり",
       "単品のお茶あり"
     ],
     "priceRange": "1,000円台",
-    "note": "代官山らしい落ち着きの中で、日本茶や抹茶をゆっくり選べる。\nひとりでほっとしたい日にも、誰かと静かに話したい日にも合いそう。",
+    "note": "週末・祝日のみオープンしている秘密の隠れ家。\n小上がりもある店内で日本茶やハーブティをゆっくり選べる。\nひとりでほっとしたい日にも、誰かと静かに話したい日にも。",
     "searchTags": [
       "代官山",
-      "抹茶",
       "日本茶",
+      "ハーブティ",
+      "隠れ家",
+      "週末営業",
       "代官山茶房"
     ],
     "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
@@ -1722,16 +1724,17 @@
         "displayName": "Daikanyama Sabo",
         "area": "Daikanyama",
         "address": "Okada Linen Building 2F, 14-12 Daikanyamacho, Shibuya-ku, Tokyo 150-0034, Japan",
-        "genre": "Matcha / Japanese Tea",
+        "genre": "Tea / Herbal Tea",
         "tags": [
-          "Matcha",
           "Japanese Tea",
+          "Herbal Tea",
           "Relaxed",
           "Good for Conversation",
-          "Solo Time"
+          "Solo Time",
+          "Hideaway"
         ],
         "comment": "A soft tea moment that suits a quiet Daikanyama afternoon.",
-        "memo": "In a calm Daikanyama setting, you can slowly choose Japanese tea or matcha. It works for a solo reset or a gentle conversation.",
+        "memo": "A small hideaway open only on weekends and holidays. With raised seating and a quiet mood, it is a place to slowly choose Japanese tea or herbal tea.",
         "priceRange": "Around ¥1,000"
       }
     }
