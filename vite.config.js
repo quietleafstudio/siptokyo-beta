@@ -13,6 +13,7 @@ export default defineConfig({
         enJournal: "en/journal/index.html",
         enJournalHikawa: "en/journal/hikawa-matcha/index.html",
         journalHikawa: "journal/hikawa-matcha/index.html",
+        journalDaikanyamaSabo: "journal/daikanyama-sabo/index.html",
         studio: "studio.html",
       },
     },
