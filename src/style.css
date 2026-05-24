@@ -1796,6 +1796,12 @@ address {
   object-position: center;
 }
 
+.journalArticle-journal-004 .journalFeatureImage img,
+.journalArticle-journal-004 .journalInlineMedia img {
+  height: auto;
+  object-fit: contain;
+}
+
 .journalDetailHeader h1 {
   margin: 0;
   color: var(--ink);

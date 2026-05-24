@@ -360,6 +360,9 @@ function renderSpotCard(spot) {
     spot.menuUrl
       ? `<a href="${escapeHtml(spot.menuUrl)}" target="_blank" rel="noreferrer" onclick="window.trackSipExternalLink('menu', '${escapeHtml(spot.id)}')">Menu</a>`
       : "",
+    spot.journalUrl
+      ? `<a href="${escapeHtml(spot.journalUrl)}">Journal</a>`
+      : "",
   ]
     .filter(Boolean)
     .join("");
@@ -447,6 +450,11 @@ function render() {
 
   if (normalizedPath === "/journal/hikawa-matcha" || normalizedPath === "/journal/hikawa-matcha/index.html") {
     root.innerHTML = renderJournalArticlePage("journal-003");
+    return;
+  }
+
+  if (normalizedPath === "/journal/daikanyama-sabo" || normalizedPath === "/journal/daikanyama-sabo/index.html") {
+    root.innerHTML = renderJournalArticlePage("journal-004");
     return;
   }
 
@@ -1454,6 +1462,7 @@ function getJournalArticles() {
       subtitle: "上目黒氷川神社で出会った、外に開かれた小さな茶室と、静かな一服の記録。",
       image: "/images/journal/hikawa-shrine-hero.jpg",
       slug: "/journal/hikawa-matcha",
+      enSlug: "/en/journal/hikawa-matcha",
       excerpt: "忙しく過ぎていく毎日の中で、\nふと、静かな場所に身を置きたくなる時があります。",
       blocks: [
         {
@@ -1524,6 +1533,95 @@ function getJournalArticles() {
         {
           type: "memo",
           text: "静かな場所でいただく一服は、\n思っている以上に、心の呼吸をゆるやかにしてくれる。\n\nお茶は飲み物である前に、\n人と時間をつなぐ、小さな文化なのかもしれません。 🍵",
+        },
+      ],
+    },
+    {
+      id: "journal-004",
+      number: "004",
+      title: "週末だけ開く、代官山の静かな茶房へ",
+      subtitle: "週末と祝日だけ開く、小さな隠れ家のような茶房の記録。",
+      image: "/images/journal/daikanyama-sabo-hero.jpg",
+      slug: "/journal/daikanyama-sabo",
+      excerpt: "坂道の途中にある黄色いビルの2階。\n控えめな入口を抜けると、そこには少し秘密めいた、静かな空間が広がっていました。",
+      blocks: [
+        {
+          type: "paragraph",
+          text: "坂道の途中にある黄色いビルの2階。\n控えめな入口を抜けると、そこには少し秘密めいた、静かな空間が広がっていました。",
+        },
+        {
+          type: "image",
+          src: "/images/journal/daikanyama-sabo-entrance.jpg",
+          alt: "代官山茶房の入口",
+          caption: "控えめな入口の先に、週末だけの茶房がありました。",
+        },
+        {
+          type: "paragraph",
+          text: "代官山茶房は、週末と祝日だけ開くお茶の場所。",
+        },
+        {
+          type: "paragraph",
+          text: "店内は白を基調にした、清潔感のあるやわらかな空間。\n小上がりの畳、大きめのダイニングテーブル、窓側には一人でも気軽に過ごせるカウンター席があります。",
+        },
+        {
+          type: "image",
+          src: "/images/journal/daikanyama-sabo-window-counter.jpg",
+          alt: "窓側カウンターと大きなダイニングテーブル",
+          caption: "窓側のカウンターと、大きなダイニングテーブル。",
+        },
+        {
+          type: "paragraph",
+          text: "ひとりでしっぽり過ごす日にも、\n誰かと静かに話したい日にも、\nどちらにも似合う場所。",
+        },
+        {
+          type: "paragraph",
+          text: "電源もあるので、少し作業をしたい時にも使いやすそうです。\n過ごし方を決めつけない、自由できれいな空気がありました。",
+        },
+        {
+          type: "paragraph",
+          text: "音楽は、BALMUDAのスピーカーからさりげなく。\nインテリアもおしゃれで、静かな中にも少し遊び心があります。",
+        },
+        {
+          type: "image",
+          src: "/images/journal/daikanyama-sabo-tea.jpg",
+          alt: "代官山茶房でいただいた日本茶",
+          caption: "静かな音楽とともに、ゆっくりいただく一杯。",
+        },
+        {
+          type: "paragraph",
+          text: "オーナーさんは相撲がお好きだそうで、店内には炎鵬関のカレンダーも。\nその撮影場所として使われたこともあるそうで、そんな小さな物語があるのも、この場所の魅力のひとつでした。",
+        },
+        {
+          type: "image",
+          src: "/images/journal/daikanyama-sabo-detail.jpg",
+          alt: "代官山茶房のインテリア",
+          caption: "静けさの中に、少しだけ遊び心のあるしつらえ。",
+        },
+        {
+          type: "paragraph",
+          text: "メニューは、コーヒー、紅茶、日本茶、ハーブティー、スイーツまで幅広く。\nお茶を中心にゆっくり過ごせる場所として、SIP Tokyoおすすめの茶房です。",
+        },
+        {
+          type: "image",
+          src: "/images/journal/daikanyama-sabo-sweets.jpg",
+          alt: "代官山茶房のお茶菓子",
+          caption: "お茶に添えられた、やさしい遊び心。",
+        },
+        {
+          type: "paragraph",
+          text: "営業日が金・土・日・祝日に限られていることもあって、まさに「知る人ぞ知る特別な空間」。",
+        },
+        {
+          type: "paragraph",
+          text: "代官山の静かな午後に、\nひとりでほっとしたい日にも、\n誰かとゆっくり話したい日にも。",
+        },
+        {
+          type: "paragraph",
+          text: "また訪れたくなる、小さな隠れ家のような場所でした。",
+        },
+        {
+          type: "memo",
+          text: "週末と祝日だけ開く、代官山の静かな茶房。\n小上がりや窓側カウンターのある店内で、日本茶やハーブティーをゆっくり選べる、自由でやさしいお茶時間。",
         },
       ],
     },
@@ -1715,15 +1813,18 @@ function renderJournalArticlePage(articleId) {
     return renderJournalPage();
   }
 
+  const jpHref = article.slug || "/#journal";
+  const enHref = article.enSlug || "/en/journal";
+
   return `
-    <div class="appShell journalShell journalDetailShell">
+    <div class="appShell journalShell journalDetailShell journalArticle-${escapeHtml(article.id)}">
       <header class="journalDetailHero">
         <nav class="aboutNav" aria-label="SIP Tokyo">
           <a class="aboutLogo" href="/">
             <span class="logoMark">SIP</span>
             <span>SIP Tokyo</span>
           </a>
-          ${renderLanguageSwitcher("jp", { jpHref: "/journal/hikawa-matcha", enHref: "/en/journal/hikawa-matcha" })}
+          ${renderLanguageSwitcher("jp", { jpHref, enHref })}
           ${renderBrandNav("journal")}
         </nav>
 
