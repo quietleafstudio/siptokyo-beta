@@ -1623,6 +1623,12 @@ function getJournalArticles() {
           type: "memo",
           text: "週末と祝日だけ開く、代官山の静かな茶房。\n小上がりや窓側カウンターのある店内で、日本茶やハーブティーをゆっくり選べる、自由でやさしいお茶時間。",
         },
+        {
+          type: "shopInfo",
+          name: "代官山茶房",
+          address: "〒150-0034 東京都渋谷区代官山町１４−１２ オカダリネンビル 2階",
+          mapUrl: "https://maps.google.com/?cid=4150657171465786692&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        },
       ],
     },
   ];
@@ -1799,6 +1805,25 @@ function renderJournalBlock(block) {
       <aside class="journalSipMemo">
         <span>SIP Memo</span>
         <p>${block.text.replaceAll("\n", "<br>")}</p>
+      </aside>
+    `;
+  }
+
+  if (block.type === "shopInfo") {
+    return `
+      <aside class="journalShopInfo">
+        <span>お店情報</span>
+        <dl>
+          <div>
+            <dt>店名</dt>
+            <dd>${escapeHtml(block.name)}</dd>
+          </div>
+          <div>
+            <dt>住所</dt>
+            <dd>${escapeHtml(block.address)}</dd>
+          </div>
+        </dl>
+        <a href="${escapeHtml(block.mapUrl)}" target="_blank" rel="noopener noreferrer">Google Mapsで見る</a>
       </aside>
     `;
   }
