@@ -5,6 +5,15 @@ const hiddenUserTags = new Set(["お茶候補"]);
 const publicBasePath = import.meta.env?.BASE_URL || "/";
 const dataVersion = "20260502-2";
 const formspreeEndpoint = import.meta.env?.VITE_FORMSPREE_ENDPOINT || "https://formspree.io/f/xwvzvyog";
+const journalCategories = [
+  { id: "all", label: "ALL" },
+  { id: "tea-guide", label: "Tea Guide", icon: "🍵" },
+  { id: "tea-places", label: "Tea Places", icon: "📍" },
+  { id: "wellness", label: "Wellness", icon: "🌿" },
+  { id: "quiet-living", label: "Quiet Living", icon: "🌙" },
+  { id: "essays", label: "Essays", icon: "📝" },
+  { id: "favorites", label: "Favorites", icon: "✨" },
+];
 let searchRenderTimer = null;
 
 const englishSpotHighlights = [
@@ -97,6 +106,7 @@ const state = {
   loadError: "",
   isComposing: false,
   openJournalArticleId: null,
+  activeJournalCategory: "all",
   englishSpotQuery: "",
 };
 
@@ -1420,6 +1430,7 @@ function getJournalArticles() {
       title: "日本茶の起源とは？",
       subtitle: "何気ない一杯の、はじまりの話",
       image: "/images/journal-001-nihoncha-origin.png",
+      categories: ["tea-guide", "essays"],
       paragraphs: [
         "朝の一杯。\n仕事の合間のひと息。\n夜、ふっと肩の力を抜きたいとき。",
         "私たちの暮らしのそばには、いつもお茶があります。",
@@ -1438,6 +1449,7 @@ function getJournalArticles() {
       title: "表千家と裏千家の違いとは？",
       subtitle: "同じお茶、ちがう美しさ",
       image: "/images/journal-002-senke-difference.png",
+      categories: ["tea-guide", "essays"],
       paragraphs: [
         "茶道に少し興味を持つと、\nよく耳にする「表千家」と「裏千家」という言葉。",
         "名前は知っていても、\n何が違うのかは意外と知らないものです。",
@@ -1461,6 +1473,7 @@ function getJournalArticles() {
       title: "神社で出会った、静かな抹茶の時間",
       subtitle: "上目黒氷川神社で出会った、外に開かれた小さな茶室と、静かな一服の記録。",
       image: "/images/journal/hikawa-shrine-hero.jpg",
+      categories: ["tea-places", "essays"],
       slug: "/journal/hikawa-matcha",
       enSlug: "/en/journal/hikawa-matcha",
       excerpt: "忙しく過ぎていく毎日の中で、\nふと、静かな場所に身を置きたくなる時があります。",
@@ -1542,6 +1555,7 @@ function getJournalArticles() {
       title: "週末だけ開く、代官山の静かな茶房へ",
       subtitle: "週末と祝日だけ開く、小さな隠れ家のような茶房の記録。",
       image: "/images/journal/daikanyama-sabo-hero.jpg",
+      categories: ["tea-places", "favorites"],
       slug: "/journal/daikanyama-sabo",
       excerpt: "坂道の途中にある黄色いビルの2階。\n控えめな入口を抜けると、そこには少し秘密めいた、静かな空間が広がっていました。",
       blocks: [
@@ -1636,6 +1650,10 @@ function getJournalArticles() {
 
 function renderJournalPage() {
   const journalArticles = getJournalArticles();
+  const visibleJournalArticles =
+    state.activeJournalCategory === "all"
+      ? journalArticles
+      : journalArticles.filter((article) => article.categories?.includes(state.activeJournalCategory));
 
   const articles = [
     {
@@ -1676,7 +1694,34 @@ function renderJournalPage() {
           </p>
         </section>
 
-        ${journalArticles.map(renderJournalFeature).join("")}
+        <section class="journalCategorySection" aria-label="Journal categories">
+          <p class="sectionLabel">Browse by mood</p>
+          <div class="journalCategoryRail" role="toolbar" aria-label="記事カテゴリ">
+            ${journalCategories
+              .map(
+                (category) => `
+                  <button
+                    class="journalCategoryChip ${state.activeJournalCategory === category.id ? "isActive" : ""}"
+                    type="button"
+                    aria-pressed="${state.activeJournalCategory === category.id}"
+                    onclick="window.setJournalCategory('${category.id}')"
+                  >
+                    ${category.icon ? `<span aria-hidden="true">${category.icon}</span>` : ""}
+                    ${category.label}
+                  </button>
+                `,
+              )
+              .join("")}
+          </div>
+        </section>
+
+        <section class="journalFilteredArticles" aria-live="polite">
+          ${
+            visibleJournalArticles.length
+              ? visibleJournalArticles.map(renderJournalFeature).join("")
+              : `<p class="journalEmptyState">この気分に寄り添う読み物を、静かに準備しています。</p>`
+          }
+        </section>
 
         <section class="journalArticleList" aria-label="Journal articles">
           <p class="sectionLabel">Coming Soon</p>
@@ -1708,6 +1753,7 @@ function renderJournalPage() {
 function renderJournalFeature(article) {
   const isOpen = state.openJournalArticleId === article.id;
   const excerpt = getJournalArticleExcerpt(article);
+  const primaryCategory = journalCategories.find((category) => category.id === article.categories?.[0]);
 
   return `
     <article class="journalFeature ${isOpen ? "isOpen" : ""}" aria-label="Journal article ${article.number}">
@@ -1717,6 +1763,7 @@ function renderJournalFeature(article) {
 
       <div class="journalFeatureHeader">
         <p>SIP Journal #${article.number}</p>
+        ${primaryCategory ? `<small class="journalArticleCategory">${primaryCategory.label}</small>` : ""}
         <h2>${article.title}</h2>
         <span>${article.subtitle}</span>
       </div>
@@ -1911,6 +1958,16 @@ window.addEventListener("hashchange", () => {
 
 window.toggleJournalArticle = (id) => {
   state.openJournalArticleId = state.openJournalArticleId === id ? null : id;
+  render();
+};
+
+window.setJournalCategory = (categoryId) => {
+  if (!journalCategories.some((category) => category.id === categoryId)) {
+    return;
+  }
+
+  state.activeJournalCategory = categoryId;
+  state.openJournalArticleId = null;
   render();
 };
 
