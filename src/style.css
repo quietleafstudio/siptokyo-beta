@@ -1703,6 +1703,11 @@ address {
   letter-spacing: 0;
 }
 
+.jpJournalFeature .journalFeatureHeader h2 {
+  font-size: clamp(22px, 5.8vw, 28px);
+  line-height: 1.42;
+}
+
 .journalFeatureHeader span {
   color: var(--muted);
   font-size: 15px;
@@ -1728,31 +1733,6 @@ address {
   font-weight: 400;
   line-height: 2;
   letter-spacing: 0;
-}
-
-.journalFeature.isOpen .journalExcerpt {
-  max-height: 0;
-  margin-top: -8px;
-  opacity: 0;
-}
-
-.journalArticlePanel {
-  display: grid;
-  gap: 24px;
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(-4px);
-  transition:
-    max-height 360ms ease,
-    opacity 220ms ease,
-    transform 260ms ease;
-}
-
-.journalFeature.isOpen .journalArticlePanel {
-  max-height: 9000px;
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .journalArticleBody {
@@ -1950,6 +1930,8 @@ address {
 }
 
 .journalDetailMain {
+  display: grid;
+  gap: 30px;
   padding-top: 8px;
 }
 
@@ -1997,6 +1979,7 @@ address {
   font-weight: 800;
   letter-spacing: 0.04em;
   cursor: pointer;
+  text-decoration: none;
   transition:
     background 160ms ease,
     border-color 160ms ease,
@@ -2649,10 +2632,15 @@ body,
     grid-column: 2;
   }
 
-  .journalArticlePanel {
-    grid-column: 1 / -1;
+  .jpJournalFeature {
+    grid-template-columns: 1fr;
     width: min(100%, 760px);
     margin-inline: auto;
+    gap: 22px;
+  }
+
+  .jpJournalFeature .journalToggle {
+    grid-column: 1;
   }
 
   .journalArticleBody p,

@@ -12,6 +12,8 @@ export default defineConfig({
         enSpots: "en/spots/index.html",
         enJournal: "en/journal/index.html",
         enJournalHikawa: "en/journal/hikawa-matcha/index.html",
+        journalNihonchaOrigin: "journal/nihoncha-origin/index.html",
+        journalSenkeDifference: "journal/senke-difference/index.html",
         journalHikawa: "journal/hikawa-matcha/index.html",
         journalDaikanyamaSabo: "journal/daikanyama-sabo/index.html",
         studio: "studio.html",

@@ -105,7 +105,6 @@ const state = {
   isLoading: true,
   loadError: "",
   isComposing: false,
-  openJournalArticleId: null,
   activeJournalCategory: "all",
   englishSpotQuery: "",
 };
@@ -460,6 +459,16 @@ function render() {
 
   if (normalizedPath === "/journal/hikawa-matcha" || normalizedPath === "/journal/hikawa-matcha/index.html") {
     root.innerHTML = renderJournalArticlePage("journal-003");
+    return;
+  }
+
+  if (normalizedPath === "/journal/nihoncha-origin" || normalizedPath === "/journal/nihoncha-origin/index.html") {
+    root.innerHTML = renderJournalArticlePage("journal-001");
+    return;
+  }
+
+  if (normalizedPath === "/journal/senke-difference" || normalizedPath === "/journal/senke-difference/index.html") {
+    root.innerHTML = renderJournalArticlePage("journal-002");
     return;
   }
 
@@ -1430,7 +1439,8 @@ function getJournalArticles() {
       title: "日本茶の起源とは？",
       subtitle: "何気ない一杯の、はじまりの話",
       image: "/images/journal-001-nihoncha-origin.png",
-      categories: ["tea-guide", "essays"],
+      categories: ["tea-guide"],
+      slug: "/journal/nihoncha-origin",
       paragraphs: [
         "朝の一杯。\n仕事の合間のひと息。\n夜、ふっと肩の力を抜きたいとき。",
         "私たちの暮らしのそばには、いつもお茶があります。",
@@ -1449,7 +1459,8 @@ function getJournalArticles() {
       title: "表千家と裏千家の違いとは？",
       subtitle: "同じお茶、ちがう美しさ",
       image: "/images/journal-002-senke-difference.png",
-      categories: ["tea-guide", "essays"],
+      categories: ["tea-guide"],
+      slug: "/journal/senke-difference",
       paragraphs: [
         "茶道に少し興味を持つと、\nよく耳にする「表千家」と「裏千家」という言葉。",
         "名前は知っていても、\n何が違うのかは意外と知らないものです。",
@@ -1473,7 +1484,7 @@ function getJournalArticles() {
       title: "神社で出会った、静かな抹茶の時間",
       subtitle: "上目黒氷川神社で出会った、外に開かれた小さな茶室と、静かな一服の記録。",
       image: "/images/journal/hikawa-shrine-hero.jpg",
-      categories: ["tea-places", "essays"],
+      categories: ["tea-places"],
       slug: "/journal/hikawa-matcha",
       enSlug: "/en/journal/hikawa-matcha",
       excerpt: "忙しく過ぎていく毎日の中で、\nふと、静かな場所に身を置きたくなる時があります。",
@@ -1719,7 +1730,11 @@ function renderJournalPage() {
           ${
             visibleJournalArticles.length
               ? visibleJournalArticles.map(renderJournalFeature).join("")
-              : `<p class="journalEmptyState">この気分に寄り添う読み物を、静かに準備しています。</p>`
+              : `<p class="journalEmptyState">${
+                  state.activeJournalCategory === "essays"
+                    ? "Essays は、静かに準備しています。"
+                    : "この気分に寄り添う読み物を、静かに準備しています。"
+                }</p>`
           }
         </section>
 
@@ -1751,61 +1766,42 @@ function renderJournalPage() {
 }
 
 function renderJournalFeature(article) {
-  const isOpen = state.openJournalArticleId === article.id;
-  const excerpt = getJournalArticleExcerpt(article);
-  const primaryCategory = journalCategories.find((category) => category.id === article.categories?.[0]);
+  const visibleCategoryId =
+    state.activeJournalCategory === "all" ? article.categories?.[0] : state.activeJournalCategory;
+  const categoryReference = getJournalCategoryReference(article, visibleCategoryId);
 
   return `
-    <article class="journalFeature ${isOpen ? "isOpen" : ""}" aria-label="Journal article ${article.number}">
-      <figure class="journalFeatureImage">
-        <img src="${article.image}" alt="SIP Journal #${article.number} ${article.title}" loading="${article.number === "001" ? "eager" : "lazy"}">
-      </figure>
-
+    <article class="journalFeature jpJournalFeature" aria-label="Journal article ${article.number}">
       <div class="journalFeatureHeader">
-        <p>SIP Journal #${article.number}</p>
-        ${primaryCategory ? `<small class="journalArticleCategory">${primaryCategory.label}</small>` : ""}
+        <p>${categoryReference}</p>
         <h2>${article.title}</h2>
-        <span>${article.subtitle}</span>
       </div>
 
-      <div class="journalExcerpt" aria-hidden="${isOpen ? "true" : "false"}">
-        <p>${excerpt.replaceAll("\n", "<br>")}</p>
-      </div>
-
-      <div class="journalArticlePanel" id="${article.id}-panel" aria-hidden="${isOpen ? "false" : "true"}">
-        ${renderJournalArticleContent(article)}
-      </div>
-
-      ${
-        article.slug
-          ? `<a class="journalArticleLink" href="${article.slug}">記事ページで読む</a>`
-          : ""
-      }
-
-      <button
+      <a
         class="journalToggle"
-        type="button"
-        aria-expanded="${isOpen}"
-        aria-controls="${article.id}-panel"
-        onclick="window.toggleJournalArticle('${article.id}')"
+        href="${article.slug}"
       >
-        <span>${isOpen ? "閉じる" : "続きを読む"}</span>
-        <span aria-hidden="true">${isOpen ? "▲" : "▼"}</span>
-      </button>
+        <span>続きを読む</span>
+        <span aria-hidden="true">→</span>
+      </a>
     </article>
   `;
 }
 
-function getJournalArticleExcerpt(article) {
-  if (article.excerpt) {
-    return article.excerpt;
+function getJournalCategoryReference(article, categoryId = article.categories?.[0]) {
+  const category = journalCategories.find((entry) => entry.id === categoryId);
+
+  if (!category || !article.categories?.includes(categoryId)) {
+    return `SIP Journal #${article.number}`;
   }
 
-  if (article.paragraphs?.[0]) {
-    return article.paragraphs[0];
-  }
+  const categoryNumber = String(
+    getJournalArticles()
+      .filter((item) => item.categories?.includes(categoryId))
+      .findIndex((item) => item.id === article.id) + 1,
+  ).padStart(3, "0");
 
-  return article.blocks?.find((block) => block.type === "paragraph")?.text || "";
+  return `${category.label.toUpperCase()} #${categoryNumber}`;
 }
 
 function renderJournalArticleContent(article) {
@@ -1900,12 +1896,8 @@ function renderJournalArticlePage(articleId) {
           ${renderBrandNav("journal")}
         </nav>
 
-        <figure class="journalFeatureImage journalDetailImage">
-          <img src="${article.image}" alt="${article.title}" loading="eager">
-        </figure>
-
         <div class="journalFeatureHeader journalDetailHeader">
-          <p>SIP Journal #${article.number}</p>
+          <p>${getJournalCategoryReference(article)}</p>
           <h1>${article.title}</h1>
           <span>${article.subtitle}</span>
           <a class="journalBackLink" href="/#journal">Journal一覧へ</a>
@@ -1913,6 +1905,9 @@ function renderJournalArticlePage(articleId) {
       </header>
 
       <main class="journalMain journalDetailMain">
+        <figure class="journalFeatureImage journalDetailImage">
+          <img src="${article.image}" alt="${article.title}" loading="eager">
+        </figure>
         ${renderJournalArticleContent(article)}
       </main>
     </div>
@@ -1956,18 +1951,12 @@ window.addEventListener("hashchange", () => {
   window.scrollTo({ top: 0, behavior: "instant" });
 });
 
-window.toggleJournalArticle = (id) => {
-  state.openJournalArticleId = state.openJournalArticleId === id ? null : id;
-  render();
-};
-
 window.setJournalCategory = (categoryId) => {
   if (!journalCategories.some((category) => category.id === categoryId)) {
     return;
   }
 
   state.activeJournalCategory = categoryId;
-  state.openJournalArticleId = null;
   render();
 };
 
