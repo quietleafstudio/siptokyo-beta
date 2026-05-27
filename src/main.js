@@ -106,6 +106,7 @@ const state = {
   loadError: "",
   isComposing: false,
   activeJournalCategory: "all",
+  activeEnglishJournalCategory: "all",
   englishSpotQuery: "",
 };
 
@@ -447,8 +448,23 @@ function render() {
     return;
   }
 
-  if (normalizedPath === "/en/journal/hikawa-matcha" || normalizedPath === "/en/journal/hikawa-matcha/index.html") {
+  if (normalizedPath === "/en/journal/nihoncha-origin" || normalizedPath === "/en/journal/nihoncha-origin/index.html") {
     root.innerHTML = renderEnglishJournalArticlePage("en-journal-001");
+    return;
+  }
+
+  if (normalizedPath === "/en/journal/senke-difference" || normalizedPath === "/en/journal/senke-difference/index.html") {
+    root.innerHTML = renderEnglishJournalArticlePage("en-journal-002");
+    return;
+  }
+
+  if (normalizedPath === "/en/journal/hikawa-matcha" || normalizedPath === "/en/journal/hikawa-matcha/index.html") {
+    root.innerHTML = renderEnglishJournalArticlePage("en-journal-003");
+    return;
+  }
+
+  if (normalizedPath === "/en/journal/daikanyama-sabo" || normalizedPath === "/en/journal/daikanyama-sabo/index.html") {
+    root.innerHTML = renderEnglishJournalArticlePage("en-journal-004");
     return;
   }
 
@@ -914,12 +930,59 @@ function getEnglishJournalArticles() {
     {
       id: "en-journal-001",
       number: "001",
+      title: "Where Did Japanese Tea Begin?",
+      subtitle: "The quiet beginning of an everyday cup.",
+      image: "/images/journal-001-nihoncha-origin.png",
+      slug: "/en/journal/nihoncha-origin",
+      jpSlug: "/journal/nihoncha-origin",
+      categories: ["tea-guide"],
+      paragraphs: [
+        "Morning tea.\nA pause between tasks.\nAn evening moment when your shoulders finally soften.",
+        "Tea has always been close to everyday life in Japan.",
+        "Yet Japanese tea is said to have begun not in Japan, but with tea brought over from China.",
+        "About 1,200 years ago, Buddhist monks returned from China with tea culture, and tea began to spread as a drink for steadying the mind and body.",
+        "At the time, tea was precious.\nIt was not something enjoyed casually as it is today, but a cup reserved for special moments.",
+        "Over the passing centuries, it settled gently into daily life: a way to notice the seasons, to sit with someone, or to quietly gather yourself.",
+        "On a busy day, simply pouring hot water and watching steam rise can make the mind feel a little quieter, even for only a few minutes.",
+        "Perhaps knowing that this long story flows through an ordinary cup makes today's tea feel a little more special.",
+      ],
+      closing: "May today's cup be prepared with just a little more care.",
+    },
+    {
+      id: "en-journal-002",
+      number: "002",
+      title: "What Is the Difference Between Omotesenke and Urasenke?",
+      subtitle: "The same tea, a different kind of beauty.",
+      image: "/images/journal-002-senke-difference.png",
+      slug: "/en/journal/senke-difference",
+      jpSlug: "/journal/senke-difference",
+      categories: ["tea-guide"],
+      paragraphs: [
+        "Once tea ceremony begins to catch your attention, two names often appear: Omotesenke and Urasenke.",
+        "Many of us know the names, without quite knowing what sets them apart.",
+        "Both are schools of tea ceremony that share the same roots.",
+        "Carrying forward the lineage of Sen no Rikyu, who shaped chanoyu as we know it, each developed its own sense of beauty and its own manner of practice.",
+        "Omotesenke is often associated with stillness, formality, and tradition.\nUrasenke, while honoring tradition, has opened tea ceremony widely to contemporary life, with practitioners in Japan and around the world.",
+        "Consider, for example, the way matcha is whisked.",
+        "In Omotesenke, the foam is kept restrained, leaving a calm and composed impression.\nIn Urasenke, the tea is whisked into a soft froth, creating a gentler, more welcoming bowl.",
+        "Even bows and the handling of utensils carry subtle differences.",
+        "Neither is more correct than the other.\nEach holds its own beauty.",
+        "If quietness with a dignified edge calls to you, you may feel drawn to Omotesenke.\nIf warmth that seems to welcome people in speaks to you, Urasenke may feel close.",
+        "Seen this way, the world of tea may begin to feel a little nearer.",
+        "To learn the difference is not to compare, but to notice the beauty held within each approach.",
+        "A single bowl of tea may begin to appear in a slightly new light.",
+      ],
+      closing: "Within the same bowl, there can be many forms of beauty.",
+    },
+    {
+      id: "en-journal-003",
+      number: "003",
       title: "A Quiet Matcha Moment at a Local Shrine",
       subtitle: "A quiet tea ceremony beneath the trees of Kamimeguro Hikawa Shrine in Tokyo.",
       image: "/images/journal/hikawa-shrine-hero.jpg",
       slug: "/en/journal/hikawa-matcha",
-      excerpt:
-        "In the middle of our busy daily lives,\nthere are moments when we quietly long for a place to slow down and breathe.",
+      jpSlug: "/journal/hikawa-matcha",
+      categories: ["tea-places"],
       blocks: [
         {
           type: "paragraph",
@@ -996,11 +1059,111 @@ function getEnglishJournalArticles() {
         },
       ],
     },
+    {
+      id: "en-journal-004",
+      number: "004",
+      title: "A Quiet Tearoom in Daikanyama, Open Only on Weekends",
+      subtitle: "A record of a small hidden tearoom open on weekends and holidays.",
+      image: "/images/journal/daikanyama-sabo-hero.jpg",
+      slug: "/en/journal/daikanyama-sabo",
+      jpSlug: "/journal/daikanyama-sabo",
+      categories: ["tea-places", "favorites"],
+      blocks: [
+        {
+          type: "paragraph",
+          text: "On the second floor of a yellow building along a sloping street,\na modest entrance opens into a quiet space with the feeling of a small secret.",
+        },
+        {
+          type: "image",
+          src: "/images/journal/daikanyama-sabo-entrance.jpg",
+          alt: "The entrance to Daikanyama Sabo",
+          caption: "Beyond a discreet entrance, a tearoom that opens only on weekends.",
+        },
+        {
+          type: "paragraph",
+          text: "Daikanyama Sabo is a place for tea, open only on weekends and public holidays.",
+        },
+        {
+          type: "paragraph",
+          text: "The interior is bright and gentle, shaped around soft whites and clean light.\nThere is a raised tatami nook, a generous dining table, and counter seating by the window where it feels easy to spend time alone.",
+        },
+        {
+          type: "image",
+          src: "/images/journal/daikanyama-sabo-window-counter.jpg",
+          alt: "Window-side counter seating and a large dining table at Daikanyama Sabo",
+          caption: "Counter seats by the window, and a generous shared table.",
+        },
+        {
+          type: "paragraph",
+          text: "It suits a day spent quietly by yourself,\nand just as naturally, a day for slow conversation with someone close.",
+        },
+        {
+          type: "paragraph",
+          text: "With power outlets available, it also feels welcoming when a little work needs to be done.\nThere is a free and uncluttered atmosphere that does not prescribe how you should spend your time.",
+        },
+        {
+          type: "paragraph",
+          text: "Music drifts gently from a BALMUDA speaker.\nThe interior is thoughtfully styled, with a small thread of playfulness running through its quietness.",
+        },
+        {
+          type: "image",
+          src: "/images/journal/daikanyama-sabo-tea.jpg",
+          alt: "Japanese tea served at Daikanyama Sabo",
+          caption: "A slow cup, accompanied by quiet music.",
+        },
+        {
+          type: "paragraph",
+          text: "The owner is fond of sumo, and a calendar featuring Enho can be found inside.\nThe tearoom has even been used as a setting for its photography; a small story that adds to the place's charm.",
+        },
+        {
+          type: "image",
+          src: "/images/journal/daikanyama-sabo-detail.jpg",
+          alt: "A quiet interior detail at Daikanyama Sabo",
+          caption: "A little playfulness within the stillness.",
+        },
+        {
+          type: "paragraph",
+          text: "The menu ranges from coffee and black tea to Japanese tea, herbal tea, and sweets.\nFor a place where tea can sit at the center of an unhurried afternoon, it is one of SIP Tokyo's gentle recommendations.",
+        },
+        {
+          type: "image",
+          src: "/images/journal/daikanyama-sabo-sweets.jpg",
+          alt: "A sweet served alongside tea at Daikanyama Sabo",
+          caption: "A soft touch of delight beside the tea.",
+        },
+        {
+          type: "paragraph",
+          text: "Because it opens only on Fridays, weekends, and public holidays, it truly feels like a special space known to those who have found it.",
+        },
+        {
+          type: "paragraph",
+          text: "On a quiet afternoon in Daikanyama,\nwhether you want to settle gently on your own,\nor talk slowly with someone.",
+        },
+        {
+          type: "paragraph",
+          text: "It is a small hidden place that leaves you wanting to return.",
+        },
+        {
+          type: "memo",
+          text: "A quiet tearoom in Daikanyama, open only on weekends and holidays.\nWith a raised tatami nook and counter seats by the window, it is a gentle, unhurried place to choose Japanese tea or herbal tea.",
+        },
+        {
+          type: "shopInfo",
+          name: "Daikanyama Sabo",
+          address: "2F Okada Linen Building, 14-12 Daikanyama-cho, Shibuya-ku, Tokyo 150-0034, Japan",
+          mapUrl: "https://maps.google.com/?cid=4150657171465786692&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        },
+      ],
+    },
   ];
 }
 
 function renderEnglishJournalPage() {
   const articles = getEnglishJournalArticles();
+  const visibleArticles =
+    state.activeEnglishJournalCategory === "all"
+      ? articles
+      : articles.filter((article) => article.categories?.includes(state.activeEnglishJournalCategory));
 
   return `
     <div class="appShell journalShell enJournalShell">
@@ -1021,27 +1184,52 @@ function renderEnglishJournalPage() {
           </p>
         </section>
 
-        ${articles.map(renderEnglishJournalFeature).join("")}
+        <section class="journalCategorySection" aria-label="Journal categories">
+          <p class="sectionLabel">Browse by mood</p>
+          <div class="journalCategoryList">
+            ${journalCategories
+              .map(
+                (category) => `
+                  <button
+                    class="journalCategoryChip ${state.activeEnglishJournalCategory === category.id ? "isActive" : ""}"
+                    type="button"
+                    aria-pressed="${state.activeEnglishJournalCategory === category.id}"
+                    onclick="window.setEnglishJournalCategory('${category.id}')"
+                  >
+                    ${category.icon ? `<span aria-hidden="true">${category.icon}</span>` : ""}
+                    <span>${category.label}</span>
+                  </button>
+                `,
+              )
+              .join("")}
+          </div>
+        </section>
+
+        <section class="journalFilteredArticles" aria-live="polite">
+          ${
+            visibleArticles.length
+              ? visibleArticles.map(renderEnglishJournalFeature).join("")
+              : `<p class="journalEmptyState">${
+                  state.activeEnglishJournalCategory === "essays"
+                    ? "Essays are quietly in preparation."
+                    : "Stories for this mood are quietly in preparation."
+                }</p>`
+          }
+        </section>
       </main>
     </div>
   `;
 }
 
 function renderEnglishJournalFeature(article) {
+  const visibleCategoryId =
+    state.activeEnglishJournalCategory === "all" ? article.categories?.[0] : state.activeEnglishJournalCategory;
+
   return `
-    <article class="journalFeature enJournalFeature" aria-label="SIP Journal article ${article.number}">
-      <figure class="journalFeatureImage">
-        <img src="${article.image}" alt="SIP Journal #${article.number} ${article.title}" loading="eager">
-      </figure>
-
+    <article class="journalFeature enJournalFeature enJournalIndexFeature" aria-label="SIP Journal article ${article.number}">
       <div class="journalFeatureHeader">
-        <p>SIP Journal #${article.number}</p>
+        <p>${getEnglishJournalCategoryReference(article, visibleCategoryId)}</p>
         <h2>${article.title}</h2>
-        <span>${article.subtitle}</span>
-      </div>
-
-      <div class="journalExcerpt">
-        <p>${article.excerpt.replaceAll("\n", "<br>")}</p>
       </div>
 
       <a class="journalToggle enJournalReadLink" href="${article.slug}">
@@ -1052,8 +1240,34 @@ function renderEnglishJournalFeature(article) {
   `;
 }
 
+function getEnglishJournalCategoryReference(article, categoryId = article.categories?.[0]) {
+  const category = journalCategories.find((entry) => entry.id === categoryId);
+
+  if (!category || !article.categories?.includes(categoryId)) {
+    return `SIP JOURNAL #${article.number}`;
+  }
+
+  const categoryNumber = String(
+    getEnglishJournalArticles()
+      .filter((item) => item.categories?.includes(categoryId))
+      .findIndex((item) => item.id === article.id) + 1,
+  ).padStart(3, "0");
+
+  return `${category.label.toUpperCase()} #${categoryNumber}`;
+}
+
 function renderEnglishJournalArticleContent(article) {
-  return `<div class="journalArticleBody enJournalArticleBody">${article.blocks.map(renderEnglishJournalBlock).join("")}</div>`;
+  if (article.blocks) {
+    return `<div class="journalArticleBody enJournalArticleBody">${article.blocks.map(renderEnglishJournalBlock).join("")}</div>`;
+  }
+
+  return `
+    <div class="journalArticleBody enJournalArticleBody">
+      ${article.paragraphs.map((paragraph) => `<p>${paragraph.replaceAll("\n", "<br>")}</p>`).join("")}
+    </div>
+
+    <p class="journalArticleClosing">${article.closing}</p>
+  `;
 }
 
 function renderEnglishJournalBlock(block) {
@@ -1084,6 +1298,25 @@ function renderEnglishJournalBlock(block) {
     `;
   }
 
+  if (block.type === "shopInfo") {
+    return `
+      <aside class="journalShopInfo">
+        <span>Place Information</span>
+        <dl>
+          <div>
+            <dt>Name</dt>
+            <dd>${escapeHtml(block.name)}</dd>
+          </div>
+          <div>
+            <dt>Address</dt>
+            <dd>${escapeHtml(block.address)}</dd>
+          </div>
+        </dl>
+        <a href="${escapeHtml(block.mapUrl)}" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
+      </aside>
+    `;
+  }
+
   return `<p>${block.text.replaceAll("\n", "<br>")}</p>`;
 }
 
@@ -1094,17 +1327,16 @@ function renderEnglishJournalArticlePage(articleId) {
     return renderEnglishJournalPage();
   }
 
+  const jpHref = article.jpSlug || "/#journal";
+  const enHref = article.slug || "/en/journal";
+
   return `
     <div class="appShell journalShell journalDetailShell enJournalShell">
       <header class="journalDetailHero">
-        ${renderEnglishHeader("journal", { jpHref: "/journal/hikawa-matcha", enHref: "/en/journal/hikawa-matcha" })}
-
-        <figure class="journalFeatureImage journalDetailImage">
-          <img src="${article.image}" alt="${article.title}" loading="eager">
-        </figure>
+        ${renderEnglishHeader("journal", { jpHref, enHref })}
 
         <div class="journalFeatureHeader journalDetailHeader">
-          <p>SIP Journal #${article.number}</p>
+          <p>${getEnglishJournalCategoryReference(article)}</p>
           <h1>${article.title}</h1>
           <span>${article.subtitle}</span>
           <a class="journalBackLink" href="/en/journal">Back to Journal</a>
@@ -1112,6 +1344,10 @@ function renderEnglishJournalArticlePage(articleId) {
       </header>
 
       <main class="journalMain journalDetailMain">
+        <figure class="journalFeatureImage journalDetailImage">
+          <img src="${article.image}" alt="${article.title}" loading="eager">
+        </figure>
+
         ${renderEnglishJournalArticleContent(article)}
       </main>
     </div>
@@ -1441,6 +1677,7 @@ function getJournalArticles() {
       image: "/images/journal-001-nihoncha-origin.png",
       categories: ["tea-guide"],
       slug: "/journal/nihoncha-origin",
+      enSlug: "/en/journal/nihoncha-origin",
       paragraphs: [
         "朝の一杯。\n仕事の合間のひと息。\n夜、ふっと肩の力を抜きたいとき。",
         "私たちの暮らしのそばには、いつもお茶があります。",
@@ -1461,6 +1698,7 @@ function getJournalArticles() {
       image: "/images/journal-002-senke-difference.png",
       categories: ["tea-guide"],
       slug: "/journal/senke-difference",
+      enSlug: "/en/journal/senke-difference",
       paragraphs: [
         "茶道に少し興味を持つと、\nよく耳にする「表千家」と「裏千家」という言葉。",
         "名前は知っていても、\n何が違うのかは意外と知らないものです。",
@@ -1568,6 +1806,7 @@ function getJournalArticles() {
       image: "/images/journal/daikanyama-sabo-hero.jpg",
       categories: ["tea-places", "favorites"],
       slug: "/journal/daikanyama-sabo",
+      enSlug: "/en/journal/daikanyama-sabo",
       excerpt: "坂道の途中にある黄色いビルの2階。\n控えめな入口を抜けると、そこには少し秘密めいた、静かな空間が広がっていました。",
       blocks: [
         {
@@ -1957,6 +2196,15 @@ window.setJournalCategory = (categoryId) => {
   }
 
   state.activeJournalCategory = categoryId;
+  render();
+};
+
+window.setEnglishJournalCategory = (categoryId) => {
+  if (!journalCategories.some((category) => category.id === categoryId)) {
+    return;
+  }
+
+  state.activeEnglishJournalCategory = categoryId;
   render();
 };
 

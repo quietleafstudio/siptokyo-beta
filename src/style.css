@@ -1708,6 +1708,11 @@ address {
   line-height: 1.42;
 }
 
+.enJournalIndexFeature .journalFeatureHeader h2 {
+  font-size: clamp(24px, 6.4vw, 30px);
+  line-height: 1.34;
+}
+
 .journalFeatureHeader span {
   color: var(--muted);
   font-size: 15px;
@@ -2632,14 +2637,16 @@ body,
     grid-column: 2;
   }
 
-  .jpJournalFeature {
+  .jpJournalFeature,
+  .enJournalIndexFeature {
     grid-template-columns: 1fr;
     width: min(100%, 760px);
     margin-inline: auto;
     gap: 22px;
   }
 
-  .jpJournalFeature .journalToggle {
+  .jpJournalFeature .journalToggle,
+  .enJournalIndexFeature .journalToggle {
     grid-column: 1;
   }
 
