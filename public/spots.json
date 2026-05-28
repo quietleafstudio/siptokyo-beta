@@ -5681,5 +5681,66 @@
         "priceRange": "Price to be confirmed"
       }
     }
+  },
+  {
+    "id": "savor-the-matcha",
+    "name": "Savor the Matcha",
+    "area": "上野",
+    "address": "〒110-0007 東京都台東区上野公園１６−２５",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJFYPWSQCPGGARH2HSSCcUHlI%2Fphotos%2FAb43m-v-V4eIR5DgvClfrjZ7AftUd-GfGJUB--Qs1rGGDNgkoinXtR0ScVrODtJfAlc-Mck0sddoEDODBnxDLXJ-ZOEchqIfshVJjX6RSu31R_kKElT12DVG6MtAYEC4XIDrk00Dp5IRQsaK57i0ctnhqO8SBaGhgwgUWXMgS3-LWkbKUX9pOBCQ-ZyGN9ItV3R1oedEBCvnsJ5N-6sBadEhoJGGbBDvAd2VfMA_AQzubm8dxxtiP65yIR_VAKlyBcdT01rGD4dzFOEQgToKSkY0yjeIaLncJxr4QmYqpjzJah0zHw",
+    "placeId": "ChIJFYPWSQCPGGARH2HSSCcUHlI",
+    "type": "抹茶",
+    "genre": "抹茶",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "静かな余白に、気持ちまでゆっくりほどける。",
+    "mapUrl": "https://maps.google.com/?cid=5917189119369437471&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=5917189119369437471&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.instagram.com/savor_the_matcha?igsh=MTEya2xlMGZsbnAwMg==&utm_source=qr",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,000円台",
+    "note": "抹茶の深い緑に、少しだけ心を預けたくなる。\n甘さとほろ苦さが寄り添う、やさしい休憩になりそう。",
+    "searchTags": [
+      "上野",
+      "抹茶",
+      "Savor the Matcha"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "上野",
+    "stations": [
+      "上野",
+      "鶯谷",
+      "根津"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Savor the Matcha",
+        "area": "Ueno",
+        "address": "16-25 Uenokoen, Taito-ku, Tokyo 110-0007, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A quiet matcha pause near Ueno Park.",
+        "memo": "A soft place to settle into the depth of matcha. Gentle bitterness and a calm finish make it feel like a small reset in the day.",
+        "priceRange": "Around 1,000 yen"
+      }
+    }
   }
 ]
