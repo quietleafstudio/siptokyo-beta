@@ -5803,5 +5803,67 @@
         "priceRange": "Price to be confirmed"
       }
     }
+  },
+  {
+    "id": "spot-17flqf5",
+    "name": "一芳フルーツティー 浅草店",
+    "area": "浅草",
+    "address": "〒111-0034 東京都台東区雷門２丁目１８−１５ ＴＳビル 1F",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJD9G_wMCOGGARdCYnqy0J9Dg%2Fphotos%2FAb43m-tpUJZR9c3vG8zBTRZ8eYzBD3DR_Q04_oULsGz_nrnGLfNxi-IE62yftCf_xFSb6EMB5up1FJ6Qb9OJP6k2lXtuOsy65ZCBPL917Zh-zDPkopID4gVPhCk6EJV_xzPmX-I8SJO18w2qy_GJgNOgEFPXRllbj5s63JeqkV7bwcfqhXmGnnHhfuGTYMvIicMenMlpJil-U-uUO6KJPPPkxNKOqUDVSpFREraDHJ1WmTqPUFzTgdc5zEeOnp07LB3i0M6WnnzfPCTnshVHNOwptzxWK1C0TmZhSvwzF90_Qk1zKD6Sz4LB76ZN6Ye09jhT6o6uNrN318BCcnU1XTkoPGiDkv7DrzSHRLPom4n3Z_8uUa4yMjwxm4zYwWb7DIM2bUJ4WcUO4vJpcOZb6RBiEbC1tDDCD4clsIOLRCQ9758",
+    "placeId": "ChIJD9G_wMCOGGARdCYnqy0J9Dg",
+    "type": "中国茶",
+    "genre": "中国茶",
+    "tags": [
+      "中国茶",
+      "異国感",
+      "一人時間"
+    ],
+    "comment": "台湾の街の気配が揺れる。",
+    "mapUrl": "https://maps.google.com/?cid=4103915252191012468&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=4103915252191012468&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.instagram.com/yifangtea.asakusakaminarimon/profilecard/?igsh=MTNqbWVyaTZyMGtxOQ==",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "予約推奨"
+    ],
+    "priceRange": "価格確認中",
+    "note": "異国の香りをまとった、選べる一杯。\n日常の外側へふっと出られる、お茶時間になりそう。",
+    "searchTags": [
+      "浅草",
+      "中国茶",
+      "台湾茶",
+      "フルーツティー",
+      "一芳フルーツティー 浅草店"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "浅草",
+    "stations": [
+      "浅草",
+      "田原町",
+      "蔵前"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Yifang Fruit Tea Asakusa",
+        "area": "Asakusa",
+        "address": "TS Building 1F, 2-18-15 Kaminarimon, Taito-ku, Tokyo 111-0034, Japan",
+        "genre": "Chinese Tea",
+        "tags": [
+          "Chinese Tea",
+          "Taiwanese Tea",
+          "Solo Time"
+        ],
+        "comment": "A cup with the soft feeling of a Taiwanese street corner.",
+        "memo": "A fruit tea stop with a light sense of travel. A gentle choice when you want something bright, fragrant, and just outside the everyday.",
+        "priceRange": "Price to be confirmed"
+      }
+    }
   }
 ]
