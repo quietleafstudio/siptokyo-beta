@@ -5620,5 +5620,66 @@
       "根津",
       "日暮里"
     ]
+  },
+  {
+    "id": "stand-japanese-tea-shop",
+    "name": "ほうじ茶STAND (Japanese tea shop)",
+    "area": "学芸大学",
+    "address": "〒152-0001 東京都目黒区中央町２丁目１９−１４ 1階",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJH-vcYABFGGARH3MdnZe4bhA%2Fphotos%2FAb43m-u4YoYQWY4stTpfdkEuOFAfIyUsYZ_4g4u2I53xf-rSY-AhAKLnHI2OuLg43vR5gM0cBVnWcSSs9uH-otuQO1Wr-bcAsA27oDjc_P3XGv-uDgqW15dXYiSNpw7xJMr38lfsnYudMRQ-QZPWPPTCBx5Su63l66mALhjoKcjcX5t2BhweTRSQxP1jW_xvwMcmNiMXiPvdXVu0MX--Ori2yvdtVdnfYixk_OD0kwh2BW_w7P6KX-NpOpK0KSDbaZTeXTUxEuEFQb2fMugXhOVkESCKyshI2QDxBpTwdJcnJ_DXdw",
+    "placeId": "ChIJH-vcYABFGGARH3MdnZe4bhA",
+    "type": "お茶",
+    "genre": "お茶",
+    "tags": [
+      "お茶",
+      "日本茶",
+      "会話向け",
+      "一人時間"
+    ],
+    "comment": "静かな余白に、気持ちまでゆっくりほどける。",
+    "mapUrl": "https://maps.google.com/?cid=1184086713360544543&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=1184086713360544543&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.instagram.com/hojichastand/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "予約推奨"
+    ],
+    "priceRange": "価格確認中",
+    "note": "2026年5月にオープンした日本茶に特化したスタンド。湯気の向こうに、日本茶の静かな香りが立ちのぼる。\n急がない気分で訪れたい、落ち着いた一杯の場所。",
+    "searchTags": [
+      "学芸大学",
+      "お茶",
+      "日本茶",
+      "ほうじ茶STAND (Japanese tea shop)"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "学芸大学",
+    "stations": [
+      "学芸大学"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Hojicha STAND",
+        "area": "Gakugei-daigaku",
+        "address": "1F, 2-19-14 Chuocho, Meguro-ku, Tokyo 152-0001, Japan",
+        "genre": "Japanese Tea",
+        "tags": [
+          "Tea",
+          "Japanese Tea",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A calm Japanese tea stand for a quiet pause in the day.",
+        "memo": "Opened in May 2026, this stand is dedicated to Japanese tea. A gentle place to follow the aroma of hojicha and settle into an unhurried cup.",
+        "priceRange": "Price to be confirmed"
+      }
+    }
   }
 ]
