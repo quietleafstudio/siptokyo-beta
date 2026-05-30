@@ -6113,5 +6113,68 @@
         "priceRange": "From 600 yen"
       }
     }
+  },
+  {
+    "id": "spot-zfdfiv",
+    "name": "銀座 福祿壽 本店",
+    "area": "銀座",
+    "address": "〒104-0061 東京都中央区銀座２丁目８−８",
+    "station": "",
+    "walk": "",
+    "image": "/api/place-photo?name=places%2FChIJ__9-U-GLGGARVxOtd-m-viA%2Fphotos%2FAb43m-sK6x08c2wLjWIFjh5GL3dHM5Voj7f2RXJ9PHQo90QiTUwaUHyq9BY_V06RoicS3zV7RfvOg4OrLrn29juSAtjnkGNL8lU3pDg5hDJbX3SFrH3IoAx4P2HtOYXBVMP9AiYlpSaU6TgJezmgaOz7U6hEPqjQQrSn6XbBlxqFRCk-R_t3UjXoyxIn_JNkZ4rlm7hIT3GG1DIfAFJhbic-PrZVzes8VdBhMDJxzpYPY2GkZWOoSICT9gWftSzWumMj65ZT6WbC8CVWiUf2v1WybOHFEUjVW8JO4LZ9xM9REABIrg",
+    "placeId": "ChIJ__9-U-GLGGARVxOtd-m-viA",
+    "type": "抹茶",
+    "genre": "抹茶",
+    "tags": [
+      "抹茶",
+      "会話向け",
+      "洗練",
+      "一人時間"
+    ],
+    "comment": "都会の余白に似合う、澄んだお茶時間。",
+    "mapUrl": "https://maps.google.com/?cid=2359533164733207383&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "mapsUrl": "https://maps.google.com/?cid=2359533164733207383&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+    "officialUrl": "https://www.ginzafukurokuju.com/",
+    "instagramUrl": "",
+    "menuUrl": "",
+    "menuSummary": [
+      "抹茶あり",
+      "カフェ利用OK"
+    ],
+    "priceRange": "1,500-2,500円",
+    "note": "すっきり整った空間で、背筋まで軽く伸びる一杯を。\n都会の途中に置いておきたい、上品なお茶時間。",
+    "searchTags": [
+      "銀座",
+      "抹茶",
+      "銀座 福祿壽 本店"
+    ],
+    "cautionNote": "Google Places / placeIdあり / 公式HP候補あり",
+    "instagram": {
+      "handle": "",
+      "placeId": ""
+    },
+    "nearestStation": "銀座一丁目",
+    "stations": [
+      "銀座一丁目",
+      "銀座",
+      "東銀座"
+    ],
+    "i18n": {
+      "en": {
+        "displayName": "Ginza Fukurokuju Main Store",
+        "area": "Ginza",
+        "address": "2-8-8 Ginza, Chuo-ku, Tokyo 104-0061, Japan",
+        "genre": "Matcha",
+        "tags": [
+          "Matcha",
+          "Refined",
+          "Good for Conversation",
+          "Solo Time"
+        ],
+        "comment": "A clear, refined tea pause that suits Ginza.",
+        "memo": "A composed space for a cup that gently straightens the posture. A polished tea moment to keep close while moving through the city.",
+        "priceRange": "1,500-2,500 yen"
+      }
+    }
   }
 ]
