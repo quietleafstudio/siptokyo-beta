@@ -675,3 +675,65 @@ input {
   font-weight: 700;
   line-height: 1.7;
 }
+
+/* ===== サイト掲載（自動コミット）UI ===== */
+.publishRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.publishTokenField {
+  display: grid;
+  gap: 5px;
+  flex: 1 1 220px;
+}
+
+.publishTokenField span {
+  color: rgba(112, 117, 104, 0.9);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.publishTokenField input {
+  min-height: 42px;
+  border: 1px solid rgba(112, 117, 104, 0.32);
+  border-radius: 10px;
+  background: #fffefb;
+  padding: 0 12px;
+  font: inherit;
+  font-size: 13px;
+}
+
+.publishButton {
+  min-height: 44px;
+  border: 1px solid rgba(51, 77, 53, 0.4);
+  border-radius: 999px;
+  background: #334d35;
+  color: #fffefb;
+  padding: 0 18px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.publishButton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.publishStatus {
+  margin: 8px 0 0;
+  color: #44543f;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.publishStatus.isError {
+  color: #9a4d3d;
+}

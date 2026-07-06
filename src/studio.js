@@ -32,6 +32,7 @@ const wardOptions = Object.keys(stationAreas);
 const genreOptions = ["抹茶", "日本茶", "ハーブティー", "チャイ", "お茶", "中国茶", "和菓子", "薬膳茶"];
 const decisionsStorageKey = "sipStudioDecisions";
 const rejectedStorageKey = "sipStudioRejectedCandidates";
+const publishTokenStorageKey = "sipStudioPublishToken";
 
 const state = {
   mode: "query",
@@ -51,7 +52,23 @@ const state = {
   searchError: "",
   searchMeta: null,
   copyStatus: "",
+  publishToken: readPublishToken(),
+  isPublishing: false,
+  publishStatus: "",
+  publishStatusIsError: false,
 };
+
+function readPublishToken() {
+  try {
+    return localStorage.getItem(publishTokenStorageKey) || "";
+  } catch {
+    return "";
+  }
+}
+
+function savePublishToken() {
+  localStorage.setItem(publishTokenStorageKey, state.publishToken);
+}
 
 function readDecisions() {
   try {
@@ -771,25 +788,86 @@ function renderAdoptedJsonSection() {
   const adoptedCandidates = getAdoptedCandidates();
   const adoptedJson = getAdoptedDraftJson();
   const adoptedList = adoptedCandidates.map((candidate) => `<li>${escapeHtml(candidate.name)}</li>`).join("");
+  const publishDisabled = !adoptedCandidates.length || state.isPublishing;
 
   return `
     <section class="adoptedJsonPanel" aria-label="追加用JSON">
       <div class="adoptedJsonHeader">
         <div>
           <p>採用済みリスト</p>
-          <h2>追加用JSON</h2>
+          <h2>サイトに掲載</h2>
         </div>
         <button class="copyJsonButton" type="button" data-copy-adopted-json ${adoptedCandidates.length ? "" : "disabled"}>
           ${state.copyStatus || "JSONをコピー"}
         </button>
       </div>
+      <div class="publishRow">
+        <label class="publishTokenField">
+          <span>掲載トークン</span>
+          <input id="publishTokenInput" type="password" value="${escapeHtml(state.publishToken)}" placeholder="STUDIO_PUBLISH_TOKEN" autocomplete="off" />
+        </label>
+        <button class="publishButton" type="button" data-publish-adopted ${publishDisabled ? "disabled" : ""}>
+          ${state.isPublishing ? "掲載中..." : `採用済みをサイトに掲載（${adoptedCandidates.length}件）`}
+        </button>
+      </div>
+      ${state.publishStatus ? `<p class="publishStatus${state.publishStatusIsError ? " isError" : ""}" role="status">${escapeHtml(state.publishStatus)}</p>` : ""}
       ${
         adoptedCandidates.length
           ? `<ul class="adoptedList">${adoptedList}</ul><pre id="adoptedJsonOutput">${escapeHtml(adoptedJson)}</pre>`
-          : `<div class="emptyState">候補カードで「採用」を押すと、ここに spots.json 追加用のJSONが生成されます。</div>`
+          : `<div class="emptyState">候補カードで「採用」を押すと、ここから1クリックでspots.jsonへ自動コミット（＝サイト掲載）できます。掲載済みの候補はリストから消えます。</div>`
       }
     </section>
   `;
+}
+
+async function publishAdoptedSpots() {
+  const adopted = getAdoptedCandidates();
+  if (!adopted.length || state.isPublishing) return;
+
+  if (!state.publishToken.trim()) {
+    state.publishStatus = "掲載トークンを入力してください（Vercelの STUDIO_PUBLISH_TOKEN と同じ値）。";
+    state.publishStatusIsError = true;
+    render();
+    return;
+  }
+
+  state.isPublishing = true;
+  state.publishStatus = "";
+  state.publishStatusIsError = false;
+  render();
+
+  try {
+    const response = await fetch("/api/publish-spot", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "x-studio-token": state.publishToken.trim(),
+      },
+      body: JSON.stringify({ spots: adopted.map(buildDraftSpot) }),
+    });
+    const data = await response.json().catch(() => ({}));
+
+    if (!response.ok || data.error) {
+      throw new Error(data.error || `掲載に失敗しました: ${response.status}`);
+    }
+
+    adopted.forEach((candidate) => {
+      state.decisions[candidate.id] = "掲載済み";
+    });
+    saveDecisions();
+
+    const skippedText = data.skipped?.length ? ` / 登録済みのため${data.skipped.length}件スキップ` : "";
+    state.publishStatus = data.added
+      ? `${data.added}件をspots.jsonにコミットしました（${(data.addedNames || []).join("、")}）。Vercelのデプロイ後、数分で本番に反映されます。${skippedText}`
+      : `新規掲載はありませんでした。${skippedText}`;
+    state.publishStatusIsError = false;
+  } catch (error) {
+    state.publishStatus = error instanceof Error ? error.message : "掲載に失敗しました";
+    state.publishStatusIsError = true;
+  }
+
+  state.isPublishing = false;
+  render();
 }
 
 function renderCandidate(candidate, index) {
@@ -963,6 +1041,11 @@ document.addEventListener("input", (event) => {
   if (event.target.id === "mapsUrlInput") {
     state.mapsUrl = event.target.value;
   }
+
+  if (event.target.id === "publishTokenInput") {
+    state.publishToken = event.target.value;
+    savePublishToken();
+  }
 });
 
 document.addEventListener("change", (event) => {
@@ -1022,6 +1105,10 @@ document.addEventListener("click", (event) => {
 
   if (event.target.matches("[data-copy-adopted-json]")) {
     void copyAdoptedJson();
+  }
+
+  if (event.target.matches("[data-publish-adopted]")) {
+    void publishAdoptedSpots();
   }
 });
 
