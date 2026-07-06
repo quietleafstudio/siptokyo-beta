@@ -1,4 +1,4 @@
-import { scoreAxes, getScoringProvider } from "./studio-scoring.js";
+import { scoreAxes, getScoringProvider, screenPlace } from "./studio-scoring.js";
 
 const scoringProvider = getScoringProvider("rules");
 const hiddenUserTags = new Set(["お茶候補"]);
@@ -44,6 +44,8 @@ const state = {
   decisions: readDecisions(),
   rejectedCandidates: readRejectedCandidates(),
   rejectedExcludedCount: 0,
+  screenExcludedCount: 0,
+  screenExcludedReasons: [],
   isLookupLoading: false,
   isSearchLoading: false,
   searchError: "",
@@ -533,6 +535,8 @@ async function generateQueryResults() {
   state.isSearchLoading = true;
   state.searchError = "";
   state.rejectedExcludedCount = 0;
+  state.screenExcludedCount = 0;
+  state.screenExcludedReasons = [];
   state.copyStatus = "";
   render();
 
@@ -543,8 +547,22 @@ async function generateQueryResults() {
   state.searchMeta = data.meta || null;
 
   if (Array.isArray(data.places) && data.places.length) {
+    // 掲載基準スクリーニング：紅茶メイン / 販売のみ（喫茶なし）の候補を除外
+    const screenedPlaces = [];
+    const screenReasons = [];
+    for (const place of data.places.slice(0, 20)) {
+      const screening = screenPlace(place);
+      if (screening.excluded) {
+        screenReasons.push(...screening.reasons);
+      } else {
+        screenedPlaces.push(place);
+      }
+    }
+    state.screenExcludedCount = screenReasons.length ? data.places.slice(0, 20).length - screenedPlaces.length : 0;
+    state.screenExcludedReasons = screenReasons;
+
     const candidates = await Promise.all(
-      data.places.slice(0, 20).map((place) => buildCandidateFromPlace(place, researchArea, state.genre)),
+      screenedPlaces.map((place) => buildCandidateFromPlace(place, researchArea, state.genre)),
     );
     state.results = filterRejectedCandidates(candidates);
     state.searchError = "";
@@ -572,6 +590,8 @@ async function generateMapsResult() {
   state.searchError = "";
   state.searchMeta = null;
   state.rejectedExcludedCount = 0;
+  state.screenExcludedCount = 0;
+  state.screenExcludedReasons = [];
   state.copyStatus = "";
   render();
 
@@ -851,11 +871,20 @@ function render() {
   const pending = activeDecisions.filter((value) => value === "保留").length;
   const rejected = state.rejectedCandidates.length;
   const headline = state.mode === "maps" ? "Google Maps URL" : `${getResearchQueryLabel()} × ${state.genre}`;
-  const searchMetaText = state.searchMeta
-    ? `${state.searchMeta.returnedCount || 0}件取得 / 登録済み${state.searchMeta.registeredExcluded || 0}件除外 / エリア外${state.searchMeta.areaExcluded || 0}件除外 / 不採用済み${state.rejectedExcludedCount || 0}件除外`
-    : state.rejectedExcludedCount
-      ? `不採用済み${state.rejectedExcludedCount}件除外`
+  const screenReasonSummary = state.screenExcludedCount
+    ? `対象外${state.screenExcludedCount}件除外（${[...new Set(state.screenExcludedReasons)].join("・")}）`
     : "";
+  const searchMetaText = state.searchMeta
+    ? [
+        `${state.searchMeta.returnedCount || 0}件取得`,
+        `登録済み${state.searchMeta.registeredExcluded || 0}件除外`,
+        `エリア外${state.searchMeta.areaExcluded || 0}件除外`,
+        `不採用済み${state.rejectedExcludedCount || 0}件除外`,
+        screenReasonSummary,
+      ]
+        .filter(Boolean)
+        .join(" / ")
+    : [state.rejectedExcludedCount ? `不採用済み${state.rejectedExcludedCount}件除外` : "", screenReasonSummary].filter(Boolean).join(" / ");
 
   root.innerHTML = `
     <div class="studioShell">

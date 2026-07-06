@@ -155,6 +155,62 @@ async function scoreWithRules(input) {
   };
 }
 
+// ---- 掲載対象スクリーニング ----
+// SIPの掲載基準（お茶が主役 / 座って過ごせる / イートインあり）に明らかに
+// 合わない候補を検索結果から除外する。確度の高いシグナルのみで判定し、
+// 除外件数はUI側で表示して誤除外に気づけるようにする。
+
+// 「和紅茶」は日本茶文脈なので除外対象の「紅茶」には数えない
+const blackTeaPattern = /(?<!和)紅茶/;
+const nonBlackTeaWords = ["抹茶", "日本茶", "煎茶", "ほうじ茶", "玉露", "緑茶", "中国茶", "台湾茶", "烏龍", "ハーブ", "チャイ", "薬膳", "和紅茶"];
+
+const eatInTypes = new Set([
+  "cafe",
+  "coffee_shop",
+  "tea_house",
+  "restaurant",
+  "japanese_restaurant",
+  "dessert_shop",
+  "dessert_restaurant",
+  "bakery",
+  "confectionery",
+]);
+const retailTypes = new Set([
+  "store",
+  "food_store",
+  "grocery_store",
+  "gift_shop",
+  "supermarket",
+  "market",
+  "shopping_mall",
+  "home_goods_store",
+]);
+const eatInReviewWords = ["店内", "イートイン", "席", "座っ", "座敷", "カウンター", "テーブル", "カフェ", "喫茶", "いただきました", "飲みました"];
+
+export function screenPlace(input) {
+  const name = input.name || "";
+  const reviews = (input.reviews || []).filter((review) => review?.text);
+  const types = [input.primaryType, ...(input.types || [])].filter(Boolean).map((type) => String(type).toLowerCase());
+  const reasons = [];
+
+  // 1) 紅茶メインの店：店名に「紅茶」、または口コミで紅茶が他のお茶より優勢
+  const blackTeaReviewCount = reviews.filter((review) => blackTeaPattern.test(review.text)).length;
+  const otherTeaReviewCount = reviews.filter((review) => nonBlackTeaWords.some((word) => review.text.includes(word))).length;
+  if (blackTeaPattern.test(name) || (blackTeaReviewCount >= 2 && blackTeaReviewCount > otherTeaReviewCount)) {
+    reasons.push("紅茶メイン");
+  }
+
+  // 2) 販売のみ（喫茶なし）：物販系typeのみで、口コミにも店内飲食の形跡がない
+  const hasEatInType = types.some((type) => eatInTypes.has(type));
+  const hasRetailType = types.some((type) => retailTypes.has(type));
+  const eatInReviewCount = reviews.filter((review) => eatInReviewWords.some((word) => review.text.includes(word))).length;
+  if (name.includes("販売") || (hasRetailType && !hasEatInType && eatInReviewCount === 0)) {
+    reasons.push("販売のみ（喫茶なし）");
+  }
+
+  return { excluded: reasons.length > 0, reasons };
+}
+
 export const providers = {
   rules: {
     id: "rules",
