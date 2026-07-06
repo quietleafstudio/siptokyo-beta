@@ -616,3 +616,62 @@ input {
     gap: 24px;
   }
 }
+
+/* ===== 採点表示（ルールベース）：バッジ・根拠・データ不足 ===== */
+.badgeGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fieldCheckBadge {
+  border-radius: 999px;
+  border: 1px solid rgba(184, 132, 89, 0.45);
+  background: rgba(184, 132, 89, 0.12);
+  color: #8a5f38;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.scoreBadge.isUnscored {
+  background: transparent;
+  border: 1px dashed rgba(112, 117, 104, 0.5);
+  color: var(--muted, #707568);
+}
+
+.scoreLine.isInsufficient div strong {
+  color: rgba(112, 117, 104, 0.75);
+  font-weight: 700;
+}
+
+.evidenceList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+.evidenceChip {
+  border-radius: 999px;
+  border: 1px solid rgba(83, 111, 73, 0.24);
+  background: rgba(83, 111, 73, 0.08);
+  color: #44543f;
+  padding: 3px 8px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.evidenceChip.isNegative {
+  border-color: rgba(154, 77, 61, 0.32);
+  background: rgba(154, 77, 61, 0.08);
+  color: #8a4a3c;
+}
+
+.scoringNote {
+  margin: 4px 0 0;
+  color: rgba(112, 117, 104, 0.9);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.7;
+}

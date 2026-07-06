@@ -226,6 +226,18 @@ function isInsideArea(place, center) {
   return distanceMeters(center, location) <= radiusMeters;
 }
 
+// 口コミ本文（最大5件）：ルールベース採点の入力に使う
+function mapReviews(place) {
+  return (place.reviews || [])
+    .slice(0, 5)
+    .map((review) => ({
+      text: cleanText(review.text?.text || review.originalText?.text || ""),
+      rating: review.rating ?? null,
+      when: cleanText(review.relativePublishTimeDescription || ""),
+    }))
+    .filter((review) => review.text);
+}
+
 function mapPlace(place, area, genre) {
   const photoName = place.photos?.[0]?.name || "";
   const googleMapsUrl = place.googleMapsUri || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.displayName?.text || "")}`;
@@ -247,6 +259,7 @@ function mapPlace(place, area, genre) {
     location: place.location || null,
     primaryType: place.primaryType || "",
     types: Array.isArray(place.types) ? place.types : [],
+    reviews: mapReviews(place),
   };
 }
 
@@ -300,6 +313,8 @@ export default async function handler(request, response) {
     "places.primaryType",
     "places.types",
     "places.websiteUri",
+    // 口コミ本文（採点用）。Enterprise + Atmosphere SKU になる点に注意
+    "places.reviews",
   ].join(",");
 
   try {

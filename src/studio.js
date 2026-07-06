@@ -1,13 +1,6 @@
-const scoreWeights = [
-  ["teaTaste", "お茶のおいしさ", 25],
-  ["teaFocus", "お茶主役度", 20],
-  ["spaceComfort", "空間の心地よさ", 15],
-  ["seatComfort", "座席快適性", 10],
-  ["talkQuietFit", "会話 / 静けさ適性", 10],
-  ["menuDepth", "メニュー充実度", 8],
-  ["worldview", "世界観", 7],
-  ["access", "アクセス", 5],
-];
+import { scoreAxes, getScoringProvider } from "./studio-scoring.js";
+
+const scoringProvider = getScoringProvider("rules");
 const hiddenUserTags = new Set(["お茶候補"]);
 
 const stationAreas = {
@@ -184,10 +177,6 @@ function filterRejectedCandidates(candidates) {
   const filtered = candidates.filter((candidate) => !isRejectedCandidate(candidate));
   state.rejectedExcludedCount = candidates.length - filtered.length;
   return filtered;
-}
-
-function clamp(value, min, max) {
-  return Math.max(min, Math.min(max, value));
 }
 
 function normalizeMapsUrl(value) {
@@ -377,16 +366,21 @@ function buildMemoDraft(candidate) {
   return "街の流れから少し離れて、お茶の香りにひと息つく。\nふらりと立ち寄りたくなる、やさしい休憩の候補。";
 }
 
+function scoringAxisValue(scoring, key) {
+  const axis = (scoring?.axes || []).find((item) => item.key === key);
+  return axis && axis.value !== null ? axis.value : 0;
+}
+
 function buildCommentDraft(candidate) {
   const tags = candidate.tags || [];
   const genre = candidate.genreQuery || "";
-  const score = candidate.score || {};
+  const scoring = candidate.scoring || null;
   const sourceText = [candidate.name, candidate.area, genre, ...tags].join("|");
   const seed = Number.parseInt(hashString(sourceText).slice(0, 6), 36) || 0;
   const has = (tag) => tags.includes(tag);
-  const highWorldview = Number(score.worldview || 0) >= 6;
-  const highQuiet = Number(score.talkQuietFit || 0) >= 8;
-  const highSpace = Number(score.spaceComfort || 0) >= 12;
+  const highWorldview = scoringAxisValue(scoring, "worldview") >= 6;
+  const highQuiet = scoringAxisValue(scoring, "talkQuietFit") >= 8;
+  const highSpace = scoringAxisValue(scoring, "spaceComfort") >= 12;
   let options = [];
 
   if (has("古民家")) {
@@ -454,25 +448,18 @@ function buildCommentDraft(candidate) {
   return pick(options, seed);
 }
 
-function buildCandidate(index, area, genre, overrides = {}) {
-  const styles = ["茶房", "ティーサロン", "和カフェ", "茶寮", "ティースタンド", "喫茶室"];
-  const streets = ["1-3-8", "2-12-4", "3-6-11", "4-9-2", "5-18-7"];
-  const name = overrides.name || `${area}${pick(styles, index)} ${pick(["葉音", "香月", "翠日", "茶々", "雨庭"], index)} ${index + 1}`;
-  const id = `${slug(area)}-${slug(genre)}-${index + 1}`;
-  const fallbackTags = cleanUserTags([
-    genre,
-    pick(["一人時間", "会話向け", "静か"], index),
-    pick(["駅近", "明るい", "上品", "穴場"], index + 1),
-  ]);
-  const score = buildScore(index, genre);
+// 候補データの組み立て。判断材料のない項目は空のまま持ち、UI側で「確認中」等と正直に表示する。
+// 表示順（index）やその場しのぎのダミー値からデータを作ることは絶対にしない。
+function buildCandidate(area, genre, overrides = {}) {
+  const name = overrides.name || `${area} ${genre}候補`;
   const mapsUrl = overrides.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${area} ${genre} カフェ`)}`;
-  const resolvedTags = cleanUserTags(overrides.tags || fallbackTags);
-  const resolvedGenreGuess = cleanUserLabel(overrides.genreGuess || `${genre} / ${pick(["カフェ", "茶房", "喫茶", "和菓子"], index)}`);
+  const resolvedTags = cleanUserTags(overrides.tags || [genre]);
+  const scoring = overrides.scoring || null;
 
   return {
-    id: overrides.id || id,
+    id: overrides.id || `${slug(area)}-${slug(genre)}-${hashString(name)}`,
     source: {
-      provider: overrides.sourceProvider || "mock",
+      provider: overrides.sourceProvider || "unknown",
       mode: overrides.sourceMode || "query",
       input: overrides.sourceInput || `${area} × ${genre}`,
       fetchedAt: new Date().toISOString(),
@@ -481,79 +468,41 @@ function buildCandidate(index, area, genre, overrides = {}) {
     name,
     area,
     genreQuery: genre,
-    address: overrides.address || `東京都${area}エリア ${pick(streets, index)}`,
+    address: overrides.address || "",
     mapsUrl,
-    officialUrl: overrides.officialUrl ?? (index % 3 === 0 ? `https://example.com/${id}` : ""),
-    instagramUrl: overrides.instagramUrl ?? (index % 4 === 0 ? `https://www.instagram.com/${id.replaceAll("-", "_")}` : ""),
-    menuUrl: overrides.menuUrl ?? (index % 2 === 0 ? `https://example.com/${id}/menu` : ""),
-    reviewCount: overrides.reviewCount ?? 24 + index * 11,
-    rating: overrides.rating ?? Number((3.7 + ((index % 6) * 0.15)).toFixed(1)),
-    hours: overrides.hours || pick(["11:00-19:00", "10:00-20:00", "12:00-18:00", "営業時間確認中"], index),
+    officialUrl: overrides.officialUrl || "",
+    instagramUrl: overrides.instagramUrl || "",
+    menuUrl: overrides.menuUrl || "",
+    reviewCount: overrides.reviewCount ?? null,
+    rating: overrides.rating ?? null,
+    reviews: overrides.reviews || [],
+    hours: overrides.hours || "",
     photoUrl: overrides.photoUrl || "",
     photoLabel: overrides.photoLabel || "photo pending",
-    genreGuess: resolvedGenreGuess,
+    genreGuess: cleanUserLabel(overrides.genreGuess || genre),
     tags: resolvedTags,
-    score,
-    totalScore: Object.values(score).reduce((sum, value) => sum + value, 0),
-    commentDraft: overrides.commentDraft || buildCommentDraft({ name, area, genreQuery: genre, tags: resolvedTags, score }),
+    scoring,
+    commentDraft: overrides.commentDraft || buildCommentDraft({ name, area, genreQuery: genre, tags: resolvedTags, scoring }),
     memoDraft: overrides.memoDraft || buildMemoDraft({ tags: resolvedTags }),
-    menuSummary: overrides.menuSummary || inferMenuSummary(genre, index),
-    priceRange: overrides.priceRange || pick(["1,000円台", "1,500-2,500円", "価格確認中"], index),
-    riskFlags: overrides.riskFlags || (index % 5 === 0 ? ["コース中心の可能性", "単品利用要確認"] : []),
+    menuSummary: overrides.menuSummary || [],
+    priceRange: overrides.priceRange || "",
+    riskFlags: overrides.riskFlags || [],
   };
 }
 
-function inferMenuSummary(genre, index) {
-  return unique([
-    genre === "抹茶" ? "抹茶あり" : "",
-    genre === "日本茶" ? "日本茶飲み比べあり" : "",
-    (genre === "ハーブ" || genre === "ハーブティー") ? "ハーブティーあり" : "",
-    pick(["カフェ利用OK", "単品のお茶あり", "予約推奨", "最低注文金額確認"], index),
-  ]);
-}
-
-function buildScore(index, genre) {
-  const teaBoost = genre === "抹茶" || genre === "日本茶" ? 3 : 0;
-  return {
-    teaTaste: Math.min(25, 17 + ((index * 3) % 7) + teaBoost),
-    teaFocus: Math.min(20, 13 + ((index * 2) % 6) + teaBoost),
-    spaceComfort: 9 + ((index * 5) % 6),
-    seatComfort: 6 + (index % 5),
-    talkQuietFit: 6 + ((index + 2) % 5),
-    menuDepth: 4 + ((index * 3) % 5),
-    worldview: 4 + ((index + 1) % 4),
-    access: 3 + (index % 3),
-  };
-}
-
-function buildScoreFromPlace(place, index, genre) {
-  const rating = Number(place.rating || 0);
-  const reviewCount = Number(place.reviewCount || 0);
-  const ratingBoost = rating ? Math.round((rating - 3.5) * 3) : 0;
-  const reviewBoost = reviewCount > 120 ? 2 : reviewCount > 40 ? 1 : 0;
-  const teaBoost = genre === "抹茶" || genre === "日本茶" ? 3 : 0;
-  const typeText = [place.name, place.primaryType, ...(place.types || [])].join(" ");
-  const cafeBoost = /cafe|tea|japanese|restaurant|bakery/i.test(typeText) ? 1 : 0;
-  const tags = place.tags || [];
-
-  return {
-    teaTaste: clamp(17 + ratingBoost + reviewBoost + teaBoost, 12, 25),
-    teaFocus: clamp(13 + teaBoost + cafeBoost + (tags.includes("抹茶") ? 2 : 0), 8, 20),
-    spaceComfort: clamp(9 + ratingBoost + cafeBoost, 6, 15),
-    seatComfort: clamp(6 + cafeBoost + (index % 3), 5, 10),
-    talkQuietFit: clamp(6 + (tags.includes("会話向け") ? 2 : 0) + (tags.includes("静か") ? 1 : 0), 4, 10),
-    menuDepth: clamp(4 + teaBoost + cafeBoost, 3, 8),
-    worldview: clamp(4 + (tags.includes("古民家") ? 2 : 0) + (tags.includes("静か") ? 1 : 0), 3, 7),
-    access: clamp(3 + (place.address ? 1 : 0) + (place.mapsUrl ? 1 : 0), 2, 5),
-  };
-}
-
-function buildCandidateFromPlace(place, index, area, genre) {
+async function buildCandidateFromPlace(place, area, genre) {
   const tags = inferTeaTags({ ...place, genreQuery: genre });
-  const memoDraft = buildMemoDraft({ ...place, tags });
-  const score = buildScoreFromPlace({ ...place, tags }, index, genre);
+  const scoring = await scoringProvider.score({
+    name: place.name,
+    genreQuery: genre,
+    rating: place.rating,
+    reviewCount: place.reviewCount,
+    reviews: place.reviews || [],
+    types: place.types || [],
+    primaryType: place.primaryType || "",
+  });
 
-  return buildCandidate(index, area, genre, {
+  return buildCandidate(area, genre, {
     id: `place-${place.placeId || idSlugFromName(place.name)}`,
     name: place.name || `${area} ${genre}候補`,
     address: place.address || "",
@@ -563,13 +512,14 @@ function buildCandidateFromPlace(place, index, area, genre) {
     menuUrl: place.menuUrl || "",
     reviewCount: place.reviewCount || null,
     rating: place.rating || null,
+    reviews: place.reviews || [],
     photoUrl: place.photoUrl || "",
     photoLabel: "Google Places",
     genreGuess: genre,
     tags,
-    score,
-    commentDraft: buildCommentDraft({ ...place, genreQuery: genre, tags, score }),
-    memoDraft,
+    scoring,
+    commentDraft: buildCommentDraft({ ...place, genreQuery: genre, tags, scoring }),
+    memoDraft: buildMemoDraft({ ...place, tags }),
     sourceProvider: "google-places",
     sourceMode: "areaGenre",
     sourceInput: `${area} × ${genre}`,
@@ -593,7 +543,9 @@ async function generateQueryResults() {
   state.searchMeta = data.meta || null;
 
   if (Array.isArray(data.places) && data.places.length) {
-    const candidates = data.places.slice(0, 20).map((place, index) => buildCandidateFromPlace(place, index, researchArea, state.genre));
+    const candidates = await Promise.all(
+      data.places.slice(0, 20).map((place) => buildCandidateFromPlace(place, researchArea, state.genre)),
+    );
     state.results = filterRejectedCandidates(candidates);
     state.searchError = "";
   } else {
@@ -646,7 +598,17 @@ async function generateMapsResult() {
 
   state.mode = "maps";
   state.isLookupLoading = false;
-  const candidate = buildCandidate(0, researchArea, state.genre, {
+  // URL由来の候補は口コミ本文が取れないため、採点は全軸「データ不足」・確信度「低」になる
+  const scoring = await scoringProvider.score({
+    name: placeData.name,
+    genreQuery: state.genre,
+    rating: null,
+    reviewCount: null,
+    reviews: [],
+    types: [],
+    primaryType: "",
+  });
+  const candidate = buildCandidate(researchArea, state.genre, {
       id: `maps-${slug(placeData.name) || Date.now()}`,
       name: placeData.name,
       address,
@@ -656,7 +618,6 @@ async function generateMapsResult() {
       menuUrl: placeData.menuUrl || "",
       reviewCount: null,
       rating: null,
-      hours: "営業時間確認中",
       photoUrl: placeData.photoUrl || "",
       sourceProvider: "google-maps-url",
       sourceMode: "mapsUrl",
@@ -664,6 +625,7 @@ async function generateMapsResult() {
       photoLabel: "Google Maps URL",
       tags: autoTags,
       genreGuess: state.genre,
+      scoring,
       memoDraft,
       riskFlags: unique([
         "URL由来",
@@ -681,22 +643,68 @@ function renderOptions(options, activeValue) {
     .join("");
 }
 
-function renderScore(candidate) {
-  return scoreWeights
-    .map(([key, label, max]) => {
-      const value = candidate.score[key];
-      const percent = Math.round((value / max) * 100);
+function renderScoreEvidence(evidence) {
+  if (!evidence.length) return "";
+
+  const chips = evidence
+    .map(
+      (item) =>
+        `<span class="evidenceChip ${item.direction === "-" ? "isNegative" : ""}">${escapeHtml(item.keyword)}×${item.count}${item.direction === "-" ? "（−）" : ""}</span>`,
+    )
+    .join("");
+
+  return `<div class="evidenceList" aria-label="採点根拠">${chips}</div>`;
+}
+
+function renderScoring(candidate) {
+  const scoring = candidate.scoring;
+
+  if (!scoring) {
+    return `<p class="scoringNote">採点データがありません。</p>`;
+  }
+
+  const axisLines = scoring.axes
+    .map((axis) => {
+      if (axis.value === null) {
+        return `
+          <div class="scoreLine isInsufficient">
+            <div>
+              <span>${escapeHtml(axis.label)}</span>
+              <strong>−（データ不足）</strong>
+            </div>
+          </div>
+        `;
+      }
+
+      const percent = Math.round((axis.value / axis.max) * 100);
       return `
         <div class="scoreLine">
           <div>
-            <span>${escapeHtml(label)}</span>
-            <strong>${value}/${max}</strong>
+            <span>${escapeHtml(axis.label)}</span>
+            <strong>${axis.value}/${axis.max}</strong>
           </div>
           <i style="--score:${percent}%"></i>
+          ${renderScoreEvidence(axis.evidence || [])}
         </div>
       `;
     })
     .join("");
+
+  return `
+    ${axisLines}
+    <p class="scoringNote">採点方式：ルールベース（口コミ${scoring.reviewCount}件のキーワード解析） / 確信度：${escapeHtml(scoring.confidence)}</p>
+  `;
+}
+
+function renderScoreBadge(candidate) {
+  const scoring = candidate.scoring;
+
+  if (!scoring || scoring.scoredCount === 0) {
+    return `<span class="scoreBadge isUnscored">採点不可（データ不足）</span>`;
+  }
+
+  const partial = scoring.scoredCount < scoring.axes.length ? `（${scoring.scoredCount}/${scoring.axes.length}軸）` : "";
+  return `<span class="scoreBadge">${scoring.total} / ${scoring.totalMax}${partial}</span>`;
 }
 
 function buildDraftSpot(candidate) {
@@ -780,11 +788,16 @@ function renderCandidate(candidate, index) {
   const genreGuess = cleanUserLabel(candidate.genreGuess);
   const tags = cleanUserTags(candidate.tags);
 
+  const needsFieldCheck = candidate.scoring?.needsFieldCheck;
+
   return `
     <article class="candidateCard">
       <div class="cardTop">
         <span class="resultIndex">${String(index + 1).padStart(2, "0")}</span>
-        <span class="scoreBadge">${candidate.totalScore} / 100</span>
+        <div class="badgeGroup">
+          ${needsFieldCheck ? `<span class="fieldCheckBadge">要現地確認</span>` : ""}
+          ${renderScoreBadge(candidate)}
+        </div>
       </div>
       ${candidate.photoUrl ? `<img class="candidatePhoto" src="${escapeHtml(candidate.photoUrl)}" alt="${escapeHtml(candidate.name)}の写真" />` : `<div class="candidatePhoto emptyPhoto">${escapeHtml(candidate.photoLabel)}</div>`}
       <h2>${escapeHtml(candidate.name)}</h2>
@@ -792,18 +805,18 @@ function renderCandidate(candidate, index) {
       <div class="linkGrid">${links}</div>
       <dl class="candidateMeta">
         <div><dt>評価 / 口コミ</dt><dd>${candidate.rating ? `${candidate.rating} / ${candidate.reviewCount}件` : "確認中"}</dd></div>
-        <div><dt>営業時間</dt><dd>${escapeHtml(candidate.hours)}</dd></div>
+        <div><dt>営業時間</dt><dd>${escapeHtml(candidate.hours || "確認中")}</dd></div>
         <div><dt>placeId</dt><dd>${escapeHtml(candidate.placeId || "確認中")}</dd></div>
         <div><dt>ジャンル推定</dt><dd>${escapeHtml(genreGuess)}</dd></div>
         <div><dt>タグ候補</dt><dd>${tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</dd></div>
         <div><dt>メニュー要約</dt><dd>${menuSummary || "確認中"}</dd></div>
       </dl>
       <section class="scorePanel" aria-label="SIPスコア内訳">
-        ${renderScore(candidate)}
+        ${renderScoring(candidate)}
       </section>
       ${riskFlags ? `<div class="riskFlags">${riskFlags}</div>` : ""}
       <div class="memoBox">
-        <p>SIPメモ草案</p>
+        <p>SIPメモ草案（仮・定型文）</p>
         <span>${escapeHtml(candidate.memoDraft)}</span>
       </div>
       <div class="decisionGroup" data-id="${escapeHtml(candidate.id)}">
@@ -875,8 +888,8 @@ function render() {
 
       <section class="criteriaPanel" aria-label="掲載基準">
         <div>
-          <p>将来API接続</p>
-          <span>Google Places / Serp / Instagram / メニュー解析の結果を、同じ候補データ構造に流し込める前提で設計。</span>
+          <p>採点方式</p>
+          <span>ルールベース（Google Places口コミ最大5件のキーワード解析）。採点プロバイダは分離済みで、同じ候補データ構造のままAI採点（Anthropic API）へ差し替え可能。</span>
         </div>
         <div>
           <p>掲載基準</p>
