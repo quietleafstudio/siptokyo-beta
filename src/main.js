@@ -1,7 +1,19 @@
 import { initGoogleAnalytics, trackAnalyticsEvent } from "./analytics.js";
 
-const primaryTagOrder = ["静か", "抹茶", "ハーブ", "古民家", "一人時間", "会話向け"];
-const hiddenUserTags = new Set(["お茶候補"]);
+const primaryTagOrder = ["静か", "抹茶", "日本茶", "ハーブティー", "一人時間", "会話向け"];
+// お茶サイトでは情報量のないタグは非公開にする
+const hiddenUserTags = new Set(["お茶候補", "お茶"]);
+// タグの正規化マスタ：表記ゆれを代表表記に統合する
+const tagNormalizationMap = {
+  "ハーブ": "ハーブティー",
+  "ハーブティ": "ハーブティー",
+  "静かめ": "静か",
+  "静けさ": "静か",
+  "養生茶": "薬膳茶",
+  "漢方": "薬膳茶",
+};
+// フィルタUIに最初から見せるタグ数（残りは「もっと見る」で展開）
+const maxVisibleTagChips = 12;
 const publicBasePath = import.meta.env?.BASE_URL || "/";
 const dataVersion = "20260502-2";
 const formspreeEndpoint = import.meta.env?.VITE_FORMSPREE_ENDPOINT || "https://formspree.io/f/xwvzvyog";
@@ -108,6 +120,8 @@ const state = {
   activeJournalCategory: "all",
   activeEnglishJournalCategory: "all",
   englishSpotQuery: "",
+  showAllTags: false,
+  showFavoritesOnly: false,
 };
 
 function readFavorites() {
@@ -165,11 +179,31 @@ function normalizeSpot(spot) {
     stations: Array.isArray(spot.stations) ? spot.stations : [],
     image: normalizeImagePath(spot.image || ""),
     menuSummary: Array.isArray(spot.menuSummary) ? spot.menuSummary : [],
+    walk: cleanPendingValue(spot.walk),
+    priceRange: cleanPendingValue(spot.priceRange),
+    cautionNote: cleanPendingValue(spot.cautionNote),
   };
 }
 
+// 「徒歩確認中」「価格確認中」など、未確定の管理用テキストは公開画面に出さない
+function cleanPendingValue(value) {
+  const text = String(value || "").trim();
+  return text.includes("確認中") ? "" : text;
+}
+
+function normalizeTag(tag) {
+  return tagNormalizationMap[tag] || tag;
+}
+
 function cleanPublicTags(tags) {
-  return Array.isArray(tags) ? uniqueValues(tags.map(cleanPublicLabel).filter((tag) => tag && !hiddenUserTags.has(tag))) : [];
+  return Array.isArray(tags)
+    ? uniqueValues(
+        tags
+          .map(cleanPublicLabel)
+          .map(normalizeTag)
+          .filter((tag) => tag && !hiddenUserTags.has(tag)),
+      )
+    : [];
 }
 
 function cleanPublicLabel(value) {
@@ -195,11 +229,33 @@ function normalizeImagePath(image) {
 }
 
 function getTagFilters() {
-  const tags = new Set(state.spots.flatMap((spot) => spot.tags));
+  const tagCounts = new Map();
+  state.spots.forEach((spot) => {
+    spot.tags.forEach((tag) => tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1));
+  });
+
   return [
-    ...primaryTagOrder.filter((tag) => tags.has(tag)),
-    ...[...tags].filter((tag) => !primaryTagOrder.includes(tag)).sort((a, b) => a.localeCompare(b, "ja")),
+    ...primaryTagOrder.filter((tag) => tagCounts.has(tag)),
+    ...[...tagCounts.keys()]
+      .filter((tag) => !primaryTagOrder.includes(tag))
+      .sort((a, b) => tagCounts.get(b) - tagCounts.get(a) || a.localeCompare(b, "ja")),
   ];
+}
+
+// 使用頻度の高いタグだけを見せ、残りは「もっと見る」で展開する
+function splitTagFilters(tagFilters) {
+  if (state.showAllTags || tagFilters.length <= maxVisibleTagChips) {
+    return { visible: tagFilters, hiddenCount: 0 };
+  }
+
+  const visible = tagFilters.slice(0, maxVisibleTagChips);
+
+  // 展開せずに選んだタグが折りたたまれて見えなくならないように補う
+  if (state.activeTag !== "すべて" && tagFilters.includes(state.activeTag) && !visible.includes(state.activeTag)) {
+    visible.push(state.activeTag);
+  }
+
+  return { visible, hiddenCount: tagFilters.length - visible.length };
 }
 
 function getAreaFilters() {
@@ -220,6 +276,9 @@ function filterSpots() {
   const normalizedQuery = state.query.trim().toLowerCase();
 
   return state.spots.filter((spot) => {
+    const matchesFavorites = !state.showFavoritesOnly || state.favorites.includes(spot.id);
+    if (!matchesFavorites) return false;
+
     const matchesTag = state.activeTag === "すべて" || spot.tags.includes(state.activeTag);
     const matchesArea = state.activeArea === "すべて" || spot.area === state.activeArea;
     const text = [
@@ -274,6 +333,24 @@ function renderChips(items, activeValue, type) {
       )}')" data-filter-type="${type}" data-filter-value="${escapeHtml(item)}">${escapeHtml(item)}</button>`;
     })
     .join("");
+}
+
+function renderTagChipRail(tagFilters) {
+  const { visible, hiddenCount } = splitTagFilters(tagFilters);
+  const toggleChip =
+    hiddenCount > 0
+      ? `<button class="chip moreChip" type="button" onclick="window.toggleSipTagChips()">もっと見る（+${hiddenCount}）</button>`
+      : state.showAllTags && tagFilters.length > maxVisibleTagChips
+        ? `<button class="chip moreChip" type="button" onclick="window.toggleSipTagChips()">閉じる</button>`
+        : "";
+  const favoritesChip = `<button
+      class="chip favoritesChip${state.showFavoritesOnly ? " active" : ""}"
+      type="button"
+      aria-pressed="${state.showFavoritesOnly ? "true" : "false"}"
+      onclick="window.toggleSipFavoritesView()"
+    >♡ 保存した店（${state.favorites.length}）</button>`;
+
+  return `${renderChips(visible, state.activeTag, "tag")}${toggleChip}${favoritesChip}`;
 }
 
 
@@ -343,7 +420,9 @@ function renderLanguageSwitcher(activeLanguage = "jp", links = {}) {
 
 function renderSpotCard(spot) {
   const isFavorite = state.favorites.includes(spot.id);
-  const displayStation = spot.nearestStation || spot.station;
+  const nearestStation = spot.nearestStation ? `${spot.nearestStation}駅` : spot.station;
+  // カード上は「最寄駅・徒歩○分」のみ。未確定の項目は表示しない
+  const stationLine = [nearestStation, spot.walk].filter(Boolean).join("・");
   const spotName = Array.isArray(spot.displayName)
     ? spot.displayName.map((line) => `<span class="spotNameLine">${escapeHtml(line)}</span>`).join("")
     : escapeHtml(spot.name);
@@ -396,19 +475,17 @@ function renderSpotCard(spot) {
           <span>${escapeHtml(spot.genre)}</span>
         </div>
         <h3>${spotName}</h3>
-        <div class="locationInfo">
-          ${spot.address ? `<p><span aria-hidden="true">📍</span>${escapeHtml(spot.address)}</p>` : ""}
-          ${
-            displayStation || spot.walk
-              ? `<p><span aria-hidden="true">🚉</span>${escapeHtml([displayStation, spot.walk].filter(Boolean).join("・"))}</p>`
-              : ""
-          }
-        </div>
+        ${
+          stationLine
+            ? `<div class="locationInfo"><p><span aria-hidden="true">🚉</span>${escapeHtml(stationLine)}</p></div>`
+            : ""
+        }
         ${tags ? `<div class="tagWrap" aria-label="${escapeHtml(spot.name)}のタグ">${tags}</div>` : ""}
         <p class="comment">${escapeHtml(spot.comment)}</p>
         <details>
           <summary>くわしく見る</summary>
           <div class="detailInfo">
+            ${spot.address ? `<p class="detailAddress"><span aria-hidden="true">📍</span>${escapeHtml(spot.address)}</p>` : ""}
             ${detailLinks ? `<div class="detailLinks">${detailLinks}</div>` : ""}
             ${menuSummary ? `<div class="menuSummary">${menuSummary}</div>` : ""}
             ${spot.priceRange ? `<p class="priceRange">価格帯: ${escapeHtml(spot.priceRange)}</p>` : ""}
@@ -545,7 +622,7 @@ function render() {
         </label>
         <section class="quickTags" aria-label="タグ検索">
           <div class="filterGroup" aria-label="タグ検索">
-            <div class="chipRail">${renderChips(tagFilters, state.activeTag, "tag")}</div>
+            <div class="chipRail">${renderTagChipRail(tagFilters)}</div>
           </div>
         </section>
       </header>
@@ -567,7 +644,9 @@ function render() {
                 ? `<div class="emptyState">${escapeHtml(state.loadError)}</div>`
                 : filteredSpots.length
               ? filteredSpots.map(renderSpotCard).join("")
-              : `<div class="emptyState">条件に合うスポットが見つかりませんでした。</div>`
+              : state.showFavoritesOnly && state.favorites.length === 0
+                ? `<div class="emptyState">保存したお店はまだありません。カードの ♡ からお店を保存できます。</div>`
+                : `<div class="emptyState">条件に合うスポットが見つかりませんでした。</div>`
           }
         </section>
 
@@ -1224,18 +1303,26 @@ function renderEnglishJournalPage() {
 function renderEnglishJournalFeature(article) {
   const visibleCategoryId =
     state.activeEnglishJournalCategory === "all" ? article.categories?.[0] : state.activeEnglishJournalCategory;
+  const readMinutes = estimateReadMinutes(article, "en");
 
   return `
     <article class="journalFeature enJournalFeature enJournalIndexFeature" aria-label="SIP Journal article ${article.number}">
-      <div class="journalFeatureHeader">
-        <p>${getEnglishJournalCategoryReference(article, visibleCategoryId)}</p>
-        <h2>${article.title}</h2>
-      </div>
-
-      <a class="journalToggle enJournalReadLink" href="${article.slug}">
-        <span>Read article</span>
-        <span aria-hidden="true">→</span>
+      <a class="journalFeatureImage journalIndexThumb" href="${article.slug}" tabindex="-1" aria-hidden="true">
+        <img src="${article.image}" alt="" loading="lazy">
       </a>
+
+      <div class="journalFeatureHeader">
+        <div class="journalFeatureMeta">
+          <span class="journalArticleCategory">${getEnglishJournalCategoryReference(article, visibleCategoryId)}</span>
+          <span class="journalReadTime">${readMinutes} min read</span>
+        </div>
+        <h2>${article.title}</h2>
+        ${article.subtitle ? `<div class="journalExcerpt"><p>${article.subtitle}</p></div>` : ""}
+        <a class="journalToggle enJournalReadLink" href="${article.slug}">
+          <span>Read article</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
     </article>
   `;
 }
@@ -1610,23 +1697,6 @@ function renderForHomePage() {
           </p>
         </section>
 
-        <section class="homeCategoryGrid" aria-label="For Home categories">
-          ${categories
-            .map(
-              (category) => `
-                <article class="homeCategoryCard">
-                  <div class="homeCategoryIcon" aria-hidden="true">${category.icon}</div>
-                  <div>
-                    <h2>${category.title}</h2>
-                    <p>${category.text}</p>
-                  </div>
-                  <span>Coming Soon</span>
-                </article>
-              `,
-            )
-            .join("")}
-        </section>
-
         <section class="homeFeatured" aria-label="Featured by SIP">
           <p class="sectionLabel">Featured by SIP</p>
           <div class="featuredList">
@@ -1655,6 +1725,16 @@ function renderForHomePage() {
               .join("")}
           </div>
           <p class="affiliateNote">※一部リンクにはアフィリエイトリンクを含みます。</p>
+        </section>
+
+        <section class="homeComingSoon" aria-label="Coming Soon">
+          <p class="sectionLabel">Coming Soon</p>
+          <div class="homeComingSoonBody">
+            <p>
+              ${categories.map((category) => `<span class="homeComingSoonItem"><span aria-hidden="true">${category.icon}</span>${category.title}</span>`).join("")}
+            </p>
+            <p>静かな時間のための茶葉・器・ハーブティーを、ひとつずつ丁寧に準備しています。</p>
+          </div>
         </section>
 
         <section class="homeClosing">
@@ -2004,25 +2084,60 @@ function renderJournalPage() {
   `;
 }
 
+// 記事の本文量から読了目安（分）を算出する
+function estimateReadMinutes(article, language = "jp") {
+  const blockText = (article.blocks || []).map((block) => block.text || "").join(" ");
+  const paragraphText = (article.paragraphs || []).join(" ");
+  const text = `${blockText} ${paragraphText} ${article.closing || ""}`;
+
+  if (language === "en") {
+    const words = text.split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.ceil(words / 200));
+  }
+
+  return Math.max(1, Math.ceil(text.replace(/\s/g, "").length / 500));
+}
+
+function getJournalExcerpt(article, maxLength = 80) {
+  const source =
+    article.excerpt ||
+    article.paragraphs?.[0] ||
+    (article.blocks || []).find((block) => block.type === "paragraph")?.text ||
+    "";
+  const text = source.replaceAll("\n", " ").trim();
+
+  if (!text) return "";
+  return text.length > maxLength ? `${text.slice(0, maxLength)}…` : text;
+}
+
 function renderJournalFeature(article) {
   const visibleCategoryId =
     state.activeJournalCategory === "all" ? article.categories?.[0] : state.activeJournalCategory;
   const categoryReference = getJournalCategoryReference(article, visibleCategoryId);
+  const readMinutes = estimateReadMinutes(article, "jp");
+  const excerpt = getJournalExcerpt(article);
 
   return `
     <article class="journalFeature jpJournalFeature" aria-label="Journal article ${article.number}">
-      <div class="journalFeatureHeader">
-        <p>${categoryReference}</p>
-        <h2>${article.title}</h2>
-      </div>
-
-      <a
-        class="journalToggle"
-        href="${article.slug}"
-      >
-        <span>続きを読む</span>
-        <span aria-hidden="true">→</span>
+      <a class="journalFeatureImage journalIndexThumb" href="${article.slug}" tabindex="-1" aria-hidden="true">
+        <img src="${article.image}" alt="" loading="lazy">
       </a>
+
+      <div class="journalFeatureHeader">
+        <div class="journalFeatureMeta">
+          <span class="journalArticleCategory">${categoryReference}</span>
+          <span class="journalReadTime">約${readMinutes}分</span>
+        </div>
+        <h2>${article.title}</h2>
+        ${excerpt ? `<div class="journalExcerpt"><p>${excerpt}</p></div>` : ""}
+        <a
+          class="journalToggle"
+          href="${article.slug}"
+        >
+          <span>続きを読む</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
     </article>
   `;
 }
@@ -2208,6 +2323,17 @@ window.setEnglishJournalCategory = (categoryId) => {
   render();
 };
 
+window.toggleSipTagChips = () => {
+  state.showAllTags = !state.showAllTags;
+  render();
+};
+
+window.toggleSipFavoritesView = () => {
+  state.showFavoritesOnly = !state.showFavoritesOnly;
+  trackAnalyticsEvent("favorites_view_toggle", { enabled: state.showFavoritesOnly });
+  render();
+};
+
 window.setSipFilter = (type, value) => {
   if (type === "tag") {
     state.activeTag = value;
@@ -2312,5 +2438,35 @@ window.handleSipImageError = (image) => {
   image.style.display = "none";
 };
 
+// 「トップに戻る」ボタン：#root の外に一度だけ生成し、全ページで共有する
+function setupBackToTop() {
+  const button = document.createElement("button");
+  button.className = "backToTop";
+  button.type = "button";
+  button.setAttribute("aria-label", "ページの先頭に戻る");
+  button.innerHTML = "<span aria-hidden=\"true\">↑</span>";
+  button.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+  document.body.appendChild(button);
+
+  let ticking = false;
+  const updateVisibility = () => {
+    button.classList.toggle("isVisible", window.scrollY > 600);
+    ticking = false;
+  };
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(updateVisibility);
+      }
+    },
+    { passive: true },
+  );
+}
+
+setupBackToTop();
 render();
 loadSpots();

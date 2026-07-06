@@ -1581,24 +1581,26 @@ address {
   margin: 0;
 }
 
-.journalCategoryRail {
-  display: grid;
-  gap: 10px;
+.journalCategoryRail,
+.journalCategoryList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
   width: 100%;
   padding: 2px 0 8px;
 }
 
 .journalCategoryChip {
-  width: 100%;
-  display: flex;
+  flex: 0 0 auto;
+  display: inline-flex;
   align-items: center;
   gap: 7px;
-  min-height: 43px;
+  min-height: 42px;
   border: 1px solid rgba(83, 111, 73, 0.2);
   border-radius: 999px;
   background: rgba(255, 254, 250, 0.7);
   color: rgba(41, 45, 36, 0.7);
-  padding: 11px 17px;
+  padding: 0 16px;
   text-align: left;
   font: inherit;
   font-size: 12px;
@@ -1783,13 +1785,15 @@ address {
 }
 
 .journalInlineMedia img {
-  height: clamp(260px, 78vw, 430px);
+  /* 縦長写真が画面の高さを超えないよう 80vh で抑える（横長は自然な比率のまま） */
+  height: auto;
+  max-height: 80vh;
   object-fit: cover;
   object-position: center;
 }
 
 .journalInlineVideo video {
-  max-height: 540px;
+  max-height: min(540px, 80vh);
   object-fit: cover;
 }
 
@@ -1915,6 +1919,7 @@ address {
 
 .journalDetailImage img {
   height: clamp(360px, 108vw, 470px);
+  max-height: 80vh;
   object-position: center;
 }
 
@@ -2617,8 +2622,9 @@ body,
     margin-inline: auto;
   }
 
-  .journalCategoryRail {
-    max-width: 360px;
+  .journalCategoryRail,
+  .journalCategoryList {
+    max-width: 100%;
   }
 
   .journalFeature {
@@ -2632,22 +2638,18 @@ body,
     height: min(520px, 48vw);
   }
 
-  .journalExcerpt,
-  .journalToggle {
-    grid-column: 2;
-  }
-
   .jpJournalFeature,
   .enJournalIndexFeature {
-    grid-template-columns: 1fr;
-    width: min(100%, 760px);
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
+    width: min(100%, 880px);
     margin-inline: auto;
-    gap: 22px;
+    gap: 32px;
+    align-items: center;
   }
 
-  .jpJournalFeature .journalToggle,
-  .enJournalIndexFeature .journalToggle {
-    grid-column: 1;
+  .jpJournalFeature .journalIndexThumb img,
+  .enJournalIndexFeature .journalIndexThumb img {
+    height: 232px;
   }
 
   .journalArticleBody p,
@@ -2728,5 +2730,178 @@ body,
   .spotList,
   .enSpotList {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Journal一覧カード（サムネイル・カテゴリ・読了目安） ===== */
+.journalIndexThumb {
+  display: block;
+  text-decoration: none;
+}
+
+.journalIndexThumb img {
+  height: clamp(200px, 56vw, 280px);
+  object-fit: cover;
+  object-position: center;
+}
+
+.journalFeatureMeta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.journalReadTime {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+/* ===== タグフィルタの「もっと見る」と「保存した店」チップ ===== */
+.chip.moreChip {
+  border-style: dashed;
+  background: transparent;
+  box-shadow: none;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.chip.favoritesChip {
+  border-color: rgba(184, 132, 89, 0.38);
+  color: var(--tea);
+}
+
+.chip.favoritesChip.active {
+  border-color: var(--tea);
+  background: var(--tea);
+  color: var(--white);
+}
+
+/* ===== カード詳細内の住所（カード上はエリア＋最寄駅のみ表示） ===== */
+.detailAddress {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.7;
+  word-break: break-word;
+}
+
+.detailAddress span {
+  flex: 0 0 auto;
+  color: var(--leaf);
+}
+
+/* ===== トップに戻るボタン ===== */
+.backToTop {
+  position: fixed;
+  right: 18px;
+  bottom: 20px;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(83, 111, 73, 0.32);
+  border-radius: 50%;
+  background: rgba(255, 254, 251, 0.92);
+  color: var(--leaf-dark);
+  font-size: 18px;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(58, 64, 49, 0.16);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    visibility 180ms ease;
+}
+
+.backToTop.isVisible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+/* ===== For Home：Coming Soonのコンパクトな告知 ===== */
+.homeComingSoon {
+  display: grid;
+  gap: 14px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 254, 251, 0.82);
+  padding: 24px 22px;
+}
+
+.homeComingSoonBody {
+  display: grid;
+  gap: 10px;
+}
+
+.homeComingSoonBody p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.homeComingSoonBody p:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}
+
+.homeComingSoonItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+/* ===== ワイド画面：About / For Home を2カラム構成に ===== */
+@media (min-width: 900px) {
+  .aboutHero,
+  .homeHero {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr);
+    column-gap: 52px;
+    align-items: center;
+  }
+
+  .aboutHero .aboutNav,
+  .homeHero .aboutNav {
+    grid-column: 1 / -1;
+  }
+
+  .aboutHeroImage {
+    aspect-ratio: auto;
+    height: min(540px, 62vh);
+    max-height: none;
+  }
+
+  .homeHeroImage {
+    aspect-ratio: auto;
+    height: min(600px, 66vh);
+    max-height: none;
+  }
+
+  .aboutHeroCopy,
+  .homeHeroCopy {
+    padding-top: 0;
+  }
+
+  .aboutMain,
+  .homeMain {
+    width: min(100%, 880px);
+    margin-inline: auto;
   }
 }
